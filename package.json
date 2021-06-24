@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "rising-from-the-ashes",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A Gatsby-based application for delivering a IIIF Collection.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "University of Tennessee Libraries",
   "dependencies": {
     "gatsby": "^3.6.2",
     "gatsby-plugin-gatsby-cloud": "^2.6.1",
