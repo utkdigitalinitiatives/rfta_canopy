@@ -1,5 +1,7 @@
 const fetch = require('node-fetch');
-const _ = require('lodash');
+const striptags = require('striptags');
+const lunr = require('lunr');
+const { GraphQLJSONObject } = require('graphql-type-json');
 
 const NODE_TYPE = 'Manifests';
 
@@ -61,4 +63,55 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+}
+
+exports.createResolvers = ({ cache, createResolvers }) => {
+  createResolvers({
+    Query: {
+      LunrIndex: {
+        type: GraphQLJSONObject,
+        resolve: (source, args, context, info) => {
+          const manifestNodes = context.nodeModel.getAllNodes({
+            type: `Manifests`,
+          })
+          const type = info.schema.getType(`Manifest`)
+          return createIndex(manifestNodes, type, cache)
+        },
+      },
+    },
+  })
+}
+
+const createIndex = async (manifestNodes, type, cache) => {
+  const cacheKey = `IndexLunr`
+  const cached = await cache.get(cacheKey)
+  if (cached) {
+    return cached
+  }
+  const documents = []
+  const store = {}
+  // iterate over all posts
+  for (const node of manifestNodes) {
+    const id = node.id
+    const label = node.label.en[0]
+    documents.push({
+      id: id,
+      label: label,
+    })
+    store[id] = {
+      label
+    }
+  }
+
+  const index = lunr(function() {
+    this.ref("id")
+    this.field("label")
+    for (const doc of documents) {
+      this.add(doc)
+    }
+  })
+
+  const json = { index: index.toJSON(), store }
+  await cache.set(cacheKey, json)
+  return json
 }
