@@ -1,7 +1,20 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
+exports.createPages = ({ actions }) => {
+  const { createPage } = actions
+  const collection = [
+    {
+      label: "thing",
+      id: "this",
+    },
+    {
+      label: "thing2",
+      id: "that",
+    },
+  ]
+  collection.forEach(manifest => {
+    createPage({
+      path: `/${manifest.label}`,
+      component: require.resolve(`./src/templates/object.js`),
+      context: { manifest },
+    })
+  })
+}
