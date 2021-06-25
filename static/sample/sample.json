@@ -21,14 +21,29 @@
       "label": "rfta:118"
     },
     {
-      "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/118",
+      "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/75",
       "type": "Manifest",
       "label": "rfta:75"
     },
     {
-      "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/118",
+      "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/76",
+      "type": "Manifest",
+      "label": "rfta:76"
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/50",
       "type": "Manifest",
       "label": "rfta:50"
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/51",
+      "type": "Manifest",
+      "label": "rfta:51"
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/105",
+      "type": "Manifest",
+      "label": "rfta:105"
     }
   ]
 }
