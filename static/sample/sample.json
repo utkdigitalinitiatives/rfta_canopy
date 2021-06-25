@@ -1,0 +1,34 @@
+{
+  "@context": [
+    "https://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "http://localhost:8000/assemble/collection/collections/rfta",
+  "type": "Collection",
+  "label": {
+    "en": [
+      "Rising from the Ashes"
+    ]
+  },
+  "items": [
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/8",
+      "type": "Manifest",
+      "label": "rfta:8"
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/118",
+      "type": "Manifest",
+      "label": "rfta:118"
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/118",
+      "type": "Manifest",
+      "label": "rfta:75"
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/118",
+      "type": "Manifest",
+      "label": "rfta:50"
+    }
+  ]
+}
