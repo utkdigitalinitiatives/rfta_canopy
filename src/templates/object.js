@@ -4,12 +4,13 @@ import { Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
-const Object = ({ pageContext: { manifest } }) => (
+const Object = ({ pageContext: { node } }) => (
   <Layout>
     <Seo title="Home" />
 
     <section>
-      {manifest.label}
+      <div>{node.label.en[0]}</div>
+      <div>{node.id}</div>
     </section>
   </Layout>
 )

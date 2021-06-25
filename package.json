@@ -18,6 +18,7 @@
     "lodash": "^4.17.21",
     "lunr": "^2.3.9",
     "mirador": "^3.2.0",
+    "node-fetch": "^2.6.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
