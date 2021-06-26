@@ -20,6 +20,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   }));
 
   manifests.forEach((node, index) => {
+    node.manifestId = node.id
     createNode({
       ...node,
       id: createNodeId(`${NODE_TYPE}-${node.id}`),
@@ -43,6 +44,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             id
+            manifestId
             label {
               en
             }

@@ -1,9 +1,11 @@
 import * as React from "react"
 import Mirador from "./Mirador"
+import PropTypes from "prop-types"
 
-const Viewer = () => (
+const Viewer = ({ manifestId }) => (
   <div>
     <div style={{position: "relative", width: "100%", height: "500px"}}>
+      {console.log(manifestId)}
       <Mirador
         config={{
           id: 'mirador',
@@ -17,7 +19,9 @@ const Viewer = () => (
             allowClose: false,
             forceDrawAnnotations: true
           },
-          windows: [],
+          windows: [{
+            manifestId: manifestId
+          }],
           workspaceControlPanel: {
             enabled: false,
           },
@@ -29,5 +33,13 @@ const Viewer = () => (
     <div>[navigator]</div>
   </div>
 )
+
+Viewer.propTypes = {
+  manifestId: PropTypes.string,
+}
+
+Viewer.defaultProps = {
+  manifestId: ``,
+}
 
 export default Viewer

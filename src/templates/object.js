@@ -8,15 +8,13 @@ import Viewer from "../components/viewer"
 const Object = ({ pageContext: { node } }) => (
   <Layout>
     <Seo title="Home" />
-    
-    {console.log(node.id)}
 
     <article>
       <header>
         <h1>{node.label.en[0]}</h1>
         <Link to={'/'}>Back to Search</Link>
       </header>
-      <Viewer/>
+      <Viewer manifestId={node.manifestId}/>
     </article>
   </Layout>
 )
