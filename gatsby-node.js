@@ -61,7 +61,8 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/${edge.node.id}`,
       component: require.resolve(`./src/templates/object.js`),
       context: {
-        node: edge.node
+        node: edge.node,
+        id: edge.node.id,
       },
     })
   })
