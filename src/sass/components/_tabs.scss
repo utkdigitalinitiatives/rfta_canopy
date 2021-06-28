@@ -1,0 +1,66 @@
+.canopy-tabs {
+  padding: 1rem;
+  &--list {
+    display: flex;
+    justify-content: flex-start;
+    border-bottom: 3px solid $muted;
+    flex-shrink: 0;
+
+    &:hover div[data-state="active"] {
+      &::after {
+        width: 0;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
+    }
+
+    div {
+      flex-grow: 0;
+      flex-shrink: 0;
+      padding: 0.5rem 1rem;
+      font-family: $sans;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      color: $primary;
+      background: transparent;
+      transition: all 200ms ease-in-out;
+      position: relative;
+
+      &::after {
+        content: '';
+        width: 0;
+        height: 3px;
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        background-color: transparent;
+        transition: all 200ms ease-in-out;
+      }
+
+      &:hover {
+        &::after {
+          width: 100%;
+          background-color: $accent;
+        }
+      }
+
+      &[data-state="active"] {
+        font-weight: 700;
+        color: $primary;
+
+        &::after {
+          width: 100%;
+          background-color: $accent;
+        }
+      }
+    }
+  }
+
+  &--content {
+    margin-top: 1rem;
+    line-height: 1.53em;
+  }
+}

@@ -4,9 +4,14 @@ Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 $serif: 'DM Serif Display', Georgia, serif;
 
 $primary: #1a181a;
-$accent: #be4d2a;
-$secondary: #00617e;
-$muted: #e3e3e3;
+$muted: #f0efee;
+
+$secondary: #065979;
+$secondaryMuted: desaturate(lighten($secondary, 61.8), 61.8);
+
+$accent: #a5320e;
+$accentMuted: desaturate(lighten($accent, 38.2), 38.2);
+
 $offwhite: #FAF9F9;
 
 $box-shadow: 4px 4px 12px rgba($primary, 0.1);

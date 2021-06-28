@@ -24,9 +24,4 @@ class Mirador extends Component {
   }
 }
 
-Mirador.propTypes = {
-  config: PropTypes.string.isRequired,
-  plugins: PropTypes.string.isRequired,
-};
-
 export default Mirador;
