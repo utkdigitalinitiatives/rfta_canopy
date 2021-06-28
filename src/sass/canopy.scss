@@ -2,7 +2,13 @@
 @import "global/variables";
 
 // layout
+@import "components/viewer";
+
+// layout
 @import "layout/header";
 @import "layout/layout";
 @import "layout/object";
 @import "layout/search";
+
+// vendor
+@import "vendor/mirador";

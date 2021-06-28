@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "University of Tennessee Libraries",
   "dependencies": {
+    "@radix-ui/react-aspect-ratio": "^0.0.14",
     "gatsby": "^3.6.2",
     "gatsby-plugin-gatsby-cloud": "^2.6.1",
     "gatsby-plugin-image": "^1.6.0",
