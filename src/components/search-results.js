@@ -9,10 +9,11 @@ const SearchResults = ({data, initialQuery = "" }) => {
 
   const { store } = data.LunrIndex
   const index = Index.load(data.LunrIndex.index)
+  const searchString = `*${initialQuery}*`
 
   let results = []
   try {
-    results = index.search(initialQuery).map(({ ref }) => {
+    results = index.search(`*${searchString}*`).map(({ ref }) => {
       return {
         slug: ref,
         ...store[ref],
