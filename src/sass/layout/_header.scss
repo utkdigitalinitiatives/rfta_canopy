@@ -6,6 +6,7 @@ main > article > header {
   h1 {
     margin: 0;
     font-size: 2em;
-    letter-spacing: -0.03em;
+    font-weight: 400;
+    font-family: $serif;
   }
 }

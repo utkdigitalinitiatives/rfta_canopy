@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Viewer from "../components/viewer"
+import * as Tabs from "@radix-ui/react-tabs"
 
 const Object = ({ data }) => {
 
@@ -20,7 +21,22 @@ const Object = ({ data }) => {
         </header>
         <Viewer id={id}
                 manifestId={manifestId} />
-        <div>
+        <div className="canopy-details">
+          <Tabs.Root className="canopy-tabs" defaultValue="details">
+            <Tabs.List className="canopy-tabs--list">
+              <Tabs.Trigger value="details">Details</Tabs.Trigger>
+              <Tabs.Trigger value="transcript">Transcript</Tabs.Trigger>
+              <Tabs.Trigger value="translation">Translation</Tabs.Trigger>
+            </Tabs.List>
+            <div className="canopy-tabs--content">
+              <Tabs.Content value="details">[metadata]</Tabs.Content>
+              <Tabs.Content value="transcript">[full transcript]</Tabs.Content>
+              <Tabs.Content value="translation">[translations?]</Tabs.Content>
+            </div>
+          </Tabs.Root>
+        </div>
+        <div className="canopy-related">
+          [related items?]
         </div>
       </article>
     </Layout>

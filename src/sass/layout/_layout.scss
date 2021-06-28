@@ -6,10 +6,6 @@ html {
 body {
   font-size: 1em;
   margin: 0 auto;
-  background-color: white;
-  color: $primary;
-  letter-spacing: -0.01em;
-  font-weight: 400;
 }
 
 .canopy {
@@ -28,4 +24,11 @@ body {
   > div > footer {
     padding: 2rem;
   }
+}
+
+.canopy-panel {
+  border-radius: 3px;
+  box-shadow: $box-shadow;
+  background-color: white;
+  padding: 0.5rem;
 }

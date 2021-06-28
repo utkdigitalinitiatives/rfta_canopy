@@ -40,8 +40,8 @@ const Viewer = ({ id, manifestId }) => (
             <Tabs.Trigger value="transcript">Transcript</Tabs.Trigger>
           </Tabs.List>
           <div className="canopy-tabs--content">
-            <Tabs.Content value="chapters">Duis nec laoreet sem. Mauris sit amet enim a sapien dapibus condimentum sed id quam. Vestibulum consequat, lacus id volutpat consequat, dolor purus commodo ipsum, eu ullamcorper ligula erat in nunc. Sed consequat dui pulvinar, varius nibh sit amet, tempor ipsum. </Tabs.Content>
-            <Tabs.Content value="transcript">Maecenas malesuada varius sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec in consequat ligula. In suscipit tristique sagittis. Nulla at ex molestie, placerat nulla at, tincidunt nulla. Donec quis sodales lorem. Vestibulum imperdiet ut tortor vitae maximus. Nunc facilisis odio ex, sed consequat mi ornare vel. Proin a libero laoreet urna suscipit aliquet sed a felis. </Tabs.Content>
+            <Tabs.Content value="chapters">[structures/ranges]</Tabs.Content>
+            <Tabs.Content value="transcript">[transcript/annotations]</Tabs.Content>
           </div>
         </Tabs.Root>
       </aside>

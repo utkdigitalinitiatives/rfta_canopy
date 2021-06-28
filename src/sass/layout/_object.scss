@@ -5,10 +5,8 @@ article.canopy-object {
   .canopy-viewer {
     display: flex;
     height: calc(100% - 1rem);
-    border-radius: 3px;
-    box-shadow: $box-shadow;
-    background-color: white;
-    padding: 0.5rem;
+
+    @extend .canopy-panel;
 
     .canopy-mirador {
       position: relative;
@@ -22,5 +20,17 @@ article.canopy-object {
       flex-grow: 0;
       background-color: transparent;
     }
+  }
+
+  .canopy-details {
+    margin-top: 2rem;
+
+    @extend .canopy-panel;
+  }
+
+  .canopy-related {
+    margin-top: 2rem;
+
+    @extend .canopy-panel;
   }
 }
