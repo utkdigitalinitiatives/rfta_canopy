@@ -5,9 +5,10 @@ article.canopy-object {
   .canopy-viewer {
     display: flex;
     height: calc(100% - 1rem);
+    border-radius: 3px;
     box-shadow: $box-shadow;
+    background-color: white;
     padding: 0.5rem;
-    border-radius: 5px;
 
     .canopy-mirador {
       position: relative;
