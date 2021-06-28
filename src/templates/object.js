@@ -7,18 +7,19 @@ import Viewer from "../components/viewer"
 
 const Object = ({ data }) => {
 
-  const {manifestId, label, summary} = data.allManifests.edges[0].node;
+  const {id, manifestId, label, summary} = data.allManifests.edges[0].node;
 
   return (
     <Layout>
       <Seo title="Home" />
 
-      <article>
+      <article className="canopy-object">
         <header>
           <h1>{label.en[0]}</h1>
           <Link to={"/"}>Back to Search</Link>
         </header>
-        <Viewer manifestId={manifestId} />
+        <Viewer id={id}
+                manifestId={manifestId} />
         <div>
         </div>
       </article>

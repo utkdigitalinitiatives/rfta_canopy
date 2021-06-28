@@ -1,0 +1,27 @@
+html {
+  font-family: $sans;
+  font-size: 15px;
+}
+
+body {
+  font-size: 1em;
+  margin: 0 auto;
+  background-color: $white;
+}
+
+.canopy {
+  > div > header {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: $box-shadow;
+  }
+
+  > div > main {
+    padding: 2rem;
+    box-shadow: inset $box-shadow-top;
+  }
+
+  > div > footer {
+    padding: 2rem;
+  }
+}

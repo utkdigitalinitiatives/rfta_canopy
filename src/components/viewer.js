@@ -2,25 +2,25 @@ import * as React from "react"
 import Mirador from "./Mirador"
 import PropTypes from "prop-types"
 
-const Viewer = ({ manifestId }) => (
-  <div>
-    <div style={{position: "relative", width: "100%", height: "500px"}}>
-      {console.log(manifestId)}
+const Viewer = ({ id, manifestId }) => (
+  <div className="canopy-viewer">
+    <div className="canopy-mirador">
       <Mirador
         config={{
-          id: 'mirador',
+          id: `canopy-mirador-${id}`,
           window: {
-            hideWindowTitle: false,
-            sideBarOpen: true,
+            hideWindowTitle: true,
+            sideBarOpen: false,
             defaultSidebarPanelWidth: 320,
             allowTopMenuButton: true,
             allowWindowSideBar: true,
             allowMaximize: false,
             allowClose: false,
-            forceDrawAnnotations: true
+            forceDrawAnnotations: true,
+            allowFullscreen: true,
           },
           windows: [{
-            manifestId: manifestId
+            manifestId: manifestId,
           }],
           workspaceControlPanel: {
             enabled: false,
@@ -28,9 +28,10 @@ const Viewer = ({ manifestId }) => (
         }}
         plugins={[]}
       />
-
     </div>
-    <div>[navigator]</div>
+    <aside className="canopy-navigator">
+      [navigator]
+    </aside>
   </div>
 )
 
