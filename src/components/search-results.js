@@ -9,7 +9,7 @@ const SearchResults = ({data, initialQuery = "" }) => {
 
   const { store } = data.LunrIndex
   const index = Index.load(data.LunrIndex.index)
-  const searchString = `*${initialQuery}*~1`
+  const searchString = `*${initialQuery}*`
 
   let results = []
   try {
