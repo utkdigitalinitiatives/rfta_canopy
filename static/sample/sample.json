@@ -2,7 +2,7 @@
   "@context": [
     "https://iiif.io/api/presentation/3/context.json"
   ],
-  "id": "http://localhost:8000/assemble/collection/collections/rfta",
+  "id": "https://digital.lib.utk.edu/static/iiif/collections/sample.json",
   "type": "Collection",
   "label": {
     "en": [

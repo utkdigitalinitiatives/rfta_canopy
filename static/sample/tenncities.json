@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "https://digital.lib.utk.edu/static/iiif/collections/tenncities.json",
+  "type": "Collection",
+  "label": {
+    "en": [
+      "Photographs of Tennessee Cities Collection"
+    ]
+  },
+  "items": [
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/tenncities/390",
+      "type": "Manifest",
+      "label": "tenncities:390"
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/tenncities/343",
+      "type": "Manifest",
+      "label": "tenncities:343"
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/tenncities/410",
+      "type": "Manifest",
+      "label": "tenncities:410"
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/tenncities/404",
+      "type": "Manifest",
+      "label": "tenncities:404"
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/tenncities/376",
+      "type": "Manifest",
+      "label": "tenncities:376"
+    }
+  ]
+}
