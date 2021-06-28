@@ -1,14 +1,22 @@
 const fetch = require('node-fetch');
-const striptags = require('striptags');
 const lunr = require('lunr');
 const { GraphQLJSONObject } = require('graphql-type-json');
 
-const NODE_TYPE = 'Manifests';
 
-exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
+/*
+* Set root IIIF Collection conforming to specification
+* at https://iiif.io/api/presentation/3.0/#51-collection
+*/
+const rootCollection = 'https://digital.lib.utk.edu/static/iiif/collections/sample.json';
+
+/*
+* Map nodes from IIIF Collection and Manifests
+* https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#sourceNodes
+*/
+exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphql}) => {
   const { createNode } = actions
 
-  const response = await fetch('https://digital.lib.utk.edu/static/iiif/collections/sample.json');
+  const response = await fetch(rootCollection);
   const json = await response.json()
 
   const { items = [] } = json;
@@ -23,11 +31,11 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
     node.manifestId = node.id
     createNode({
       ...node,
-      id: createNodeId(`${NODE_TYPE}-${node.id}`),
+      id: createNodeId(`Manifests-${node.id}`),
       parent: null,
       children: [],
       internal: {
-        type: NODE_TYPE,
+        type: 'Manifests',
         content: JSON.stringify(node),
         contentDigest: createContentDigest(node)
       }
@@ -35,6 +43,10 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest}) => {
   })
 }
 
+/*
+* Create pages for each manifest with an associated node
+* https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#createPages
+*/
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
@@ -68,6 +80,11 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 }
 
+
+/*
+* Add custom lunr.js resolver of created index
+* https://www.gatsbyjs.com/docs/reference/config-files/gatsby-node/#createResolvers
+*/
 exports.createResolvers = ({ cache, createResolvers }) => {
   createResolvers({
     Query: {
@@ -85,6 +102,10 @@ exports.createResolvers = ({ cache, createResolvers }) => {
   })
 }
 
+/*
+* Build lunr.js index to be resolved
+* https://lunrjs.com/docs/lunr.html
+*/
 const createIndex = async (manifestNodes, type, cache) => {
   const cacheKey = `IndexLunr`
   const cached = await cache.get(cacheKey)
