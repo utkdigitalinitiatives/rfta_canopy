@@ -1,12 +1,24 @@
-main > article > header {
-  padding: 2rem 0 1rem;
-  display: flex;
-  justify-content: space-between;
+header.canopy-header {
 
-  h1 {
-    margin: 0;
-    font-size: 2em;
+  a,
+  a:visited {
+    text-decoration: none !important;
+    color: $primary !important;
+  }
+
+  span.canopy-title {
     font-weight: 400;
     font-family: $serif;
+    display: block;
+    font-size: 1.5em;
+  }
+
+  span.canopy-subtitle {
+    display: block;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    font-size: 0.7222rem;
+    letter-spacing: 0.1em;
+    font-weight: 700;
   }
 }
