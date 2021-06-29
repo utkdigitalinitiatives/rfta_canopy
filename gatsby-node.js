@@ -7,7 +7,7 @@ const { GraphQLJSONObject } = require('graphql-type-json');
 * Set root IIIF Collection conforming to specification
 * at https://iiif.io/api/presentation/3.0/#51-collection
 */
-const rootCollection = 'https://digital.lib.utk.edu/static/iiif/collections/sample.json';
+const rootCollection = 'https://digital.lib.utk.edu/assemble/collection/collections/rfta';
 
 /*
 * Map nodes from IIIF Collection and Manifests
