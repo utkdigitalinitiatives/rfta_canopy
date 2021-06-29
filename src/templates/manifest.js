@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Viewer from "../components/viewer"
+import { getValue } from "../utilities/IIIF"
 import * as Tabs from "@radix-ui/react-tabs"
 
 const Manifest = ({ data }) => {
@@ -29,7 +30,7 @@ const Manifest = ({ data }) => {
               <Tabs.Trigger value="translation">Translation</Tabs.Trigger>
             </Tabs.List>
             <div className="canopy-tabs--content">
-              <Tabs.Content value="details">[metadata]</Tabs.Content>
+              <Tabs.Content value="details">{getValue(summary, 'en')}</Tabs.Content>
               <Tabs.Content value="transcript">[full transcript]</Tabs.Content>
               <Tabs.Content value="translation">[translations?]</Tabs.Content>
             </div>
