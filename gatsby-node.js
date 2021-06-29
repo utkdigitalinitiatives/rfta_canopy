@@ -71,7 +71,7 @@ exports.createPages = async ({ graphql, actions }) => {
   allManifests.edges.forEach(edge => {
     createPage({
       path: `/${edge.node.id}`,
-      component: require.resolve(`./src/templates/object.js`),
+      component: require.resolve(`./src/templates/manifest.js`),
       context: {
         node: edge.node,
         id: edge.node.id,

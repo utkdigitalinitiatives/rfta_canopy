@@ -6,7 +6,7 @@ import Seo from "../components/seo"
 import Viewer from "../components/viewer"
 import * as Tabs from "@radix-ui/react-tabs"
 
-const Object = ({ data }) => {
+const Manifest = ({ data }) => {
 
   const {id, manifestId, label, summary} = data.allManifests.edges[0].node;
 
@@ -14,7 +14,7 @@ const Object = ({ data }) => {
     <Layout>
       <Seo title="Home" />
 
-      <article className="canopy-object">
+      <article className="canopy-manifest">
         <header>
           <h1>{label.en[0]}</h1>
           <Link to={"/"}>Back to Search</Link>
@@ -43,9 +43,9 @@ const Object = ({ data }) => {
   )
 }
 
-export default Object
+export default Manifest
 
-export const objectQuery = graphql`
+export const manifestQuery = graphql`
   query allManifests($id: String) {
     allManifests(
       filter: {
