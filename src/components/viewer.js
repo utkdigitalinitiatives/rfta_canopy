@@ -6,32 +6,34 @@ import * as Tabs from '@radix-ui/react-tabs';
 
 
 const Viewer = ({ id, manifestId }) => (
-  <AspectRatio.Root ratio={100 / 38.2}>
+  <>
     <div className="canopy-viewer">
       <div className="canopy-mirador">
-        <Mirador
-          config={{
-            id: `canopy-mirador-${id}`,
-            window: {
-              hideWindowTitle: true,
-              sideBarOpen: false,
-              defaultSidebarPanelWidth: 320,
-              allowTopMenuButton: true,
-              allowWindowSideBar: true,
-              allowMaximize: false,
-              allowClose: false,
-              forceDrawAnnotations: true,
-              allowFullscreen: true,
-            },
-            windows: [{
-              manifestId: manifestId,
-            }],
-            workspaceControlPanel: {
-              enabled: false,
-            },
-          }}
-          plugins={[]}
-        />
+        <AspectRatio.Root ratio={16 / 9}>
+          <Mirador
+            config={{
+              id: `canopy-mirador-${id}`,
+              window: {
+                hideWindowTitle: true,
+                sideBarOpen: false,
+                defaultSidebarPanelWidth: 320,
+                allowTopMenuButton: true,
+                allowWindowSideBar: true,
+                allowMaximize: false,
+                allowClose: false,
+                forceDrawAnnotations: true,
+                allowFullscreen: true,
+              },
+              windows: [{
+                manifestId: manifestId,
+              }],
+              workspaceControlPanel: {
+                enabled: false,
+              },
+            }}
+            plugins={[]}
+          />
+        </AspectRatio.Root>
       </div>
       <aside className="canopy-navigator">
         <Tabs.Root className="canopy-tabs" defaultValue="chapters">
@@ -46,7 +48,7 @@ const Viewer = ({ id, manifestId }) => (
         </Tabs.Root>
       </aside>
     </div>
-  </AspectRatio.Root>
+  </>
 )
 
 Viewer.propTypes = {

@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;600&display=swap');
 // global
 @import "global/variables";
+@import "global/mixins";
 
 // layout
 @import "components/link";

@@ -19,6 +19,10 @@ article.canopy-object {
     display: flex;
     height: calc(100% - 1rem);
 
+    @include breakpoints(xs, sm, md) {
+      flex-direction: column;
+    }
+
     @extend .canopy-panel;
 
     .canopy-mirador {
