@@ -9,7 +9,7 @@ const Viewer = ({ id, manifestId }) => (
   <>
     <div className="canopy-viewer">
       <div className="canopy-mirador">
-        <AspectRatio.Root ratio={16 / 9}>
+        <AspectRatio.Root ratio={4 / 3}>
           <Mirador
             config={{
               id: `canopy-mirador-${id}`,
