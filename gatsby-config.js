@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Rising from the Ashes`,
-    description: `The Chimney Tops II Wildfires Oral History Project`,
+    title: `Images of East Tennessee`,
+    description: `Featuring postcards and photographs from the mid-nineteenth century through the late-twentieth century, this collection is particularly rich in images of Knoxville. It includes pictures of airports, homes, businesses, schools, churches, hospitals, vistas, people, and the 1982 World's Fair.`,
     author: `University of Tennessee Libraries`,
   },
   plugins: [
