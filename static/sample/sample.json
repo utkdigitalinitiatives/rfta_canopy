@@ -11,6 +11,11 @@
   },
   "items": [
     {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/pcard00/106667",
+      "type": "Manifest",
+      "label": "pcard00:106667"
+    },
+    {
       "id": "https://digital.lib.utk.edu/assemble/manifest/rfta/8",
       "type": "Manifest",
       "label": "rfta:8"

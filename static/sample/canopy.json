@@ -1,0 +1,19 @@
+{
+  "@context": [
+    "https://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "https://digital.lib.utk.edu/static/iiif/collections/canopy.json",
+  "type": "Collection",
+  "label": {
+    "en": [
+      "Canopy Samples"
+    ]
+  },
+  "items": [
+    {
+      "id": "https://digital.lib.utk.edu/assemble/manifest/pcard00/106667",
+      "type": "Manifest",
+      "label": "pcard00:106667"
+    }
+  ]
+}
