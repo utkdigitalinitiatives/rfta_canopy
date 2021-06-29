@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "https://iiif.io/api/presentation/3/context.json"
+  ],
+  "id": "https://digital.lib.utk.edu/static/iiif/collections/canopy.json",
+  "type": "Collection",
+  "label": {
+    "en": [
+      "Title of the application."
+    ]
+  },
+  "summary": {
+    "en": [
+      "The top level collection summary will act as subtitle for the front end application."
+    ]
+  },
+  "items": [
+    {
+      "id": "https://digital.lib.utk.edu/assemble/collection/collections/rfta",
+      "type": "Collection",
+      "label": "Rising from the Ashes",
+      "summary": {
+        "en": [
+          "The Chimney Tops II Wildfires Oral History Project"
+        ]
+      }
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/collection/collections/tenncities",
+      "type": "Collection",
+      "label": "Images of East Tennessee",
+      "summary": {
+        "en": [
+          "Featuring postcards and photographs from the mid-nineteenth century through the late-twentieth century, this collection is particularly rich in images of Knoxville. It includes pictures of airports, homes, businesses, schools, churches, hospitals, vistas, people, and the 1982 World's Fair."
+        ]
+      }
+    },
+    {
+      "id": "https://digital.lib.utk.edu/assemble/collection/gsmrc/thompson",
+      "type": "Collection",
+      "label": "Thompson Brothers Photograph Collection",
+      "summary": {
+        "en": [
+          "Brothers James E. (Jim) and Robin Thompson were professional photographers based in Knoxville, Tennessee, in the early twentieth century. This collection includes approximately 400 photographs held by four institutions that capture the beauty of the Great Smoky Mountains."
+        ]
+      }
+    }
+  ]
+}
