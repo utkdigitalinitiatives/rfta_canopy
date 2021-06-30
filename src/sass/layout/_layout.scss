@@ -1,6 +1,6 @@
 html {
   font-family: $sans;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 body {
@@ -23,7 +23,11 @@ body {
   }
 
   > div > main {
-    padding: 2rem;
+    padding: 0 2rem 2rem;
+
+    .canopy-main {
+      max-width: 61.8%;
+    }
   }
 
   > div > footer {

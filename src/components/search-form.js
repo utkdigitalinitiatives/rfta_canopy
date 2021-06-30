@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 const SearchResults = ({ initialQuery = "" }) => {
 
@@ -33,6 +34,16 @@ const SearchResults = ({ initialQuery = "" }) => {
           onChange={handleChange}
         />
         <button type="submit">Search</button>
+      </div>
+      <div className="canopy-control--item canopy-control--item-dropdown">
+        <DropdownMenu.Root>
+          <DropdownMenu.Trigger>Subject</DropdownMenu.Trigger>
+        </DropdownMenu.Root>
+      </div>
+      <div className="canopy-control--item canopy-control--item-dropdown">
+        <DropdownMenu.Root>
+          <DropdownMenu.Trigger>Location</DropdownMenu.Trigger>
+        </DropdownMenu.Root>
       </div>
     </form>
   )

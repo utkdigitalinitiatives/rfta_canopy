@@ -6,6 +6,7 @@
   "author": "University of Tennessee Libraries",
   "dependencies": {
     "@radix-ui/react-aspect-ratio": "^0.0.14",
+    "@radix-ui/react-dropdown-menu": "^0.0.22",
     "@radix-ui/react-tabs": "^0.0.15",
     "axios": "^0.21.1",
     "gatsby": "^3.6.2",
