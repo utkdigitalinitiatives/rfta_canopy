@@ -23,7 +23,8 @@ body {
   }
 
   > div > main {
-    padding: 0 2rem 2rem;
+    padding: 2rem;
+    border-top: 1px solid $midtone;
 
     .canopy-main {
       max-width: 61.8%;
