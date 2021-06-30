@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Rising from the Ashes`,
-    description: `The Chimney Tops 2 Fires Oral History Project`,
+    description: `The Chimney Tops 2 Fire Oral History Project`,
     author: `University of Tennessee Libraries`,
   },
   plugins: [
