@@ -8,6 +8,8 @@ const SearchResults = ({ initialQuery = "" }) => {
 
   const handleChange = e => {
     setQuery(e.target.value)
+    const q = inputEl.current.value
+    navigate(`/?q=${q}`)
   }
 
   const handleSubmit = e => {

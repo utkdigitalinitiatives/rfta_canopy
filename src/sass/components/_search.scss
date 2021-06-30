@@ -7,6 +7,10 @@
     article {
       display: flex;
       margin-bottom: 1em;
+      background-color: white;
+      padding: 1em;
+      border-radius: 3px;
+      box-shadow: $box-shadow;
 
       &:last-child {
         margin-bottom: 0;
@@ -15,19 +19,26 @@
       figure {
         width: 100px;
         height: 75px;
-        background-color: $primary;
+        background-color: $secondaryMuted;
         padding: 0;
         margin: 0.25em 1em 1em 0;
+        border-radius: 3px;
+        box-shadow: inset $box-shadow-top;
       }
 
       > div {
+        a,
+        a:visited {
+          text-decoration: none;
+        }
+
         header {
           font-weight: 700;
-          font-size: 1em;
+          font-size: 1.25em;
         }
 
         p {
-          font-size: 0.833em;
+          font-size: 0.9444em;
         }
       }
     }
