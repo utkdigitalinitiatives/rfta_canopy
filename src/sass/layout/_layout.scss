@@ -14,6 +14,7 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  background-color: $muted;
 }
 
 .canopy {
@@ -25,8 +26,6 @@ body {
 
   > div > main {
     padding: 2rem;
-    box-shadow: inset $box-shadow-top;
-    background-color: $muted;
   }
 
   > div > footer {

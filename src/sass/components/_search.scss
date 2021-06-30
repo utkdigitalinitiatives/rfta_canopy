@@ -1,45 +1,44 @@
-.canopy-search {
-  max-width: 61.8%;
+.canopy-search-results {
+  margin-top: 2em;
 
-  &--results {
-    margin-top: 2em;
+  article {
+    display: flex;
+    margin-bottom: 2em;
+    background-color: white;
+    padding: 2em;
+    border-radius: 3px;
+    box-shadow: $box-shadow;
 
-    article {
-      display: flex;
-      margin-bottom: 1em;
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    figure {
+      width: 100px;
+      height: 75px;
       background-color: white;
-      padding: 1em;
+      padding: 0;
+      margin: 0 2em 1em 0;
       border-radius: 3px;
-      box-shadow: $box-shadow;
+      border: 1px solid $midtone;
+      box-sizing: border-box;
+    }
 
-      &:last-child {
-        margin-bottom: 0;
+    > div {
+      a,
+      a:visited {
+        text-decoration: none;
       }
 
-      figure {
-        width: 100px;
-        height: 75px;
-        background-color: $secondaryMuted;
-        padding: 0;
-        margin: 0.25em 1em 1em 0;
-        border-radius: 3px;
-        box-shadow: inset $box-shadow-top;
+      header {
+        font-family: $sans;
+        font-weight: 700;
+        font-size: 1.25em;
+        line-height: 1.25em;
       }
 
-      > div {
-        a,
-        a:visited {
-          text-decoration: none;
-        }
-
-        header {
-          font-weight: 700;
-          font-size: 1.25em;
-        }
-
-        p {
-          font-size: 0.9444em;
-        }
+      p {
+        font-size: 0.9444em;
       }
     }
   }

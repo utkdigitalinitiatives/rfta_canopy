@@ -19,19 +19,21 @@ const SearchResults = ({ initialQuery = "" }) => {
   }
 
   return (
-    <form className="canopy-search--form" role="search" onSubmit={handleSubmit}>
-      <label htmlFor="search-input" style={{ display: "block" }}>
-        Search
-      </label>
-      <input
-        ref={inputEl}
-        id="search-input"
-        type="search"
-        value={query}
-        placeholder="Search for Items"
-        onChange={handleChange}
-      />
-      <button type="submit">Go</button>
+    <form className="canopy-search-form" role="search" onSubmit={handleSubmit}>
+      <div className="canopy-control--item canopy-control--item-search">
+        <label htmlFor="search-input">
+          Search
+        </label>
+        <input
+          ref={inputEl}
+          id="search-input"
+          type="search"
+          value={query}
+          placeholder="Search for Items"
+          onChange={handleChange}
+        />
+        <button type="submit">Search</button>
+      </div>
     </form>
   )
 }
