@@ -17,7 +17,7 @@ const SearchResults = ({ initialQuery = "" }) => {
   }
 
   return (
-    <form role="search" onSubmit={handleSubmit}>
+    <form className="canopy-search--form" role="search" onSubmit={handleSubmit}>
       <label htmlFor="search-input" style={{ display: "block" }}>
         Search
       </label>

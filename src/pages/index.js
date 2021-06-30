@@ -16,8 +16,11 @@ const IndexPage = ({ data, location }) => {
   return (
     <Layout location={location}>
       <Seo title="Search results" />
-      <SearchForm initialQuery={q} />
-      <SearchResults data={data} initialQuery={q} />
+
+      <div className="canopy-search">
+        <SearchForm initialQuery={q} />
+        <SearchResults data={data} initialQuery={q} />
+      </div>
     </Layout>
   )
 }

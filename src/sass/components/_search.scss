@@ -1,0 +1,35 @@
+.canopy-search {
+  max-width: 61.8%;
+
+  &--results {
+    margin-top: 2em;
+
+    article {
+      display: flex;
+      margin-bottom: 1em;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      figure {
+        width: 100px;
+        height: 75px;
+        background-color: $primary;
+        padding: 0;
+        margin: 0.25em 1em 1em 0;
+      }
+
+      > div {
+        header {
+          font-weight: 700;
+          font-size: 1em;
+        }
+
+        p {
+          font-size: 0.833em;
+        }
+      }
+    }
+  }
+}

@@ -123,7 +123,8 @@ const createIndex = async (manifestNodes, type, cache) => {
       label: label,
     })
     store[id] = {
-      label
+      label,
+      node
     }
   }
 

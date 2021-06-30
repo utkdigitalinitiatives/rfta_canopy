@@ -1,9 +1,7 @@
 import * as React from "react"
-import PropTypes from "prop-types"
 import { graphql, Link, useStaticQuery } from "gatsby"
-import Layout from "./layout"
 import { Index } from "lunr"
-import IndexPage from "../pages"
+import { getValue } from "../utilities/iiif"
 
 const SearchResults = ({data, initialQuery = "" }) => {
 
@@ -24,16 +22,23 @@ const SearchResults = ({data, initialQuery = "" }) => {
   }
 
   return (
-    <div>
+    <div className="canopy-search--results">
       {results.length ? (
         results.map(result => {
           return (
-            <article key={result.slug}>
-              <h2>
-                <Link to={result.slug}>{result.label || result.slug}</Link>
-              </h2>
-              <p>{result.excerpt}</p>
-            </article>
+              <article key={result.slug}>
+                  <Link to={result.slug}>
+                    <figure>
+                      <span></span>
+                    </figure>
+                  </Link>
+                  <div>
+                    <Link to={result.slug}>
+                      <header>{result.label || result.slug}</header>
+                    </Link>
+                    <p>{getValue(result.node.summary, 'en')}</p>
+                  </div>
+              </article>
           )
         })
       ) : (
