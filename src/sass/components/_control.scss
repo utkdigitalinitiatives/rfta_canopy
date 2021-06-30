@@ -1,4 +1,24 @@
 .canopy-control {
+
+  .canopy-sticky > div {
+    padding: 1rem 0rem;
+    width: 100%;
+    transition: all 200ms ease-in-out;
+
+    &.sticky {
+      width: calc(100% - 4rem) !important;
+      padding: 1rem 2rem;
+      left: 0;
+      background-color: $secondary;
+      box-shadow: $box-shadow;
+
+      input,
+      .canopy-control--item-dropdown button {
+        border-color: white;
+      }
+    }
+  }
+
   form {
     display: flex;
 
