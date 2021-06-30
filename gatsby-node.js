@@ -1,5 +1,6 @@
 const fetch = require('node-fetch');
 const lunr = require('lunr');
+const axios = require('axios');
 const { GraphQLJSONObject } = require('graphql-type-json');
 
 
@@ -18,14 +19,13 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
 
   const response = await fetch(rootCollection);
   const json = await response.json()
-
   const { items = [] } = json;
 
-  const manifests = await Promise.all(items.map(async result => {
-    const { id } = result;
-    const manifestResponse = await fetch(id);
-    return await manifestResponse.json();
-  }));
+  const manifests = await chunks(items, async (manifest) => {
+      const { id } = manifest;
+      return axios.get(id)
+        .then(result => result.data)
+    }, 25);
 
   manifests.forEach((node, index) => {
     node.manifestId = node.id
@@ -138,4 +138,41 @@ const createIndex = async (manifestNodes, type, cache) => {
   const json = { index: index.toJSON(), store }
   await cache.set(cacheKey, json)
   return json
+}
+
+/*
+* Embedded axios based request handlers
+*/
+function all(items, fn) {
+  const promises = items.map(item => fn(item));
+  return Promise.all(promises);
+}
+
+function series(items, fn) {
+  let result = [];
+  return items.reduce((acc, item) => {
+    acc = acc.then(() => {
+      return fn(item).then(res => result.push(res));
+    });
+    return acc;
+  }, Promise.resolve())
+    .then(() => result);
+}
+
+function splitToChunks(items, chunkSize = 50) {
+  const result = [];
+  for (let i = 0; i < items.length; i+= chunkSize) {
+    result.push(items.slice(i, i + chunkSize));
+  }
+  return result;
+}
+
+function chunks(items, fn, chunkSize = 50) {
+  let result = [];
+  const chunks = splitToChunks(items, chunkSize);
+  return series(chunks, chunk => {
+    return all(chunk, fn)
+      .then(res => result = result.concat(res))
+  })
+    .then(() => result);
 }
