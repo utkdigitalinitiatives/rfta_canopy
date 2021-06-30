@@ -2,7 +2,7 @@
 [![buddy pipeline](https://app.buddy.works/utk-libraries/canopy/pipelines/pipeline/334986/badge.svg?token=a08d633e5c643d3691ca9044dffdb440f63f3a962084d29bf363b91177438c2b "buddy pipeline")](https://app.buddy.works/utk-libraries/canopy/pipelines/pipeline/334986)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ff650df9-ca2c-43c3-a32b-0093d0d4b536/deploy-status)](https://app.netlify.com/sites/iiif-canopy/deploys)
 
-Canopy is a [Gatsby](https://www.gatsbyjs.com/) based application that fetches a single IIIF Collection and distils it into a fully functional front end. The stack includes [Lunr](https://lunrjs.com/) as a lightweight search index and [Mirador 3](https://projectmirador.org/) for object viewing.
+Canopy is a [Gatsby](https://www.gatsbyjs.com/) based application that fetches a single [IIIF Collection](https://iiif.io/api/presentation/3.0/#51-collection) (Presentation API 3.0) and distils it into a fully functional front end. The stack includes [Lunr](https://lunrjs.com/) as a lightweight search index and [Mirador 3](https://projectmirador.org/) for object viewing.
 
 ## Setup
 ```shell
