@@ -42,7 +42,7 @@
         background-color: white;
         border: 1px solid $midtone;
         transition: all 200ms ease-in-out;
-        box-shadow: none;
+        box-shadow: $box-shadow;
 
         &:focus {
           border-color: white;
@@ -113,6 +113,7 @@
           font-weight: 700;
           font-size: 1rem;
           transition: all 200ms ease-in-out;
+          box-shadow: $box-shadow;
 
           &:hover,
           &:focus {

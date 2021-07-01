@@ -3,7 +3,7 @@ article.canopy-manifest {
   flex-direction: column;
 
   > header {
-    padding: 0 0 2rem;
+    padding: 1rem 0 2rem;
     display: flex;
     justify-content: space-between;
 
@@ -12,7 +12,9 @@ article.canopy-manifest {
       font-size: 2em;
       font-family: $serif;
       font-weight: 600;
-      letter-spacing: -0.03em;
+      line-height: 1.15em;
+      letter-spacing: -0.02em;
+      padding-right: 10rem;
     }
   }
 

@@ -1,6 +1,6 @@
 html {
   font-family: $sans;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 body {
@@ -14,17 +14,24 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
-  background-color: $muted;
+  background-color: #333;
+  background-image: url("../images/chimney-top-2-fire-background_25effa54.jpg");
+  background-position: 0 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .canopy {
+  border-top: 11px solid $secondary;
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,0) calc(100% - 200px), rgba(255,255,255,1) 100%);
+
   > div > header {
-    padding: 2rem;
+    padding: 2rem 2rem 0;
   }
 
   > div > main {
     padding: 2rem;
-    border-top: 1px solid $midtone;
 
     .canopy-main {
       max-width: 61.8%;

@@ -1,5 +1,4 @@
 header.canopy-header {
-
   a,
   a:visited {
     text-decoration: none !important;
@@ -15,9 +14,23 @@ header.canopy-header {
   }
 
   span.canopy-subtitle {
-    display: block;
-    font-size: 1.25rem;
-    letter-spacing: 0.01em;
-    font-weight: 700;
+    font-size: 0.8333rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+
+    &:before {
+      height: 1px;
+      width: 100%;
+      background-color: rgba($midtone, 0.5);
+      background: linear-gradient(90deg, rgba($midtone,0) 0%, rgba($midtone,1) 50%, rgba($midtone,0) 100%);
+      content: '';
+      display: block;
+      margin-top: -0.65rem;
+      position: absolute;
+    }
   }
 }
