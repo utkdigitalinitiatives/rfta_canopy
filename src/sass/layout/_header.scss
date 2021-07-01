@@ -7,18 +7,17 @@ header.canopy-header {
   }
 
   span.canopy-title {
-    font-weight: 400;
+    font-weight: 600;
     font-family: $serif;
     display: block;
-    font-size: 1.5em;
+    letter-spacing: -0.06em;
+    font-size: 3em;
   }
 
   span.canopy-subtitle {
     display: block;
-    margin-top: 0.5rem;
-    text-transform: uppercase;
-    font-size: 0.7222rem;
-    letter-spacing: 0.1em;
+    font-size: 1.25rem;
+    letter-spacing: 0.01em;
     font-weight: 700;
   }
 }

@@ -2,7 +2,7 @@ function isArray(object) {
   return Object.prototype.toString.call(object) === '[object Array]';
 }
 
-export function getValue(json, lang, value = null) {
+function getValue(json, lang, value = null) {
 
   if (json.hasOwnProperty(lang)) {
     if (isArray(json[lang])) {
@@ -13,3 +13,8 @@ export function getValue(json, lang, value = null) {
   return value
 
 }
+
+module.exports = {
+  getValue
+};
+

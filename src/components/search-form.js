@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 const SearchResults = ({ initialQuery = "" }) => {
 
@@ -8,6 +9,8 @@ const SearchResults = ({ initialQuery = "" }) => {
 
   const handleChange = e => {
     setQuery(e.target.value)
+    const q = inputEl.current.value
+    navigate(`/?q=${q}`)
   }
 
   const handleSubmit = e => {
@@ -17,19 +20,31 @@ const SearchResults = ({ initialQuery = "" }) => {
   }
 
   return (
-    <form role="search" onSubmit={handleSubmit}>
-      <label htmlFor="search-input" style={{ display: "block" }}>
-        Search
-      </label>
-      <input
-        ref={inputEl}
-        id="search-input"
-        type="search"
-        value={query}
-        placeholder="Search for Items"
-        onChange={handleChange}
-      />
-      <button type="submit">Go</button>
+    <form className="canopy-search-form" role="search" onSubmit={handleSubmit}>
+      <div className="canopy-control--item canopy-control--item-search">
+        <label htmlFor="search-input">
+          Search
+        </label>
+        <input
+          ref={inputEl}
+          id="search-input"
+          type="search"
+          value={query}
+          placeholder="Search for Items"
+          onChange={handleChange}
+        />
+        <button type="submit">Search</button>
+      </div>
+      <div className="canopy-control--item canopy-control--item-dropdown">
+        <DropdownMenu.Root>
+          <DropdownMenu.Trigger>Subject</DropdownMenu.Trigger>
+        </DropdownMenu.Root>
+      </div>
+      <div className="canopy-control--item canopy-control--item-dropdown">
+        <DropdownMenu.Root>
+          <DropdownMenu.Trigger>Location</DropdownMenu.Trigger>
+        </DropdownMenu.Root>
+      </div>
     </form>
   )
 }

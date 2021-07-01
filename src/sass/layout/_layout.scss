@@ -1,6 +1,6 @@
 html {
   font-family: $sans;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 body {
@@ -14,19 +14,21 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
+  background-color: $muted;
 }
 
 .canopy {
   > div > header {
     padding: 2rem;
-    background-color: white;
-    box-shadow: $box-shadow;
   }
 
   > div > main {
     padding: 2rem;
-    box-shadow: inset $box-shadow-top;
-    background-color: $muted;
+    border-top: 1px solid $midtone;
+
+    .canopy-main {
+      max-width: 61.8%;
+    }
   }
 
   > div > footer {

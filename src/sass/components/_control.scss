@@ -1,0 +1,127 @@
+.canopy-control {
+
+  .canopy-sticky > div {
+    padding: 1rem 0rem;
+    width: 100%;
+    transition: all 200ms ease-in-out;
+
+    &.sticky {
+      width: calc(100% - 4rem) !important;
+      padding: 1rem 2rem;
+      left: 0;
+      background-color: $secondary;
+      box-shadow: $box-shadow;
+
+      input,
+      .canopy-control--item-dropdown button {
+        border-color: white;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+
+    .canopy-control--item {
+      display: flex;
+      padding: 0 1em;
+      position: relative;
+
+      label {
+        padding: 0.75rem;
+        font-size: 0.8333em;
+      }
+
+      input {
+        padding: 0.75rem 1rem;
+        font-family: $sans;
+        font-weight: 400;
+        font-size: 1em;
+        border-radius: 3px;
+        border: none;
+        background-color: white;
+        border: 1px solid $midtone;
+        transition: all 200ms ease-in-out;
+        box-shadow: none;
+
+        &:focus {
+          border-color: white;
+          box-shadow: $box-shadow;
+          outline: none;
+        }
+      }
+
+      &:first-child {
+        margin-left: -1em;
+      }
+
+      &:last-child {
+        margin-right: -1em;
+      }
+
+      &-search {
+        flex-grow: 1;
+
+        label {
+          display: none;
+        }
+
+        input {
+          font-size: 1rem;
+          width: 100%;
+        }
+
+        button {
+          border: none;
+          box-shadow: none;
+          position: absolute;
+          right: 0;
+          padding: 0.5em 1em;
+          border-radius: 2px;
+          cursor: pointer;
+          margin-top: 7px;
+          margin-right: 25px;
+          font-family: $sans;
+          background-color: $secondary;
+          color: white;
+          font-size: 0.8333rem;
+          font-weight: 700;
+          transition: all 200ms ease-in-out;
+
+          &:hover,
+          &:focus {
+            background-color: $accent;
+          }
+        }
+      }
+
+      &-dropdown {
+        position: relative;
+        display: flex;
+
+        button {
+          flex-grow: 1;
+          box-shadow: none;
+          right: 0;
+          padding: 0.25em 1em;
+          border-radius: 3px;
+          cursor: pointer;
+          font-family: $sans;
+          background-color: white;
+          border: 1px solid $midtone;
+          color: $primary;
+          font-weight: 700;
+          font-size: 1rem;
+          transition: all 200ms ease-in-out;
+
+          &:hover,
+          &:focus {
+            border-color: white;
+            box-shadow: $box-shadow;
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}

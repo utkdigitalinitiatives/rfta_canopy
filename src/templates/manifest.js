@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import Viewer from "../components/viewer"
-import { getValue } from "../utilities/IIIF"
+import { getValue } from "../utilities/iiif"
 import * as Tabs from "@radix-ui/react-tabs"
 
 const Manifest = ({ data }) => {

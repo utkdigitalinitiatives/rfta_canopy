@@ -1,0 +1,47 @@
+.canopy-search-results {
+  margin-top: 2em;
+
+  article {
+    display: flex;
+    margin-bottom: 2em;
+    background-color: white;
+    padding: 2em;
+    border-radius: 3px;
+    box-shadow: $box-shadow;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    figure {
+      width: 100px;
+      height: 75px;
+      background-color: white;
+      padding: 0;
+      margin: 0 2em 1em 0;
+      border-radius: 3px;
+      background-color: $midtone;
+      box-shadow: inset $box-shadow-slim;
+      box-sizing: border-box;
+    }
+
+    > div {
+      a,
+      a:visited {
+        text-decoration: none;
+      }
+
+      header {
+        font-family: $sans;
+        font-weight: 700;
+        font-size: 1.25em;
+        line-height: 1.25em;
+      }
+
+      p {
+        font-size: 1em;
+        line-height: 1.55em;
+      }
+    }
+  }
+}

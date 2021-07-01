@@ -1,11 +1,9 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { graphql, Link, useStaticQuery } from "gatsby"
-import Layout from "./layout"
+import { Link } from "gatsby"
 import { Index } from "lunr"
-import IndexPage from "../pages"
+import { getValue } from "../utilities/iiif"
 
-const SearchResults = ({data, initialQuery = "" }) => {
+const SearchResults = ({ data, initialQuery = "" }) => {
 
   const { store } = data.LunrIndex
   const index = Index.load(data.LunrIndex.index)
@@ -16,7 +14,7 @@ const SearchResults = ({data, initialQuery = "" }) => {
     results = index.search(`*${searchString}*`).map(({ ref }) => {
       return {
         slug: ref,
-        ...store[ref],
+        ...store[ref]
       }
     })
   } catch (error) {
@@ -24,20 +22,27 @@ const SearchResults = ({data, initialQuery = "" }) => {
   }
 
   return (
-    <div>
+    <div className="canopy-search-results">
       {results.length ? (
         results.map(result => {
           return (
             <article key={result.slug}>
-              <h2>
-                <Link to={result.slug}>{result.label || result.slug}</Link>
-              </h2>
-              <p>{result.excerpt}</p>
+              <Link to={result.slug}>
+                <figure>
+                  <span></span>
+                </figure>
+              </Link>
+              <div>
+                <Link to={result.slug}>
+                  <header>{result.label || result.slug}</header>
+                </Link>
+                <p>{getValue(result.node.summary, "en")}</p>
+              </div>
             </article>
           )
         })
       ) : (
-        <p>Nothing found.</p>
+        <p>No results for <strong>{initialQuery}</strong> found.</p>
       )}
     </div>
   )

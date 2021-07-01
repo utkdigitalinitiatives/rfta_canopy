@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
 import { Index } from "lunr"
+import Sticky from "react-sticky-el"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
@@ -16,8 +17,15 @@ const IndexPage = ({ data, location }) => {
   return (
     <Layout location={location}>
       <Seo title="Search results" />
-      <SearchForm initialQuery={q} />
-      <SearchResults data={data} initialQuery={q} />
+
+      <div className="canopy-main">
+          <div className="canopy-control">
+            <Sticky className="canopy-sticky">
+              <SearchForm initialQuery={q} />
+            </Sticky>
+          </div>
+        <SearchResults data={data} initialQuery={q} />
+      </div>
     </Layout>
   )
 }
