@@ -3,9 +3,10 @@ import Mirador from "./Mirador"
 import PropTypes from "prop-types"
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import * as Tabs from '@radix-ui/react-tabs';
+import Structures from "./Structures"
 
 
-const Viewer = ({ id, manifestId }) => (
+const Viewer = ({ id, manifestId, node }) => (
   <>
     <div className="canopy-viewer">
       <div className="canopy-mirador">
@@ -42,7 +43,9 @@ const Viewer = ({ id, manifestId }) => (
             <Tabs.Trigger value="transcript">Transcript</Tabs.Trigger>
           </Tabs.List>
           <div className="canopy-tabs--content">
-            <Tabs.Content value="chapters">[structures/ranges]</Tabs.Content>
+            <Tabs.Content value="chapters">
+              <Structures node={node} />
+            </Tabs.Content>
             <Tabs.Content value="transcript">[transcript/annotations]</Tabs.Content>
           </div>
         </Tabs.Root>

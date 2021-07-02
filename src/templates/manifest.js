@@ -9,7 +9,9 @@ import * as Tabs from "@radix-ui/react-tabs"
 
 const Manifest = ({ data }) => {
 
-  const {id, manifestId, label, summary} = data.allManifests.edges[0].node;
+  const {node} = data.allManifests.edges[0];
+
+  const {id, manifestId, label, summary} = node;
 
   return (
     <Layout>
@@ -21,6 +23,7 @@ const Manifest = ({ data }) => {
           <Link to={"/"}>Back to Search</Link>
         </header>
         <Viewer id={id}
+                node={node}
                 manifestId={manifestId} />
         <div className="canopy-details">
           <Tabs.Root className="canopy-tabs" defaultValue="details">
