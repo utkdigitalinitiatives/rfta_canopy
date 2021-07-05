@@ -27,11 +27,11 @@ body {
   background: linear-gradient(0deg, rgba(255,255,255,0) calc(100% - 200px), rgba(255,255,255,1) 100%);
 
   > div > header {
-    padding: 2rem 2rem 0;
+    padding: 3rem 3rem 0;
   }
 
   > div > main {
-    padding: 2rem;
+    padding: 2rem 3rem;
 
     .canopy-main {
       max-width: 61.8%;
@@ -39,7 +39,7 @@ body {
   }
 
   > div > footer {
-    padding: 2rem;
+    padding: 3rem;
   }
 }
 
