@@ -34,7 +34,13 @@ body {
     padding: 2rem 3rem;
 
     .canopy-main {
-      max-width: 61.8%;
+      display: flex;
+
+      aside {
+        max-width: 38.2%;
+        flex-grow: 1;
+        padding: 2rem 0 0 2rem;
+      }
     }
   }
 

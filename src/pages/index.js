@@ -7,6 +7,7 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import SearchForm from "../components/search-form"
 import SearchResults from "../components/search-results"
+import About from "../components/about"
 
 
 const IndexPage = ({ data, location }) => {
@@ -18,13 +19,16 @@ const IndexPage = ({ data, location }) => {
     <Layout location={location}>
       <Seo title="Search results" />
 
+      <div className="canopy-control">
+        <Sticky className="canopy-sticky">
+          <SearchForm initialQuery={q} />
+        </Sticky>
+      </div>
       <div className="canopy-main">
-          <div className="canopy-control">
-            <Sticky className="canopy-sticky">
-              <SearchForm initialQuery={q} />
-            </Sticky>
-          </div>
         <SearchResults data={data} initialQuery={q} />
+        <aside>
+          <About />
+        </aside>
       </div>
     </Layout>
   )

@@ -1,0 +1,11 @@
+.canopy-about {
+  display: flex;
+  min-height: 25vh;
+
+  &--panel {
+    width: 100%;
+
+    @extend .canopy-panel;
+    border-top: 11px solid $muted;
+  }
+}
