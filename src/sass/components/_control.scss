@@ -70,6 +70,13 @@
         input {
           font-size: 1rem;
           width: 100%;
+          transition: all 200ms ease-in-out;
+          outline: 2px solid transparent;
+
+          &:focus {
+            box-shadow: $box-shadow-focus;
+            outline: 2px solid $highlight;
+          }
         }
 
         button {
