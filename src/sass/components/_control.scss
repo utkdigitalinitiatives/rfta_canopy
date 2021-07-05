@@ -129,24 +129,35 @@
             background-color: $muted;
             right: 0;
             bottom: 0;
+            transition: all 200ms ease-in-out;
           }
 
-          &::after {
+          svg {
             position: absolute;
             content: '';
             width: 1.5em;
             height: 1.25em;
             display: block;
-            background-color: $midtone;
             right: 0.75em;
             bottom: 0.75em;
+            fill: $secondary;
+            transition: all 200ms ease-in-out;
           }
 
           &:hover,
           &:focus {
             border-color: white;
-            box-shadow: $box-shadow;
+            box-shadow: $box-shadow-focus;
             outline: none;
+
+            &::before {
+              background-color: $secondary;
+            }
+
+            svg {
+              fill: white;
+              bottom: 0.675em;
+            }
           }
         }
       }

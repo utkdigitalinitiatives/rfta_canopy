@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
+import { GoArrowDown } from "react-icons/go";
 
 const SearchResults = ({ initialQuery = "" }) => {
 
@@ -37,12 +38,18 @@ const SearchResults = ({ initialQuery = "" }) => {
       </div>
       <div className="canopy-control--item canopy-control--item-dropdown">
         <DropdownMenu.Root>
-          <DropdownMenu.Trigger>Subject</DropdownMenu.Trigger>
+          <DropdownMenu.Trigger>
+            <span>Subject</span>
+            <GoArrowDown />
+          </DropdownMenu.Trigger>
         </DropdownMenu.Root>
       </div>
       <div className="canopy-control--item canopy-control--item-dropdown">
         <DropdownMenu.Root>
-          <DropdownMenu.Trigger>Location</DropdownMenu.Trigger>
+          <DropdownMenu.Trigger>
+            <span>Location</span>
+            <GoArrowDown />
+          </DropdownMenu.Trigger>
         </DropdownMenu.Root>
       </div>
     </form>
