@@ -10,7 +10,6 @@
     "@radix-ui/react-tabs": "^0.0.15",
     "axios": "^0.21.1",
     "gatsby": "^3.6.2",
-    "gatsby-plugin-advanced-sitemap": "^2.0.0",
     "gatsby-plugin-gatsby-cloud": "^2.6.1",
     "gatsby-plugin-image": "^1.6.0",
     "gatsby-plugin-lunr": "^1.5.2",
