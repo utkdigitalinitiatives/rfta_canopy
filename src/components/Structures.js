@@ -7,8 +7,6 @@ class Structures extends Component {
 
   render() {
 
-    console.log(this.props.node)
-
     return (
       <>
         this.

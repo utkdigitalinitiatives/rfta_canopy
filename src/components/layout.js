@@ -8,6 +8,7 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { IdProvider } from '@radix-ui/react-id';
 import "../sass/canopy.scss"
 
 import Header from "./header"
@@ -27,12 +28,12 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <IdProvider>
       <Header siteTitle={data.site.siteMetadata?.title || `Title`}
               siteDescription={data.site.siteMetadata?.description|| `Description`}/>
       <main>{children}</main>
       <Footer />
-    </>
+    </IdProvider>
   )
 }
 
