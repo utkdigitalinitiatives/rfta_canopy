@@ -1,7 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { Index } from "lunr"
-import { getValue } from "../utilities/iiif"
 
 const SearchResults = ({ data, initialQuery = "" }) => {
 
@@ -36,7 +35,7 @@ const SearchResults = ({ data, initialQuery = "" }) => {
                 <Link to={result.slug}>
                   <header>{result.label || result.slug}</header>
                 </Link>
-                <p>{getValue(result.node.summary, "en")}</p>
+                <p>{result.summary}</p>
               </div>
             </article>
           )
