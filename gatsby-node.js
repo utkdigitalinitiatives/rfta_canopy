@@ -121,6 +121,7 @@ const createIndex = async (manifestNodes, type, cache) => {
     this.ref(`id`)
     this.field(`label`, {boost: 20})
     this.field(`summary`)
+    this.pipeline.remove(lunr.stemmer)
 
     for (const node of manifestNodes) {
 
