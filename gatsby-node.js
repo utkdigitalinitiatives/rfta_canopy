@@ -112,37 +112,37 @@ const createIndex = async (manifestNodes, type, cache) => {
   if (cached) {
     return cached
   }
-  const documents = []
+
   const store = {}
-  // iterate over all posts
-  for (const node of manifestNodes) {
 
-    const id = node.id
-    const label = node.label.en[0]
-
-    let summary = ''
-    if (node.summary.en) {
-      summary = node.summary.en[0]
-    }
-
-    documents.push({
-      id: id,
-      label: label,
-      summary: summary,
-    })
-    store[id] = {
-      label,
-      summary,
-      node
-    }
-  }
-
+  // build index from manifests
   const index = lunr(function() {
-    this.ref("id")
-    this.field("label", { boost: 2 })
-    this.field("summary")
-    for (const doc of documents) {
-      this.add(doc)
+
+    this.ref(`id`)
+    this.field(`label`, {boost: 20})
+    this.field(`summary`)
+    this.pipeline.remove(lunr.stemmer)
+
+    for (const node of manifestNodes) {
+
+      const id = node.id
+      const label = node.label.en[0]
+
+      let summary = ''
+      if (node.summary.en) {
+        summary = node.summary.en[0]
+      }
+
+      store[id] = {
+        label: label,
+        summary: summary
+      }
+
+      this.add({
+        id: id,
+        label: label,
+        summary: summary
+      })
     }
   })
 
