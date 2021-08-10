@@ -1,14 +1,24 @@
 import React, { Component } from 'react';
-import * as AspectRatio from "@radix-ui/react-aspect-ratio"
 import Mirador from "./Mirador"
-import * as Tabs from "@radix-ui/react-tabs"
-import Structures from "./Structures"
 import PropTypes from "prop-types"
 import Navigator from "./Navigator"
 
 class Viewer extends Component {
   constructor(props) {
     super(props);
+
+    this.state ={
+      t: 0,
+      active: false
+    }
+  }
+
+  componentDidMount () {
+    // add event listener for video
+  }
+
+  componentWillUnmount() {
+    // remove event listener
   }
 
   render() {

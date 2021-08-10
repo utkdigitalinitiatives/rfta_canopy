@@ -7,6 +7,7 @@ class Mirador extends Component {
   constructor(props) {
     super(props);
 
+
     this.miradorInstance = null;
   }
 
