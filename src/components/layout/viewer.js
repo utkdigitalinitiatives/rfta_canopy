@@ -1,9 +1,9 @@
 import * as React from "react"
-import Mirador from "./Mirador"
+import Mirador from "../canopy/Mirador"
 import PropTypes from "prop-types"
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 import * as Tabs from '@radix-ui/react-tabs';
-import Structures from "./Structures"
+import Structures from "../canopy/Structures"
 
 
 const Viewer = ({ id, manifestId, node }) => (

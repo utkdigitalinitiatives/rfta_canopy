@@ -1,9 +1,9 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import Viewer from "../components/viewer"
+import Layout from "../components/layout/layout"
+import Seo from "../components/layout/seo"
+import Viewer from "../components/layout/viewer"
 import { getValue } from "../utilities/iiif"
 import * as Tabs from "@radix-ui/react-tabs"
 

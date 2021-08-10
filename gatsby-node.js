@@ -29,6 +29,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
 
   manifests.forEach((node, index) => {
     node.manifestId = node.id
+    node.prettyUrl = node.label.en[0] //  make friendly URL David-Dotson-Jeff-Conyers-Sam-Roberts-2020-09-22
     createNode({
       ...node,
       id: createNodeId(`Manifests-${node.id}`),

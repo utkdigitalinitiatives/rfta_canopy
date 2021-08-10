@@ -3,11 +3,11 @@ import { Link, graphql } from "gatsby"
 import { Index } from "lunr"
 import Sticky from "react-sticky-el"
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import SearchForm from "../components/search-form"
-import SearchResults from "../components/search-results"
-import About from "../components/about"
+import Layout from "../components/layout/layout"
+import Seo from "../components/layout/seo"
+import SearchForm from "../components/layout/search-form"
+import SearchResults from "../components/layout/search-results"
+import About from "../components/layout/about"
 
 
 const IndexPage = ({ data, location }) => {
