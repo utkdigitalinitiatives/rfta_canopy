@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import mirador from 'mirador';
 import PropTypes from 'prop-types';
+import * as AspectRatio from "@radix-ui/react-aspect-ratio"
 
 class Mirador extends Component {
   constructor(props) {
@@ -20,7 +21,13 @@ class Mirador extends Component {
 
   render() {
     const { config } = this.props;
-    return <div id={config.id} />;
+    return (
+      <div className="canopy-mirador">
+        <AspectRatio.Root ratio={100 / 61.8}>
+          <div id={config.id} />
+        </AspectRatio.Root>
+      </div>
+    )
   }
 }
 

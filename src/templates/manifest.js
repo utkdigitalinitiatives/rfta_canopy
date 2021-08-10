@@ -3,7 +3,8 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
-import Viewer from "../components/layout/viewer"
+import Details from "../components/layout/details"
+import Viewer from "../components/canopy/Viewer"
 import { getValue } from "../utilities/iiif"
 import * as Tabs from "@radix-ui/react-tabs"
 
@@ -22,23 +23,9 @@ const Manifest = ({ data }) => {
           <h1>{label.en[0]}</h1>
           <Link to={"/"}>Back to Search</Link>
         </header>
-        <Viewer id={id}
-                node={node}
-                manifestId={manifestId} />
-        <div className="canopy-details">
-          <Tabs.Root className="canopy-tabs" defaultValue="details">
-            <Tabs.List className="canopy-tabs--list">
-              <Tabs.Trigger value="details">Details</Tabs.Trigger>
-              <Tabs.Trigger value="transcript">Transcript</Tabs.Trigger>
-              <Tabs.Trigger value="translation">Translation</Tabs.Trigger>
-            </Tabs.List>
-            <div className="canopy-tabs--content">
-              <Tabs.Content value="details">{getValue(summary, 'en')}</Tabs.Content>
-              <Tabs.Content value="transcript">[full transcript]</Tabs.Content>
-              <Tabs.Content value="translation">[translations?]</Tabs.Content>
-            </div>
-          </Tabs.Root>
-        </div>
+        <Viewer node={node} />
+        <Details id={id}
+                 node={node} />
         <div className="canopy-related">
           [related items?]
         </div>
