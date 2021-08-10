@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useRef } from 'react';
 import Mirador from "./Mirador"
 import PropTypes from "prop-types"
 import Navigator from "./Navigator"
@@ -15,15 +15,27 @@ class Viewer extends Component {
 
   componentDidMount () {
     // add event listener for video
+    // #canopy-mirador-0cfbc150-4b71-53d0-8150-c5854e9925be video
+
+    // const id = `canopy-mirador-${this.props.node.id}`
+    // const selector = `#${id} video`;
+    // const video = window.querySelector('video');
+    //
+    // console.log(video);
+
+    // video.addEventListener('timeupdate', (event) => {
+    //   console.log('The currentTime attribute has been updated. Again.');
+    // });
   }
 
   componentWillUnmount() {
     // remove event listener
+    // #canopy-mirador-0cfbc150-4b71-53d0-8150-c5854e9925be video
   }
 
   render() {
 
-    const {id, manifestId} = this.props.node;
+    const {id, manifestId, items, structures} = this.props.node;
 
     return (
       <div className="canopy-viewer">
@@ -34,12 +46,12 @@ class Viewer extends Component {
               hideWindowTitle: true,
               sideBarOpen: false,
               defaultSidebarPanelWidth: 320,
-              allowTopMenuButton: true,
               allowWindowSideBar: true,
               allowMaximize: false,
-              allowClose: false,
-              forceDrawAnnotations: true,
               allowFullscreen: true,
+              allowClose: false,
+              allowTopMenuButton: false,
+              forceDrawAnnotations: true
             },
             windows: [{
               manifestId: manifestId,
@@ -50,7 +62,8 @@ class Viewer extends Component {
           }}
           plugins={[]}
         />
-        <Navigator />
+        <Navigator items={items}
+                   structures={structures} />
       </div>
     )
   }

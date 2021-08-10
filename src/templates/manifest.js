@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
 import Details from "../components/layout/details"
-import Viewer from "../components/canopy/Viewer"
+import DigitalObject from "../components/canopy/DigitalObject"
 import { getValue } from "../utilities/iiif"
 import * as Tabs from "@radix-ui/react-tabs"
 
@@ -23,7 +23,7 @@ const Manifest = ({ data }) => {
           <h1>{label.en[0]}</h1>
           <Link to={"/"}>Back to Search</Link>
         </header>
-        <Viewer node={node} />
+        <DigitalObject node={node}/>
         <Details id={id}
                  node={node} />
         <div className="canopy-related">
@@ -54,6 +54,29 @@ export const manifestQuery = graphql`
           }
           summary {
             en
+          }
+          items {
+            items {
+              items {
+                motivation
+                body {
+                  id
+                }
+              }
+            }
+          }
+          structures {
+            items {
+              label {
+                en
+              }
+              items {
+                id
+              }
+            }
+            label {
+              en
+            }
           }
           requiredStatement {
             label {
