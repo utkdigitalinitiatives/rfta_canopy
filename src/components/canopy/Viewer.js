@@ -63,6 +63,7 @@ class Viewer extends Component {
           plugins={[]}
         />
         <Navigator items={items}
+                   t={this.state.t}
                    structures={structures} />
       </div>
     )

@@ -44,7 +44,6 @@ class Navigator extends Component {
       <aside className="canopy-navigator">
         <Tabs.Root className="canopy-tabs" defaultValue="chapters">
           <Tabs.List className="canopy-tabs--list">
-            {this.buildTabs(this.state.tabs)}
             <Tabs.Trigger value="chapters">Chapters</Tabs.Trigger>
             <Tabs.Trigger value="transcript">Transcript</Tabs.Trigger>
           </Tabs.List>
