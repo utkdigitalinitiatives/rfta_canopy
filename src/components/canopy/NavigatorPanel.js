@@ -6,21 +6,23 @@ class NavigatorPanel extends Component {
   }
 
   handleClick (el) {
-    console.log(el)
   }
 
   renderSequence = (sequence, time) => {
     let component = this;
     return sequence.map(function(item) {
-      // calculate if active from time val
       let classes = ''
-      return (
-        <a className={classes}
-           onClick={component.handleClick(this)}
-           href={`#t=${item.t.start}`}>
-          <strong>{item.t.label}</strong>
-          <em>{item.label}</em>
-        </a>
+      if (time >= item.t.start && time <= item.t.end) {
+        classes = 'active'
+      }
+      // calculate if active from time val
+      return (<a className={classes}
+                 onClick={component.handleClick(this)}
+                 href={`#t=${item.t.start}`}>
+                <strong>{item.t.label}</strong>
+                <em>{item.label}</em>
+              </a>
+
       )
     });
   }
