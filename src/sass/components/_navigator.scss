@@ -1,0 +1,20 @@
+.canopy-sequence {
+  > a {
+    display: flex;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    line-height: 1.35em;
+
+    strong {
+      display: flex;
+      width: 50px;
+      flex-grow: 0;
+      flex-shrink: 0;
+      font-size: 0.7222em;
+    }
+
+    em {
+      font-style: normal;
+    }
+  }
+}
