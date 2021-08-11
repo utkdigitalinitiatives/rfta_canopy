@@ -8,7 +8,7 @@ const { GraphQLJSONObject } = require('graphql-type-json');
 * Set root IIIF Collection conforming to specification
 * at https://iiif.io/api/presentation/3.0/#51-collection
 */
-const rootCollection = 'https://digital.lib.utk.edu/assemble/collection/collections/rfta';
+const rootCollection = 'https://digital.lib.utk.edu/assemble/collection/collections/rftatest';
 
 /*
 * Map nodes from IIIF Collection and Manifests
@@ -29,6 +29,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
 
   manifests.forEach((node, index) => {
     node.manifestId = node.id
+    // node.prettyUrl = node.label.en[0] //  make friendly URL David-Dotson-Jeff-Conyers-Sam-Roberts-2020-09-22
     createNode({
       ...node,
       id: createNodeId(`Manifests-${node.id}`),
