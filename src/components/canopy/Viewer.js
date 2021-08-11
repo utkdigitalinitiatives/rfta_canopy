@@ -9,8 +9,11 @@ class Viewer extends Component {
     super(props);
 
     this.state ={
-      t: 0
+      t: 0,
+      updateTime: null
     }
+
+    this.updateTime = this.updateTime.bind(this);
   }
 
   time(value) {{
@@ -18,6 +21,12 @@ class Viewer extends Component {
       t: value
     })
   }}
+
+  updateTime (value) {
+    this.setState({
+      updateTime: value
+    })
+  }
 
   render() {
 
@@ -27,9 +36,11 @@ class Viewer extends Component {
       <div className="canopy-viewer">
         <Video items={items}
                time={this.time.bind(this)}
+               updateTime={this.state.updateTime}
         />
         <Navigator items={items}
                    t={this.state.t}
+                   updateTime={this.updateTime.bind(this)}
                    structures={structures} />
       </div>
     )

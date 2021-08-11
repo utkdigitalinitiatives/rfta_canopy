@@ -11,6 +11,8 @@ class Navigator extends Component {
       data: [],
       loaded: false
     }
+
+    this.updateTime = this.updateTime.bind(this);
   }
 
   hasTranscripts = (items) => {
@@ -88,16 +90,22 @@ class Navigator extends Component {
   }
 
   renderPanels = (panels, time) => {
+    let component = this
     return panels.map(function(panel, index) {
       return (
         <Tabs.Content>
           <NavigatorPanel data={panel}
                           time={time}
+                          updateTime={component.updateTime.bind(this)}
                           key={index}
           />
         </Tabs.Content>
       )
     });
+  }
+
+  updateTime (value) {
+    this.props.updateTime(value)
   }
 
   componentDidMount() {

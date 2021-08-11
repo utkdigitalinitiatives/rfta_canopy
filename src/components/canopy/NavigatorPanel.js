@@ -5,24 +5,27 @@ class NavigatorPanel extends Component {
     super(props);
   }
 
-  handleClick (el) {
+  handleClick = (event) => {
+    this.props.updateTime(parseInt(event.currentTarget.dataset.time))
   }
 
   renderSequence = (sequence, time) => {
     let component = this;
     return sequence.map(function(item) {
+
       let classes = ''
       if (time >= item.t.start && time <= item.t.end) {
         classes = 'active'
       }
-      // calculate if active from time val
-      return (<a className={classes}
-                 onClick={component.handleClick(this)}
-                 href={`#t=${item.t.start}`}>
-                <strong>{item.t.label}</strong>
-                <em>{item.label}</em>
-              </a>
 
+      return (
+        <a className={classes}
+           href={`#t=${item.t.start}`}
+           data-time={item.t.start}
+           onClick={component.handleClick}>
+          <strong>{item.t.label}</strong>
+          <em>{item.label}</em>
+        </a>
       )
     });
   }

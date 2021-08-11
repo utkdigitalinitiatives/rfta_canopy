@@ -9,7 +9,9 @@ class Video extends Component {
       source: null,
       format: null,
       tracks: [],
-      currentTime: 0
+      currentTime: 0,
+      updateTime: null,
+      updated: true
     }
 
     this.video = createRef()
@@ -72,8 +74,23 @@ class Video extends Component {
     };
   }
 
+  handleUpdate = (t) => {
+    if (t) {
+      if (this.state.updateTime !== t) {
+        this.video.current.currentTime = t
+        this.setState({
+          updateTime: t
+        })
+      }
+    }
+  }
+
   componentDidMount () {
     this.parseItems()
+  }
+
+  componentDidUpdate () {
+    this.handleUpdate(this.props.updateTime);
   }
 
   render() {
