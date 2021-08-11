@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as Tabs from "@radix-ui/react-tabs"
 import Structures from "./Structures"
+import Track from "./Track"
 
 class Navigator extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Navigator extends Component {
 
     this.state ={
       tabs: [],
-      content: []
+      data: []
     }
   }
 
@@ -21,14 +22,52 @@ class Navigator extends Component {
   }
 
   hasRanges = (structures) => {
-    // console.log(items[0].items[0])
+    if (Array.isArray(structures) ) {
+      if (structures.length > 0) {
+        let component = this
+        structures.map(function(data) {
+          component.buildRange(data)
+        })
+      }
+    }
   }
 
-  buildRanges = (range) => {
-    // console.log(items[0].items[0])
-    // this.setState({
-    //   tabs: null,
-    // })
+  buildRange = (range) => {
+
+    let component = this
+
+    const sequence = range.items.map(function(data) {
+      let values = {}
+      let times = data.items[0].id.split('=')[1].split(',');
+      values.t = {}
+      values.label= data.label.en[0]
+      values.t.start = component.cleanUpTimes(times[0])
+      values.t.end = component.cleanUpTimes(times[1])
+      return values
+    })
+
+    this.addSet(range.label.en[0], "range", sequence)
+  }
+
+  cleanUpTimes = (value) => {
+    let duration = value.split(':')
+    let hours = parseInt(duration[0]) * 60 * 60
+    let minutes = parseInt(duration[1]) * 60
+    return hours + minutes + parseInt(duration[2])
+  }
+
+  addSet = (label, type, sequence) => {
+    let set = {}
+    set.label = label
+    set.type = type
+    set.sequence = sequence
+
+    let data = this.state.data
+    data.push(set)
+
+    this.state ={
+      data: data
+    }
   }
 
   componentDidMount() {
@@ -41,18 +80,7 @@ class Navigator extends Component {
 
     return (
       <aside className="canopy-navigator">
-        <Tabs.Root className="canopy-tabs" defaultValue="chapters">
-          <Tabs.List className="canopy-tabs--list">
-            <Tabs.Trigger value="chapters">Chapters</Tabs.Trigger>
-            <Tabs.Trigger value="transcript">Transcript</Tabs.Trigger>
-          </Tabs.List>
-          <div className="canopy-tabs--content">
-            <Tabs.Content value="chapters">
-              <Structures node={this.props.node} />
-            </Tabs.Content>
-            <Tabs.Content value="transcript">[transcript/annotations]</Tabs.Content>
-          </div>
-        </Tabs.Root>
+
       </aside>
     )
   }

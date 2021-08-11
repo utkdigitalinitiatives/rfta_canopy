@@ -1,0 +1,79 @@
+{
+  "data": [{
+    "label": "Interview Questions",
+    "type": "range",
+    "sequence": [{
+      "t": {
+        "start": 0,
+        "end": 45
+      },
+      "label": "string"
+    },
+      {
+        "t": {
+          "start": 45,
+          "end": 100
+        },
+        "label": "string"
+      }
+    ]
+  },
+    {
+      "label": "Chapters",
+      "type": "range",
+      "sequence": [{
+        "t": {
+          "start": 0,
+          "end": 45
+        },
+        "label": "string"
+      },
+        {
+          "t": {
+            "start": 45,
+            "end": 100
+          },
+          "label": "string"
+        }
+      ]
+    },
+    {
+      "label": "English",
+      "type": "vtt",
+      "sequence": [{
+        "t": {
+          "start": 0,
+          "end": 45
+        },
+        "label": "string"
+      },
+        {
+          "t": {
+            "start": 45,
+            "end": 100
+          },
+          "label": "string"
+        }
+      ]
+    },
+    {
+      "label": "Spanish",
+      "type": "vtt",
+      "sequence": [{
+        "t": {
+          "start": 0,
+          "end": 45
+        },
+        "label": "string"
+      },
+        {
+          "t": {
+            "start": 45,
+            "end": 100
+          },
+          "label": "string"
+        }
+      ]
+    }
+  ]
+}
