@@ -40,6 +40,7 @@ class Navigator extends Component {
       let times = data.items[0].id.split('=')[1].split(',');
       values.t = {}
       values.label= data.label.en[0]
+      values.t.label = times[0]
       values.t.start = component.cleanUpTimes(times[0])
       values.t.end = component.cleanUpTimes(times[1])
       return values

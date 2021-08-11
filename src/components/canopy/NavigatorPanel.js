@@ -18,7 +18,7 @@ class NavigatorPanel extends Component {
         <a className={classes}
            onClick={component.handleClick(this)}
            href={`#t=${item.t.start}`}>
-          <strong>{item.t.start}</strong>
+          <strong>{item.t.label}</strong>
           <em>{item.label}</em>
         </a>
       )

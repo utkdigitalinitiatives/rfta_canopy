@@ -1,5 +1,9 @@
 .canopy-tabs {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
   &--list {
     display: flex;
     justify-content: flex-start;
@@ -62,5 +66,8 @@
   &--content {
     margin-top: 1rem;
     line-height: 1.53em;
+    position: relative;
+    width: 100%;
+    height: calc(100% - 5rem);
   }
 }
