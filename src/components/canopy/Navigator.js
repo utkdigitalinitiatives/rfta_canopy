@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as Tabs from "@radix-ui/react-tabs"
 import Structures from "./Structures"
 import Track from "./Track"
+import NavigatorPanel from "./NavigatorPanel"
 
 class Navigator extends Component {
   constructor(props) {
@@ -33,7 +34,6 @@ class Navigator extends Component {
   }
 
   buildRange = (range) => {
-
     let component = this
 
     const sequence = range.items.map(function(data) {
@@ -62,12 +62,22 @@ class Navigator extends Component {
     set.type = type
     set.sequence = sequence
 
-    let data = this.state.data
-    data.push(set)
+    let {tabs, data} = this.state
 
     this.state ={
-      data: data
+      tabs: tabs.push(label),
+      data: data.push(set)
     }
+  }
+
+  renderPanels = (panels) => {
+    return panels.map(function(data, index) {
+      return (
+        <NavigatorPanel data={data}
+                        key={index}
+        />
+      )
+    });
   }
 
   componentDidMount() {
@@ -80,7 +90,7 @@ class Navigator extends Component {
 
     return (
       <aside className="canopy-navigator">
-
+        {this.renderPanels(this.state.data)}
       </aside>
     )
   }
