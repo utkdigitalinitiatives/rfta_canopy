@@ -5,16 +5,33 @@ class NavigatorPanel extends Component {
     super(props);
   }
 
+  handleClick (el) {
+    console.log(el)
+  }
+
+  renderSequence = (sequence, time) => {
+    let component = this;
+    return sequence.map(function(item) {
+      // calculate if active from time val
+      let classes = ''
+      return (
+        <a className={classes}
+           onClick={component.handleClick(this)}
+           href={`#t=${item.t.start}`}>
+          {item.label}
+        </a>
+      )
+    });
+  }
+
   render() {
 
     const {data, time} = this.props
 
-    console.log(time)
-
     return (
-      <>
-        this.
-      </>
+      <div className="canopy-sequence">
+        {this.renderSequence(data.sequence, time)}
+      </div>
     )
   }
 }
