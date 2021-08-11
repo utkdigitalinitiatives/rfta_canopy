@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from "react"
 import Track from "./Track"
 
 class Video extends Component {
@@ -9,8 +9,10 @@ class Video extends Component {
       source: null,
       format: null,
       tracks: [],
-      currentT: 0
+      currentTime: 0
     }
+
+    this.video = createRef()
   }
 
   renderSource = (src, type) => {
@@ -22,8 +24,12 @@ class Video extends Component {
   }
 
   renderTracks = (tracks) => {
-    return tracks.map(function(data) {
-      return <Track data={data} />
+    return tracks.map(function(data, index) {
+      return (
+        <Track data={data}
+               key={index}
+        />
+      )
     });
   }
 
@@ -55,6 +61,16 @@ class Video extends Component {
     }
   }
 
+
+  handlePlay = () => {
+    let video = this.video.current
+    video.ontimeupdate = (event) => {
+      this.setState({
+        currentTime: event.target.currentTime
+      })
+    };
+  }
+
   componentDidMount () {
     this.parseItems()
   }
@@ -66,6 +82,8 @@ class Video extends Component {
     if (source) {
       return (
         <video controls
+               ref={this.video}
+               onPlay={this.handlePlay}
                className="canopy-video"
                crossOrigin="anonymous">
           {this.renderSource(source, format)}
