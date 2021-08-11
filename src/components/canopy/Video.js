@@ -65,6 +65,7 @@ class Video extends Component {
   handlePlay = () => {
     let video = this.video.current
     video.ontimeupdate = (event) => {
+      this.props.time(event.target.currentTime)
       this.setState({
         currentTime: event.target.currentTime
       })
