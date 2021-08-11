@@ -7,6 +7,10 @@ class NavigatorPanel extends Component {
 
   render() {
 
+    const {data, time} = this.props
+
+    console.log(time)
+
     return (
       <>
         this.

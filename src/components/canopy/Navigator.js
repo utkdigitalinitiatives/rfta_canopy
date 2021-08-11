@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import * as Tabs from "@radix-ui/react-tabs"
-import Structures from "./Structures"
-import Track from "./Track"
 import NavigatorPanel from "./NavigatorPanel"
 
 class Navigator extends Component {
@@ -10,7 +8,8 @@ class Navigator extends Component {
 
     this.state ={
       tabs: [],
-      data: []
+      data: [],
+      loaded: false
     }
   }
 
@@ -63,34 +62,62 @@ class Navigator extends Component {
     set.sequence = sequence
 
     let {tabs, data} = this.state
+    tabs.push(label)
+    data.push(set)
 
-    this.state ={
-      tabs: tabs.push(label),
-      data: data.push(set)
-    }
+    this.setState({
+      tabs: tabs,
+      data: data,
+      loaded: true
+    })
   }
 
-  renderPanels = (panels) => {
-    return panels.map(function(data, index) {
+  renderTabs = (tabs) => {
+    return (
+      <Tabs.List className="canopy-tabs--list">
+        {tabs.map(function(label) {
+            return (
+              <Tabs.Trigger>
+                {label}
+              </Tabs.Trigger>
+            )
+        })}
+      </Tabs.List>
+    )
+  }
+
+  renderPanels = (panels, time) => {
+    return panels.map(function(panel, index) {
       return (
-        <NavigatorPanel data={data}
-                        key={index}
-        />
+        <Tabs.Content>
+          <NavigatorPanel data={panel}
+                          time={time}
+                          key={index}
+          />
+        </Tabs.Content>
       )
     });
   }
 
   componentDidMount() {
-    // build according to https://gist.github.com/mathewjordan/c566bf3287e0d6b2d1af0dc4673dbd2d
-    this.hasTranscripts(this.props.items);
+    // this.hasTranscripts(this.props.items);
+
     this.hasRanges(this.props.structures);
   }
 
   render() {
 
+    let {data, tabs} = this.state
+    const {t} = this.props
+
     return (
       <aside className="canopy-navigator">
-        {this.renderPanels(this.state.data)}
+        <Tabs.Root className="canopy-tabs">
+          {this.renderTabs(tabs)}
+          <div className="canopy-tabs--content">
+            {this.renderPanels(data, t)}
+          </div>
+        </Tabs.Root>
       </aside>
     )
   }
