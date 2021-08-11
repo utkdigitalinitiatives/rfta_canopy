@@ -35,7 +35,6 @@ class Navigator extends Component {
     // build according to https://gist.github.com/mathewjordan/c566bf3287e0d6b2d1af0dc4673dbd2d
     this.hasTranscripts(this.props.items);
     this.hasRanges(this.props.structures);
-    console.log(this.props.structures)
   }
 
   render() {
