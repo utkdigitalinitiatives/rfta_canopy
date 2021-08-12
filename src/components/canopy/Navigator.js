@@ -15,14 +15,6 @@ class Navigator extends Component {
     this.updateTime = this.updateTime.bind(this);
   }
 
-  hasTranscripts = (items) => {
-    // console.log(items[0].items[0])
-  }
-
-  getTranscript = (transcript) => {
-    // console.log(items[0].items[0])
-  }
-
   hasRanges = (structures) => {
     if (Array.isArray(structures) ) {
       if (structures.length > 0) {
