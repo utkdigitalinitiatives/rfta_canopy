@@ -5,8 +5,7 @@ class NavigatorPanel extends Component {
     super(props);
 
     this.state ={
-      activeIndex: null,
-      nextIndex: null
+      activeIndex: null
     }
 
     this.sequence = createRef()
@@ -54,18 +53,17 @@ class NavigatorPanel extends Component {
     if (result.length > 0) {
       activeIndex = result[0]
       if (activeIndex !== this.state.activeIndex) {
-        this.updateSequenceScroll(activeIndex)
+        this.updateSequenceScroll(activeIndex, this.sequence.current)
       }
     }
 
     return activeIndex
   }
 
-  updateSequenceScroll = (nextIndex) => {
-    let selector = `#p${this.props.index}s${nextIndex}`
-    let target = this.sequence.current.querySelector(selector);
-    let diff = target.offsetTop - target.offsetParent.offsetTop
-    this.sequence.current.scrollTop = diff
+  updateSequenceScroll = (activeIndex, sequenceElement) => {
+    let selector = `#p${this.props.index}s${activeIndex}`
+    let activeItem = sequenceElement.querySelector(selector)
+    sequenceElement.scrollTop = activeItem.offsetTop - activeItem.offsetParent.offsetTop
   }
 
   componentDidMount() {
