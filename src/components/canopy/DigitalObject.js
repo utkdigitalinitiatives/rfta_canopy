@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Viewer from "./Viewer"
+import { fromVtt } from "subtitles-parser-vtt"
+import Details from "../layout/details"
 
 class DigitalObject extends Component {
   constructor(props) {
@@ -36,7 +38,7 @@ class DigitalObject extends Component {
         if (transcripts) {
           let transcript = {}
           transcript.iiif = meta
-          transcript.text = data
+          transcript.text = fromVtt(data)
           transcripts.push(transcript)
         }
         this.setState({
