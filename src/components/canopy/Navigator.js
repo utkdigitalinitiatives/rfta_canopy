@@ -80,7 +80,7 @@ class Navigator extends Component {
       <Tabs.List className="canopy-tabs--list">
         {tabs.map(function(label, index) {
             return (
-              <Tabs.Trigger value={`p${index}`}>
+              <Tabs.Trigger value={`tab-${index}`}>
                 {label}
               </Tabs.Trigger>
             )
@@ -93,7 +93,7 @@ class Navigator extends Component {
     let component = this
     return panels.map(function(panel, index) {
       return (
-        <Tabs.Content value={`p${index}`}>
+        <Tabs.Content value={`tab-${index}`}>
           <NavigatorPanel data={panel}
                           time={time}
                           index={index}
@@ -122,7 +122,7 @@ class Navigator extends Component {
 
     return (
       <aside className="canopy-navigator">
-        <Tabs.Root className="canopy-tabs">
+        <Tabs.Root className="canopy-tabs" defaultValue="tab-0">
           {this.renderTabs(tabs)}
           <div className="canopy-tabs--content">
             {this.renderPanels(data, t)}
