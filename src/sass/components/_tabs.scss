@@ -26,19 +26,20 @@
       padding: 0.5rem 1rem;
       font-family: $sans;
       font-weight: 700;
-      font-size: 1rem;
+      font-size: 0.833em;
       cursor: pointer;
       color: $primary;
       background: transparent;
       transition: all 200ms ease-in-out;
       position: relative;
+      text-transform: uppercase;
 
       &::after {
         content: '';
         width: 0;
-        height: 3px;
+        height: 2px;
         position: absolute;
-        bottom: -3px;
+        bottom: -2px;
         left: 0;
         background-color: transparent;
         transition: all 200ms ease-in-out;
