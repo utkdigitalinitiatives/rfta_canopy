@@ -101,7 +101,7 @@
 
           &:hover,
           &:focus {
-            background-color: $accent;
+            background-color: $primary;
           }
         }
       }
@@ -162,7 +162,7 @@
             outline: none;
 
             &::before {
-              background-color: $accent;
+              background-color: $primary;
             }
 
             svg {

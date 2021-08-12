@@ -60,7 +60,13 @@ export const manifestQuery = graphql`
               items {
                 motivation
                 body {
+                  label {
+                    en
+                    es
+                  }
+                  language
                   id
+                  format
                 }
               }
             }

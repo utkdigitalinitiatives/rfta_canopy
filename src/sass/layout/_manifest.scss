@@ -28,10 +28,14 @@ article.canopy-manifest {
 
     @extend .canopy-panel;
 
-    .canopy-mirador {
+    .canopy-video {
       position: relative;
       flex-grow: 1;
       flex-shrink: 1;
+      width: 61.8%;
+      background-color: $secondaryMuted;
+      box-shadow: $box-shadow-slim;
+      z-index: 1;
     }
 
     .canopy-navigator {

@@ -1,0 +1,50 @@
+.canopy-sequence {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  margin-top: 2px;
+  padding: 0;
+
+  > a {
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 1em;
+    text-decoration: none;
+    line-height: 1.35em;
+    font-size: 1em;
+    position: relative;
+    background-color: transparent;
+    box-shadow: none;
+    border-bottom: 1px solid $muted;
+
+    &:hover {
+      color: white;
+      background-color: $primary;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &.active {
+      color: $primary;
+      background-color: $muted;
+      font-weight: 700;
+    }
+
+    strong {
+      display: flex;
+      flex-grow: 0;
+      flex-shrink: 0;
+      font-weight: 700;
+      margin-top: 0.25em;
+      margin-left: 2em;
+    }
+
+    em {
+      font-style: normal;
+      flex-grow: 1;
+    }
+  }
+}

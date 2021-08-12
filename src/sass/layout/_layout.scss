@@ -19,10 +19,11 @@ body {
   background-position: 0 0;
   background-size: 100%;
   background-repeat: no-repeat;
+  color: $primary;
 }
 
 .canopy {
-  border-top: 11px solid $secondary;
+  border-top: 11px solid $accent;
   background: rgb(255,255,255);
   background: linear-gradient(0deg, rgba(255,255,255,0) calc(100% - 200px), rgba(255,255,255,1) 100%);
 

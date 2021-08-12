@@ -3,16 +3,16 @@ Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 
 $serif: 'Halant', Georgia, serif;
 
-$primary: #221d22;
+$primary: #313E48;
 $muted: #f1f0ef;
 $midtone: darken($muted, 10);
 $highlight: darken($muted, 25);
 
 
-$secondary: #0b58a5;
+$secondary: #006C93;
 $secondaryMuted: desaturate(lighten($secondary, 61.8), 61.8);
 
-$accent: #583646;
+$accent: #FF8200;
 $accentMuted: desaturate(lighten($accent, 38.2), 38.2);
 
 $offwhite: #FAF9F9;
