@@ -96,6 +96,7 @@ class Navigator extends Component {
         <Tabs.Content>
           <NavigatorPanel data={panel}
                           time={time}
+                          index={index}
                           updateTime={component.updateTime.bind(this)}
                           key={index}
           />
