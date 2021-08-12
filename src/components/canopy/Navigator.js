@@ -15,6 +15,36 @@ class Navigator extends Component {
     this.updateTime = this.updateTime.bind(this);
   }
 
+  hasTranscripts = (transcripts) => {
+    if (Array.isArray(transcripts) ) {
+      if (transcripts.length > 0) {
+        let component = this
+        transcripts.map(function(data) {
+          component.buildTranscript(data.text)
+        })
+      }
+    }
+  }
+
+  buildTranscript = (text) => {
+    let component = this
+
+    console.log(text)
+
+    // const sequence = range.items.map(function(data) {
+    //   let values = {}
+    //   let times = data.items[0].id.split('=')[1].split(',');
+    //   values.t = {}
+    //   values.label= data.label.en[0]
+    //   values.t.label = times[0]
+    //   values.t.start = component.cleanUpTimes(times[0])
+    //   values.t.end = component.cleanUpTimes(times[1])
+    //   return values
+    // })
+    //
+    // this.addSet(range.label.en[0], "range", sequence)
+  }
+
   hasRanges = (structures) => {
     if (Array.isArray(structures) ) {
       if (structures.length > 0) {
@@ -102,8 +132,7 @@ class Navigator extends Component {
   }
 
   componentDidMount() {
-    // this.hasTranscripts(this.props.items);
-
+    this.hasTranscripts(this.props.transcripts);
     this.hasRanges(this.props.structures);
   }
 

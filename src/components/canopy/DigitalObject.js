@@ -10,20 +10,20 @@ class DigitalObject extends Component {
     }
   }
 
-  hasTranscripts = (node) => {
+  getTranscripts = (node) => {
     let component = this
     if (Array.isArray(node.items) ) {
       let items = node.items[0].items[0].items
       items.map(function(element) {
         if (element.motivation === 'supplementing' && element.body[0].format === 'text/vtt') {
           console.log(element.body[0].id)
-          component.getTranscript(element.body[0].id, element)
+          component.fetchVTT(element.body[0].id, element)
         }
       });
     }
   }
 
-  getTranscript(uri, meta) {
+  fetchVTT(uri, meta) {
     fetch(uri, {
       headers : {
         'Content-Type': 'text/plain',
@@ -49,15 +49,15 @@ class DigitalObject extends Component {
   }
 
   componentDidMount() {
-    this.hasTranscripts(this.props.node)
+    this.getTranscripts(this.props.node)
   }
 
   render() {
 
     return (
-      <Viewer node={this.props.node} />
+      <Viewer node={this.props.node} transcripts={this.state.transcripts} />
     )
   }
 }
 
-export default DigitalObject;
+export default DigitalObject
