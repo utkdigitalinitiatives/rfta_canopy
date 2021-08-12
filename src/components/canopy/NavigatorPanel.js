@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 class NavigatorPanel extends Component {
   constructor(props) {
     super(props);
+
+    this.state ={
+      activeIndex: 0
+    }
   }
 
   handleClick = (event) => {
@@ -14,7 +18,7 @@ class NavigatorPanel extends Component {
     return sequence.map(function(item) {
 
       let classes = ''
-      if (time >= item.t.start && time <= item.t.end) {
+      if (time >= item.t.start && time < item.t.end) {
         classes = 'active'
       }
 
