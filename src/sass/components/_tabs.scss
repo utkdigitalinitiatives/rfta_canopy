@@ -47,7 +47,7 @@
       &:hover {
         &::after {
           width: 100%;
-          background-color: $secondary;
+          background-color: $accent;
         }
       }
 
@@ -57,7 +57,7 @@
 
         &::after {
           width: 100%;
-          background-color: $secondary;
+          background-color: $accent;
         }
       }
     }
