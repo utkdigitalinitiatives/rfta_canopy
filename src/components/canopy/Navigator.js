@@ -78,9 +78,9 @@ class Navigator extends Component {
   renderTabs = (tabs) => {
     return (
       <Tabs.List className="canopy-tabs--list">
-        {tabs.map(function(label) {
+        {tabs.map(function(label, index) {
             return (
-              <Tabs.Trigger>
+              <Tabs.Trigger value={`p${index}`}>
                 {label}
               </Tabs.Trigger>
             )
@@ -93,7 +93,7 @@ class Navigator extends Component {
     let component = this
     return panels.map(function(panel, index) {
       return (
-        <Tabs.Content>
+        <Tabs.Content value={`p${index}`}>
           <NavigatorPanel data={panel}
                           time={time}
                           index={index}
