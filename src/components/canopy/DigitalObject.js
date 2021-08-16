@@ -12,21 +12,15 @@ class DigitalObject extends Component {
     }
   }
 
-  getTranscripts = (node) => {
+  getTranscripts = (transcripts) => {
     let component = this
-    if (Array.isArray(node.items) ) {
-      let items = node.items[0].items[0].items
-      items.map(function(element) {
-        if (element.motivation === 'supplementing' && element.body[0].format === 'text/vtt') {
-          console.log(element.body[0].id)
-          component.fetchVTT(element.body[0].id, element)
-        }
-      });
-    }
+    transcripts.map(function(transcript) {
+      component.fetchVTT(transcript)
+    });
   }
 
-  fetchVTT(uri, meta) {
-    fetch(uri, {
+  fetchVTT = (body) => {
+    fetch(body.id, {
       headers : {
         'Content-Type': 'text/plain',
         'Accept': 'application/json'
@@ -37,7 +31,7 @@ class DigitalObject extends Component {
         let transcripts = this.state.transcripts
         if (transcripts) {
           let transcript = {}
-          transcript.iiif = meta
+          transcript.iiif = body
           transcript.text = fromVtt(data)
           transcripts.push(transcript)
         }
@@ -51,14 +45,17 @@ class DigitalObject extends Component {
   }
 
   componentDidMount() {
-    this.getTranscripts(this.props.node)
+    this.getTranscripts(this.props.node.transcripts)
   }
 
   render() {
-
-    return (
-      <Viewer node={this.props.node} transcripts={this.state.transcripts} />
-    )
+    if (this.state.transcripts.length === this.props.node.transcripts.length) {
+      return (
+        <Viewer node={this.props.node} transcripts={this.state.transcripts} />
+      )
+    } else {
+      return 'loading component'
+    }
   }
 }
 

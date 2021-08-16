@@ -33,7 +33,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
       if (Array.isArray(items)) {
         items[0].items[0].items.map(function(element) {
           if (element.motivation === 'supplementing' && element.body[0].format === 'text/vtt') {
-            transcripts.push(element.body)
+            transcripts.push(element.body[0])
           }
         });
       }
