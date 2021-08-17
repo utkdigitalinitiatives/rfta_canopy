@@ -74,7 +74,7 @@ class Video extends Component {
         currentTime: event.target.currentTime
       })
     };
-    if (!isSafari) {
+    if (!isSafari && this.state.format === 'audio/mpeg') {
       this.audioVisualizer(this.video.current);
     }
   }
