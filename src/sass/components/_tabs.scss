@@ -7,7 +7,7 @@
   &--list {
     display: flex;
     justify-content: flex-start;
-    border-bottom: 3px solid $muted;
+    border-bottom: 3px solid transparent;
     flex-shrink: 0;
 
     &:hover div[data-state="active"] {
@@ -23,7 +23,7 @@
     div {
       flex-grow: 0;
       flex-shrink: 0;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0.75rem;
       font-family: $sans;
       font-weight: 700;
       font-size: 0.833em;
@@ -32,14 +32,13 @@
       background: transparent;
       transition: all 200ms ease-in-out;
       position: relative;
-      text-transform: uppercase;
 
       &::after {
         content: '';
         width: 0;
-        height: 2px;
+        height: 3px;
         position: absolute;
-        bottom: -2px;
+        bottom: -3px;
         left: 0;
         background-color: transparent;
         transition: all 200ms ease-in-out;
