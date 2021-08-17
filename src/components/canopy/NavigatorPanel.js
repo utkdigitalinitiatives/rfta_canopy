@@ -63,12 +63,14 @@ class NavigatorPanel extends Component {
   updateSequenceScroll = (activeIndex, sequenceElement) => {
     let selector = `#p${this.props.index}s${activeIndex}`
     let activeItem = sequenceElement.querySelector(selector)
-    let top = activeItem.offsetTop - activeItem.offsetParent.offsetTop
-    sequenceElement.scrollTo({
-      top: top,
-      left: 0,
-      behavior: 'smooth'
-    });
+    if (activeItem.offsetParent) {
+      let top = activeItem.offsetTop - activeItem.offsetParent.offsetTop
+      sequenceElement.scrollTo({
+        top: top,
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
   }
 
 
