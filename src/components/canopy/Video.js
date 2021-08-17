@@ -1,5 +1,6 @@
 import React, { Component, createRef } from "react"
 import Track from "./Track"
+import { isSafari } from "react-device-detect";
 
 class Video extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Video extends Component {
     }
 
     this.video = createRef()
+    this.visualizer = createRef()
   }
 
   renderSource = (src, type) => {
@@ -72,6 +74,9 @@ class Video extends Component {
         currentTime: event.target.currentTime
       })
     };
+    if (!isSafari) {
+      this.audioVisualizer(this.video.current);
+    }
   }
 
   handleUpdate = (t) => {
@@ -83,6 +88,64 @@ class Video extends Component {
         })
       }
     }
+  }
+
+  audioVisualizer = (video) => {
+    const context = new AudioContext();
+    const src = context.createMediaElementSource(video);
+    let analyser = context.createAnalyser();
+
+    const canvas = this.visualizer.current;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext("2d");
+
+    src.connect(analyser);
+    analyser.connect(context.destination);
+
+    analyser.fftSize = 256;
+
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+
+    let component = this;
+    setInterval(function(){
+      component.renderFrame(analyser, ctx, bufferLength, dataArray, canvas.width, canvas.height);
+    }, 20);
+  };
+
+  renderFrame(analyser, ctx, bufferLength, dataArray, width, height) {
+
+    let barWidth = (width / bufferLength) * 2.6;
+    let barHeight;
+    let x = 0;
+
+    analyser.getByteFrequencyData(dataArray);
+
+    ctx.fillStyle = "#313E48";
+    ctx.fillRect(0, 0, width, height);
+
+    for (let i = 0; i < bufferLength; i++) {
+      barHeight = dataArray[i] * 4;
+
+      const r = 26 + (i * 4);
+      const g = 114;
+      const b = 197;
+      const alpha = 1
+
+      ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+      ctx.fillRect(x, height - barHeight, barWidth, barHeight);
+
+      x += barWidth + 6;
+    }
+  }
+
+  renderAudioVisualizer = () => {
+    return (
+      <canvas id="canopy-audio-visualizer"
+              ref={this.visualizer}>
+      </canvas>
+    )
   }
 
   componentDidMount () {
@@ -99,14 +162,16 @@ class Video extends Component {
 
     if (source) {
       return (
-        <video controls
-               ref={this.video}
-               onPlay={this.handlePlay}
-               className="canopy-video"
-               crossOrigin="anonymous">
-          {this.renderSource(source, format)}
-          {this.renderTracks(tracks)}
-        </video>
+        <div className="canopy-video">
+          <video controls
+                 ref={this.video}
+                 onPlay={this.handlePlay}
+                 crossOrigin="anonymous">
+            {this.renderSource(source, format)}
+            {this.renderTracks(tracks)}
+          </video>
+          {this.renderAudioVisualizer(format)}
+        </div>
       )
 
     } else {
