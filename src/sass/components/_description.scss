@@ -1,3 +1,32 @@
 .canopy-metadata {
-  display: flex;
+  display:flex;
+  flex-wrap:wrap;
+  width:100%;
+
+  dt {
+    font-weight:bold;
+    width:33%;
+    padding-top:1em;
+  }
+
+  dd {
+    display:flex;
+    margin:0;
+    padding-top:1em;
+  }
+
+  dd + dd {
+    width:100%;
+    padding-top:0;
+  }
+
+  dt + dd:not(:nth-child(2)) {
+    width:66%;
+  }
+
+  dd + dd::before {
+    width:33%;
+    content:"";
+    padding-top:0
+  }
 }
