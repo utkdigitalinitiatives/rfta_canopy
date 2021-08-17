@@ -19,14 +19,17 @@ class Description extends Component {
           {description.getValues(element.value.en)}
         </div>
       )
-    }));
+    }
+    ));
   }
 
   handleRequiredStatement () {
-    return (<div>
-      <dt>{this.props.node.requiredStatement.label.en[0]}</dt>
-      <dd>{this.props.node.requiredStatement.value.en[0]}</dd>
-    </div>)
+    return (
+      <div>
+        <dt>{this.props.node.requiredStatement.label.en[0]}</dt>
+        <dd>{this.props.node.requiredStatement.value.en[0]}</dd>
+      </div>
+    )
   }
 
   getLabel (label) {
@@ -45,10 +48,10 @@ class Description extends Component {
   render() {
 
     return (
-      <div>
+      <dl>
         {this.handleMetadata()}
         {this.handleRequiredStatement()}
-      </div>
+      </dl>
     )
   }
 }
