@@ -6,11 +6,20 @@ class Description extends Component {
   }
 
   componentDidMount () {
-    console.log(this.props)
+
   }
 
   handleMetadata () {
-    return this.props.node.label.en[0]
+    const metadata = this.props.node.metadata
+    let description = this
+    return (metadata.map(function(element){
+      return (
+        <div>
+          <dt>{description.getLabel(element.label)}</dt>
+          {description.getValues(element.value.en)}
+        </div>
+      )
+    }));
   }
 
   handleRequiredStatement () {
@@ -25,7 +34,12 @@ class Description extends Component {
   }
 
   getValues(multiple_values) {
-    return multiple_values.map()
+    console.log(multiple_values)
+    return multiple_values.map(function(value) {
+      return (
+        <dd>{value}</dd>
+      )
+    })
   }
 
   render() {
