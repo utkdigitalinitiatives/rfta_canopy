@@ -92,6 +92,16 @@ export const manifestQuery = graphql`
               en
             }
           }
+          transcripts {
+            id
+            format
+            language
+            type
+            label {
+              en
+              es
+            }
+          }
         }
       }
     }

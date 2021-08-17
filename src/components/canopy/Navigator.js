@@ -15,34 +15,39 @@ class Navigator extends Component {
     this.updateTime = this.updateTime.bind(this);
   }
 
-  hasTranscripts = (transcripts) => {
+  hasTranscripts = (transcripts, translation = false) => {
     if (Array.isArray(transcripts) ) {
       if (transcripts.length > 0) {
         let component = this
+        if (transcripts.length === 2) {
+          translation = true
+        }
         transcripts.map(function(data) {
-          component.buildTranscript(data.text)
+          component.buildTranscript(data.iiif, data.text, translation)
         })
       }
     }
   }
 
-  buildTranscript = (text) => {
+  buildTranscript = (iiif, transcript, translation) => {
     let component = this
+    
+    let label = 'Transcript'
+    if (translation && iiif.language === 'en') {
+      label = "Translation"
+    }
 
-    console.log(text)
+    const sequence = transcript.map(function(data, index) {
+      let values = {}
+      values.t = {}
+      values.label= data.text
+      values.t.label = data.startTime
+      values.t.start = component.cleanUpTimes(data.startTime)
+      values.t.end = component.cleanUpTimes(data.endTime)
+      return values
+    })
 
-    // const sequence = range.items.map(function(data) {
-    //   let values = {}
-    //   let times = data.items[0].id.split('=')[1].split(',');
-    //   values.t = {}
-    //   values.label= data.label.en[0]
-    //   values.t.label = times[0]
-    //   values.t.start = component.cleanUpTimes(times[0])
-    //   values.t.end = component.cleanUpTimes(times[1])
-    //   return values
-    // })
-    //
-    // this.addSet(range.label.en[0], "range", sequence)
+    this.addSet(label, "vtt", sequence)
   }
 
   hasRanges = (structures) => {
@@ -127,6 +132,19 @@ class Navigator extends Component {
     });
   }
 
+  renderNavigator = (data, tabs, t) => {
+    if (data && tabs) {
+      return (
+        <Tabs.Root className="canopy-tabs" defaultValue="tab-0">
+          {this.renderTabs(tabs)}
+          <div className="canopy-tabs--content">
+            {this.renderPanels(data, t)}
+          </div>
+        </Tabs.Root>
+      )
+    }
+  }
+
   updateTime (value) {
     this.props.updateTime(value)
   }
@@ -143,12 +161,7 @@ class Navigator extends Component {
 
     return (
       <aside className="canopy-navigator">
-        <Tabs.Root className="canopy-tabs" defaultValue="tab-0">
-          {this.renderTabs(tabs)}
-          <div className="canopy-tabs--content">
-            {this.renderPanels(data, t)}
-          </div>
-        </Tabs.Root>
+        {this.renderNavigator(data, tabs, t)}
       </aside>
     )
   }
