@@ -1,6 +1,7 @@
 import React, { Component, createRef } from "react"
 import Track from "./Track"
 import { isSafari } from "react-device-detect";
+import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 
 class Video extends Component {
   constructor(props) {
@@ -140,6 +141,18 @@ class Video extends Component {
     }
   }
 
+  renderFigure = () => {
+    return (
+      <div className="canopy-accompanying-canvas">
+        <AspectRatio.Root ratio={1}>
+          <figure>
+            <img src=""/>
+          </figure>
+        </AspectRatio.Root>
+      </div>
+    )
+  }
+
   renderAudioVisualizer = () => {
     return (
       <canvas id="canopy-audio-visualizer"
@@ -147,6 +160,18 @@ class Video extends Component {
       </canvas>
     )
   }
+
+  renderBackground = (format) => {
+    if (format === 'audio/mpeg') {
+      return (
+        <div className="canopy-video-background">
+          {this.renderFigure()}
+          {this.renderAudioVisualizer()}
+        </div>
+      )
+    }
+  }
+
 
   componentDidMount () {
     this.parseItems()
@@ -170,7 +195,7 @@ class Video extends Component {
             {this.renderSource(source, format)}
             {this.renderTracks(tracks)}
           </video>
-          {this.renderAudioVisualizer(format)}
+          {this.renderBackground(format)}
         </div>
       )
 
