@@ -136,9 +136,14 @@ class Video extends Component {
   }
 
   handlePause = () => {
-    this.setState({
-      playing: false
-    })
+    let component = this
+    setTimeout(function() {
+      if (component.video.current.paused) {
+        component.setState({
+          playing: false
+        })
+      }
+    }, 200);
   }
 
   handleUpdate = (t) => {
