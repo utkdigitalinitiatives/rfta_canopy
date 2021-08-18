@@ -23,7 +23,7 @@ const accompanyingCanvas = {
           "type": "Annotation",
           "motivation": "painting",
           "body": {
-            "id": "https://iiif.io/api/image/3.0/example/reference/4b45bba3ea612ee46f5371ce84dbcd89-mahler-0/full/,998/0/default.jpg",
+            "id": "https://iiif.io/api/image/3.0/example/reference/4b45bba3ea612ee46f5371ce84dbcd89-mahler-0/full/!300,300/0/default.jpg",
             "type": "Image",
             "format": "image/jpeg",
             "height": 998,
