@@ -13,7 +13,8 @@ class Video extends Component {
       tracks: [],
       currentTime: 0,
       updateTime: null,
-      updated: true
+      updated: true,
+      playing: false
     }
 
     this.video = createRef()
@@ -66,18 +67,24 @@ class Video extends Component {
     }
   }
 
-
   handlePlay = () => {
     let video = this.video.current
     video.ontimeupdate = (event) => {
       this.props.time(event.target.currentTime)
       this.setState({
-        currentTime: event.target.currentTime
+        currentTime: event.target.currentTime,
+        playing: true
       })
     };
     if (!isSafari && this.state.format === 'audio/mpeg') {
       this.audioVisualizer(this.video.current);
     }
+  }
+
+  handlePause = () => {
+    this.setState({
+      playing: false
+    })
   }
 
   handleUpdate = (t) => {
@@ -183,14 +190,20 @@ class Video extends Component {
 
   render() {
 
-    let {source, format, tracks} = this.state
+    let {source, format, tracks, playing} = this.state
+
+    let className = `canopy-video`
+    if (playing) {
+      className = `canopy-video canopy-video-active`
+    }
 
     if (source) {
       return (
-        <div className="canopy-video">
+        <div className={className}>
           <video controls
                  ref={this.video}
                  onPlay={this.handlePlay}
+                 onPause={this.handlePause}
                  crossOrigin="anonymous">
             {this.renderSource(source, format)}
             {this.renderTracks(tracks)}
