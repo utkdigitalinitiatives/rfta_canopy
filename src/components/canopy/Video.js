@@ -3,6 +3,46 @@ import Track from "./Track"
 import { isSafari } from "react-device-detect";
 import * as AspectRatio from '@radix-ui/react-aspect-ratio';
 
+const accompanyingCanvas = {
+  "id": "https://iiif.io/api/cookbook/recipe/0014-accompanyingcanvas/canvas/accompanying",
+  "type": "Canvas",
+  "label": {
+    "en": [
+      "First page of score for Gustav Mahler, Symphony No. 3"
+    ]
+  },
+  "height": 998,
+  "width": 772,
+  "items": [
+    {
+      "id": "https://iiif.io/api/cookbook/recipe/0014-accompanyingcanvas/canvas/accompanying/annotation/page",
+      "type": "AnnotationPage",
+      "items": [
+        {
+          "id": "https://iiif.io/api/cookbook/recipe/0014-accompanyingcanvas/canvas/accompanying/annotation/image",
+          "type": "Annotation",
+          "motivation": "painting",
+          "body": {
+            "id": "https://iiif.io/api/image/3.0/example/reference/4b45bba3ea612ee46f5371ce84dbcd89-mahler-0/full/,998/0/default.jpg",
+            "type": "Image",
+            "format": "image/jpeg",
+            "height": 998,
+            "width": 772,
+            "service": [
+              {
+                "id": "https://iiif.io/api/image/3.0/example/reference/4b45bba3ea612ee46f5371ce84dbcd89-mahler-0",
+                "type": "ImageService3",
+                "profile": "level1"
+              }
+            ]
+          },
+          "target": "https://iiif.io/api/cookbook/recipe/0014-accompanyingcanvas/canvas/accompanying"
+        }
+      ]
+    }
+  ]
+}
+
 class Video extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +54,8 @@ class Video extends Component {
       currentTime: 0,
       updateTime: null,
       updated: true,
-      playing: false
+      playing: false,
+      image: null
     }
 
     this.video = createRef()
@@ -43,7 +84,9 @@ class Video extends Component {
     let component = this;
 
     if (Array.isArray(this.props.items)) {
+
       const items = this.props.items[0].items[0].items;
+
       items.map(function(element) {
         if (element.motivation === 'painting') {
           component.setState({
@@ -64,6 +107,17 @@ class Video extends Component {
           });
         }
       });
+
+      if (accompanyingCanvas) {
+        const src = accompanyingCanvas.items[0].items[0].body.id
+        const alt = accompanyingCanvas.label.en[0]
+        component.setState({
+          image: {
+            src,
+            alt
+          }
+        });
+      }
     }
   }
 
@@ -148,16 +202,18 @@ class Video extends Component {
     }
   }
 
-  renderFigure = () => {
-    return (
-      <div className="canopy-accompanying-canvas">
-        <AspectRatio.Root ratio={1}>
-          <figure>
-            <img src=""/>
-          </figure>
-        </AspectRatio.Root>
-      </div>
-    )
+  renderFigure = (image) => {
+    if (image) {
+      return (
+        <div className="canopy-accompanying-canvas">
+          <AspectRatio.Root ratio={1}>
+            <figure>
+              <img src={image.src} alt={image.alt} />
+            </figure>
+          </AspectRatio.Root>
+        </div>
+      )
+    }
   }
 
   renderAudioVisualizer = () => {
@@ -168,11 +224,11 @@ class Video extends Component {
     )
   }
 
-  renderBackground = (format) => {
+  renderBackground = (format, image) => {
     if (format === 'audio/mpeg') {
       return (
         <div className="canopy-video-background">
-          {this.renderFigure()}
+          {this.renderFigure(image)}
           {this.renderAudioVisualizer()}
         </div>
       )
@@ -190,7 +246,7 @@ class Video extends Component {
 
   render() {
 
-    let {source, format, tracks, playing} = this.state
+    let {source, format, tracks, playing, image} = this.state
 
     let className = `canopy-video`
     if (playing) {
@@ -208,7 +264,7 @@ class Video extends Component {
             {this.renderSource(source, format)}
             {this.renderTracks(tracks)}
           </video>
-          {this.renderBackground(format)}
+          {this.renderBackground(format, image)}
         </div>
       )
 
