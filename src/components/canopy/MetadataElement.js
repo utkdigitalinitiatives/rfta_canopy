@@ -26,9 +26,7 @@ class MetadataElement extends Component {
 
   render() {
 
-    return (
-      this.parseElement()
-    )
+    return this.parseElement()
   }
 }
 
