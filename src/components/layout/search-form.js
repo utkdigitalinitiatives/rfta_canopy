@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { BiChevronDown } from "react-icons/bi";
+import MetadataDropdown from "../canopy/MetadataDropdown"
 
 const SearchResults = ({ initialQuery = "" }) => {
 
@@ -36,30 +37,9 @@ const SearchResults = ({ initialQuery = "" }) => {
         />
         <button type="submit">Search</button>
       </div>
-      <div className="canopy-control--item canopy-control--item-dropdown">
-        <DropdownMenu.Root>
-          <DropdownMenu.Trigger>
-            <span>Topic</span>
-            <BiChevronDown />
-          </DropdownMenu.Trigger>
-        </DropdownMenu.Root>
-      </div>
-      <div className="canopy-control--item canopy-control--item-dropdown">
-        <DropdownMenu.Root>
-          <DropdownMenu.Trigger>
-            <span>Location</span>
-            <BiChevronDown />
-          </DropdownMenu.Trigger>
-        </DropdownMenu.Root>
-      </div>
-      <div className="canopy-control--item canopy-control--item-dropdown">
-        <DropdownMenu.Root>
-          <DropdownMenu.Trigger>
-            <span>Type</span>
-            <BiChevronDown />
-          </DropdownMenu.Trigger>
-        </DropdownMenu.Root>
-      </div>
+      <MetadataDropdown label="Topic" />
+      <MetadataDropdown label="Coverage" />
+      <MetadataDropdown label="Extent" />
     </form>
   )
 }
