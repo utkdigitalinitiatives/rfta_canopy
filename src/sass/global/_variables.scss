@@ -4,6 +4,8 @@ Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 $serif: 'Halant', Georgia, serif;
 
 $primary: #313E48;
+$primaryMuted: #465866;
+
 $muted: #f1f0ef;
 $midtone: darken($muted, 10);
 $highlight: darken($muted, 25);
@@ -17,6 +19,9 @@ $accentMuted: desaturate(lighten($accent, 38.2), 38.2);
 
 $offwhite: #FAF9F9;
 
-$box-shadow: 4px 4px 8px rgba($primary, 0.15);
-$box-shadow-focus: 6px 6px 12px rgba($primary, 0.25);
-$box-shadow-slim: 2px 2px 5px rgba($primary, 0.15);
+
+$box-shadow-color: darken($primary, 10);
+
+$box-shadow: 4px 4px 8px rgba($box-shadow-color, 0.15);
+$box-shadow-focus: 6px 6px 12px rgba($box-shadow-color, 0.25);
+$box-shadow-slim: 2px 2px 5px rgba($box-shadow-color, 0.15);
