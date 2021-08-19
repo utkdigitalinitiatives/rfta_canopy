@@ -1,8 +1,9 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { Index } from "lunr"
+import Manifest from "../../templates/manifest"
 
-const SearchResults = ({ data, initialQuery = "" }) => {
+const SearchResults = ({ data, initialQuery = "" , filter}) => {
 
   const { store } = data.LunrIndex
   const index = Index.load(data.LunrIndex.index)
@@ -19,6 +20,9 @@ const SearchResults = ({ data, initialQuery = "" }) => {
   } catch (error) {
     console.log(error)
   }
+
+  console.log(results)
+  console.log(filter)
 
   return (
     <div className="canopy-search-results">

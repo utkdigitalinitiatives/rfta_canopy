@@ -14,6 +14,7 @@ const IndexPage = ({ data, location }) => {
 
   const params = new URLSearchParams(location.search.slice(1))
   const q = params.get("q") || ""
+  const filter = params.get("filter") || ""
 
   return (
     <Layout location={location}>
@@ -25,7 +26,7 @@ const IndexPage = ({ data, location }) => {
         </Sticky>
       </div>
       <div className="canopy-main">
-        <SearchResults data={data} initialQuery={q} />
+        <SearchResults data={data} initialQuery={q} filter={filter} />
         <aside>
           <About />
         </aside>
