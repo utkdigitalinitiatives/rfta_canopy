@@ -14,7 +14,36 @@ function getValue(json, lang, value = null) {
 
 }
 
+class Filter {
+  #params;
+
+  constructor(params) {
+    this.#params = params;
+  }
+
+  get parameters() {
+    return this.parseParameters()
+  }
+
+  parseParameters() {
+    if (this.#params.includes('&')) {
+      return this.parseParameters(this.#params.split('&'))
+    }
+    else {
+      return [this.parseParameterValues(this.#params)]
+    }
+  }
+
+  parseParameterValues (value) {
+    return {
+      "label": value.split(":")[0],
+      "value": value.split(":")[1]
+    }
+  }
+
+}
+
 module.exports = {
-  getValue
+  getValue, Filter
 };
 
