@@ -20,7 +20,7 @@ class MetadataElement extends Component {
 
   getValues(multiple_values) {
     return multiple_values[this.props.language].map(function(value) {
-      return <dd>{value}</dd>
+      return <dd><a href={`/?filter=Topic:${value}`}>{value}</a></dd>
     })
   }
 
