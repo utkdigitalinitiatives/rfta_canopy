@@ -9,20 +9,10 @@ class MetadataDropdown extends Component {
     super(props);
   }
 
-  render() {
-
-    const {label} = this.props
-
+  renderContent(label) {
     return (
-      <div className="canopy-control--item canopy-control--item-dropdown">
-        <DropdownMenu.Root>
-          <DropdownMenu.Trigger>
-            <span>{label}</span>
-            <BiChevronDown />
-          </DropdownMenu.Trigger>
-          <DropdownMenu.Content>
-            <StaticQuery
-              query={graphql`
+      <StaticQuery
+        query={graphql`
                 query {
                   allManifests {
                     edges {
@@ -40,13 +30,29 @@ class MetadataDropdown extends Component {
                   }
                 }
               `}
-              render = {
-                data => (
-                  <MetadataDropdownContent data={data}
-                                           label={label} />
-                )
-              }
-            />
+        render = {
+          data => (
+            <MetadataDropdownContent data={data}
+                                     label={label} />
+          )
+        }
+      />
+    )
+  }
+
+  render() {
+
+    const {label} = this.props
+
+    return (
+      <div className="canopy-control--item canopy-control--item-dropdown">
+        <DropdownMenu.Root>
+          <DropdownMenu.Trigger>
+            <span>{label}</span>
+            <BiChevronDown />
+          </DropdownMenu.Trigger>
+          <DropdownMenu.Content>
+            {this.renderContent(label)}
           </DropdownMenu.Content>
         </DropdownMenu.Root>
       </div>
@@ -74,7 +80,11 @@ const MetadataDropdownContent = ({ data, label }) => {
 }
 
 const MetadataDropdownContentItem = ({ value, count }) => {
-  return <a><span>{count}</span> {value}</a>
+  return (
+    <a>
+      <span>{count}</span> {value}
+    </a>
+  )
 }
 
 export default MetadataDropdown;
