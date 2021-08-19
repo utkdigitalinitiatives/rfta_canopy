@@ -20,8 +20,12 @@ article.canopy-manifest {
     }
 
     > div {
+      display: flex;
+
       svg#iiif-logo {
+        padding-top: 0.25rem;
         height: 1.25rem;
+        margin-right: 1.5em;
       }
     }
   }
