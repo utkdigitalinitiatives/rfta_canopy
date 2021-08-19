@@ -1,32 +1,14 @@
-.canopy-metadata {
-  display:flex;
-  flex-wrap:wrap;
-  width:100%;
-
+dl.canopy-metadata {
   dt {
-    font-weight:bold;
-    width:33%;
-    padding-top:1em;
+    font-weight: 700;
+    margin-top: 1em;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   dd {
-    display:flex;
-    margin:0;
-    padding-top:1em;
-  }
-
-  dd + dd {
-    width:100%;
-    padding-top:0;
-  }
-
-  dt + dd:not(:nth-child(2)) {
-    width:66%;
-  }
-
-  dd + dd::before {
-    width:33%;
-    content:"";
-    padding-top:0
+    margin: 0;
   }
 }
