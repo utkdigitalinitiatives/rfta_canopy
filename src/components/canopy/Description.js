@@ -11,11 +11,9 @@ class Description extends Component {
     const metadata = this.props.node.metadata
     return (metadata.map(function(element){
       return (
-        <>
-          <MetadataElement element={element}
-                           language='en'
-          />
-        </>
+        <MetadataElement element={element}
+                         language='en'
+        />
       )
     }
     ));
@@ -23,11 +21,9 @@ class Description extends Component {
 
   handleRequiredStatement () {
     return (
-      <>
-          <MetadataElement element={this.props.node.requiredStatement}
-                           language='en'
-          />
-      </>
+        <MetadataElement element={this.props.node.requiredStatement}
+                         language='en'
+        />
     )
   }
 
