@@ -1,7 +1,5 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { BiChevronDown } from "react-icons/bi";
 import MetadataDropdown from "../canopy/MetadataDropdown"
 
 const SearchResults = ({ initialQuery = "" }) => {
@@ -39,7 +37,7 @@ const SearchResults = ({ initialQuery = "" }) => {
       </div>
       <MetadataDropdown label="Topic" />
       <MetadataDropdown label="Coverage" />
-      <MetadataDropdown label="Extent" />
+      <MetadataDropdown label="Form" />
     </form>
   )
 }
