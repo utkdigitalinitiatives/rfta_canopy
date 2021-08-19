@@ -15,6 +15,7 @@ class IIIFBadge extends Component {
         <svg viewBox="0 0 493.35999 441.33334"
              id="iiif-logo"
              version="1.1">
+              <title>IIIF Logo</title>
               <g transform="matrix(1.3333333,0,0,-1.3333333,0,441.33333)">
                 <g transform="scale(0.1)">
                   <path style={{fill: blue}} d="M 65.2422,2178.75 775.242,1915 773.992,15 65.2422,276.25 v 1902.5"/>
