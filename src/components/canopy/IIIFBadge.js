@@ -11,7 +11,8 @@ class IIIFBadge extends Component {
     const blue = '#2873ab';
 
     return (
-      <a href="">
+      <a href={this.props.url}
+         target="_blank">
         <svg viewBox="0 0 493.35999 441.33334"
              id="iiif-logo"
              version="1.1">

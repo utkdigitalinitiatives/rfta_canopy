@@ -9,13 +9,13 @@ class DigitalObjectHeader extends Component {
 
   render() {
 
-    const {title} = this.props
+    const {title, manifest} = this.props
 
     return (
       <header>
         <h1>{title}</h1>
         <div>
-          <IIIFBadge />
+          <IIIFBadge url={manifest} />
           <Link to={'/'} className="canopy-button canopy-button-svg">
             Back to Search
             <svg version="1.1"

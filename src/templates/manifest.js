@@ -20,7 +20,8 @@ const Manifest = ({ data }) => {
       <Seo title="Home" />
 
       <article className="canopy-manifest">
-        <DigitalObjectHeader title={label.en[0]} />
+        <DigitalObjectHeader title={label.en[0]}
+                             manifest={manifestId} />
         <DigitalObject node={node}/>
         <Details id={id}
                  node={node} />
