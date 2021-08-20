@@ -2,19 +2,38 @@ article.canopy-manifest {
   display: flex;
   flex-direction: column;
 
+  @extend .canopy-panel;
+
   > header {
-    padding: 1rem 0 2rem;
+
+    padding: 1rem 1rem 1rem;
     display: flex;
     justify-content: space-between;
 
     h1 {
       margin: 0;
-      font-size: 2em;
-      font-family: $serif;
+      font-size: 1.25em;
       font-weight: 600;
-      line-height: 1.15em;
+      line-height: 1.75rem;
       letter-spacing: -0.02em;
-      padding-right: 10rem;
+      padding-right: 5rem;
+    }
+
+    > div {
+      display: flex;
+
+      > * {
+        margin-right: 1.5em;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      svg#iiif-logo {
+        padding-top: 0.25rem;
+        height: 1.25rem;
+      }
     }
   }
 
@@ -25,8 +44,6 @@ article.canopy-manifest {
     @include breakpoints(xs, sm, md) {
       flex-direction: column;
     }
-
-    @extend .canopy-panel;
 
     .canopy-video {
       position: relative;
@@ -103,13 +120,9 @@ article.canopy-manifest {
 
   .canopy-details {
     margin-top: 2rem;
-
-    @extend .canopy-panel;
   }
 
   .canopy-related {
     margin-top: 2rem;
-
-    @extend .canopy-panel;
   }
 }

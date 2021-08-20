@@ -7,6 +7,7 @@ import Details from "../components/layout/details"
 import DigitalObject from "../components/canopy/DigitalObject"
 import { getValue } from "../utilities/iiif"
 import * as Tabs from "@radix-ui/react-tabs"
+import DigitalObjectHeader from "../components/canopy/DigitalObjectHeader"
 
 const Manifest = ({ data }) => {
 
@@ -19,10 +20,8 @@ const Manifest = ({ data }) => {
       <Seo title="Home" />
 
       <article className="canopy-manifest">
-        <header>
-          <h1>{label.en[0]}</h1>
-          <Link to={"/"}>Back to Search</Link>
-        </header>
+        <DigitalObjectHeader title={label.en[0]}
+                             manifest={manifestId} />
         <DigitalObject node={node}/>
         <Details id={id}
                  node={node} />

@@ -1,0 +1,27 @@
+.canopy-button {
+  display: flex;
+  border-radius: 3px;
+  padding: 0.75em 1em;
+  font-size: 0.7222em;
+  line-height: 1em;
+  text-align: center;
+  font-weight: 700;
+  justify-content: center;
+  text-decoration: none;
+  background-color: $muted;
+  color: $primary !important;
+
+  &-svg {
+    position: relative;
+    padding-right: 2rem;
+
+    svg {
+      position: absolute;
+      height: 1.5em;
+      width: 1.5em;
+      right: 0.75em;
+      top: 0.35em;
+      fill: $primary;
+    }
+  }
+}

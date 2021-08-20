@@ -1,0 +1,36 @@
+.canopy-popover {
+  &-trigger {
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  &-content {
+    background-color: white;
+    border: 1px solid $muted;
+    display: flex;
+    flex-direction: column;
+    padding: 0.5em 1em;
+    border-radius: 3px;
+    box-shadow: $box-shadow-slim;
+
+    > button {
+      width: 20px;
+      height: 20px;
+      padding: 4px;
+      margin: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      border: none;
+      cursor: pointer;
+      fill: $primary;
+      background: none;
+    }
+
+    a {
+      font-size: 0.8333em;
+      margin-top: 0.5em;
+    }
+  }
+}
