@@ -29,15 +29,15 @@ class Filter {
     if (this.#params.includes(',')) {
       let current = this
       return this.#params.split(',').map(function(partial) {
-        return current.parseParameterValues(partial)
+        return current.getLabelsAndValues(partial)
       })
     }
     else {
-      return [this.parseParameterValues(this.#params)]
+      return [this.getLabelsAndValues(this.#params)]
     }
   }
 
-  parseParameterValues (value) {
+  getLabelsAndValues (value) {
     return {
       "label": value.split(":")[0],
       "value": value.split(":")[1]
