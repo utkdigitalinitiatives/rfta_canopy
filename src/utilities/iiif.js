@@ -26,8 +26,14 @@ class Filter {
   }
 
   parseParameters() {
-    if (this.#params.includes('&')) {
-      return this.parseParameters(this.#params.split('&'))
+    if (this.#params.includes(',')) {
+      let split_string = this.#params.split(',')
+      let split_parameters = []
+      let current = this
+      split_string.map(function(partial) {
+        split_parameters.push(current.parseParameterValues(partial))
+      })
+      return split_parameters
     }
     else {
       return [this.parseParameterValues(this.#params)]
