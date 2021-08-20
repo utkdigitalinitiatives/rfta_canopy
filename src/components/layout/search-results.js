@@ -23,44 +23,24 @@ const SearchResults = ({ data, initialQuery = "" , filter}) => {
     console.log(error)
   }
 
-  console.log(results)
-
   if (filter != "") {
     let current_filter = new Filter(filter)
     current_filter.parameters.map(function(thing){
       lookup_filter(thing)
-      // console.log(filtered_results)
-      removeUnfilteredResults()
+      results = filtered_results
     })
   }
 
   function lookup_filter (filter) {
     results.map(function(result){
-      let found = false
       result.metadata.map(function(element) {
        if (element.label.en[0] == filter.label && element.value.en.includes(filter.value)) {
-         console.log(result.slug)
          filtered_results.push(result)
-         found = true
        }
       })
-      if (found == false) {
-        // results.pop(result)
-      }
     })
   }
 
-  function removeUnfilteredResults () {
-    results.map(function(result) {
-      if (filtered_results.includes(result) == false) {
-        console.log(result.label)
-        results.pop(result)
-      }
-    })
-  }
-
-
-  // console.log(parseFilter(filter).value)
 
   return (
     <div className="canopy-search-results">
