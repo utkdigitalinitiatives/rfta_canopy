@@ -8,19 +8,20 @@ class MetadataElement extends Component {
   parseElement () {
     return(
       <>
-        {this.getLabel(this.props.element.label)}
+        <dt>{this.getLabel(this.props.element.label)}</dt>
         {this.getValues(this.props.element.value)}
       </>
     )
   }
 
   getLabel (label) {
-    return <dt>{label[this.props.language][0]}</dt>
+    return label[this.props.language][0]
   }
 
   getValues(multiple_values) {
+    const the_label = this.getLabel(this.props.element.label)
     return multiple_values[this.props.language].map(function(value) {
-      return <dd><a href={`/?filter=Topic:${value}`}>{value}</a></dd>
+      return <dd><a href={`/?filter=${the_label}:${value}`}>{value}</a></dd>
     })
   }
 
