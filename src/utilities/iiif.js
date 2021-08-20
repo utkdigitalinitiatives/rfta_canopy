@@ -27,13 +27,10 @@ class Filter {
 
   parseParameters() {
     if (this.#params.includes(',')) {
-      let split_string = this.#params.split(',')
-      let split_parameters = []
       let current = this
-      split_string.map(function(partial) {
-        split_parameters.push(current.parseParameterValues(partial))
+      return this.#params.split(',').map(function(partial) {
+        return current.parseParameterValues(partial)
       })
-      return split_parameters
     }
     else {
       return [this.parseParameterValues(this.#params)]
