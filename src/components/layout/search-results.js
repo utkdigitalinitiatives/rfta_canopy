@@ -11,7 +11,6 @@ const SearchResults = ({ data, initialQuery = "" , filter}) => {
   const searchString = `*${initialQuery}*`
 
   let results = []
-  let filtered_results = []
   try {
     results = index.search(`*${searchString}*`).map(({ ref }) => {
       return {
@@ -26,12 +25,12 @@ const SearchResults = ({ data, initialQuery = "" , filter}) => {
   if (filter != "") {
     let current_filter = new Filter(filter)
     current_filter.parameters.map(function(thing){
-      lookup_filter(thing)
-      results = filtered_results
+      results = lookup_filter(thing)
     })
   }
 
   function lookup_filter (filter) {
+    let filtered_results = []
     results.map(function(result){
       result.metadata.map(function(element) {
        if (element.label.en[0] == filter.label && element.value.en.includes(filter.value)) {
@@ -39,6 +38,7 @@ const SearchResults = ({ data, initialQuery = "" , filter}) => {
        }
       })
     })
+    return filtered_results
   }
 
 
