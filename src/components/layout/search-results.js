@@ -1,8 +1,10 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { Index } from "lunr"
+import { Filter } from "../../utilities/iiif"
+import Manifest from "../../templates/manifest"
 
-const SearchResults = ({ data, initialQuery = "" }) => {
+const SearchResults = ({ data, initialQuery = "" , filter}) => {
 
   const { store } = data.LunrIndex
   const index = Index.load(data.LunrIndex.index)
@@ -19,6 +21,26 @@ const SearchResults = ({ data, initialQuery = "" }) => {
   } catch (error) {
     console.log(error)
   }
+
+  if (filter != "") {
+    let current_filter = new Filter(filter)
+    current_filter.parameters.map(function(thing){
+      results = lookup_filter(thing)
+    })
+  }
+
+  function lookup_filter (filter) {
+    let filtered_results = []
+    results.map(function(result){
+      result.metadata.map(function(element) {
+       if (element.label.en[0] == filter.label && element.value.en.includes(filter.value)) {
+         filtered_results.push(result)
+       }
+      })
+    })
+    return filtered_results
+  }
+
 
   return (
     <div className="canopy-search-results">

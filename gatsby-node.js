@@ -144,9 +144,15 @@ const createIndex = async (manifestNodes, type, cache) => {
         summary = node.summary.en[0]
       }
 
+      let metadata = []
+      if (node.metadata) {
+        metadata = node.metadata
+      }
+
       store[id] = {
         label: label,
-        summary: summary
+        summary: summary,
+        metadata: metadata
       }
 
       this.add({
