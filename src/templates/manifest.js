@@ -25,10 +25,10 @@ const Manifest = ({ data }) => {
         <DigitalObject node={node}/>
         <Details id={id}
                  node={node} />
-        <div className="canopy-related">
-          [related items?]
-        </div>
       </article>
+      <div className="canopy-related">
+        [related items?]
+      </div>
     </Layout>
   )
 }
