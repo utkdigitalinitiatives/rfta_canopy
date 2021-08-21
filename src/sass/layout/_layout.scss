@@ -32,7 +32,7 @@ body {
   }
 
   > div > main {
-    padding: 2rem 3rem;
+    padding: 2rem 0;
 
     .canopy-main {
       display: flex;
@@ -51,8 +51,6 @@ body {
 }
 
 .canopy-panel {
-  border-radius: 3px;
   box-shadow: $box-shadow;
   background-color: white;
-  padding: 0.5rem;
 }
