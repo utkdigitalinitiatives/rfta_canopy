@@ -1,5 +1,4 @@
 import React, { Component, useRef } from 'react';
-import Mirador from "./Mirador"
 import PropTypes from "prop-types"
 import Navigator from "./Navigator"
 import Video from "./Video"
