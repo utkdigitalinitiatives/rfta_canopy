@@ -3,7 +3,6 @@ import Mirador from "./Mirador"
 import PropTypes from "prop-types"
 import Navigator from "./Navigator"
 import Video from "./Video"
-import Sticky from 'react-sticky-el';
 
 class Viewer extends Component {
   constructor(props) {
@@ -34,7 +33,6 @@ class Viewer extends Component {
     const {id, manifestId, items, structures} = this.props.node;
 
     return (
-      <Sticky boundaryElement=".canopy-manifest">
         <div className="canopy-viewer">
           <Video items={items}
                  time={this.time.bind(this)}
@@ -45,7 +43,6 @@ class Viewer extends Component {
                      updateTime={this.updateTime.bind(this)}
                      structures={structures} />
         </div>
-      </Sticky>
     )
   }
 }

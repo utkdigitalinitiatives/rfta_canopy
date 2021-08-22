@@ -13,19 +13,11 @@ const Manifest = ({ data }) => {
 
   const {node} = data.allManifests.edges[0];
 
-  const {id, manifestId, label, summary} = node;
-
   return (
     <Layout>
       <Seo title="Home" />
 
-      <article className="canopy-manifest">
-        <DigitalObjectHeader title={label.en[0]}
-                             manifest={manifestId} />
-        <DigitalObject node={node}/>
-        <Details id={id}
-                 node={node} />
-      </article>
+      <DigitalObject node={node}/>
       <div className="canopy-related">
         [related items?]
       </div>
