@@ -56,7 +56,12 @@ class Facet extends Component {
         </div>
       )
     } else {
-      return this.renderContent(label)
+      return (
+        <div className="canopy-control--item">
+          <span>{label}</span>
+          <div>{this.renderContent(label)}</div>
+        </div>
+      )
     }
   }
 }
