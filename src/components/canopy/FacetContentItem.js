@@ -3,14 +3,21 @@ import * as Checkbox from "@radix-ui/react-checkbox"
 
 class FacetContentItem extends Component {
 
+  handleFacetUpdate = (status) => {
+    // status comes as bool
+    // somehow update url param for this in gatsby
+  }
+
   render() {
 
-    const { value, count, id } = this.props
+    const { status, value, count, id } = this.props
 
     return (
       <span className="canopy-form-item-checkbox">
         <label id={id}>
-          <Checkbox.Root aria-labelledby={id}>
+          <Checkbox.Root checked={status}
+                         onCheckedChange={this.handleFacetUpdate}
+                         aria-labelledby={id}>
             <Checkbox.Indicator>
               <svg viewBox="0 0 32 32">
                 <g transform="scale(1)">
