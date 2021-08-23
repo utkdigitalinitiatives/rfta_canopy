@@ -43,7 +43,7 @@ class Facet extends Component {
 
     if (dropdown) {
       return (
-        <div className="canopy-control--item canopy-control--item-dropdown">
+        <div className="canopy-form-item canopy-form-item-dropdown">
           <DropdownMenu.Root>
             <DropdownMenu.Trigger>
               <span>{label}</span>
@@ -57,7 +57,7 @@ class Facet extends Component {
       )
     } else {
       return (
-        <div className="canopy-control--item">
+        <div className="canopy-control-item">
           <span>{label}</span>
           <div>{this.renderContent(label)}</div>
         </div>
