@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { countBy } from 'lodash';
 import MetadataDropdownContentItem from "./MetadataDropdownContentItem"
+import { cleanString } from "../../utilities/string"
 
 class MetadataDropdownContent extends Component {
 
@@ -17,8 +18,14 @@ class MetadataDropdownContent extends Component {
     }
     values.sort();
     const content = countBy(values)
-    return Object.keys(content).map((value) => {
-      return <MetadataDropdownContentItem value={value} count={content[value]}/>
+    return Object.keys(content).map((value, index) => {
+      const id = cleanString(label) + '-' + index;
+      return (
+        <MetadataDropdownContentItem value={value}
+                                     count={content[value]}
+                                     id={id}
+                                     key={index} />
+      )
     })
   }
 
