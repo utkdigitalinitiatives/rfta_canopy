@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
-import MetadataDropdown from "../canopy/MetadataDropdown"
+import Facet from "../canopy/Facet"
 
 const SearchResults = ({ initialQuery = "" }) => {
 
@@ -35,9 +35,9 @@ const SearchResults = ({ initialQuery = "" }) => {
         />
         <button type="submit">Search</button>
       </div>
-      <MetadataDropdown label="Topic" />
-      <MetadataDropdown label="Coverage" />
-      <MetadataDropdown label="Form" />
+      <Facet label="Topic" dropdown={true} />
+      <Facet label="Coverage" dropdown={true} />
+      <Facet label="Form" dropdown={true} />
     </form>
   )
 }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { countBy } from 'lodash';
-import MetadataDropdownContentItem from "./MetadataDropdownContentItem"
+import FacetContentItem from "./FacetContentItem"
 import { cleanString } from "../../utilities/string"
 
-class MetadataDropdownContent extends Component {
+class FacetContent extends Component {
 
   renderContentItems = (data, label) => {
     let values = []
@@ -21,10 +21,10 @@ class MetadataDropdownContent extends Component {
     return Object.keys(content).map((value, index) => {
       const id = cleanString(label) + '-' + index;
       return (
-        <MetadataDropdownContentItem value={value}
-                                     count={content[value]}
-                                     id={id}
-                                     key={index} />
+        <FacetContentItem value={value}
+                          count={content[value]}
+                          id={id}
+                          key={index} />
       )
     })
   }
@@ -41,4 +41,4 @@ class MetadataDropdownContent extends Component {
 
 }
 
-export default MetadataDropdownContent;
+export default FacetContent;

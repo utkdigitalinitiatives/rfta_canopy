@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as Checkbox from '@radix-ui/react-checkbox';
 
-class MetadataDropdownContentItem extends Component {
+class FacetContentItem extends Component {
 
   render() {
 
@@ -22,4 +22,4 @@ class MetadataDropdownContentItem extends Component {
 
 }
 
-export default MetadataDropdownContentItem;
+export default FacetContentItem;
