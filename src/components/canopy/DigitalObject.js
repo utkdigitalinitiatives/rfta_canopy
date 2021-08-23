@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Viewer from "./Viewer"
 import { fromVtt } from "subtitles-parser-vtt"
 import Details from "../layout/details"
+import Sticky from 'react-sticky-el';
+import DigitalObjectHeader from "./DigitalObjectHeader"
+import Layout from "../layout/layout"
 
 class DigitalObject extends Component {
   constructor(props) {
@@ -49,9 +52,22 @@ class DigitalObject extends Component {
   }
 
   render() {
+
+    const {node} = this.props
+    const {id, manifestId, label, summary} = node;
+
     if (this.state.transcripts.length === this.props.node.transcripts.length) {
       return (
-        <Viewer node={this.props.node} transcripts={this.state.transcripts} />
+        <article className="canopy-manifest">
+          <Sticky className="canopy-sticky"
+                  boundaryElement=".canopy-manifest">
+            <DigitalObjectHeader title={label.en[0]}
+                                 manifest={manifestId} />
+            <Viewer node={this.props.node} transcripts={this.state.transcripts} />
+          </Sticky>
+          <Details id={id}
+                   node={node} />
+        </article>
       )
     } else {
       return 'loading component'

@@ -14,7 +14,7 @@ body {
   -ms-font-feature-settings: "kern", "liga", "clig", "calt";
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
-  background-color: #333;
+  background-color: $primary;
   background-image: url("../images/chimney-top-2-fire-background_25effa54.jpg");
   background-position: 0 0;
   background-size: 100%;
@@ -27,13 +27,7 @@ body {
   background: rgb(255,255,255);
   background: linear-gradient(0deg, rgba(255,255,255,0) calc(100% - 200px), rgba(255,255,255,1) 100%);
 
-  > div > header {
-    padding: 3rem 3rem 0;
-  }
-
   > div > main {
-    padding: 2rem 3rem;
-
     .canopy-main {
       display: flex;
 
@@ -51,8 +45,5 @@ body {
 }
 
 .canopy-panel {
-  border-radius: 3px;
-  box-shadow: $box-shadow;
   background-color: white;
-  padding: 0.5rem;
 }
