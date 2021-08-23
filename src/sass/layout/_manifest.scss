@@ -1,12 +1,13 @@
 article.canopy-manifest {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
+  margin: 0 1rem 1rem;
+  background-color: transparent;
+  box-shadow: $box-shadow;
 
   @extend .canopy-panel;
 
   header {
-
     padding: 1rem;
     display: flex;
     justify-content: space-between;
@@ -14,11 +15,12 @@ article.canopy-manifest {
 
     h1 {
       margin: 0;
-      font-size: 1.25em;
-      font-weight: 600;
-      line-height: 1.5em;
+      font-size: 1.5em;
+      font-weight: 400;
+      line-height: 1.25em;
       letter-spacing: -0.02em;
       padding-right: 5rem;
+      font-family: $serif;
     }
 
     > div {
@@ -40,7 +42,9 @@ article.canopy-manifest {
   }
 
   .canopy-details {
-    margin-top: 2rem;
+    background-color: white;
+    margin-top: -1px;
+    padding: 1rem;
   }
 
   .canopy-related {

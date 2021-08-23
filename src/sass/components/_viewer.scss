@@ -1,6 +1,7 @@
 .canopy-viewer {
   display: flex;
   height: calc(100% - 1rem);
+  background-color: white;
 
   @include breakpoints(xs, sm) {
     flex-direction: column;
