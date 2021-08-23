@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { countBy } from 'lodash';
 import FacetContentItem from "./FacetContentItem"
+import { countBy } from 'lodash';
 import { cleanString } from "../../utilities/string"
 
 class FacetContent extends Component {
@@ -31,10 +31,18 @@ class FacetContent extends Component {
 
   render() {
 
-    const {data, label} = this.props
+    const {data, label, float} = this.props
+
+    let className = "canopy-form-item-content"
+
+    if (float) {
+      className = className + ' canopy-float'
+    }
 
     return (
-      this.renderContentItems(data, label)
+      <div className={className}>
+        {this.renderContentItems(data, label)}
+      </div>
     )
 
   }

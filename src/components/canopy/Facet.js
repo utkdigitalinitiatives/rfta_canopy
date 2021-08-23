@@ -6,7 +6,7 @@ import FacetContent from "./FacetContent"
 
 class Facet extends Component {
 
-  renderContent(label) {
+  renderContent(label, float) {
     return (
       <StaticQuery
         query={graphql`
@@ -30,6 +30,7 @@ class Facet extends Component {
         render = {
           data => (
             <FacetContent data={data}
+                          float={float}
                           label={label} />
           )
         }
@@ -49,8 +50,8 @@ class Facet extends Component {
               <span>{label}</span>
               <BiChevronDown />
             </DropdownMenu.Trigger>
-            <DropdownMenu.Content>
-              {this.renderContent(label)}
+            <DropdownMenu.Content avoidCollisions={false}>
+              {this.renderContent(label, true)}
             </DropdownMenu.Content>
           </DropdownMenu.Root>
         </div>
@@ -59,7 +60,7 @@ class Facet extends Component {
       return (
         <div className="canopy-control-item">
           <span>{label}</span>
-          <div>{this.renderContent(label)}</div>
+          {this.renderContent(label)}
         </div>
       )
     }
