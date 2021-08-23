@@ -3,11 +3,8 @@ import { graphql, Link } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
-import Details from "../components/layout/details"
 import DigitalObject from "../components/canopy/DigitalObject"
-import { getValue } from "../utilities/iiif"
-import * as Tabs from "@radix-ui/react-tabs"
-import DigitalObjectHeader from "../components/canopy/DigitalObjectHeader"
+import Related from "../components/canopy/Related"
 
 const Manifest = ({ data }) => {
 
@@ -18,9 +15,7 @@ const Manifest = ({ data }) => {
       <Seo title="Home" />
 
       <DigitalObject node={node}/>
-      <div className="canopy-related">
-        [related items?]
-      </div>
+      <Related metadata={node.metadata} />
     </Layout>
   )
 }
