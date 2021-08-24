@@ -52,29 +52,46 @@ article.canopy-manifest {
     background-color: white;
     transition: all 200ms ease-in-out;
 
+    @include breakpoints(xs) {
+      flex-direction: column-reverse;
+    }
+
     h1 {
       margin: 0;
       font-size: 1.5em;
       font-weight: 400;
       line-height: 1.25em;
       letter-spacing: -0.02em;
-      padding-right: 5rem;
+      padding-right: 3rem;
       font-family: $serif;
       padding: 1rem;
 
       @include breakpoints(xs, sm) {
         font-size: 1.25em;
+        padding: 1.25rem 1rem;
+      }
+
+      @include breakpoints(xs) {
+        padding: 0 1rem 1rem;
+        text-align: center;
       }
     }
 
     > div {
       display: flex;
+      padding: 1rem;
+      align-items: flex-start;
+
+      @include breakpoints(xs) {
+        justify-content: center;
+      }
 
       > * {
         margin-right: 1.5em;
 
         &:last-child {
           margin-right: 0;
+          white-space: nowrap;
         }
       }
 
