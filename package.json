@@ -12,6 +12,7 @@
     "@radix-ui/react-popover": "^0.0.20",
     "@radix-ui/react-tabs": "^0.0.15",
     "axios": "^0.21.1",
+    "body-scroll-lock": "^4.0.0-beta.0",
     "gatsby": "^3.6.2",
     "gatsby-plugin-gatsby-cloud": "^2.6.1",
     "gatsby-plugin-image": "^1.6.0",

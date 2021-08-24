@@ -1,9 +1,11 @@
-import React, { Component, useRef } from 'react';
+import React, { Component, createRef, useRef } from "react"
 import PropTypes from "prop-types"
 import Navigator from "./Navigator"
 import Video from "./Video"
 import MediaQuery from 'react-responsive'
 import * as Collapsible from '@radix-ui/react-collapsible';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+
 
 class Viewer extends Component {
   constructor(props) {
@@ -11,10 +13,13 @@ class Viewer extends Component {
 
     this.state ={
       t: 0,
-      updateTime: null
+      updateTime: null,
+      mobileNavigatorStatus: false,
+      videoHeight: null
     }
 
     this.updateTime = this.updateTime.bind(this);
+    this.viewer = createRef()
   }
 
   time(value) {{
@@ -30,7 +35,18 @@ class Viewer extends Component {
   }
 
   handleCollapsible = (status) => {
-    console.log(status)
+    this.props.mobileNavigatorStatus(status)
+    if (status) {
+      disableBodyScroll('body');
+      this.setState({
+        videoHeight: this.viewer.current.children[0].clientHeight
+      })
+    } else {
+      enableBodyScroll('body');
+      this.setState({
+        videoHeight: null
+      })
+    }
   }
 
   handleMediaQuery = (status) => {
@@ -41,12 +57,16 @@ class Viewer extends Component {
     return null
   }
 
+  componentDidMount() {
+  }
+
   render() {
 
     const {id, manifestId, items, structures} = this.props.node;
 
     return (
-      <div className="canopy-viewer">
+      <div ref={this.viewer}
+           className="canopy-viewer">
         <Video items={items}
                time={this.time.bind(this)}
                updateTime={this.state.updateTime}
@@ -55,7 +75,8 @@ class Viewer extends Component {
           {(matches) => {
             if (matches) {
               return (
-                <Collapsible.Root defaultOpen={false}>
+                <Collapsible.Root defaultOpen={false}
+                                  onOpenChange={this.handleCollapsible}>
                   <Collapsible.Trigger  id="canopy-collapse-trigger-navigator"
                                         className="canopy-collapse-trigger">
                     <span>Show Active Context</span>
@@ -65,6 +86,7 @@ class Viewer extends Component {
                                transcripts={this.props.transcripts}
                                updateTime={this.updateTime.bind(this)}
                                structures={structures}
+                               videoHeight={this.state.videoHeight}
                     />
                   </Collapsible.Content>
                 </Collapsible.Root>

@@ -127,6 +127,7 @@ class Navigator extends Component {
                           index={index}
                           updateTime={component.updateTime.bind(this)}
                           key={index}
+                          videoHeight={component.props.videoHeight}
           />
         </Tabs.Content>
       )

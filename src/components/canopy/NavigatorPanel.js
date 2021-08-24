@@ -89,10 +89,16 @@ class NavigatorPanel extends Component {
 
   render() {
 
-    const {data, time} = this.props
+    const {data, time, videoHeight} = this.props
+
+    let style = {height: `100%`}
+    if (videoHeight) {
+      style = {height: `calc(100% - ${videoHeight}px - 36px) `}
+    }
 
     return (
       <div ref={this.sequence}
+           style={style}
            className="canopy-sequence">
         {this.renderSequence(data.sequence, time)}
       </div>
