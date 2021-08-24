@@ -159,7 +159,7 @@ class Navigator extends Component {
 
   render() {
 
-    let {data, tabs, defaultOpen} = this.state
+    let {data, tabs} = this.state
     const {t} = this.props
 
     return (
@@ -174,7 +174,7 @@ class Navigator extends Component {
             </Collapsible.Content>
           </Collapsible.Root>
         </MediaQuery>
-        <MediaQuery minWidth={1025} onChange={this.handleMediaQueryChange}>
+        <MediaQuery minWidth={1025}>
           {this.renderNavigator(data, tabs, t)}
         </MediaQuery>
       </aside>
