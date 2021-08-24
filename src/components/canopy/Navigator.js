@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import * as Tabs from "@radix-ui/react-tabs"
 import NavigatorPanel from "./NavigatorPanel"
+import MediaQuery from 'react-responsive'
+import * as Collapsible from '@radix-ui/react-collapsible';
 
 class Navigator extends Component {
   constructor(props) {
@@ -9,7 +11,8 @@ class Navigator extends Component {
     this.state ={
       tabs: [],
       data: [],
-      loaded: false
+      loaded: false,
+      defaultOpen: false
     }
 
     this.updateTime = this.updateTime.bind(this);
@@ -31,7 +34,7 @@ class Navigator extends Component {
 
   buildTranscript = (iiif, transcript, translation) => {
     let component = this
-    
+
     let label = 'Transcript'
     if (translation && iiif.language === 'en') {
       label = "Translation"
@@ -156,12 +159,24 @@ class Navigator extends Component {
 
   render() {
 
-    let {data, tabs} = this.state
+    let {data, tabs, defaultOpen} = this.state
     const {t} = this.props
 
     return (
       <aside className="canopy-navigator">
-        {this.renderNavigator(data, tabs, t)}
+        <MediaQuery maxWidth={1024}>
+          <Collapsible.Root defaultOpen={false}>
+            <Collapsible.Trigger>
+              Expand
+            </Collapsible.Trigger>
+            <Collapsible.Content>
+              {this.renderNavigator(data, tabs, t)}
+            </Collapsible.Content>
+          </Collapsible.Root>
+        </MediaQuery>
+        <MediaQuery minWidth={1025} onChange={this.handleMediaQueryChange}>
+          {this.renderNavigator(data, tabs, t)}
+        </MediaQuery>
       </aside>
     )
   }
