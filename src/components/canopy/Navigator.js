@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import * as Tabs from "@radix-ui/react-tabs"
 import NavigatorPanel from "./NavigatorPanel"
-import MediaQuery from 'react-responsive'
-import * as Collapsible from '@radix-ui/react-collapsible';
 
 class Navigator extends Component {
   constructor(props) {
@@ -164,19 +162,7 @@ class Navigator extends Component {
 
     return (
       <aside className="canopy-navigator">
-        <MediaQuery maxWidth={800}>
-          <Collapsible.Root defaultOpen={false}>
-            <Collapsible.Trigger>
-              Expand
-            </Collapsible.Trigger>
-            <Collapsible.Content>
-              {this.renderNavigator(data, tabs, t)}
-            </Collapsible.Content>
-          </Collapsible.Root>
-        </MediaQuery>
-        <MediaQuery minWidth={801}>
-          {this.renderNavigator(data, tabs, t)}
-        </MediaQuery>
+        {this.renderNavigator(data, tabs, t)}
       </aside>
     )
   }
