@@ -5,6 +5,10 @@ article.canopy-manifest {
   background-color: transparent;
   box-shadow: $box-shadow;
 
+  @include breakpoints(xs) {
+    margin: 0;
+  }
+
   @extend .canopy-panel;
 
   header {
@@ -21,6 +25,16 @@ article.canopy-manifest {
       letter-spacing: -0.02em;
       padding-right: 5rem;
       font-family: $serif;
+
+      @include breakpoints(xs) {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 1.25em;
+        white-space: nowrap;
+        width: 50%;
+        flex-grow: 0;
+      }
     }
 
     > div {
