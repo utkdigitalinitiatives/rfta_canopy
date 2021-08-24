@@ -5,6 +5,7 @@ import Video from "./Video"
 import MediaQuery from 'react-responsive'
 import * as Collapsible from '@radix-ui/react-collapsible';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
+import * as Popover from "@radix-ui/react-popover"
 
 
 class Viewer extends Component {
@@ -80,6 +81,11 @@ class Viewer extends Component {
                   <Collapsible.Trigger  id="canopy-collapse-trigger-navigator"
                                         className="canopy-collapse-trigger">
                     <span>Show Active Context</span>
+                    <svg viewBox="0 0 32 32">
+                      <g transform="scale(1)">
+                        <path d="M21.443,10.584l-.027-.027a1.9,1.9,0,0,0-2.688,0L16,13.285l-2.728-2.728a1.9,1.9,0,0,0-2.688,0l-.027.027a1.9,1.9,0,0,0,0,2.688L13.285,16l-2.728,2.728a1.9,1.9,0,0,0,0,2.688l.027.027a1.9,1.9,0,0,0,2.688,0L16,18.715l2.728,2.728a1.9,1.9,0,0,0,2.688,0l.027-.027a1.9,1.9,0,0,0,0-2.688L18.715,16l2.728-2.728A1.9,1.9,0,0,0,21.443,10.584Z" />
+                      </g>
+                    </svg>
                   </Collapsible.Trigger>
                   <Collapsible.Content>
                     <Navigator t={this.state.t}

@@ -1,16 +1,21 @@
 .canopy-collapse-trigger {
   border: none;
-  background-color: $secondary;
   padding: 1rem;
   width: 100%;
   font-family: $sans;
   color: white;
+  background-color: $primary;
   font-weight: 700;
   font-size: 0.8333em;
   cursor: pointer;
-  box-shadow: $box-shadow;
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
+
+  svg {
+    display: none;
+  }
 
   &[data-state="open"] {
     position: absolute;
@@ -18,11 +23,17 @@
     height: 36px;
     right: 0;
     padding: 0;
-    background-color: red;
+    background-color: white;
     box-shadow: none;
+    border-left: 1px solid $muted;
 
     span {
       display: none;
+    }
+
+    svg {
+      display: block;
+      fill: $primary;
     }
   }
 }
