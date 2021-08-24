@@ -56,8 +56,9 @@ class Viewer extends Component {
             if (matches) {
               return (
                 <Collapsible.Root defaultOpen={false}>
-                  <Collapsible.Trigger>
-                    Expand
+                  <Collapsible.Trigger  id="canopy-collapse-trigger-navigator"
+                                        className="canopy-collapse-trigger">
+                    <span>Show Active Context</span>
                   </Collapsible.Trigger>
                   <Collapsible.Content>
                     <Navigator t={this.state.t}

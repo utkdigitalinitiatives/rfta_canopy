@@ -1,0 +1,29 @@
+.canopy-collapse-trigger {
+  border: none;
+  background-color: $secondary;
+  padding: 1rem;
+  width: 100%;
+  font-family: $sans;
+  color: white;
+  font-weight: 700;
+  font-size: 0.8333em;
+  cursor: pointer;
+  box-shadow: $box-shadow;
+  position: relative;
+  z-index: 1;
+
+  &[data-state="open"] {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    right: 0;
+    padding: 0;
+    border-left: 1px solid $muted;
+    background-color: white;
+    box-shadow: none;
+
+    span {
+      display: none;
+    }
+  }
+}

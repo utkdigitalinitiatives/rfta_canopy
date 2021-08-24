@@ -13,7 +13,6 @@
     flex-shrink: 1;
     width: 61.8%;
     background-color: $primary;
-    box-shadow: $box-shadow-focus;
     z-index: 1;
 
     @include breakpoints(sm) {
