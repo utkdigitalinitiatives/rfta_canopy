@@ -9,7 +9,8 @@ class Navigator extends Component {
     this.state ={
       tabs: [],
       data: [],
-      loaded: false
+      loaded: false,
+      defaultOpen: false
     }
 
     this.updateTime = this.updateTime.bind(this);
@@ -31,7 +32,7 @@ class Navigator extends Component {
 
   buildTranscript = (iiif, transcript, translation) => {
     let component = this
-    
+
     let label = 'Transcript'
     if (translation && iiif.language === 'en') {
       label = "Translation"
@@ -126,6 +127,7 @@ class Navigator extends Component {
                           index={index}
                           updateTime={component.updateTime.bind(this)}
                           key={index}
+                          videoHeight={component.props.videoHeight}
           />
         </Tabs.Content>
       )

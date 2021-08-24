@@ -19,6 +19,10 @@
     border-bottom: 1px solid $muted;
     color: $primary;
 
+    @include breakpoints(sm) {
+      font-size: 0.7222em;
+    }
+
     &:hover {
       background-color: $muted;
     }
@@ -40,6 +44,10 @@
       font-weight: 700;
       margin-top: 0.25em;
       margin-left: 2em;
+
+      @include breakpoints(sm) {
+        margin-top: 0.125em;
+      }
     }
 
     em {

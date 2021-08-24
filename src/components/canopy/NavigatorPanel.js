@@ -65,6 +65,9 @@ class NavigatorPanel extends Component {
     let activeItem = sequenceElement.querySelector(selector)
     if (activeItem.offsetParent) {
       let top = activeItem.offsetTop - activeItem.offsetParent.offsetTop
+      if (this.props.videoHeight) {
+        top = top + this.props.videoHeight + 36
+      }
       sequenceElement.scrollTo({
         top: top,
         left: 0,
@@ -89,10 +92,16 @@ class NavigatorPanel extends Component {
 
   render() {
 
-    const {data, time} = this.props
+    const {data, time, videoHeight} = this.props
+
+    let style = {height: `100%`}
+    if (videoHeight) {
+      style = {height: `calc(100% - ${videoHeight}px - 36px) `}
+    }
 
     return (
       <div ref={this.sequence}
+           style={style}
            className="canopy-sequence">
         {this.renderSequence(data.sequence, time)}
       </div>

@@ -1,6 +1,10 @@
 header.canopy-header {
   padding: 1rem 2rem;
 
+  @include breakpoints(xs) {
+    padding: 1rem;
+  }
+
   a,
   a:visited {
     text-decoration: none !important;

@@ -11,7 +11,8 @@ class DigitalObject extends Component {
     super(props);
 
     this.state = {
-      transcripts: []
+      transcripts: [],
+      mobileNavigatorStatus: false
     }
   }
 
@@ -47,6 +48,12 @@ class DigitalObject extends Component {
     return null
   }
 
+  mobileNavigatorStatus(value) {{
+    this.setState({
+      mobileNavigatorStatus: value
+    })
+  }}
+
   componentDidMount() {
     this.getTranscripts(this.props.node.transcripts)
   }
@@ -58,12 +65,15 @@ class DigitalObject extends Component {
 
     if (this.state.transcripts.length === this.props.node.transcripts.length) {
       return (
-        <article className="canopy-manifest">
+        <article className="canopy-manifest" data-mobile-navigator={this.state.mobileNavigatorStatus}>
           <Sticky className="canopy-sticky"
                   boundaryElement=".canopy-manifest">
             <DigitalObjectHeader title={label.en[0]}
                                  manifest={manifestId} />
-            <Viewer node={this.props.node} transcripts={this.state.transcripts} />
+            <Viewer node={this.props.node}
+                    transcripts={this.state.transcripts}
+                    mobileNavigatorStatus={this.mobileNavigatorStatus.bind(this)}
+            />
           </Sticky>
           <Details id={id}
                    node={node} />
