@@ -3,7 +3,7 @@
   height: calc(100% - 1rem);
   background-color: white;
 
-  @include breakpoints(xs, sm) {
+  @include breakpoints(xs) {
     flex-direction: column;
   }
 
@@ -16,7 +16,11 @@
     box-shadow: $box-shadow-focus;
     z-index: 1;
 
-    @include breakpoints(xs, sm) {
+    @include breakpoints(sm) {
+      width: 50%;
+    }
+
+    @include breakpoints(xs) {
       width: 100%;
     }
 
@@ -81,7 +85,11 @@
     flex-shrink: 0;
     background-color: transparent;
 
-    @include breakpoints(xs, sm) {
+    @include breakpoints(sm) {
+      width: 50%;
+    }
+
+    @include breakpoints(xs) {
       width: 100%;
       height: 400px; // temp fixed height
     }

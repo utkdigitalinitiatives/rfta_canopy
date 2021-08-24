@@ -164,7 +164,7 @@ class Navigator extends Component {
 
     return (
       <aside className="canopy-navigator">
-        <MediaQuery maxWidth={1024}>
+        <MediaQuery maxWidth={800}>
           <Collapsible.Root defaultOpen={false}>
             <Collapsible.Trigger>
               Expand
@@ -174,7 +174,7 @@ class Navigator extends Component {
             </Collapsible.Content>
           </Collapsible.Root>
         </MediaQuery>
-        <MediaQuery minWidth={1025}>
+        <MediaQuery minWidth={801}>
           {this.renderNavigator(data, tabs, t)}
         </MediaQuery>
       </aside>
