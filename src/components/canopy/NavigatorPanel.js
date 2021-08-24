@@ -65,6 +65,9 @@ class NavigatorPanel extends Component {
     let activeItem = sequenceElement.querySelector(selector)
     if (activeItem.offsetParent) {
       let top = activeItem.offsetTop - activeItem.offsetParent.offsetTop
+      if (this.props.videoHeight) {
+        top = top + this.props.videoHeight + 36
+      }
       sequenceElement.scrollTo({
         top: top,
         left: 0,
