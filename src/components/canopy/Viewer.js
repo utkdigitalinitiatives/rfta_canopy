@@ -51,7 +51,7 @@ class Viewer extends Component {
                time={this.time.bind(this)}
                updateTime={this.state.updateTime}
         />
-        <MediaQuery maxWidth={600}>
+        <MediaQuery maxWidth={800}>
           {(matches) => {
             if (matches) {
               return (
