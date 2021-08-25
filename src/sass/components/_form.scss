@@ -1,4 +1,4 @@
-.canopy-control {
+.canopy-form {
 
   .canopy-sticky > div {
     padding: 1rem 3rem;
@@ -26,7 +26,7 @@
   form {
     display: flex;
 
-    .canopy-control--item {
+    .canopy-form-item {
       display: flex;
       padding: 0 1em;
       position: relative;
@@ -173,5 +173,78 @@
         }
       }
     }
+  }
+}
+
+.canopy-form-item-content {
+  padding: 1rem;
+  font-size: 0.8333em;
+
+  &.canopy-float {
+    background-color: white;
+    box-shadow: $box-shadow;
+    max-width: 100%;
+    border-radius: 3px;
+    margin-top: 2px;
+  }
+}
+
+.canopy-form-item-checkbox {
+  display: flex;
+  cursor: pointer;
+  margin-bottom: 0.5em;
+
+  &:hover {
+    color: $secondary;
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  > label {
+    display: flex;
+
+    button {
+      height: 16px;
+      width: 16px;
+      margin-right: 0.25rem;
+      padding: 0;
+      border: 1px solid rgba($primaryMuted, 0.25);
+      border-radius: 15px;
+      background: $muted;
+      flex-shrink: 0;
+
+      &[data-state="checked"] {
+        color: $secondary;
+
+        span {
+          display: flex;
+          margin: -2px;
+        }
+
+        svg {
+          fill: $primaryMuted;
+        }
+      }
+    }
+
+    strong {
+      font-weight: 400;
+      margin-right: 0.25rem;
+      flex-grow: 0;
+      flex-shrink: 1;
+    }
+
+    em {
+      font-style: normal;
+      flex-grow: 0;
+      flex-shrink: 1;
+      width: auto;
+    }
+  }
+
+  * {
+    cursor: inherit;
   }
 }

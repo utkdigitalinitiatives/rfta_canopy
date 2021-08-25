@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { BiChevronDown } from "react-icons/bi";
+import Facet from "../canopy/Facet"
 
 const SearchResults = ({ initialQuery = "" }) => {
 
@@ -21,8 +20,8 @@ const SearchResults = ({ initialQuery = "" }) => {
   }
 
   return (
-    <form className="canopy-search-form" role="search" onSubmit={handleSubmit}>
-      <div className="canopy-control--item canopy-control--item-search">
+    <form className="canopy-form" role="search" onSubmit={handleSubmit}>
+      <div className="canopy-form-item canopy-form-item-search">
         <label htmlFor="search-input">
           Search
         </label>
@@ -36,30 +35,9 @@ const SearchResults = ({ initialQuery = "" }) => {
         />
         <button type="submit">Search</button>
       </div>
-      <div className="canopy-control--item canopy-control--item-dropdown">
-        <DropdownMenu.Root>
-          <DropdownMenu.Trigger>
-            <span>Topic</span>
-            <BiChevronDown />
-          </DropdownMenu.Trigger>
-        </DropdownMenu.Root>
-      </div>
-      <div className="canopy-control--item canopy-control--item-dropdown">
-        <DropdownMenu.Root>
-          <DropdownMenu.Trigger>
-            <span>Location</span>
-            <BiChevronDown />
-          </DropdownMenu.Trigger>
-        </DropdownMenu.Root>
-      </div>
-      <div className="canopy-control--item canopy-control--item-dropdown">
-        <DropdownMenu.Root>
-          <DropdownMenu.Trigger>
-            <span>Type</span>
-            <BiChevronDown />
-          </DropdownMenu.Trigger>
-        </DropdownMenu.Root>
-      </div>
+      <Facet label="Topic" dropdown={true} />
+      <Facet label="Coverage" dropdown={true} />
+      <Facet label="Form" dropdown={true} />
     </form>
   )
 }
