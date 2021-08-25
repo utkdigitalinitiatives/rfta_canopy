@@ -30,14 +30,12 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
 
   manifests.forEach((node) => {
     node.manifestId = node.id
-    node.slug = slugify(node.label.en[0], {
+    node.slug = slugify(node.label.en[0].replace('Interview with ', ''), {
       replacement: '-',
-      remove: '/Interview with /gi',
       lower: true,
       strict: true,
       trim: true
     })
-    console.log(node.slug)
     node.transcripts = ((items, transcripts = []) =>{
       if (Array.isArray(items)) {
         items[0].items[0].items.map(function(element) {
@@ -90,6 +88,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { allManifests } = result.data
 
   allManifests.edges.forEach(edge => {
+    console.log('Creating page for: /' + edge.node.slug)
     createPage({
       path: `/${edge.node.slug}`,
       component: require.resolve(`./src/templates/manifest.js`),
