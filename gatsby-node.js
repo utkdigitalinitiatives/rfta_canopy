@@ -1,6 +1,7 @@
 const fetch = require('node-fetch');
 const lunr = require('lunr');
 const axios = require('axios');
+const slugify = require('slugify')
 const { GraphQLJSONObject } = require('graphql-type-json');
 
 
