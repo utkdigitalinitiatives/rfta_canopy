@@ -76,6 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
         edges {
           node {
             id
+            slug
             manifestId
             label {
               en
@@ -90,7 +91,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   allManifests.edges.forEach(edge => {
     createPage({
-      path: `/${edge.node.id}`,
+      path: `/${edge.node.slug}`,
       component: require.resolve(`./src/templates/manifest.js`),
       context: {
         node: edge.node,
@@ -147,6 +148,7 @@ const createIndex = async (manifestNodes, type, cache) => {
 
       const id = node.id
       const label = node.label.en[0]
+      const slug = node.slug
 
       let summary = ''
       if (node.summary.en) {
@@ -160,6 +162,7 @@ const createIndex = async (manifestNodes, type, cache) => {
 
       store[id] = {
         label: label,
+        slug: slug,
         summary: summary,
         metadata: metadata
       }
