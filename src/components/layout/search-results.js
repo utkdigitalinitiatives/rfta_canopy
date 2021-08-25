@@ -14,7 +14,6 @@ const SearchResults = ({ data, initialQuery = "" , filter}) => {
   try {
     results = index.search(`*${searchString}*`).map(({ ref }) => {
       return {
-        slug: ref,
         ...store[ref]
       }
     })
