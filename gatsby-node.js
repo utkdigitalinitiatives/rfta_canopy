@@ -30,6 +30,14 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
 
   manifests.forEach((node) => {
     node.manifestId = node.id
+    node.slug = slugify(node.label.en[0], {
+      replacement: '-',
+      remove: '/Interview with /gi',
+      lower: true,
+      strict: true,
+      trim: true
+    })
+    console.log(node.slug)
     node.transcripts = ((items, transcripts = []) =>{
       if (Array.isArray(items)) {
         items[0].items[0].items.map(function(element) {
