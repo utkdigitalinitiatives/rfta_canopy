@@ -30,11 +30,13 @@ body {
   > div > main {
     .canopy-main {
       display: flex;
+      margin: 1rem 1rem 1rem;
+      background-color: white;
 
       aside {
         max-width: 38.2%;
         flex-grow: 1;
-        padding: 2rem 0 0 2rem;
+        padding: 0 0 0 1rem;
       }
     }
   }

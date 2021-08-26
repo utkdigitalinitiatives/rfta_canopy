@@ -1,6 +1,5 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
-import { Index } from "lunr"
+import { graphql } from "gatsby"
 import Sticky from "react-sticky-el"
 
 import Layout from "../components/layout/layout"
@@ -25,7 +24,7 @@ const IndexPage = ({ data, location }) => {
           <SearchForm initialQuery={q} />
         </Sticky>
       </div>
-      <div className="canopy-main">
+      <div className="canopy-main canopy-main-inner">
         <SearchResults data={data} initialQuery={q} filter={filter} />
         <aside>
           <About />
