@@ -10,7 +10,7 @@ const merge = require('lodash/merge');
 * Set root IIIF Collection conforming to specification
 * at https://iiif.io/api/presentation/3.0/#51-collection
 */
-const rootCollection = 'https://digital.lib.utk.edu/assemble/collection/collections/rfta';
+const rootCollection = 'https://digital.lib.utk.edu/assemble/collection/collections/rftatest';
 
 /*
 * Map nodes from IIIF Collection and Manifests
@@ -81,17 +81,25 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
       metadata[slug] = {}
       metadata[slug].slug = slug;
       metadata[slug].label = element.label.en[0];
+
       metadata[slug].values = {}
 
       for (const string of element.value.en) {
-        let termSlug = slugify(string, {
-          replacement: '-',
+        let valueSlug = slugify(string, {
+          replacement: '_',
           lower: true,
           strict: true,
           trim: true
         })
-        if (typeof metadata[slug].values === 'undefined') {
-          metadata[slug].values.term = []
+        metadata[slug].values[valueSlug] = {}
+        metadata[slug].values[valueSlug].slug = valueSlug
+        metadata[slug].values[valueSlug].label = string
+        metadata[slug].values[valueSlug].manifests = {}
+        metadata[slug].values[valueSlug].manifests[nodeId] = {
+          id: nodeId,
+          manifestId: node.manifestId,
+          label: node.label,
+          summary: node.summary
         }
       }
     }
@@ -100,14 +108,12 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
 
   })
 
-  if (typeof metadataNodes.topic !== 'undefined') {
-    console.log(metadataNodes.topic.values)
-  }
-
   for (const property in metadataNodes) {
     const metadata = metadataNodes[property];
     createNode({
-      ...metadata,
+      slug: metadata.slug,
+      label: metadata.label,
+      values: tidyObjectArrays(metadata.values),
       id: createNodeId(`Metadata-${metadata.slug}`),
       parent: null,
       children: [],
@@ -119,6 +125,15 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
     })
   }
 
+}
+
+tidyObjectArrays = (values) => {
+  return Object.keys(values).map((valueSlug) => {
+    values[valueSlug].manifests = Object.keys(values[valueSlug].manifests).map((nodeId) => {
+      return values[valueSlug].manifests[nodeId]
+    })
+    return values[valueSlug]
+  })
 }
 
 /*
