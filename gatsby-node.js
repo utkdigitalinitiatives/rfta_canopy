@@ -3,6 +3,7 @@ const lunr = require('lunr');
 const axios = require('axios');
 const slugify = require('slugify')
 const { GraphQLJSONObject } = require('graphql-type-json');
+const merge = require('lodash/merge');
 
 
 /*
@@ -28,7 +29,8 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
         .then(result => result.data)
     }, 25);
 
-  let metadataNodes = []
+  let metadataNodes = {}
+
   manifests.forEach((node, index) => {
 
     node.manifestId = node.id
@@ -65,30 +67,58 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
       }
     })
 
+    let metadata = {}
+
     for (const element of node.metadata) {
-      let metadata = {}
-      metadata.label = element.label.en[0];
-      metadata.slug = slugify(metadata.label, {
+
+      let slug = slugify(element.label.en[0], {
         replacement: '-',
         lower: true,
         strict: true,
         trim: true
       })
 
-      createNode({
-        ...metadata,
-        id: createNodeId(`Metadata-${metadata.label}`),
-        parent: null,
-        children: [],
-        internal: {
-          type: 'Metadata',
-          content: JSON.stringify(metadata),
-          contentDigest: createContentDigest(metadata)
+      metadata[slug] = {}
+      metadata[slug].slug = slug;
+      metadata[slug].label = element.label.en[0];
+      metadata[slug].values = {}
+
+      for (const string of element.value.en) {
+        let termSlug = slugify(string, {
+          replacement: '-',
+          lower: true,
+          strict: true,
+          trim: true
+        })
+        if (typeof metadata[slug].values === 'undefined') {
+          metadata[slug].values.term = []
         }
-      })
+      }
     }
 
+    merge(metadataNodes, metadata)
+
   })
+
+  if (typeof metadataNodes.topic !== 'undefined') {
+    console.log(metadataNodes.topic.values)
+  }
+
+  for (const property in metadataNodes) {
+    const metadata = metadataNodes[property];
+    createNode({
+      ...metadata,
+      id: createNodeId(`Metadata-${metadata.slug}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: 'Metadata',
+        content: JSON.stringify(metadata),
+        contentDigest: createContentDigest(metadata)
+      }
+    })
+  }
+
 }
 
 /*
