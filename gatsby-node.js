@@ -29,13 +29,16 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
     }, 25);
 
   manifests.forEach((node) => {
+
     node.manifestId = node.id
+
     node.slug = slugify(node.label.en[0].replace('Interview with ', ''), {
       replacement: '-',
       lower: true,
       strict: true,
       trim: true
     })
+
     node.transcripts = ((items, transcripts = []) =>{
       if (Array.isArray(items)) {
         items[0].items[0].items.map(function(element) {
@@ -46,7 +49,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
       }
       return transcripts
     })(node.items);
-    // node.prettyUrl = node.label.en[0] //  make friendly URL David-Dotson-Jeff-Conyers-Sam-Roberts-2020-09-22
+
     createNode({
       ...node,
       id: createNodeId(`Manifests-${node.id}`),
