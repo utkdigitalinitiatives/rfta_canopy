@@ -28,7 +28,8 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
         .then(result => result.data)
     }, 25);
 
-  manifests.forEach((node) => {
+  let metadataNodes = []
+  manifests.forEach((node, index) => {
 
     node.manifestId = node.id
 
@@ -50,9 +51,11 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
       return transcripts
     })(node.items);
 
+    let nodeId = createNodeId(`Manifests-${node.id}`)
+
     createNode({
       ...node,
-      id: createNodeId(`Manifests-${node.id}`),
+      id: nodeId,
       parent: null,
       children: [],
       internal: {
@@ -61,6 +64,30 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
         contentDigest: createContentDigest(node)
       }
     })
+
+    for (const element of node.metadata) {
+      let metadata = {}
+      metadata.label = element.label.en[0];
+      metadata.slug = slugify(metadata.label, {
+        replacement: '-',
+        lower: true,
+        strict: true,
+        trim: true
+      })
+
+      createNode({
+        ...metadata,
+        id: createNodeId(`Metadata-${metadata.label}`),
+        parent: null,
+        children: [],
+        internal: {
+          type: 'Metadata',
+          content: JSON.stringify(metadata),
+          contentDigest: createContentDigest(metadata)
+        }
+      })
+    }
+
   })
 }
 
