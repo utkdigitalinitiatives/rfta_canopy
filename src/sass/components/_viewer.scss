@@ -1,6 +1,7 @@
 .canopy-viewer {
   display: flex;
   background-color: white;
+  box-shadow: $box-shadow-bottom;
 
   @include breakpoints(xs) {
     flex-direction: column;
