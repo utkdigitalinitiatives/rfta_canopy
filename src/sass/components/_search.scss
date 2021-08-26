@@ -1,15 +1,14 @@
 .canopy-search-results {
   width: 61.8%;
   background-color: white;
-  border-right: 1px solid $muted;
+  box-shadow: $box-shadow;
 
   article {
     display: flex;
-    margin: 1em;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 3px;
-    box-shadow: $box-shadow-slim;
     background-color: white;
+    border-bottom: 1px solid $muted;
 
     &:last-child {
       margin-bottom: 0;
@@ -19,7 +18,7 @@
       width: 100px;
       height: 75px;
       padding: 0;
-      margin: 0 1em 1em 0;
+      margin: 0 1rem 1rem 0;
       border-radius: 3px;
       background-color: $muted;
       box-sizing: border-box;
@@ -49,6 +48,7 @@
         -webkit-box-orient: vertical;
         display: -webkit-box;
         -webkit-line-clamp: 4;
+        margin-bottom: 0;
       }
     }
   }

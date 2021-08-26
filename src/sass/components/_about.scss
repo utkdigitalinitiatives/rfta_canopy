@@ -4,8 +4,15 @@
 
   &--panel {
     width: 100%;
+  }
 
-    @extend .canopy-panel;
-    padding: 2rem 1rem;
+  .canopy-control-item {
+    background-color: white;
+    padding: 1rem;
+    box-shadow: $box-shadow;
+
+    > span {
+      font-weight: 700;
+    }
   }
 }
