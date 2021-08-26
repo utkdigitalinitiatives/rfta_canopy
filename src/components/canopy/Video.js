@@ -189,7 +189,7 @@ class Video extends Component {
 
     analyser.getByteFrequencyData(dataArray);
 
-    ctx.fillStyle = "#313E48";
+    ctx.fillStyle = "#000000";
     ctx.fillRect(0, 0, width, height);
 
     for (let i = 0; i < bufferLength; i++) {
@@ -260,17 +260,19 @@ class Video extends Component {
 
     if (source) {
       return (
-        <div className={className}>
-          <video controls
-                 ref={this.video}
-                 onPlay={this.handlePlay}
-                 onPause={this.handlePause}
-                 crossOrigin="anonymous">
-            {this.renderSource(source, format)}
-            {this.renderTracks(tracks)}
-          </video>
-          {this.renderBackground(format, image)}
-        </div>
+          <div className={className}>
+            <AspectRatio.Root ratio={16/9}>
+              <video controls
+                     ref={this.video}
+                     onPlay={this.handlePlay}
+                     onPause={this.handlePause}
+                     crossOrigin="anonymous">
+                {this.renderSource(source, format)}
+                {this.renderTracks(tracks)}
+              </video>
+              {this.renderBackground(format, image)}
+            </AspectRatio.Root>
+          </div>
       )
 
     } else {

@@ -1,6 +1,5 @@
 .canopy-viewer {
   display: flex;
-  height: calc(100% - 1rem);
   background-color: white;
 
   @include breakpoints(xs) {
@@ -11,9 +10,11 @@
     position: relative;
     flex-grow: 1;
     flex-shrink: 1;
-    width: 61.8%;
-    background-color: $primary;
+    background-color: black;
     z-index: 1;
+    border: 0.5rem solid white;
+    border-top: 0;
+    max-height: 40vh;
 
     @include breakpoints(sm) {
       width: 50%;
@@ -21,6 +22,7 @@
 
     @include breakpoints(xxs, xs) {
       width: 100%;
+      border: none;
     }
 
     video {
@@ -29,6 +31,7 @@
       height: 100%;
       position: relative;
       z-index: 1;
+      max-height: 40vh;
     }
 
     &-background {
@@ -80,20 +83,21 @@
   }
 
   .canopy-navigator {
-    width: 38.2%;
-    flex-shrink: 0;
+    flex-shrink: 1;
+    flex-grow: 0;
     background-color: transparent;
+    width: 61.8%;
+    border: 0.5rem solid white;
+    border-left: 0;
+    border-top: 0;
 
     @include breakpoints(sm) {
       width: 50%;
     }
 
-    @include breakpoints(xs) {
+    @include breakpoints(xxs, xs) {
       width: 100%;
-    }
-
-    @include breakpoints(xxs) {
-      width: 100%;
+      border: none;
     }
   }
 }
