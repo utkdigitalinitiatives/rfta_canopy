@@ -1,15 +1,14 @@
 .canopy-form {
 
   .canopy-sticky > div {
-    padding: 1rem 3rem;
-    width: 100%;
-    margin-left: -3rem;
+    width: calc(100% - 4rem);
+    padding: 1rem 2rem;
     transition: background-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
 
     &.sticky {
-      padding: 1rem 3rem;
-      width: calc(100% - 6rem) !important;
-      background-color: $secondary;
+      padding: 1rem 2rem;
+      width: calc(100% - 4rem) !important;
+      background-color: $primaryMuted;
       box-shadow: $box-shadow;
 
       input,
