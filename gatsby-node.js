@@ -35,12 +35,12 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
 
     node.manifestId = node.id
 
-    node.slug = slugify(node.label.en[0].replace('Interview with ', ''), {
+    node.slug = `object/${slugify(node.label.en[0].replace('Interview with ', ''), {
       replacement: '-',
       lower: true,
       strict: true,
       trim: true
-    })
+    })}`
 
     node.transcripts = ((items, transcripts = []) =>{
       if (Array.isArray(items)) {
@@ -71,12 +71,12 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
 
     for (const element of node.metadata) {
 
-      let slug = slugify(element.label.en[0], {
+      let slug = `browse/${slugify(element.label.en[0], {
         replacement: '-',
         lower: true,
         strict: true,
         trim: true
-      })
+      })}`
 
       metadata[slug] = {}
       metadata[slug].slug = slug;
