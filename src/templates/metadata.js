@@ -7,8 +7,6 @@ const Metadata = ({ data }) => {
 
   const { label, values } = data.allMetadata.edges[0].node
 
-  console.log(data.allMetadata.edges[0].node)
-
   return (
     <Layout>
       <Seo title="Home" />
@@ -24,7 +22,7 @@ const Metadata = ({ data }) => {
                   {result.manifests.map(manifest => {
                     return (
                       <div>
-                        <Link to={manifest.id}>
+                        <Link to={`/${manifest.slug}`}>
                           {manifest.label.en[0]}
                         </Link>
                       </div>
@@ -67,6 +65,7 @@ export const metadataQuery = graphql`
             slug
             manifests {
               id
+              slug
               label {
                 en
               }

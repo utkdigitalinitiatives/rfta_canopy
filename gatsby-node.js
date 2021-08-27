@@ -97,6 +97,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
         metadata[slug].values[valueSlug].manifests = {}
         metadata[slug].values[valueSlug].manifests[nodeId] = {
           id: nodeId,
+          slug: node.slug,
           manifestId: node.manifestId,
           label: node.label,
           summary: node.summary,
