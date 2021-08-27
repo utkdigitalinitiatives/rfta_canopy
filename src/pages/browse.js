@@ -4,7 +4,7 @@ import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
 
 
-const BrowsePage = ({}) => {
+const BrowsePage = ({ data, location }) => {
 
   return (
     <Layout location={location}>
