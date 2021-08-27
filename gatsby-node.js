@@ -99,7 +99,8 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
           id: nodeId,
           manifestId: node.manifestId,
           label: node.label,
-          summary: node.summary
+          summary: node.summary,
+          thumbnail: node.thumbnail
         }
       }
     }
