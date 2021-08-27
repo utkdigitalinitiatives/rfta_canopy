@@ -196,7 +196,7 @@ exports.createPages = async ({ graphql, actions }) => {
   allMetadata.edges.forEach(edge => {
     console.log('Creating page for: /browse/' + edge.node.slug)
     createPage({
-      path: `/browse/${edge.node.slug}`,
+      path: `/${edge.node.slug}`,
       component: require.resolve(`./src/templates/metadata.js`),
       context: {
         node: edge.node,
