@@ -182,6 +182,7 @@ exports.createPages = async ({ graphql, actions }) => {
       allMetadata {
         edges {
           node {
+            id
             slug
           }
         }
