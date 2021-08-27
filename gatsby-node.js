@@ -174,6 +174,34 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
+
+
+
+  const metadataResult = await graphql(`
+    {
+      allMetadata {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  const { allMetadata} = metadataResult.data
+
+  allMetadata.edges.forEach(edge => {
+    console.log('Creating page for: /browse/' + edge.node.slug)
+    createPage({
+      path: `/browse/${edge.node.slug}`,
+      component: require.resolve(`./src/templates/metadata.js`),
+      context: {
+        node: edge.node,
+        id: edge.node.id,
+      },
+    })
+  })
 }
 
 
