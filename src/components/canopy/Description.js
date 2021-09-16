@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MetadataElement from "./MetadataElement"
+import Rights from "./Rights"
 
 class Description extends Component {
   constructor(props) {
@@ -27,12 +28,17 @@ class Description extends Component {
     )
   }
 
+  handleRights () {
+    return <Rights rights={this.props.node.rights}/>
+  }
+
   render() {
 
     return (
       <dl className="canopy-metadata">
         {this.handleMetadata()}
         {this.handleRequiredStatement()}
+        {this.handleRights()}
       </dl>
     )
   }
