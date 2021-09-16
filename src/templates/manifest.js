@@ -78,6 +78,7 @@ export const manifestQuery = graphql`
               en
             }
           }
+          rights
           metadata {
             label {
               en
