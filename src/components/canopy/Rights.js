@@ -18,7 +18,9 @@ class Rights extends Component {
     if (this.props.rights.includes('creativecommons')) {
       return (
         <figure>
-          <img src={`https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/${this.props.rights.split('/')[4]}.svg`} alt={this.props.rights.split('/')[4]}/>
+          <a href={this.props.rights}>
+            <img src={`https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/${this.props.rights.split('/')[4]}.svg`} alt={this.props.rights.split('/')[4]}/>
+          </a>
         </figure>
       )
     }
