@@ -9,9 +9,22 @@ class Rights extends Component {
     return(
       <>
         <dt>Rights</dt>
-        <dd>{this.props.rights}</dd>
+        <dd>{this.getIconUri()}</dd>
       </>
     )
+  }
+
+  getIconUri () {
+    if (this.props.rights.includes('creativecommons')) {
+      return (
+        <figure>
+          <img src={`https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/${this.props.rights.split('/')[4]}.svg`} alt={this.props.rights.split('/')[4]}/>
+        </figure>
+      )
+    }
+    else {
+      return this.props.rights
+    }
   }
 
   render() {
