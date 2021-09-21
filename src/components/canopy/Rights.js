@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { getRights } from "../../utilities/rightslookup"
 
 class Rights extends Component {
   constructor(props) {
@@ -26,12 +27,16 @@ class Rights extends Component {
       )
     }
     else {
+      const object_rights = getRights(rights_identifier, 'rights_statements')
       return (
-        <figure class="rights-statement">
-          <a href={this.props.rights}>
-            <img src={`https://rightsstatements.org/files/buttons/${rights_identifier}.dark-white-interior-blue-type.svg`} alt={rights_identifier}/>
-          </a>
-        </figure>
+        <>
+          <figure class="rights-statement">
+            <a href={this.props.rights}>
+              <img src={`https://rightsstatements.org/files/buttons/${rights_identifier}.dark-white-interior-blue-type.svg`} alt={object_rights["skos:prefLabel"]}/>
+            </a>
+          </figure>
+          <p><a href={this.props.rights}>{object_rights["skos:prefLabel"]}</a>: {object_rights["skos:note"]}</p>
+        </>
       )
     }
   }
