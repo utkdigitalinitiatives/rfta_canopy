@@ -97,6 +97,57 @@ function getRights(identifier, vocab) {
           "scope_note": "This Rights Statement should be used for Items for which the copyright status has not been determined conclusively, but for which the organization that intends to make the Item available has reasonable cause to believe that the underlying Work is not covered by copyright or related rights anymore. This Rights Statement should not be used for Orphan Works (which are assumed to be in-copyright) or for Items where the organization that intends to make the Item available has not undertaken an effort to ascertain the copyright status of the underlying Work."
         }
       }
+    ],
+    "creative_commons": [
+      {
+        "by": {
+          "title": [
+            "Attribution 4.0 International"
+          ]
+        }
+      },
+      {
+        "by-sa": {
+          "title": [
+            "Attribution-ShareAlike 4.0 International"
+          ]
+        }
+      },
+      {
+        "by-nd": {
+          "title": [
+            "Attribution-NoDerivatives 4.0 International"
+          ]
+        }
+      },
+      {
+        "by-nc": {
+          "title": [
+            "Attribution-NonCommercial 4.0 International"
+          ]
+        }
+      },
+      {
+        "by-nc-sa": {
+          "title": [
+            "Attribution-NonCommercial-ShareAlike 4.0 International"
+          ]
+        }
+      },
+      {
+        "by-nc-nd": {
+          "title": [
+            "Attribution-NonCommercial-NoDerivatives 4.0 International"
+          ]
+        }
+      },
+      {
+        "mark": {
+          "title": [
+            "Public Domain Mark 1.0"
+          ]
+        }
+      }
     ]
   }
   return defined_rights[vocab][0][identifier]
