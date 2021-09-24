@@ -3,13 +3,14 @@ const lunr = require('lunr');
 const axios = require('axios');
 const slugify = require('slugify')
 const { GraphQLJSONObject } = require('graphql-type-json');
+const merge = require('lodash/merge');
 
 
 /*
 * Set root IIIF Collection conforming to specification
 * at https://iiif.io/api/presentation/3.0/#51-collection
 */
-const rootCollection = 'https://digital.lib.utk.edu/assemble/collection/collections/rftatest';
+const rootCollection = 'https://digital.lib.utk.edu/assemble/collection/collections/rfta';
 
 /*
 * Map nodes from IIIF Collection and Manifests
@@ -28,14 +29,19 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
         .then(result => result.data)
     }, 25);
 
-  manifests.forEach((node) => {
+  let metadataNodes = {}
+
+  manifests.forEach((node, index) => {
+
     node.manifestId = node.id
-    node.slug = slugify(node.label.en[0].replace('Interview with ', ''), {
+
+    node.slug = `object/${slugify(node.label.en[0].replace('Interview with ', ''), {
       replacement: '-',
       lower: true,
       strict: true,
       trim: true
-    })
+    })}`
+
     node.transcripts = ((items, transcripts = []) =>{
       if (Array.isArray(items)) {
         items[0].items[0].items.map(function(element) {
@@ -46,10 +52,12 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
       }
       return transcripts
     })(node.items);
-    // node.prettyUrl = node.label.en[0] //  make friendly URL David-Dotson-Jeff-Conyers-Sam-Roberts-2020-09-22
+
+    let nodeId = createNodeId(`Manifests-${node.id}`)
+
     createNode({
       ...node,
-      id: createNodeId(`Manifests-${node.id}`),
+      id: nodeId,
       parent: null,
       children: [],
       internal: {
@@ -58,6 +66,75 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
         contentDigest: createContentDigest(node)
       }
     })
+
+    let metadata = {}
+
+    for (const element of node.metadata) {
+
+      let slug = `browse/${slugify(element.label.en[0], {
+        replacement: '-',
+        lower: true,
+        strict: true,
+        trim: true
+      })}`
+
+      metadata[slug] = {}
+      metadata[slug].slug = slug;
+      metadata[slug].label = element.label.en[0];
+
+      metadata[slug].values = {}
+
+      for (const string of element.value.en) {
+        let valueSlug = slugify(string, {
+          replacement: '_',
+          lower: true,
+          strict: true,
+          trim: true
+        })
+        metadata[slug].values[valueSlug] = {}
+        metadata[slug].values[valueSlug].slug = valueSlug
+        metadata[slug].values[valueSlug].label = string
+        metadata[slug].values[valueSlug].manifests = {}
+        metadata[slug].values[valueSlug].manifests[nodeId] = {
+          id: nodeId,
+          slug: node.slug,
+          manifestId: node.manifestId,
+          label: node.label,
+          summary: node.summary,
+          thumbnail: node.thumbnail
+        }
+      }
+    }
+
+    merge(metadataNodes, metadata)
+
+  })
+
+  for (const property in metadataNodes) {
+    const metadata = metadataNodes[property];
+    createNode({
+      slug: metadata.slug,
+      label: metadata.label,
+      values: tidyObjectArrays(metadata.values),
+      id: createNodeId(`Metadata-${metadata.slug}`),
+      parent: null,
+      children: [],
+      internal: {
+        type: 'Metadata',
+        content: JSON.stringify(metadata),
+        contentDigest: createContentDigest(metadata)
+      }
+    })
+  }
+
+}
+
+tidyObjectArrays = (values) => {
+  return Object.keys(values).map((valueSlug) => {
+    values[valueSlug].manifests = Object.keys(values[valueSlug].manifests).map((nodeId) => {
+      return values[valueSlug].manifests[nodeId]
+    })
+    return values[valueSlug]
   })
 }
 
@@ -92,6 +169,35 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `/${edge.node.slug}`,
       component: require.resolve(`./src/templates/manifest.js`),
+      context: {
+        node: edge.node,
+        id: edge.node.id,
+      },
+    })
+  })
+
+
+
+  const metadataResult = await graphql(`
+    {
+      allMetadata {
+        edges {
+          node {
+            id
+            slug
+          }
+        }
+      }
+    }
+  `)
+
+  const { allMetadata} = metadataResult.data
+
+  allMetadata.edges.forEach(edge => {
+    console.log('Creating page for: /browse/' + edge.node.slug)
+    createPage({
+      path: `/${edge.node.slug}`,
+      component: require.resolve(`./src/templates/metadata.js`),
       context: {
         node: edge.node,
         id: edge.node.id,

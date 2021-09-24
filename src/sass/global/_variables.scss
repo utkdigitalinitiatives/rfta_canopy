@@ -11,7 +11,7 @@ $midtone: darken($muted, 10);
 $highlight: darken($muted, 25);
 
 
-$secondary: #006C93;
+$secondary: #1a73c5;
 $secondaryMuted: desaturate(lighten($secondary, 61.8), 61.8);
 
 $accent: #FF8200;
@@ -25,3 +25,4 @@ $box-shadow-color: darken($primary, 10);
 $box-shadow: 4px 4px 8px rgba($box-shadow-color, 0.15);
 $box-shadow-focus: 6px 6px 12px rgba($box-shadow-color, 0.25);
 $box-shadow-slim: 2px 2px 5px rgba($box-shadow-color, 0.15);
+$box-shadow-bottom: 2px 2px 2px rgba($box-shadow-color, 0.1);

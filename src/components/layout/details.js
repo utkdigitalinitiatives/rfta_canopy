@@ -1,6 +1,5 @@
 import * as React from "react"
 import * as Tabs from "@radix-ui/react-tabs"
-import { getValue } from "../../utilities/iiif"
 import Description from "../canopy/Description"
 
 

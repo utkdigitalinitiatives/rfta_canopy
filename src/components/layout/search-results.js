@@ -62,7 +62,12 @@ const SearchResults = ({ data, initialQuery = "" , filter}) => {
           )
         })
       ) : (
-        <p>No results for <strong>{initialQuery}</strong> found.</p>
+        <div className="canopy-no-results">
+          <span>No Results</span>
+          <p>
+            We could not find results for <strong>{initialQuery}</strong>.
+          </p>
+        </div>
       )}
     </div>
   )

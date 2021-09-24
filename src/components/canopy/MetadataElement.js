@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "gatsby"
 
 class MetadataElement extends Component {
   constructor(props) {
@@ -21,7 +22,13 @@ class MetadataElement extends Component {
   getValues(multiple_values) {
     const the_label = this.getLabel(this.props.element.label)
     return multiple_values[this.props.language].map(function(value) {
-      return <dd><a href={`/?filter=${the_label}:${value}`}>{value}</a></dd>
+      return (
+        <dd>
+          <Link to={`/?filter=${the_label}:${value}`}>
+            <header>{value}</header>
+          </Link>
+        </dd>
+      )
     })
   }
 

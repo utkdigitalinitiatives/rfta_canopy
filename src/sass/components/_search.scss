@@ -1,14 +1,14 @@
 .canopy-search-results {
-  margin-top: 2em;
-  max-width: 61.8%;
+  width: 61.8%;
+  background-color: white;
+  box-shadow: $box-shadow;
 
   article {
     display: flex;
-    margin-bottom: 2em;
-    background-color: white;
-    padding: 2em;
+    padding: 2rem;
     border-radius: 3px;
-    box-shadow: $box-shadow;
+    background-color: white;
+    border-bottom: 1px solid $muted;
 
     &:last-child {
       margin-bottom: 0;
@@ -17,12 +17,10 @@
     figure {
       width: 100px;
       height: 75px;
-      background-color: white;
       padding: 0;
-      margin: 0 2em 1em 0;
+      margin: 0 1rem 1rem 0;
       border-radius: 3px;
-      background-color: $highlight;
-      box-shadow: inset $box-shadow-slim;
+      background-color: $muted;
       box-sizing: border-box;
     }
 
@@ -34,14 +32,35 @@
 
       header {
         font-weight: 700;
-        font-size: 1.25em;
+        font-size: 1.125em;
         line-height: 1.25em;
+        font-family: $serif;
       }
 
       p {
-        font-size: 1em;
+        display: block;
+        font-size: 0.8333em;
         line-height: 1.55em;
+        overflow: hidden;
+        word-wrap: break-word;
+        white-space: normal;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        margin-bottom: 0;
       }
     }
+  }
+}
+
+.canopy-no-results {
+  padding: 2rem;
+
+  > span {
+    color: $secondary;
+    font-family: $serif;
+    font-size: 2rem;
+    letter-spacing: -0.05em;
   }
 }
