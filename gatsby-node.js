@@ -265,11 +265,17 @@ const createIndex = async (manifestNodes, type, cache) => {
         metadata = node.metadata
       }
 
+      let thumbnail = ''
+      if (node.thumbnail[0].id) {
+        thumbnail = node.thumbnail[0].id
+      }
+
       store[id] = {
         label: label,
         slug: slug,
         summary: summary,
-        metadata: metadata
+        metadata: metadata,
+        thumbnail: thumbnail
       }
 
       this.add({
