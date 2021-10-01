@@ -32,7 +32,7 @@ class Rights extends Component {
       const object_rights = getRights(rights_identifier, 'creative_commons')
       return (
         <>
-          <figure class="rights-statement">
+          <figure className="rights-statement">
             <a href={this.rights}>
               <img src={`https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/${rights_identifier}.svg`} alt={rights_identifier}/>
             </a>
@@ -47,7 +47,7 @@ class Rights extends Component {
       const object_rights = getRights(rights_identifier, 'rights_statements')
       return (
         <>
-          <figure class="rights-statement">
+          <figure className="rights-statement">
             <a href={this.rights}>
               <img src={`https://rightsstatements.org/files/buttons/${rights_identifier}.dark-white-interior-blue-type.svg`} alt={object_rights["skos:prefLabel"]}/>
             </a>
