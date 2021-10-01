@@ -4,10 +4,12 @@ import { getRights } from "../../utilities/rightslookup"
 class Rights extends Component {
   constructor(props) {
     super(props);
+
+    this.rights = this.checkRightsSet(this.props.rights)
   }
 
   getRights () {
-    return(
+    return (
       <>
         <dt>Rights</dt>
         <dd>{this.getIconUri()}</dd>
@@ -15,19 +17,28 @@ class Rights extends Component {
     )
   }
 
+  checkRightsSet (uri) {
+    if (uri === null || typeof uri === 'undefined') {
+      return "http://rightsstatements.org/vocab/CNE/1.0/"
+    }
+    else {
+      return uri
+    }
+  }
+
   getIconUri () {
-    let rights_identifier = this.props.rights.split('/')[4]
-    if (this.props.rights.includes('creativecommons')) {
+    let rights_identifier = this.rights.split('/')[4]
+    if (this.rights.includes('creativecommons')) {
       const object_rights = getRights(rights_identifier, 'creative_commons')
       return (
         <>
           <figure class="rights-statement">
-            <a href={this.props.rights}>
+            <a href={this.rights}>
               <img src={`https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/${rights_identifier}.svg`} alt={rights_identifier}/>
             </a>
           </figure>
           <p>
-            <a href={this.props.rights}>{object_rights["title"]}</a>
+            <a href={this.rights}>{object_rights["title"]}</a>
           </p>
         </>
       )
@@ -37,12 +48,12 @@ class Rights extends Component {
       return (
         <>
           <figure class="rights-statement">
-            <a href={this.props.rights}>
+            <a href={this.rights}>
               <img src={`https://rightsstatements.org/files/buttons/${rights_identifier}.dark-white-interior-blue-type.svg`} alt={object_rights["skos:prefLabel"]}/>
             </a>
           </figure>
           <p>
-            <a href={this.props.rights}>{object_rights["skos:prefLabel"]}</a>: {object_rights["definition"]}
+            <a href={this.rights}>{object_rights["skos:prefLabel"]}</a>: {object_rights["definition"]}
           </p>
         </>
       )
@@ -50,8 +61,7 @@ class Rights extends Component {
   }
 
   render() {
-
-    return this.getRights()
+    return this.getRights(this.rights)
   }
 }
 
