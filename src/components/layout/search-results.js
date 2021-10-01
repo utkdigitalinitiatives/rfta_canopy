@@ -9,7 +9,6 @@ const SearchResults = ({ data, initialQuery = "" , filter}) => {
   const { store } = data.LunrIndex
   const index = Index.load(data.LunrIndex.index)
   const searchString = `*${initialQuery}*`
-
   let results = []
   try {
     results = index.search(`*${searchString}*`).map(({ ref }) => {
@@ -48,8 +47,8 @@ const SearchResults = ({ data, initialQuery = "" , filter}) => {
           return (
             <article key={result.slug}>
               <Link to={result.slug}>
-                <figure>
-                  <span></span>
+                <figure className='results-thumbnails'>
+                  <img src={result.thumbnail}/>
                 </figure>
               </Link>
               <div>
