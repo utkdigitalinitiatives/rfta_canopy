@@ -21,7 +21,7 @@ class MetadataElement extends Component {
 
   getValues(multiple_values) {
     const the_label = this.getLabel(this.props.element.label)
-    const do_not_filter = ['Extent']
+    const do_not_filter = ['Extent', 'Date', 'Description', 'Descripción', 'Título']
     return multiple_values[this.props.language].map(function(value) {
       if (do_not_filter.includes(the_label)) {
         return (
