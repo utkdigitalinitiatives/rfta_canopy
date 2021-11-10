@@ -5,6 +5,9 @@
   "version": "0.1.0",
   "author": "University of Tennessee Libraries",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
     "@popperjs/core": "^2.10.2",
     "@radix-ui/react-aspect-ratio": "^0.0.14",
     "@radix-ui/react-checkbox": "^0.0.17",
@@ -17,6 +20,7 @@
     "body-scroll-lock": "^4.0.0-beta.0",
     "bootstrap": "^5.1.3",
     "gatsby": "^3.6.2",
+    "gatsby-plugin-fontawesome-css": "^1.1.0",
     "gatsby-plugin-gatsby-cloud": "^2.6.1",
     "gatsby-plugin-image": "^1.6.0",
     "gatsby-plugin-lunr": "^1.5.2",

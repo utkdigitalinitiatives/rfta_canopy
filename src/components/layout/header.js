@@ -1,8 +1,9 @@
 import * as React from "react"
+// import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import SearchForm from "./search-form"
-import Sticky from "react-sticky-el"
+//import SearchForm from "./search-form"
+//import Sticky from "react-sticky-el"
 
 const Header = ({ siteTitle, siteDescription }) => (
   <header className="canopy-header d-flex flex-column">
