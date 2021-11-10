@@ -11,6 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { IdProvider } from '@radix-ui/react-id';
 import "../../sass/canopy.scss"
 
+import Navbar from "./navbar"
 import Header from "./header"
 import Footer from "./footer"
 
@@ -28,12 +29,13 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <IdProvider>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`}
-              siteDescription={data.site.siteMetadata?.description|| `Description`}/>
+    < IdProvider >
+      < Navbar />
+      < Header siteTitle={data.site.siteMetadata?.title || `Title`}
+              siteDescription={data.site.siteMetadata?.description|| `Description`} />
       <main>{children}</main>
-      <Footer />
-    </IdProvider>
+      < Footer / >
+    </ IdProvider >
   )
 }
 

@@ -1,13 +1,19 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
+import SearchForm from "./search-form"
+import Sticky from "react-sticky-el"
 
 const Header = ({ siteTitle, siteDescription }) => (
-  <header className="canopy-header">
+  <header className="canopy-header d-flex flex-column">
     <Link to={'/'}>
-      <span className="canopy-title">{siteTitle}</span>
-      <span className="canopy-subtitle">{siteDescription}</span>
+      <div className="canopy-title">{siteTitle}</div>
     </Link>
+      <div className="canopy-subtitle">{siteDescription}</div>
+      <div className="canopy-caption ms-auto mt-auto text-end text-white">
+        Rising from the Ashes documents the immediate and ongoing impacts of the 2016 Chimney Tops II wildfires, one of the largest natural disasters in Tennessee history.
+        <a className="text-warning"> Learn More.</a>
+      </div>
   </header>
 )
 

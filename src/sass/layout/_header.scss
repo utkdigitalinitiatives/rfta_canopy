@@ -1,5 +1,14 @@
 header.canopy-header {
-  padding: 1rem 2rem;
+  padding: 1rem;
+  height: 40vh;
+  font-family: $sans;
+  background-image: linear-gradient(
+      to bottom,
+      rgb(255, 255, 255),
+      rgba(0, 0, 0, 0.164)
+    ),
+    url("../images/placeholder-background.jpeg");
+  background-size: cover;
 
   @include breakpoints(xs) {
     padding: 1rem;
@@ -7,35 +16,25 @@ header.canopy-header {
 
   a,
   a:visited {
-    text-decoration: none !important;
-    color: $primary !important;
+    text-decoration: none;
+    color: $primary;
   }
 
-  span.canopy-title {
+  .canopy-title {
     font-weight: 400;
-    font-family: $serif;
-    display: block;
-    letter-spacing: -0.06em;
     font-size: 2.5em;
   }
 
-  span.canopy-subtitle {
-    font-size: 0.7222rem;
+  .canopy-subtitle {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    display: inline-flex;
-    flex-direction: column;
-    position: relative;
+  }
 
-    &:before {
-      height: 1px;
-      width: 100%;
-      background-color: $muted;
-      content: '';
-      display: block;
-      margin-top: -0.65rem;
-      position: absolute;
+  .canopy-caption {
+    font-weight: 600;
+    @include media-breakpoint-up(md) {
+      width: 50vw;
     }
   }
 }
