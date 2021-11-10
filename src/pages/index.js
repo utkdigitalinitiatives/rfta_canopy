@@ -18,7 +18,6 @@ const IndexPage = ({ data, location }) => {
   return (
     <Layout location={location}>
       <Seo title="Search results" />
-
       <div className="canopy-form">
         <Sticky className="canopy-sticky">
           <SearchForm initialQuery={q} />

@@ -35,9 +35,6 @@ const SearchResults = ({ initialQuery = "" }) => {
         />
         <button type="submit">Search</button>
       </div>
-      <Facet label="Subject" dropdown={true} />
-      <Facet label="Place" dropdown={true} />
-      <Facet label="Narrator Role" dropdown={true} />
     </form>
   )
 }

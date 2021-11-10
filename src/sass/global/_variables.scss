@@ -1,24 +1,22 @@
-$sans: 'Gotham', 'Open Sans', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+$sans: "Gotham", "Montserrat", -apple-system, BlinkMacSystemFont, Segoe UI,
+  Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+  sans-sans;
 
-$serif: 'Halant', Georgia, serif;
+$serif: "Halant", Georgia, sans;
+$primary: #6a6a6a;
+$primaryMuted: #848687;
 
-$primary: #313E48;
-$primaryMuted: #465866;
+$secondary: #575757;
+$secondaryMuted: desaturate(lighten($secondary, 61.8), 61.8);
 
 $muted: #f1f0ef;
 $midtone: darken($muted, 10);
 $highlight: darken($muted, 25);
 
-
-$secondary: #1a73c5;
-$secondaryMuted: desaturate(lighten($secondary, 61.8), 61.8);
-
-$accent: #FF8200;
+$accent: #ff8200;
 $accentMuted: desaturate(lighten($accent, 38.2), 38.2);
 
-$offwhite: #FAF9F9;
-
+$offwhite: #faf9f9;
 
 $box-shadow-color: darken($primary, 10);
 
@@ -26,3 +24,12 @@ $box-shadow: 4px 4px 8px rgba($box-shadow-color, 0.15);
 $box-shadow-focus: 6px 6px 12px rgba($box-shadow-color, 0.25);
 $box-shadow-slim: 2px 2px 5px rgba($box-shadow-color, 0.15);
 $box-shadow-bottom: 2px 2px 2px rgba($box-shadow-color, 0.1);
+
+$theme-colors: (
+  "success": #cecece,
+  "info": #4d8dc9,
+  "warning": #db984b,
+  "danger": #c55959,
+  "light": #ffffff,
+  "dark": #383838,
+);

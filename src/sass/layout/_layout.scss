@@ -15,17 +15,20 @@ body {
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
   background-color: $primary;
-  background-image: url("../images/chimney-top-2-fire-background_25effa54.jpg");
   background-position: 0 0;
   background-size: 100%;
   background-repeat: no-repeat;
   color: $primary;
+  font-family: $sans;
+}
+
+* {
+  box-sizing: initial;
 }
 
 .canopy {
   border-top: 11px solid $accent;
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,0) calc(100% - 200px), rgba(255,255,255,1) 100%);
+  background: rgb(255, 255, 255);
 
   > div > main {
     .canopy-main {
