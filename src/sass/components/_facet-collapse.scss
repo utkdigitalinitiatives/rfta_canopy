@@ -1,0 +1,16 @@
+.canopy-control-item .accordion {
+  .card {
+    border: none;
+    background-color: transparent;
+    position: static;
+    .card-header {
+      background-color: transparent;
+      border-bottom: none;
+    }
+  }
+  button.plus-button {
+    border: none;
+    background-color: transparent;
+    color: $primaryMuted;
+  }
+}

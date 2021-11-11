@@ -74,8 +74,7 @@
           transition: all 200ms ease-in-out;
           outline: 2px solid transparent;
           border-radius: 40px;
-          min-height: 35px;
-
+          padding: 17px 40px;
           &:focus {
             box-shadow: $box-shadow-focus;
             outline: 2px solid $highlight;

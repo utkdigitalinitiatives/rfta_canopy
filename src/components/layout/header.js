@@ -8,7 +8,7 @@ import { Link } from "gatsby"
 const Header = ({ siteTitle, siteDescription }) => (
   <header className="canopy-header d-flex flex-column">
     <Link to={'/'}>
-      <div className="canopy-title">{siteTitle}</div>
+      <h1 className="canopy-title">{siteTitle}</h1>
     </Link>
       <div className="canopy-subtitle">{siteDescription}</div>
       <div className="canopy-caption ms-auto mt-auto text-end text-white">

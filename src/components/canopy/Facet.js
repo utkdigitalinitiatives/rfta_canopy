@@ -3,7 +3,13 @@ import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import { BiChevronDown } from "react-icons/bi"
 import { StaticQuery, graphql } from "gatsby"
 import FacetContent from "./FacetContent"
+import FacetCollapse from "./FacetCollapse"
 
+// $(document).on("turbolinks:load", function() {
+//   $(`.collapse-fields`).click(function(event) {
+//     $(`#${event.target.parentElement.id} span`).toggle()
+//   })
+// });
 class Facet extends Component {
 
   renderContent(label, float) {
@@ -41,7 +47,7 @@ class Facet extends Component {
   render() {
 
     const {label, dropdown} = this.props
-
+    //this displays the facets in a dropdown list. pass the prop dropdown=true to the Facet component
     if (dropdown) {
       return (
         <div className="canopy-form-item canopy-form-item-dropdown">
@@ -57,10 +63,11 @@ class Facet extends Component {
         </div>
       )
     } else {
+      //this displays the facets as a collapsed list.
       return (
         <div className="canopy-control-item">
-          <span>{label}</span>
-          {this.renderContent(label)}
+          <FacetCollapse  label={ label } 
+                          renderContentForLabel={this.renderContent(label, true)}/>
         </div>
       )
     }

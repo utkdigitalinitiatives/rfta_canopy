@@ -32,7 +32,7 @@ const SearchResults = ({ initialQuery = "" }) => {
           id="search-input"
           type="search"
           value={query}
-          placeholder="Search for Items"
+          placeholder="Search All Resources"
           onChange={handleChange}
         />
         <button type="submit">
