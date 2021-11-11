@@ -46,7 +46,7 @@ article.canopy-manifest {
   @extend .canopy-panel;
 
   header {
-    margin: 2rem 2rem 0rem 2rem;
+    margin: 2rem 2rem 0 2rem;
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -98,6 +98,7 @@ article.canopy-manifest {
       svg#iiif-logo {
         padding-top: 0.25rem;
         height: 1.25rem;
+        filter: grayscale(1);
       }
     }
   }

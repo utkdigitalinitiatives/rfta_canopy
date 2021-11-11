@@ -1,3 +1,7 @@
+.canopy-tabs--list div::after {
+  border-bottom: 1px solid $offwhite;
+}
+
 .canopy-tabs {
   display: flex;
   flex-direction: column;
@@ -8,6 +12,8 @@
     justify-content: flex-start;
     border-bottom: 3px solid transparent;
     flex-shrink: 0;
+    border-bottom: 1px solid $offwhite;
+    border-top: 1px solid $offwhite;
 
     &:hover div[data-state="active"] {
       &::after {
@@ -19,12 +25,18 @@
       }
     }
 
+    .tab-labels {
+      flex: 1;
+      border-right: 1px solid $offwhite;
+      border-left: 1px solid $offwhite;
+    }
+
     div {
       flex-grow: 0;
       flex-shrink: 0;
       padding: 0.5rem 0.75rem;
       font-family: $sans;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 0.833em;
       cursor: pointer;
       color: $primary;
@@ -33,7 +45,7 @@
       position: relative;
 
       &::after {
-        content: '';
+        content: "";
         width: 0;
         height: 3px;
         position: absolute;
@@ -51,7 +63,6 @@
       }
 
       &[data-state="active"] {
-        font-weight: 700;
         color: $primary;
 
         &::after {
@@ -66,5 +77,6 @@
     line-height: 1.53em;
     position: relative;
     height: calc(100% - 2rem);
+    overflow: scroll;
   }
 }

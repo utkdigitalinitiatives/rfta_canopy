@@ -11,7 +11,7 @@ class Rights extends Component {
   getRights () {
     return (
       <>
-        <dt>Rights</dt>
+        <dt>Rights:</dt>
         <dd>{this.getIconUri()}</dd>
       </>
     )

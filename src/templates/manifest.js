@@ -15,7 +15,8 @@ const Manifest = ({ data }) => {
       <Seo title="Home" />
 
       <DigitalObject node={node}/>
-      <Related metadata={node.metadata} />
+      {/* commenting this out for now in case we decide to bring back the related section later */}
+      {/* <Related metadata={node.metadata} /> */}
     </Layout>
   )
 }
