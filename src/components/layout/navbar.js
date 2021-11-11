@@ -1,6 +1,4 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
 import Logo from "../../images/utk-logo.png"
 
 const Navbar = () => (

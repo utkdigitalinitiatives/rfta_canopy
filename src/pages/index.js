@@ -6,6 +6,7 @@ import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
 import SearchForm from "../components/layout/search-form"
 import SearchResults from "../components/layout/search-results"
+import SearchLimits from "../components/layout/search-limits"
 import About from "../components/layout/about"
 
 
@@ -23,11 +24,10 @@ const IndexPage = ({ data, location }) => {
           <SearchForm initialQuery={q} />
         </Sticky>
       </div>
+      < SearchLimits />
       <div className="canopy-main canopy-main-inner">
+        <About />
         <SearchResults data={data} initialQuery={q} filter={filter} />
-        <aside>
-          <About />
-        </aside>
       </div>
     </Layout>
   )

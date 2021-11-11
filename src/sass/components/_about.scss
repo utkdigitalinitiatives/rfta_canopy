@@ -6,13 +6,8 @@
     width: 100%;
   }
 
-  .canopy-control-item {
-    background-color: white;
-    padding: 1rem;
-    box-shadow: $box-shadow;
-
-    > span {
-      font-weight: 700;
-    }
+  .canopy-control-item > span {
+    font-weight: 500;
+    letter-spacing: 1px;
   }
 }

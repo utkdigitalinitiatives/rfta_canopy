@@ -5,6 +5,7 @@ html {
 
 body {
   font-size: 1em;
+  letter-spacing: 0.5px;
   margin: 0 auto;
   word-wrap: break-word;
   font-kerning: normal;
@@ -33,12 +34,11 @@ body {
   > div > main {
     .canopy-main {
       display: flex;
-      margin: 1rem 1rem 1rem;
 
-      aside {
-        max-width: 38.2%;
+      .canopy-about {
         flex-grow: 1;
-        padding: 0 0 0 1rem;
+        background-color: $offwhite;
+        padding: 2rem;
       }
     }
   }

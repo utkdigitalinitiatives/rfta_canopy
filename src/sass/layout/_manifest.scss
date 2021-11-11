@@ -1,7 +1,7 @@
 article.canopy-manifest {
   display: flex;
   flex-direction: column;
-  margin: 0 1rem 1rem;
+  margin: 0;
   background-color: white;
 
   @include breakpoints(xs) {
@@ -46,6 +46,7 @@ article.canopy-manifest {
   @extend .canopy-panel;
 
   header {
+    margin: 2rem 2rem 0rem 2rem;
     display: flex;
     justify-content: space-between;
     background-color: white;

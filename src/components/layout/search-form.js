@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
 import Facet from "../canopy/Facet"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const SearchResults = ({ initialQuery = "" }) => {
 
@@ -30,10 +32,12 @@ const SearchResults = ({ initialQuery = "" }) => {
           id="search-input"
           type="search"
           value={query}
-          placeholder="Search for Items"
+          placeholder="Search All Resources"
           onChange={handleChange}
         />
-        <button type="submit">Search</button>
+        <button type="submit">
+          <FontAwesomeIcon icon={faSearch} />
+        </button>
       </div>
     </form>
   )
