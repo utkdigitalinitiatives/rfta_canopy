@@ -67,7 +67,7 @@ class Viewer extends Component {
 
     return (
       <div ref={this.viewer}
-           className="canopy-viewer">
+           className="canopy-viewer d-flex align-items-center">
         <Video items={items}
                time={this.time.bind(this)}
                updateTime={this.state.updateTime}
