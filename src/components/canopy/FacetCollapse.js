@@ -10,8 +10,7 @@ function CustomToggle({ children, eventKey }) {
     <button
       type="button"
       onClick={decoratedOnClick}
-      class="plus-button"
-    >
+      className="plus-button">
       {children}
     </button>
   );

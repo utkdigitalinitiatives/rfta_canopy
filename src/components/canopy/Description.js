@@ -12,9 +12,11 @@ class Description extends Component {
     const metadata = this.props.node.metadata
     return (metadata.map(function(element){
       return (
-        <MetadataElement element={element}
-                         language='en'
-        />
+        <div className="metadata-group d-flex py-2">
+          <MetadataElement  element={element}
+                            language='en'
+          />
+        </div>
       )
     }
     ));
@@ -22,20 +24,26 @@ class Description extends Component {
 
   handleRequiredStatement () {
     return (
-        <MetadataElement element={this.props.node.requiredStatement}
-                         language='en'
+      <div className="metadata-group d-flex py-2">
+        <MetadataElement  element={this.props.node.requiredStatement}
+                          language='en'
         />
+      </div>
     )
   }
 
   handleRights () {
-    return <Rights rights={this.props.node.rights}/>
+    return (
+      <div className="metadata-group d-flex pt-2">
+        <Rights rights={this.props.node.rights}/>
+      </div>
+    )
   }
 
   render() {
 
     return (
-      <dl className="canopy-metadata">
+      <dl className="canopy-metadata px-5 pt-3">
         {this.handleMetadata()}
         {this.handleRequiredStatement()}
         {this.handleRights()}

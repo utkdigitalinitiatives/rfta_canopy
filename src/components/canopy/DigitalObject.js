@@ -71,9 +71,9 @@ class DigitalObject extends Component {
             <Viewer node={this.props.node}
                     transcripts={this.state.transcripts}
                     mobileNavigatorStatus={this.mobileNavigatorStatus.bind(this)}
+                    id={id}
+                    node2={node}
             />
-          <Details id={id}
-                   node={node} />
         </article>
       )
     } else {

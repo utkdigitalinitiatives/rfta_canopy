@@ -19,12 +19,16 @@
       }
     }
 
+    .tab-labels {
+      flex: 1;
+    }
+
     div {
       flex-grow: 0;
       flex-shrink: 0;
       padding: 0.5rem 0.75rem;
       font-family: $sans;
-      font-weight: 700;
+      font-weight: 600;
       font-size: 0.833em;
       cursor: pointer;
       color: $primary;
@@ -33,7 +37,7 @@
       position: relative;
 
       &::after {
-        content: '';
+        content: "";
         width: 0;
         height: 3px;
         position: absolute;
@@ -51,7 +55,6 @@
       }
 
       &[data-state="active"] {
-        font-weight: 700;
         color: $primary;
 
         &::after {

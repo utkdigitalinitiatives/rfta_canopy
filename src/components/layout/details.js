@@ -8,7 +8,6 @@ const Details = ({ id, node }) => {
   const {manifestId, label, summary} = node;
 
   return (
-    <div className="canopy-details">
       <Tabs.Root className="canopy-tabs" defaultValue="details">
         <Tabs.List className="canopy-tabs--list">
           <Tabs.Trigger value="details">Details</Tabs.Trigger>
@@ -21,7 +20,6 @@ const Details = ({ id, node }) => {
           <Tabs.Content value="translation">[translations?]</Tabs.Content>
         </div>
       </Tabs.Root>
-    </div>
   )
 }
 
