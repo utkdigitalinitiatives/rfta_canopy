@@ -1,3 +1,7 @@
+.canopy-tabs--list div::after {
+  border-bottom: 1px solid $offwhite;
+}
+
 .canopy-tabs {
   display: flex;
   flex-direction: column;
@@ -8,6 +12,8 @@
     justify-content: flex-start;
     border-bottom: 3px solid transparent;
     flex-shrink: 0;
+    border-bottom: 1px solid $offwhite;
+    border-top: 1px solid $offwhite;
 
     &:hover div[data-state="active"] {
       &::after {
@@ -21,6 +27,8 @@
 
     .tab-labels {
       flex: 1;
+      border-right: 1px solid $offwhite;
+      border-left: 1px solid $offwhite;
     }
 
     div {
@@ -69,5 +77,6 @@
     line-height: 1.53em;
     position: relative;
     height: calc(100% - 2rem);
+    overflow: scroll;
   }
 }

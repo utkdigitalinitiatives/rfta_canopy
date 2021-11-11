@@ -1,6 +1,10 @@
 dl.canopy-metadata {
   font-size: 0.8333em;
 
+  .metadata-group {
+    border-bottom: 1px solid $offwhite;
+  }
+
   dt {
     font-weight: 600;
     margin-top: 1em;
