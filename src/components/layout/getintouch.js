@@ -9,7 +9,7 @@ const GetInTouch = () => {
             <h3>Get In Touch</h3>
             <p>If you would like to share your story, contact us via this form. We would love to add your story to our collection of resources.</p>
           </div>
-          <div className="col-11 col-md-5 pl-md-1 text-center">
+          <div className="contact-form col-11 col-md-5 pl-md-1 text-center">
             <input className="form-control form-control my-1" type="text" placeholder="Name" aria-label="Name"/>
             <input className="form-control form-control my-1" type="text" placeholder="Email" aria-label="Email"/>
             <textarea className="form-control form-control my-1" type="text" placeholder="Message" aria-label="Name"/>
