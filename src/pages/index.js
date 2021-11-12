@@ -7,7 +7,7 @@ import Seo from "../components/layout/seo"
 import SearchForm from "../components/layout/search-form"
 import SearchResults from "../components/layout/search-results"
 import SearchLimits from "../components/layout/search-limits"
-import About from "../components/layout/about"
+import Facets from "../components/layout/facets"
 
 
 const IndexPage = ({ data, location }) => {
@@ -26,7 +26,7 @@ const IndexPage = ({ data, location }) => {
       </div>
       < SearchLimits />
       <div className="canopy-main canopy-main-inner">
-        <About />
+        <Facets />
         <SearchResults data={data} initialQuery={q} filter={filter} />
       </div>
     </Layout>

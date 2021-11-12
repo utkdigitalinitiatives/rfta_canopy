@@ -21,6 +21,13 @@ body {
   background-repeat: no-repeat;
   color: $primary;
   font-family: $sans;
+
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: 400;
+  }
 }
 
 * {
