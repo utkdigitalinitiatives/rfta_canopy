@@ -1,5 +1,5 @@
 import React from "react"
-import BrowseItem from './BrowseItem'
+import BrowseItem from './BrowseItem';
 
 const BrowseRow = ({ data, backgroundClass }) => {
 
