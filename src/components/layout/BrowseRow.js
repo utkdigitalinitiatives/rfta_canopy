@@ -6,7 +6,7 @@ const BrowseRow = ({ data, backgroundClass }) => {
   const { subheadings, title } = data
 
   return (
-    <div className={`row py-5 px-5 justify-content-center ${backgroundClass}`}>
+    <div className={`row py-5 px-5 justify-content-center mx-0 ${backgroundClass}`}>
       <h3 className="section-label mb-4">{title}</h3>
       { subheadings.map(subheading => (
         <BrowseItem 
