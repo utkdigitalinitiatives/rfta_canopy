@@ -6,7 +6,7 @@ import TeamAndFunding from "../components/layout/teamandfunding"
 import GetInTouch from "../components/layout/getintouch"
 
 
-const AboutPage = ({ location }) => {
+const About = ({ location }) => {
 
   return (
     <Layout location={location}>
@@ -20,4 +20,4 @@ const AboutPage = ({ location }) => {
     </Layout>
   )
 }
-export default AboutPage
+export default About
