@@ -13,7 +13,6 @@
 @import "global/mixins";
 
 // components
-@import "components/about";
 @import "components/form";
 @import "components/browse";
 @import "components/button";
@@ -30,12 +29,16 @@
 @import "components/facet-collapse";
 
 // layout
+@import "layout/facets";
 @import "layout/header";
 @import "layout/layout";
 @import "layout/manifest";
 @import "layout/search";
 @import "layout/navbar";
 @import "layout/search-limits";
+
+// pages
+@import "pages/about";
 
 // vendor
 @import "vendor/mirador";

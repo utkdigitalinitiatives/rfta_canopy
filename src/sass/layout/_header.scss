@@ -1,11 +1,10 @@
 header.canopy-header {
-  padding: 2rem;
   height: 40vh;
   font-family: $sans;
   background-image: linear-gradient(
       to bottom,
       rgb(255, 255, 255),
-      rgba(0, 0, 0, 0.164)
+      rgba(0, 0, 0, 0.452)
     ),
     url("../images/placeholder-background.jpeg");
   background-size: cover;
