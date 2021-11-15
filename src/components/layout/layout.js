@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { IdProvider } from '@radix-ui/react-id';
 import "../../sass/canopy.scss"
 
-import Navbar from "./navbar"
+import Navbar from "../canopy/Navbar.js"
 import Header from "./header"
 import Footer from "./footer"
 
