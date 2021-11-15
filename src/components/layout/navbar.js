@@ -3,7 +3,7 @@ import Logo from "../../images/utk-logo.png"
 
 const Navbar = () => (
     <nav className="navbar navbar-expand-lg navbar-light">
-      <div className="container-fluid">
+      <div className="container-fluid px-4">
         <a className="navbar-brand" href="#">
         <img className= "logo-image" src={ Logo } />
         </a>
