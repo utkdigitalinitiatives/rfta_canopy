@@ -2,11 +2,9 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-import { searchParams } from '../../utilities/helpers'
 import SearchForm from "./search-form"
 
 const Header = ({ location, siteDescription, siteTitle }) => {
-  const { q } = searchParams(location.search)
   const homepage = location.pathname.length === 1
 
   return (
@@ -16,7 +14,7 @@ const Header = ({ location, siteDescription, siteTitle }) => {
       </Link>
       <div className="canopy-subtitle text-center text-md-start">{siteDescription}</div>
       <div className="canopy-form">
-        <SearchForm initialQuery={q} />
+        <SearchForm />
       </div>
       {homepage && (
         <div className="canopy-caption ms-auto mt-auto text-end text-white text-center text-md-start">
