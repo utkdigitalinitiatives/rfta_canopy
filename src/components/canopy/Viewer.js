@@ -1,12 +1,10 @@
-import React, { Component, createRef, useRef } from "react"
+import React, { Component, createRef } from "react"
 import PropTypes from "prop-types"
 import Navigator from "./Navigator"
 import Video from "./Video"
 import MediaQuery from 'react-responsive'
 import * as Collapsible from '@radix-ui/react-collapsible';
-import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
-import * as Popover from "@radix-ui/react-popover"
-import Details from "../layout/details"
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
 
 class Viewer extends Component {
@@ -24,11 +22,11 @@ class Viewer extends Component {
     this.viewer = createRef()
   }
 
-  time(value) {{
+  time(value) {
     this.setState({
       t: value
     })
-  }}
+  }
 
   updateTime (value) {
     this.setState({
@@ -64,7 +62,7 @@ class Viewer extends Component {
 
   render() {
 
-    const {id, manifestId, items, structures} = this.props.node;
+    const {id, items, structures} = this.props.node;
 
     return (
       <div ref={this.viewer}

@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Link } from "gatsby"
 
 class MetadataElement extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   parseElement () {
     return(
@@ -24,18 +21,17 @@ class MetadataElement extends Component {
     const do_not_filter = ['Extent', 'Date', 'Description', 'Descripción', 'Título']
     let valueArray = multiple_values[this.props.language]
     let lastItemInArray = valueArray[valueArray.length - 1]
-    return multiple_values[this.props.language].map(function(value) {
+    return multiple_values[this.props.language].map(function(value, index) {
       if (do_not_filter.includes(the_label)) {
         return (
-          <dd>
+          <dd key={index}>
               {value}
           </dd>
         )
       }
-      else if (valueArray.length > 1 && value != lastItemInArray) {
-        console.log(valueArray)
+      else if (valueArray.length > 1 && value !== lastItemInArray) {
         return (
-          <dd>
+          <dd key={index}>
             <Link to={`/?filter=${the_label}:${value}`}>
               {value},&nbsp;
             </Link>
@@ -44,7 +40,7 @@ class MetadataElement extends Component {
       }
       else {
         return (
-          <dd>
+          <dd key={index}>
             <Link to={`/?filter=${the_label}:${value}`}>
               {value}
             </Link>

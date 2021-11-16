@@ -6,7 +6,7 @@ const Navbar = () => (
   <nav className="navbar navbar-expand-lg navbar-light">
     <div className="container-fluid px-4">
       <Link className="navbar-brand" to="/">
-        <img className= "logo-image" src={ Logo } />
+        <img className= "logo-image" src={ Logo } alt="University of Tennessee, Knoxville Logo"/>
       </Link>
       {/* this button is to render the hamburger menu on mobile devices */}
       <button

@@ -7,7 +7,7 @@ const ProjectSummary = () => {
         <div className="row pt-5 mx-auto mx-lg-5 justify-content-center justify-content-lg-start">
           <div className="col-11 col-lg-7 text-center text-lg-start">
             <div className="ratio ratio-16x9">
-              <iframe loading="lazy" title="Rising From The Ashes (Trailer)" src="https://www.youtube.com/embed/cF1cIqwWFRA?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+              <iframe loading="lazy" title="Rising From The Ashes (Trailer)" src="https://www.youtube.com/embed/cF1cIqwWFRA?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="">
               </iframe>
             </div>
           </div>
