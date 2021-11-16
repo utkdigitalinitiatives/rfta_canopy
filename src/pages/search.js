@@ -6,7 +6,7 @@ import Seo from "../components/layout/seo"
 import SearchResults from "../components/layout/search-results"
 import SearchLimits from "../components/layout/search-limits"
 import Facets from "../components/layout/facets"
-import { searchParams } from '../utilities/search'
+import { searchParams } from '../utilities/helpers'
 
 
 const Search = ({ data, location }) => {

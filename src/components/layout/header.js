@@ -2,7 +2,7 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
-import { searchParams } from '../../utilities/search'
+import { searchParams } from '../../utilities/helpers'
 import SearchForm from "./search-form"
 
 const Header = ({ location, siteDescription, siteTitle }) => {
