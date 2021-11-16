@@ -13,7 +13,7 @@ import "../../sass/canopy.scss"
 
 import Footer from "./footer"
 import Header from "./header"
-import Navbar from "./navbar"
+import Navbar from "../canopy/Navbar"
 
 const Layout = ({ children, location }) => {
   const data = useStaticQuery(graphql`
