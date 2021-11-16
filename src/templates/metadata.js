@@ -1,16 +1,15 @@
 import React from "react"
-import Layout from "../components/layout/layout"
-import Seo from "../components/layout/seo"
 import { graphql, Link } from "gatsby"
 
-const Metadata = ({ data }) => {
+import Layout from "../components/layout/layout"
+import Seo from "../components/layout/seo"
 
+const Metadata = ({ data, location }) => {
   const { label, values } = data.allMetadata.edges[0].node
 
   return (
-    <Layout>
+    <Layout location={location}>
       <Seo title="Home" />
-
       <h1>{label}</h1>
       <main className="canopy-browse">
         {values.length ? (
