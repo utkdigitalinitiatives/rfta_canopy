@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 import SearchForm from "./search-form"
 
 const Header = ({ location, siteDescription, siteTitle }) => {
-  const homepage = location.pathname.length === 1
+  const homepage = location?.pathname?.length === 1
 
   return (
     <header className={`canopy-header ${homepage ? 'tall': 'short'} d-flex flex-column p-5`}>
@@ -19,7 +19,7 @@ const Header = ({ location, siteDescription, siteTitle }) => {
       {homepage && (
         <div className="canopy-caption ms-auto mt-auto text-end text-white text-center text-md-start">
           Rising from the Ashes documents the immediate and ongoing impacts of the 2016 Chimney Tops II wildfires, one of the largest natural disasters in Tennessee history.
-          <Link to={"/about"} className="text-warning"> Learn More.</Link> 
+          <Link to={"/about"} className="text-warning"> Learn More.</Link>
         </div>
       )}
     </header>
