@@ -2,8 +2,6 @@ import * as React from "react"
 
 const SearchLimits = ({ q }) => {
 
-  console.log(q)
-
 return(
 <div className="search-limits-section px-5">
   {q.length > 0 &&
