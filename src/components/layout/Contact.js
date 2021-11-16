@@ -10,7 +10,7 @@ const Contact = () => {
             <p>If you would like to share your story, contact us via this form. We would love to add your story to our collection of resources.</p>
           </div>
           <div className="contact-form col-11 col-md-5 pl-md-1 text-center">
-            <form name="Rising From The Ashes Contact Form" method="post" netlify-honeypot="bot-field" data-netlify="true" action="#">
+            <form name="Rising From The Ashes Contact Form" method="post" netlify-honeypot="bot-field" data-netlify="true">
               <input type="hidden" name="form-name" value="Rising From The Ashes Contact Form" />
               <input type="hidden" name="bot-field" />
               <input className="form-control form-control my-1" type="text" placeholder="Name" aria-label="Name" name="name"/>
