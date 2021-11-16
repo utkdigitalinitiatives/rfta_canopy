@@ -40,32 +40,15 @@ class Facet extends Component {
   }
 
   render() {
+    const { label } = this.props
+    // this displays the facets as a collapsed list.
 
-    const {label, dropdown} = this.props
-    // this displays the facets in a dropdown list. pass the prop dropdown=true to the Facet component
-    if (dropdown) {
-      return (
-        <div className="canopy-form-item canopy-form-item-dropdown">
-          <DropdownMenu.Root>
-            <DropdownMenu.Trigger>
-              <span>{label}</span>
-              <BiChevronDown />
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Content avoidCollisions={false}>
-              {this.renderContent(label, true)}
-            </DropdownMenu.Content>
-          </DropdownMenu.Root>
-        </div>
-      )
-    } else {
-      // this displays the facets as a collapsed list.
-      return (
-        <div className="canopy-control-item">
-          <FacetCollapse  label={ label } 
-                          renderContentForLabel={this.renderContent(label, true)}/>
-        </div>
-      )
-    }
+    return (
+      <div className="canopy-control-item">
+        <FacetCollapse  label={ label } 
+                        renderContentForLabel={this.renderContent(label, true)}/>
+      </div>
+    )
   }
 }
 
