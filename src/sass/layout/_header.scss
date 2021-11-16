@@ -1,5 +1,4 @@
 header.canopy-header {
-  height: 40vh;
   font-family: $sans;
   background-image: linear-gradient(
       to bottom,
@@ -8,6 +7,14 @@ header.canopy-header {
     ),
     url("../images/placeholder-background.jpeg");
   background-size: cover;
+
+  &.tall {
+    height: 415px;
+  }
+
+  &.short {
+    height: 250px;
+  }
 
   @include breakpoints(xs) {
     padding: 1rem;

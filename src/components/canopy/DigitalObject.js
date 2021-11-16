@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Viewer from "./Viewer"
 import { fromVtt } from "subtitles-parser-vtt"
 import Details from "../layout/details"
-import Sticky from 'react-sticky-el';
 import DigitalObjectHeader from "./DigitalObjectHeader"
 import Layout from "../layout/layout"
 
