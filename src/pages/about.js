@@ -3,7 +3,7 @@ import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
 import ProjectSummary from "../components/layout/project-summary"
 import TeamAndFunding from "../components/layout/teamandfunding"
-import GetInTouch from "../components/layout/getintouch"
+import Contact from "../components/layout/contact"
 
 
 const About = ({ location }) => {
@@ -14,9 +14,9 @@ const About = ({ location }) => {
       <div className= "text-center text-lg-start mx-3 mx-md-5 my-4">
         <h2>About the Project: Hero text/heading here</h2>
       </div>
-      < ProjectSummary />
-      < TeamAndFunding />
-      < GetInTouch />
+      <ProjectSummary />
+      <TeamAndFunding />
+      <Contact />
     </Layout>
   )
 }

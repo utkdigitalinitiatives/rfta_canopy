@@ -1,6 +1,6 @@
 import * as React from "react"
 
-const GetInTouch = () => {
+const Contact = () => {
 
   return (
       <div className="container-fluid grey-background px-0">
@@ -18,9 +18,9 @@ const GetInTouch = () => {
         </div>
         <div className="align-items-start py-5 mx-3 mx-md-5 text-center">
           <small><b>Disclaimer / Rights Statement</b><br/>
-          <i>The video content provided on this site is not a responsibility of UTK. More information about the rights statementand any additional disclaimers here</i></small>
+          <i>The Rising from the Ashes Oral History Project collects personal accounts of the Chimney Tops 2 Wildfires of 2016, and The University of Tennessee holds no liability for statements made in the recordings. These accounts reflect the opinions of the narrators, and thus they are subjective and should not be considered verified or comprehensive. Oral history interviews may be used alongside other primary and secondary source materials to gain a fuller understanding of historical events.</i></small>
         </div>
       </div>
   )
 }
-export default GetInTouch
+export default Contact
