@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import Logo from "../../images/utk-logo.png"
 
 const Navbar = () => (
@@ -14,31 +15,34 @@ const Navbar = () => (
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <a
-              className="nav-link"
+            <Link
+              activeClassName="active"
               aria-current="page"
-              href="/"
+              className="nav-link"
+              to="/"
             >
               Browse
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a
-              className="nav-link"
+            <Link
+              activeClassName="active"
               aria-current="page"
-              href="/about"
+              className="nav-link"
+              to="/about"
             >
               About
-            </a>
+            </Link>
           </li>
           <li className="nav-item">
-            <a
-              className="nav-link"
+            <Link
+              activeClassName="active"
               aria-current="page"
-              href="/search"
+              className="nav-link"
+              to="/search"
             >
               Search
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
