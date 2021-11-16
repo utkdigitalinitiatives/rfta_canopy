@@ -5,11 +5,19 @@ import Logo from "../../images/utk-logo.png"
 const Navbar = () => (
   <nav className="navbar navbar-expand-lg navbar-light">
     <div className="container-fluid px-4">
-      <a className="navbar-brand" href="/">
+      <Link className="navbar-brand" to="/">
         <img className= "logo-image" src={ Logo } />
-      </a>
+      </Link>
       {/* this button is to render the hamburger menu on mobile devices */}
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        className="navbar-toggler"
+        data-bs-target="#navbarNav"
+        data-bs-toggle="collapse"
+        type="button"
+      >
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
