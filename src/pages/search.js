@@ -12,7 +12,7 @@ import SearchLimits from "../components/layout/search-limits"
 import Facets from "../components/layout/facets"
 
 
-const IndexPage = ({ data, location }) => {
+const Search = ({ data, location }) => {
 
   const params = new URLSearchParams(location.search.slice(1))
   const q = params.get("q") || ""
@@ -34,7 +34,7 @@ const IndexPage = ({ data, location }) => {
     </Layout>
   )
 }
-export default IndexPage
+export default Search
 
 export const pageQuery = graphql`
   query {
