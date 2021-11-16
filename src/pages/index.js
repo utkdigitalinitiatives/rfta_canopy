@@ -1,4 +1,5 @@
 import * as React from "react"
+
 import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
 import BrowseRow from "../components/layout/BrowseRow"
@@ -126,19 +127,20 @@ const Browse = ({ location }) => {
         <h2>Browse by Topic</h2>
         <p>Highlights from popular resources, locations, and featured items about the Chimney Tops 2 fires.</p>
       </div>
-      <BrowseRow 
+      <BrowseRow
         data={narratorRoles}
         backgroundClass="grey-background"
       />
-      <BrowseRow 
+      <BrowseRow
         data={topics}
         backgroundClass=""
       />
-      <BrowseRow 
+      <BrowseRow
         data={locations}
         backgroundClass="grey-background"
       />
     </Layout>
   )
 }
+
 export default Browse

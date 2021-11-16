@@ -1,20 +1,17 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
 import DigitalObject from "../components/canopy/DigitalObject"
-import Related from "../components/canopy/Related"
 
-const Manifest = ({ data }) => {
-
-  const {node} = data.allManifests.edges[0];
+const Manifest = ({ data, location }) => {
+  const { node } = data.allManifests.edges[0]
 
   return (
-    <Layout>
+    <Layout location={location}>
       <Seo title="Home" />
-
-      <DigitalObject node={node}/>
+      <DigitalObject node={node} />
       {/* commenting this out for now in case we decide to bring back the related section later */}
       {/* <Related metadata={node.metadata} /> */}
     </Layout>
@@ -27,7 +24,7 @@ export const manifestQuery = graphql`
   query allManifests($id: String) {
     allManifests(
       filter: {
-        id: { 
+        id: {
           eq: $id
           }
         }

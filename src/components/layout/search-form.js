@@ -1,24 +1,18 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
-import Facet from "../canopy/Facet"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSearch } from "@fortawesome/free-solid-svg-icons"
 
 const SearchResults = ({ initialQuery = "" }) => {
-
   const [query, setQuery] = useState(initialQuery)
   const inputEl = useRef(null)
 
-  const handleChange = e => {
-    setQuery(e.target.value)
-    const q = inputEl.current.value
-    navigate(`/?q=${q}`)
-  }
+  const handleChange = e => setQuery(e.target.value)
 
   const handleSubmit = e => {
     e.preventDefault()
     const q = inputEl.current.value
-    navigate(`/?q=${q}`)
+    navigate(`/search?q=${q}`)
   }
 
   return (
