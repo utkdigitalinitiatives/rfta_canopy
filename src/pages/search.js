@@ -11,11 +11,11 @@ import { searchParams } from '../utilities/helpers'
 
 const Search = ({ data, location }) => {
   const { q, filter } = searchParams(location.search)
-
+  
   return (
     <Layout location={location}>
       <Seo title="Search results" />
-      <SearchLimits />
+      <SearchLimits q={q}/>
       <div className="canopy-main canopy-main-inner">
         <Facets />
         <SearchResults data={data} initialQuery={q} filter={filter} />
