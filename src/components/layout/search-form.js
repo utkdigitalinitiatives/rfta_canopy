@@ -1,11 +1,9 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
-import Facet from "../canopy/Facet"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 const SearchResults = ({ initialQuery = "" }) => {
-
   const [query, setQuery] = useState(initialQuery)
   const inputEl = useRef(null)
 

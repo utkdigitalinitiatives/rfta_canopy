@@ -1,5 +1,7 @@
 .canopy-form {
-  .canopy-sticky > div {
+  margin: 30px 0;
+
+  div {
     width: calc(100% - 2rem);
     padding: 1rem;
     transition: background-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
