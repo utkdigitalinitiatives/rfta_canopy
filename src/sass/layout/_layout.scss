@@ -41,6 +41,8 @@ body {
   > div > main {
     .canopy-main {
       display: flex;
+      border-top: 1px solid $muted;
+      border-bottom: 1px solid $muted;
 
       .canopy-about {
         flex-grow: 1;
