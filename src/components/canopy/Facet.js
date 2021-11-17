@@ -3,8 +3,8 @@ import { StaticQuery, graphql } from "gatsby"
 import FacetContent from "./FacetContent"
 import FacetCollapse from "./FacetCollapse"
 
-const Facet = ({ label, type }) => {
-  const renderContent = (label, float) => {
+const Facet = ({ label }) => {
+  const renderContent = (label) => {
     return (
       <StaticQuery
         query={graphql`
@@ -29,7 +29,6 @@ const Facet = ({ label, type }) => {
           data => (
             <FacetContent
               data={data}
-              float={float}
               label={label}
             />
           )
@@ -42,7 +41,7 @@ const Facet = ({ label, type }) => {
     <div className="canopy-control-item">
       <FacetCollapse
         label={label}
-        renderContentForLabel={renderContent(label, true)}
+        renderContentForLabel={renderContent(label)}
       />
     </div>
   )
