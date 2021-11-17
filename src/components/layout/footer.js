@@ -1,7 +1,7 @@
 import * as React from "react"
 
 const Footer = () => (
-  <footer>
+  <footer className="mt-auto">
     [footer]
   </footer>
 )
