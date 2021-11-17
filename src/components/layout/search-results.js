@@ -1,8 +1,7 @@
 import * as React from "react"
-import { graphql, Link } from "gatsby"
+import { Link } from "gatsby"
 import { Index } from "lunr"
 import { Filter } from "../../utilities/iiif"
-import Manifest from "../../templates/manifest"
 
 const SearchResults = ({ data, initialQuery = "" , filter}) => {
 
@@ -20,20 +19,20 @@ const SearchResults = ({ data, initialQuery = "" , filter}) => {
     console.log(error)
   }
 
-  if (filter != "") {
+  if (filter !== "") {
     let current_filter = new Filter(filter)
     current_filter.parameters.map(function(thing){
-      results = lookup_filter(thing)
+      return results = lookup_filter(thing)
     })
   }
 
   function lookup_filter (filter) {
     let filtered_results = []
     results.map(function(result){
-      result.metadata.map(function(element) {
-       if (element.label.en[0] == filter.label && element.value.en.includes(filter.value)) {
-         filtered_results.push(result)
-       }
+      return result.metadata.forEach(function(element) {
+        if (element.label.en[0] === filter.label && element.value.en.includes(filter.value)) {
+          return filtered_results.push(result)
+        }
       })
     })
     return filtered_results
@@ -48,7 +47,7 @@ const SearchResults = ({ data, initialQuery = "" , filter}) => {
             <article key={result.slug}>
               <Link to={result.slug}>
                 <figure className='results-thumbnails'>
-                  <img src={result.thumbnail}/>
+                  <img src={result.thumbnail} alt={result.label} />
                 </figure>
               </Link>
               <div>

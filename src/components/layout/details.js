@@ -3,9 +3,7 @@ import * as Tabs from "@radix-ui/react-tabs"
 import Description from "../canopy/Description"
 
 
-const Details = ({ id, node }) => {
-
-  const {manifestId, label, summary} = node;
+const Details = ({ node }) => {
 
   return (
       <Tabs.Root className="canopy-tabs" defaultValue="details">

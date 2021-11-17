@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import * as Popover from '@radix-ui/react-popover';
 
 class IIIFBadge extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
 
@@ -43,11 +40,11 @@ class IIIFBadge extends Component {
             </Popover.Close>
             <Popover.Arrow />
             <a href={this.props.url}
-               target="_blank">
+               target="_blank" rel="noreferrer">
               Link to IIIF Manifest
             </a>
             <a href={`https://projectmirador.org/embed/?iiif-content=${this.props.url}`}
-               target="_blank">
+               target="_blank" rel="noreferrer">
               Open in Mirador Viewer
             </a>
           </Popover.Content>

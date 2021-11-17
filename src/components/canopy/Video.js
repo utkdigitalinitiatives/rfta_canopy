@@ -87,7 +87,7 @@ class Video extends Component {
 
       const items = this.props.items[0].items[0].items;
 
-      items.map(function(element) {
+      items.forEach(function(element) {
         if (element.motivation === 'painting') {
           component.setState({
             source: element.body[0].id,
@@ -100,7 +100,7 @@ class Video extends Component {
             track.src = item.id
             track.label = item.label[item.language][0]
             track.srclang = item.language
-            tracks.push(track)
+            return tracks.push(track)
           });
           component.setState({
             tracks: tracks
@@ -262,11 +262,14 @@ class Video extends Component {
       return (
           <div className={className}>
             <AspectRatio.Root ratio={16/9}>
-              <video controls
-                     ref={this.video}
-                     onPlay={this.handlePlay}
-                     onPause={this.handlePause}
-                     crossOrigin="anonymous">
+              <video 
+                controls
+                ref={this.video}
+                onPlay={this.handlePlay}
+                onPause={this.handlePause}
+                crossOrigin="anonymous"
+              >
+                <track kind="captions" />
                 {this.renderSource(source, format)}
                 {this.renderTracks(tracks)}
               </video>

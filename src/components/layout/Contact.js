@@ -17,7 +17,7 @@ const Contact = () => (
           <button type="submit" className="btn btn-primary mt-1 mx-2">
             Submit
           </button>
-          <input class="btn btn-secondary mt-1 mx-2" type="reset" value="Clear" />
+          <input className="btn btn-secondary mt-1 mx-2" type="reset" value="Clear" />
         </form>
       </div>
     </div>

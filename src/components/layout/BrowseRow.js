@@ -14,6 +14,7 @@ const BrowseRow = ({ data, backgroundClass }) => {
           image={subheading.image}
           path={subheading.path}
           subtitle={subheading.subtitle}
+          key={subheading.key}
         />
       ))}
     </div>
