@@ -1,52 +1,45 @@
-import React, { Component } from 'react';
+import React from 'react';
 import FacetContentItem from "./FacetContentItem"
-import { countBy } from 'lodash';
+import { countBy } from 'lodash'
 import { cleanString } from "../../utilities/string"
 
-class FacetContent extends Component {
+const FacetContent = ({ data, float, label }) => {
 
-  renderContentItems = (data, label) => {
-    let values = []
-    for (const result of data.allManifests.edges) {
-      for (const elemMatch of result.node.metadata) {
-        if (elemMatch.label.en[0] === label) {
-          for (const string of elemMatch.value.en) {
-            values.push(string)
+  const renderContentItems = (data, label) => {
+    let results = []
+    for (const edges of data.allManifests.edges) {
+      for (const metadata of edges.node.metadata) {
+        if (metadata.label.en[0] === label) {
+          for (const value of metadata.value.en) {
+            results.push(value)
           }
         }
       }
     }
-    values.sort();
-    const content = countBy(values)
+    results.sort();
     return Object.keys(content).map((value, index) => {
       const id = cleanString(label) + '-' + index;
       return (
-        <FacetContentItem value={value}
-                          count={content[value]}
-                          id={id}
-                          key={index} />
+        <FacetContentItem
+          value={value}
+          count={content[value]}
+          id={id}
+        />
       )
     })
   }
 
-  render() {
+  let className = "canopy-form-item-content"
 
-    const {data, label, float} = this.props
-
-    let className = "canopy-form-item-content"
-
-    if (float) {
-      className = className + ' canopy-float'
-    }
-
-    return (
-      <div className={className}>
-        {this.renderContentItems(data, label)}
-      </div>
-    )
-
+  if (float) {
+    className = className + ' canopy-float'
   }
 
+  return (
+    <div className={className}>
+      {renderContentItems(data, label)}
+    </div>
+  )
 }
 
-export default FacetContent;
+export default FacetContent

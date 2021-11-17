@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
-import { BiChevronDown } from "react-icons/bi"
+import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
 import FacetContent from "./FacetContent"
 import FacetCollapse from "./FacetCollapse"
 
-class Facet extends Component {
-
-  renderContent(label, float) {
+const Facet = ({ label, type }) => {
+  const renderContent = (label, float) => {
     return (
       <StaticQuery
         query={graphql`
@@ -30,26 +27,25 @@ class Facet extends Component {
               `}
         render = {
           data => (
-            <FacetContent data={data}
-                          float={float}
-                          label={label} />
+            <FacetContent
+              data={data}
+              float={float}
+              label={label}
+            />
           )
         }
       />
-    )
+      )
   }
 
-  render() {
-    const { label } = this.props
-    // this displays the facets as a collapsed list.
-
-    return (
-      <div className="canopy-control-item">
-        <FacetCollapse  label={ label } 
-                        renderContentForLabel={this.renderContent(label, true)}/>
-      </div>
-    )
-  }
+  return (
+    <div className="canopy-control-item">
+      <FacetCollapse
+        label={label}
+        renderContentForLabel={renderContent(label, true)}
+      />
+    </div>
+  )
 }
 
-export default Facet;
+export default Facet
