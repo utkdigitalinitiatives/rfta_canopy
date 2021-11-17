@@ -25,7 +25,7 @@ class Navigator extends Component {
           translation = true
         }
         transcripts.map(function(data) {
-          component.buildTranscript(data.iiif, data.text, translation)
+          return component.buildTranscript(data.iiif, data.text, translation)
         })
       }
     }
@@ -57,7 +57,7 @@ class Navigator extends Component {
       if (structures.length > 0) {
         let component = this
         structures.map(function(data) {
-          component.buildRange(data)
+          return component.buildRange(data)
         })
       }
     }
@@ -109,7 +109,7 @@ class Navigator extends Component {
       <Tabs.List className="canopy-tabs--list justify-content-around ">
         {tabs.map(function(label, index) {
             return (
-              <Tabs.Trigger value={`tab-${index}`} className="tab-labels text-center">
+              <Tabs.Trigger value={`tab-${index}`} className="tab-labels text-center" key={index}>
                 {label}
               </Tabs.Trigger>
             )
@@ -122,7 +122,7 @@ class Navigator extends Component {
     let component = this
     return panels.map(function(panel, index) {
       return (
-        <Tabs.Content value={`tab-${index}`}>
+        <Tabs.Content value={`tab-${index}`} key={index} >
           <NavigatorPanel data={panel}
                           time={time}
                           index={index}

@@ -3,9 +3,6 @@ import { Link } from "gatsby"
 import IIIFBadge from "./IIIFBadge"
 
 class DigitalObjectHeader extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
 

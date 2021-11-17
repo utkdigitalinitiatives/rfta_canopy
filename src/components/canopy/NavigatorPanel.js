@@ -29,7 +29,8 @@ class NavigatorPanel extends Component {
            id={`p${component.props.index}s${index}`}
            href={`#t=${item.t.start}`}
            data-time={item.t.start}
-           onClick={component.handleClick}>
+           onClick={component.handleClick}
+           key={index}>
           <strong>{item.t.label}</strong>
           <em>{item.label}</em>
         </a>
@@ -40,14 +41,16 @@ class NavigatorPanel extends Component {
   getActiveIndex = () => {
     let activeIndex = null;
     const {data, time} = this.props
-    const results = data.sequence.map(function(item, index) {
+
+    const results = data.sequence.map((item, index) => {
       if (time >= item.t.start + 0.001 && time < item.t.end) {
         return index
       }
+      return -1
     });
 
     const result = results.filter(function(val) {
-      return val !== undefined;
+      return val !== -1;
     });
 
     if (result.length > 0) {

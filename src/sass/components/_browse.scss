@@ -2,3 +2,20 @@
   background-color: white;
   padding: 1rem;
 }
+
+.grey-background {
+  background-color: $offwhite;
+}
+
+.browse-item {
+  background-color: white;
+  margin: 1rem;
+  border: 1px solid $offwhiteDark;
+  border-radius: 5px;
+  .browse-image {
+    min-height: 150px;
+    background-color: grey;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+  }
+}
