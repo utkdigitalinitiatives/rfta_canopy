@@ -2,7 +2,6 @@ import React from "react"
 import { Indicator, Root } from "@radix-ui/react-checkbox"
 
 const FacetContentItem = ({ value, count, id }) => {
-
   const handleFacetUpdate = (status) => {
     // status comes as bool
     // somehow update url param for this in gatsby

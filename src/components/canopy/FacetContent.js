@@ -3,8 +3,7 @@ import FacetContentItem from "./FacetContentItem"
 import { countBy } from 'lodash'
 import { cleanString } from "../../utilities/string"
 
-const FacetContent = ({ data, float, label }) => {
-
+const FacetContent = ({ data, label }) => {
   const renderContentItems = (data, label) => {
     let results = []
     for (const edges of data.allManifests.edges) {
@@ -17,8 +16,11 @@ const FacetContent = ({ data, float, label }) => {
       }
     }
     results.sort();
+    const content = countBy(results)
+
     return Object.keys(content).map((value, index) => {
-      const id = cleanString(label) + '-' + index;
+      const id = cleanString(label) + '-' + index
+
       return (
         <FacetContentItem
           value={value}
@@ -29,14 +31,8 @@ const FacetContent = ({ data, float, label }) => {
     })
   }
 
-  let className = "canopy-form-item-content"
-
-  if (float) {
-    className = className + ' canopy-float'
-  }
-
   return (
-    <div className={className}>
+    <div className="canopy-form-item-content">
       {renderContentItems(data, label)}
     </div>
   )

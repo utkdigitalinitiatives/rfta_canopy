@@ -161,17 +161,11 @@
 }
 
 .canopy-form-item-content {
-  padding: 1rem;
   font-size: 0.8333em;
-
-  &.canopy-float {
-    background-color: white;
-    box-shadow: $box-shadow;
-    border-radius: 3px;
-    margin-top: 2px;
-    max-height: 200px;
-    overflow: scroll;
-  }
+  margin-top: 2px;
+  max-height: 275px;
+  max-width: 30vw;
+  overflow: scroll;
 }
 
 .canopy-form-item-checkbox {
