@@ -4,7 +4,7 @@ import Navigator from "./Navigator"
 import Video from "./Video"
 import MediaQuery from 'react-responsive'
 import * as Collapsible from '@radix-ui/react-collapsible';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 
 
 class Viewer extends Component {
@@ -62,7 +62,7 @@ class Viewer extends Component {
 
   render() {
 
-    const {id, items, structures} = this.props.node;
+    const { id, items, structures } = this.props.node
 
     return (
       <div ref={this.viewer}

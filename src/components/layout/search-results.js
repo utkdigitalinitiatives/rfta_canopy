@@ -47,7 +47,7 @@ const SearchResults = ({ data, initialQuery = "" , filter}) => {
             <article key={result.slug}>
               <Link to={result.slug}>
                 <figure className='results-thumbnails'>
-                  <img src={result.thumbnail} alt={result.label}/>
+                  <img src={result.thumbnail} alt={result.label} />
                 </figure>
               </Link>
               <div>

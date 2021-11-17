@@ -51,7 +51,7 @@ class NavigatorPanel extends Component {
 
     const result = results.filter(function(val) {
       return val !== -1;
-    });    
+    });
 
     if (result.length > 0) {
       activeIndex = result[0]
