@@ -10,7 +10,14 @@ header.canopy-header {
 
   &.tall {
     height: 550px;
-    @include media-breakpoint-up(sm) {
+  }
+  @media (min-width: 400px) {
+    &.tall {
+      height: 480px;
+    }
+  }
+  @media (min-width: 767px) {
+    &.tall {
       height: 415px;
     }
   }
