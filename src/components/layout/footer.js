@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import { Link } from "gatsby"
 
 const Footer = () => (
-  <footer>
+  <footer className="mt-auto">
     [footer]
   </footer>
 )
