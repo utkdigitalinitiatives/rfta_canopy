@@ -26,6 +26,8 @@ const FacetContent = ({ data, label }) => {
           value={value}
           count={content[value]}
           id={id}
+          label={label}
+          key={index}
         />
       )
     })

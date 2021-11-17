@@ -11,7 +11,7 @@ import { searchParams } from '../utilities/helpers'
 
 const Search = ({ data, location }) => {
   const { q, filter } = searchParams(location.search)
-  
+
   return (
     <Layout location={location}>
       <Seo title="Search results" />

@@ -1,21 +1,28 @@
-import React from "react"
+import React, { useState } from "react"
 import { Indicator, Root } from "@radix-ui/react-checkbox"
+import { navigate } from "@reach/router"
 
-const FacetContentItem = ({ value, count, id }) => {
+const FacetContentItem = ({ value, count, id, label }) => {
+  const [checked, setChecked] = useState(false)
+
   const handleFacetUpdate = (status) => {
     // status comes as bool
     // somehow update url param for this in gatsby
+    setChecked(!checked)
+    if (status) {
+      navigate(`/search?filter=${label}:${value}`)
+    }
   }
-
-  // const { status, value, count, id } = this.props
 
   return (
     <span className="canopy-form-item-checkbox">
       <label id={id}>
         <Root
-          // checked={status}
-          onCheckedChange={handleFacetUpdate}
+          checked={checked}
+          onCheckedChange={status => handleFacetUpdate(status)}
           aria-labelledby={id}
+          name={label}
+          value={value}
         >
           <Indicator>
             <svg viewBox="0 0 32 32">
@@ -25,7 +32,7 @@ const FacetContentItem = ({ value, count, id }) => {
             </svg>
           </Indicator>
         </Root>
-        <strong>{value} <em>({count})</em></strong>
+        {value} ({count})
       </label>
     </span>
   )

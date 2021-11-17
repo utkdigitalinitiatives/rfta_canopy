@@ -3,18 +3,14 @@ import { Link } from "gatsby"
 import { Index } from "lunr"
 import { Filter } from "../../utilities/iiif"
 
-const SearchResults = ({ data, initialQuery = "" , filter}) => {
-
+const SearchResults = ({ data, initialQuery = "" , filter }) => {
   const { store } = data.LunrIndex
   const index = Index.load(data.LunrIndex.index)
   const searchString = `*${initialQuery}*`
   let results = []
   try {
-    results = index.search(`*${searchString}*`).map(({ ref }) => {
-      return {
-        ...store[ref]
-      }
-    })
+    results = index.search(`*${searchString}*`)
+                   .map(({ ref }) => ({ ...store[ref] }))
   } catch (error) {
     console.log(error)
   }
