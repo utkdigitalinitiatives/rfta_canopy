@@ -5,8 +5,6 @@ export const urlParams = (search) => {
   const query = params.get("q") || ""
   let filter = params.get("filter") || ""
 
-  console.log('urlParams', { search, params, query, filter })
-
   return { query, filter }
 }
 
@@ -18,6 +16,7 @@ export const filterBy = (query, currentFilter, clickedFilter, status) => {
   let url
   let filter
 
+  // first determine if we're adding or removing a filter
   if (status) {
     filter = currentFilter ? `${currentFilter},${clickedFilter}` : `${clickedFilter}`
   } else {
@@ -32,6 +31,7 @@ export const filterBy = (query, currentFilter, clickedFilter, status) => {
     }
   }
 
+  // once we have the filter, determine if we need to account for a query too
   if (query && filter) {
     url = `?q=${query}&filter=${filter}`
   } else if (query && !filter) {
@@ -39,7 +39,7 @@ export const filterBy = (query, currentFilter, clickedFilter, status) => {
   } else if (!query && filter) {
     url = `?filter=${filter}`
   } else {
-    url = ''
+    url = '/search'
   }
 
   navigate(url)
