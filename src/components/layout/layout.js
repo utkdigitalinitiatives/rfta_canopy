@@ -37,7 +37,8 @@ const Layout = ({ children, location }) => {
         siteTitle={title || `Title`}
       />
       <main>{children}</main>
-      <Footer />
+      {/* Hide the footer for now, uncomment once it is styled/set up */}
+      {/* <Footer /> */}
     </IdProvider>
   )
 }
