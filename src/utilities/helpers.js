@@ -8,6 +8,12 @@ export const urlParams = (search) => {
   return { query, filter }
 }
 
+export const handleFacetUpdate = (location, clickedFilter, selected) => {
+  const { query, filter } = urlParams(location.search)
+
+  filterBy(query, filter, clickedFilter, selected)
+}
+
 export const searchBy = (inquiry, filter) => {
   filter ? navigate(`?q=${inquiry}&filter=${filter}`) : navigate(`?q=${inquiry}`)
 }
@@ -41,6 +47,8 @@ export const filterBy = (currentURLQuery, currentURLFilters, clickedFilter, sele
   } else {
     url = '/search'
   }
+
+  console.log({ currentURLQuery, currentURLFilters, clickedFilter, selected, url })
 
   navigate(url)
 }
