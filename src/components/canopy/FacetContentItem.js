@@ -7,12 +7,12 @@ const FacetContentItem = ({ value, count, id, label }) => {
   const [checked, setChecked] = useState(false)
   const location = useLocation()
 
-  const handleFacetUpdate = (status) => {
+  const handleFacetUpdate = (selected) => {
     setChecked(!checked)
     const { query, filter } = urlParams(location.search)
     const clickedFilter = `${label}:${value}`
 
-    filterBy(query, filter, clickedFilter, status)
+    filterBy(query, filter, clickedFilter, selected)
   }
 
   return (
@@ -20,7 +20,7 @@ const FacetContentItem = ({ value, count, id, label }) => {
       <label id={id}>
         <Root
           checked={checked}
-          onCheckedChange={status => handleFacetUpdate(status)}
+          onCheckedChange={selected => handleFacetUpdate(selected)}
           aria-labelledby={id}
           name={label}
           value={value}

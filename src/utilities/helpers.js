@@ -12,19 +12,19 @@ export const searchBy = (inquiry, filter) => {
   filter ? navigate(`?q=${inquiry}&filter=${filter}`) : navigate(`?q=${inquiry}`)
 }
 
-export const filterBy = (query, currentFilter, clickedFilter, status) => {
+export const filterBy = (currentURLQuery, currentURLFilters, clickedFilter, selected) => {
   let url
   let filter
 
   // first determine if we're adding or removing a filter
-  if (status) {
-    filter = currentFilter ? `${currentFilter},${clickedFilter}` : `${clickedFilter}`
+  if (selected) {
+    filter = currentURLFilters ? `${currentURLFilters},${clickedFilter}` : `${clickedFilter}`
   } else {
     // normalize the filters so they match the "clickedFilter" formatting
-    const individualFilters = currentFilter.replace(/%20/g, ' ').split(',')
+    const individualFilters = currentURLFilters.replace(/%20/g, ' ').split(',')
 
     if (individualFilters.length > 1) {
-      filter = individualFilters.filter(filter => filter !== clickedFilter)
+      filter = individualFilters.filter(individualFilter => individualFilter !== clickedFilter)
       filter = filter.join()
     } else {
       filter = ''
@@ -32,11 +32,11 @@ export const filterBy = (query, currentFilter, clickedFilter, status) => {
   }
 
   // once we have the filter, determine if we need to account for a query too
-  if (query && filter) {
-    url = `?q=${query}&filter=${filter}`
-  } else if (query && !filter) {
-    url = `?q=${query}`
-  } else if (!query && filter) {
+  if (currentURLQuery && filter) {
+    url = `?q=${currentURLQuery}&filter=${filter}`
+  } else if (currentURLQuery && !filter) {
+    url = `?q=${currentURLQuery}`
+  } else if (!currentURLQuery && filter) {
     url = `?filter=${filter}`
   } else {
     url = '/search'
