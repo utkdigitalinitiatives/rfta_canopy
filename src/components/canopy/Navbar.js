@@ -49,7 +49,7 @@ const Navbar = () => (
               className="nav-link"
               to="/search"
             >
-              Search
+              Interviews
             </Link>
           </li>
         </ul>

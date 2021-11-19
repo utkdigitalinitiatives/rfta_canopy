@@ -13,12 +13,16 @@ const SearchLimits = ({ query }) => {
       <h4>
         {query.length ? `Your Search Results for "${query}"` : "Explore all resources"}
       </h4>
-      {filter && (
-        <>
-          <h6>{`Filtering by:`}</h6>
-          {filters.map((filter, index) => <CurrentFilter filter={filter} key={index} />)}
-        </>
-      )}
+        <div className="d-flex align-items-center">
+        {filter && (
+          <>
+            <h6 className="me-2">{`Filtering by:`}</h6>
+            <div className="filters-wrapper d-flex flex-wrap">
+              {filters.map((filter, index) => <CurrentFilter filter={filter} key={index} />)}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   )
 }

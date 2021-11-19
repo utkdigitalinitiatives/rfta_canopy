@@ -19,7 +19,7 @@ const FacetCollapse = ({ label, renderContentForLabel }) => (
       </Card.Header>
       <Accordion.Collapse eventKey="0">
         <Card.Body>
-        {renderContentForLabel}
+          {renderContentForLabel}
         </Card.Body>
       </Accordion.Collapse>
     </Card>
