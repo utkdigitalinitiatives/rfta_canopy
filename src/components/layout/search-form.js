@@ -1,18 +1,21 @@
 import React, { useState, useRef } from "react"
-import { navigate } from "@reach/router"
+import { useLocation } from "@reach/router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
+import { searchBy, urlParams } from "../../utilities/helpers"
 
 const SearchResults = ({ initialQuery = "" }) => {
-  const [query, setQuery] = useState(initialQuery)
+  const [inquiry, setInquiry] = useState(initialQuery)
+  const location = useLocation()
   const inputEl = useRef(null)
 
-  const handleChange = e => setQuery(e.target.value)
+  const handleChange = e => setInquiry(e.target.value)
 
   const handleSubmit = e => {
     e.preventDefault()
-    const q = inputEl.current.value
-    navigate(`/search?q=${q}`)
+    const { filter } = urlParams(location.search)
+
+    searchBy(inquiry, filter)
   }
 
   return (
@@ -25,7 +28,7 @@ const SearchResults = ({ initialQuery = "" }) => {
           ref={inputEl}
           id="search-input"
           type="search"
-          value={query}
+          value={inquiry}
           placeholder="Search All Resources"
           onChange={handleChange}
         />

@@ -1,25 +1,25 @@
-import React, { useState } from "react"
+import React from "react"
 import { Indicator, Root } from "@radix-ui/react-checkbox"
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { fa } from '@fortawesome/free-solid-svg-icons'
 import { useLocation } from "@reach/router"
 import { handleFacetUpdate } from "../../utilities/helpers"
 
-const FacetContentItem = ({ value, count, id, label }) => {
-  const [checked, setChecked] = useState(false)
+const CurrentFilter = ({ filter }) => {
   const location = useLocation()
-  const clickedFilter = `${label}:${value}`
+    const value = filter.replace(':', ': ')
 
   return (
-    <span className="canopy-form-item-checkbox">
-      <label id={id}>
+    <span className="canopy-form-item-checkbox current-filter">
+      <label id={`${value}`}>
+        {value}
         <Root
-          checked={checked}
-          onCheckedChange={selected => {
-            setChecked(!checked)
-            handleFacetUpdate(location, clickedFilter, selected)
-          }}
-          aria-labelledby={id}
-          name={label}
+          checked={true}
+          onCheckedChange={selected => handleFacetUpdate(location, filter, selected)}
+          aria-labelledby={`${value}`}
+          name={value}
           value={value}
+          className='current-filter-box'
         >
           <Indicator>
             <svg viewBox="0 0 32 32">
@@ -29,10 +29,9 @@ const FacetContentItem = ({ value, count, id, label }) => {
             </svg>
           </Indicator>
         </Root>
-        {value} ({count})
       </label>
     </span>
   )
 }
 
-export default FacetContentItem
+export default CurrentFilter

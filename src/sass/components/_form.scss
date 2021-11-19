@@ -161,23 +161,30 @@
 }
 
 .canopy-form-item-content {
-  padding: 1rem;
   font-size: 0.8333em;
-
-  &.canopy-float {
-    background-color: white;
-    box-shadow: $box-shadow;
-    border-radius: 3px;
-    margin-top: 2px;
-    max-height: 200px;
-    overflow: scroll;
-  }
+  margin-top: 2px;
+  max-height: 275px;
+  max-width: 30vw;
+  overflow: scroll;
 }
 
 .canopy-form-item-checkbox {
   display: flex;
   cursor: pointer;
   margin-bottom: 0.5em;
+
+  &.current-filter {
+    border: 1px solid $offwhiteDark;
+    padding: 10px;
+    border-radius: 5px;
+
+    label button.current-filter-box {
+      background-color: transparent;
+      border: 0;
+      margin-left: 10px;
+      margin-top: 2px;
+    }
+  }
 
   &:hover {
     color: $secondary;
@@ -213,6 +220,7 @@
         }
       }
     }
+
 
     strong {
       font-weight: 400;
