@@ -1,14 +1,26 @@
-import * as React from "react"
+import React from "react"
+import { useLocation } from "@reach/router"
+import CurrentFilter from "../canopy/CurrentFilter"
+import { urlParams } from "../../utilities/helpers"
 
-const SearchLimits = ({ query }) => (
-  <div className="search-limits-section px-5">
-    <h4>
-      {query.length ? `Your Search Results for "${query}"` : "Explore all resources"}
-    </h4>
-    {/* We will need to add a conditional here as well depending if the search is filtered: */}
-    <h6>Filtering by:</h6>
+const SearchLimits = ({ query }) => {
+  const location = useLocation()
+  const { filter } = urlParams(location.search)
+  const filters = filter.split(',')
 
-  </div>
-)
+  return (
+    <div className="search-limits-section px-5">
+      <h4>
+        {query.length ? `Your Search Results for "${query}"` : "Explore all resources"}
+      </h4>
+      {filter && (
+        <>
+          <h6>{`Filtering by:`}</h6>
+          {filters.map((filter, index) => <CurrentFilter filter={filter} key={index} />)}
+        </>
+      )}
+    </div>
+  )
+}
 
 export default SearchLimits
