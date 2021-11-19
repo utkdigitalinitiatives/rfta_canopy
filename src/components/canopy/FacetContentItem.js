@@ -1,17 +1,18 @@
 import React, { useState } from "react"
 import { Indicator, Root } from "@radix-ui/react-checkbox"
-import { navigate } from "@reach/router"
+import { useLocation } from "@reach/router"
+import { filterBy, urlParams } from "../../utilities/helpers"
 
 const FacetContentItem = ({ value, count, id, label }) => {
   const [checked, setChecked] = useState(false)
+  const location = useLocation()
 
   const handleFacetUpdate = (status) => {
-    // status comes as bool
-    // somehow update url param for this in gatsby
     setChecked(!checked)
-    if (status) {
-      navigate(`/search?filter=${label}:${value}`)
-    }
+    const { query, filter } = urlParams(location.search)
+    const clickedFilter = `${label}:${value}`
+
+    filterBy(query, filter, clickedFilter, status)
   }
 
   return (
