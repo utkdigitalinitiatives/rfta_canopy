@@ -60,11 +60,11 @@ const SearchResults = ({ data, initialQuery = "" , filter }) => {
           <span>No Results</span>
           { initialQuery.length ? (
             <p>
-              We could not find results for <strong>{initialQuery}</strong>.
+              We could not find results for "{initialQuery}".
             </p>
           ) : (
             <p>
-              we could not find results for those combined filters.
+              We could not find results for those combined filters.
             </p>
           )}
         </div>
