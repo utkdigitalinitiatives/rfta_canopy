@@ -179,7 +179,7 @@ class Navigator extends Component {
     const {t} = this.props
 
     return (
-      <aside className="canopy-navigator">
+      <aside className="canopy-navigator pb-5">
         {this.renderNavigator(data, tabs, t)}
       </aside>
     )

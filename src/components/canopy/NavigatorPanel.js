@@ -105,7 +105,7 @@ class NavigatorPanel extends Component {
     return (
       <div ref={this.sequence}
            style={style}
-           className="canopy-sequence">
+           className="canopy-sequence py-4">
         {this.renderSequence(data.sequence, time)}
       </div>
     )
