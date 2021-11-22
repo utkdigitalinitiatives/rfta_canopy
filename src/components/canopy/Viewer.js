@@ -6,6 +6,7 @@ import MediaQuery from 'react-responsive'
 import * as Collapsible from '@radix-ui/react-collapsible';
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import * as Popover from "@radix-ui/react-popover"
+import Details from "../layout/details"
 
 
 class Viewer extends Component {
@@ -67,7 +68,7 @@ class Viewer extends Component {
 
     return (
       <div ref={this.viewer}
-           className="canopy-viewer">
+           className="canopy-viewer d-flex align-items-center">
         <Video items={items}
                time={this.time.bind(this)}
                updateTime={this.state.updateTime}
@@ -93,17 +94,24 @@ class Viewer extends Component {
                                updateTime={this.updateTime.bind(this)}
                                structures={structures}
                                videoHeight={this.state.videoHeight}
+                               node={this.props.node}
+                               id={id}
+                               node2={this.props.node2}
                     />
                   </Collapsible.Content>
                 </Collapsible.Root>
               )
             } else {
               return (
+                <>
                 <Navigator t={this.state.t}
                            transcripts={this.props.transcripts}
                            updateTime={this.updateTime.bind(this)}
                            structures={structures}
+                           id={id}
+                           node2={this.props.node2} 
                 />
+              </>
               )
             }
           }}

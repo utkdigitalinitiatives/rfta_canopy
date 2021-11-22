@@ -1,7 +1,7 @@
 article.canopy-manifest {
   display: flex;
   flex-direction: column;
-  margin: 0 1rem 1rem;
+  margin: 0;
   background-color: white;
 
   @include breakpoints(xs) {
@@ -46,6 +46,7 @@ article.canopy-manifest {
   @extend .canopy-panel;
 
   header {
+    margin: 2rem 2rem 0 2rem;
     display: flex;
     justify-content: space-between;
     background-color: white;
@@ -62,7 +63,7 @@ article.canopy-manifest {
       line-height: 1.25em;
       letter-spacing: -0.02em;
       padding-right: 3rem;
-      font-family: $serif;
+      font-family: $sans;
       padding: 1rem;
 
       @include breakpoints(xs, sm) {
@@ -97,6 +98,7 @@ article.canopy-manifest {
       svg#iiif-logo {
         padding-top: 0.25rem;
         height: 1.25rem;
+        filter: grayscale(1);
       }
     }
   }

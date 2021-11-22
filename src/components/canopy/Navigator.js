@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import * as Tabs from "@radix-ui/react-tabs"
 import NavigatorPanel from "./NavigatorPanel"
+import Description from "./Description"
 
 class Navigator extends Component {
   constructor(props) {
     super(props);
 
     this.state ={
-      tabs: [],
+      tabs: ["Details"],
       data: [],
       loaded: false,
       defaultOpen: false
@@ -105,10 +106,10 @@ class Navigator extends Component {
 
   renderTabs = (tabs) => {
     return (
-      <Tabs.List className="canopy-tabs--list">
+      <Tabs.List className="canopy-tabs--list justify-content-around ">
         {tabs.map(function(label, index) {
             return (
-              <Tabs.Trigger value={`tab-${index}`}>
+              <Tabs.Trigger value={`tab-${index}`} className="tab-labels text-center">
                 {label}
               </Tabs.Trigger>
             )
@@ -140,6 +141,7 @@ class Navigator extends Component {
         <Tabs.Root className="canopy-tabs" defaultValue="tab-0">
           {this.renderTabs(tabs)}
           <div className="canopy-tabs--content">
+            <Description node={this.props.node2}/>
             {this.renderPanels(data, t)}
           </div>
         </Tabs.Root>

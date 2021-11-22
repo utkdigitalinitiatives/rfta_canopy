@@ -165,9 +165,9 @@ exports.createPages = async ({ graphql, actions }) => {
   const { allManifests } = result.data
 
   allManifests.edges.forEach(edge => {
-    console.log('Creating page for: /' + edge.node.slug)
+    console.log('Creating page for: /search/' + edge.node.slug)
     createPage({
-      path: `/${edge.node.slug}`,
+      path: `/search/${edge.node.slug}`,
       component: require.resolve(`./src/templates/manifest.js`),
       context: {
         node: edge.node,

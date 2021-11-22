@@ -5,6 +5,7 @@ html {
 
 body {
   font-size: 1em;
+  letter-spacing: 0.5px;
   margin: 0 auto;
   word-wrap: break-word;
   font-kerning: normal;
@@ -15,27 +16,38 @@ body {
   -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
   font-feature-settings: "kern", "liga", "clig", "calt";
   background-color: $primary;
-  background-image: url("../images/chimney-top-2-fire-background_25effa54.jpg");
   background-position: 0 0;
   background-size: 100%;
   background-repeat: no-repeat;
   color: $primary;
+  font-family: $sans;
+
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-weight: 400;
+  }
+}
+
+* {
+  box-sizing: initial;
 }
 
 .canopy {
   border-top: 11px solid $accent;
-  background: rgb(255,255,255);
-  background: linear-gradient(0deg, rgba(255,255,255,0) calc(100% - 200px), rgba(255,255,255,1) 100%);
+  background: rgb(255, 255, 255);
 
   > div > main {
     .canopy-main {
       display: flex;
-      margin: 1rem 1rem 1rem;
+      border-top: 1px solid $muted;
+      border-bottom: 1px solid $muted;
 
-      aside {
-        max-width: 38.2%;
+      .canopy-about {
         flex-grow: 1;
-        padding: 0 0 0 1rem;
+        background-color: $offwhite;
+        padding: 2rem;
       }
     }
   }
@@ -47,4 +59,8 @@ body {
 
 .canopy-panel {
   background-color: white;
+}
+
+.grey-background {
+  background-color: $offwhite;
 }

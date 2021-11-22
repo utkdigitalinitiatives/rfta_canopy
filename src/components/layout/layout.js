@@ -8,14 +8,14 @@
 import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-import { IdProvider } from '@radix-ui/react-id';
+import { IdProvider } from '@radix-ui/react-id'
 import "../../sass/canopy.scss"
 
-import Header from "./header"
 import Footer from "./footer"
+import Header from "./header"
+import Navbar from "../canopy/Navbar"
 
-const Layout = ({ children }) => {
-
+const Layout = ({ children, location }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -26,11 +26,16 @@ const Layout = ({ children }) => {
       }
     }
   `)
+  const { description, title } = data.site.siteMetadata || {}
 
   return (
     <IdProvider>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`}
-              siteDescription={data.site.siteMetadata?.description|| `Description`}/>
+      <Navbar />
+      <Header
+        location={location}
+        siteDescription={description || `Description`}
+        siteTitle={title || `Title`}
+      />
       <main>{children}</main>
       <Footer />
     </IdProvider>

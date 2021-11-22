@@ -1,22 +1,18 @@
 import React, { useState, useRef } from "react"
 import { navigate } from "@reach/router"
-import Facet from "../canopy/Facet"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSearch } from "@fortawesome/free-solid-svg-icons"
 
 const SearchResults = ({ initialQuery = "" }) => {
-
   const [query, setQuery] = useState(initialQuery)
   const inputEl = useRef(null)
 
-  const handleChange = e => {
-    setQuery(e.target.value)
-    const q = inputEl.current.value
-    navigate(`/?q=${q}`)
-  }
+  const handleChange = e => setQuery(e.target.value)
 
   const handleSubmit = e => {
     e.preventDefault()
     const q = inputEl.current.value
-    navigate(`/?q=${q}`)
+    navigate(`/search?q=${q}`)
   }
 
   return (
@@ -30,14 +26,13 @@ const SearchResults = ({ initialQuery = "" }) => {
           id="search-input"
           type="search"
           value={query}
-          placeholder="Search for Items"
+          placeholder="Search All Resources"
           onChange={handleChange}
         />
-        <button type="submit">Search</button>
+        <button type="submit">
+          <FontAwesomeIcon icon={faSearch} />
+        </button>
       </div>
-      <Facet label="Subject" dropdown={true} />
-      <Facet label="Place" dropdown={true} />
-      <Facet label="Narrator Role" dropdown={true} />
     </form>
   )
 }

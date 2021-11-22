@@ -1,0 +1,13 @@
+.canopy-about {
+  display: flex;
+  min-height: 25vh;
+
+  &--panel {
+    width: 100%;
+  }
+
+  .canopy-control-item > span {
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+}

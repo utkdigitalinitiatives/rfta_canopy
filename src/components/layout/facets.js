@@ -1,7 +1,7 @@
 import * as React from "react"
 import Facet from "../canopy/Facet"
 
-const About = () => (
+const Facets = () => (
   <div className="canopy-about">
     <div className="canopy-about--panel">
       <Facet label="Subject" type="list" />
@@ -14,4 +14,4 @@ const About = () => (
   </div>
 )
 
-export default About
+export default Facets
