@@ -266,7 +266,8 @@ class Video extends Component {
                      ref={this.video}
                      onPlay={this.handlePlay}
                      onPause={this.handlePause}
-                     crossOrigin="anonymous">
+                     crossOrigin="anonymous"
+                     controlsList="nodownload">
                 {this.renderSource(source, format)}
                 {this.renderTracks(tracks)}
               </video>
