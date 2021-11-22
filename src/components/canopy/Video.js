@@ -8,11 +8,11 @@ const accompanyingCanvas = {
   "type": "Canvas",
   "label": {
     "en": [
-      "First page of score for Gustav Mahler, Symphony No. 3"
+      "Accompanying Canvas for RFTA Audiofile"
     ]
   },
-  "height": 998,
-  "width": 772,
+  "height": 200,
+  "width": 134,
   "items": [
     {
       "id": "https://iiif.io/api/cookbook/recipe/0014-accompanyingcanvas/canvas/accompanying/annotation/page",
@@ -23,11 +23,11 @@ const accompanyingCanvas = {
           "type": "Annotation",
           "motivation": "painting",
           "body": {
-            "id": "https://iiif.io/api/image/3.0/example/reference/4b45bba3ea612ee46f5371ce84dbcd89-mahler-0/full/!300,300/0/default.jpg",
+            "id": "https://digital.lib.utk.edu/iiif/2/collections~islandora~object~rfta%3A143~datastream~TN/full/134,200/0/default.jpg",
             "type": "Image",
             "format": "image/jpeg",
-            "height": 998,
-            "width": 772,
+            "height": 134,
+            "width": 200,
             "service": [
               {
                 "id": "https://iiif.io/api/image/3.0/example/reference/4b45bba3ea612ee46f5371ce84dbcd89-mahler-0",
