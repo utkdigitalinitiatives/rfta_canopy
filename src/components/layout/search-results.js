@@ -16,21 +16,23 @@ const SearchResults = ({ data, initialQuery = "" , filter }) => {
     console.log(`Unable to retrieve the interview data: ${error}`)
   }
 
-  if (filter) {
-    const current_filter = filterLabelsAndValues(filter)
+  const lookup_filter = ({ label, value }) => {
     let filtered_results = []
-
-    current_filter.map(({ label, value }) => {
-      results.map(result => {
-        result.metadata.forEach(element => {
-          if (element.label.en[0] === label && element.value.en.includes(value)) {
-            filtered_results.push(result)
-          }
-        })
+    results.map(result => {
+      return result.metadata.forEach(element => {
+        if (element.label.en[0] === label && element.value.en.includes(value)) {
+          return filtered_results.push(result)
+        }
       })
     })
 
-    results = filtered_results
+    return filtered_results
+  }
+
+  if (filter) {
+    const current_filter = filterLabelsAndValues(filter)
+
+    current_filter.map(({ label, value }) => results = lookup_filter({ label, value }))
   }
 
   return (
