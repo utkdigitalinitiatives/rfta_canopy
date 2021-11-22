@@ -32,6 +32,9 @@
         background-color: $offwhite;
       }
     }
+    &.active {
+      color: $primary;
+    }
     &.active,
     &:hover {
       @include media-breakpoint-up(lg) {
