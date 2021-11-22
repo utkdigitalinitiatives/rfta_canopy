@@ -74,12 +74,13 @@ class Viewer extends Component {
           time={this.time.bind(this)}
           updateTime={this.state.updateTime}
         />
-        <Navigator t={this.state.t}
-                    transcripts={this.props.transcripts}
-                    updateTime={this.updateTime.bind(this)}
-                    structures={structures}
-                    id={id}
-                    node2={this.props.node2} 
+        <Navigator
+          t={this.state.t}
+          transcripts={this.props.transcripts}
+          updateTime={this.updateTime.bind(this)}
+          structures={structures}
+          id={id}
+          node2={this.props.node2} 
         />
       </div>
     )

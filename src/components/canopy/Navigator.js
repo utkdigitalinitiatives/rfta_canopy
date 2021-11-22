@@ -133,17 +133,18 @@ class Navigator extends Component {
     return newPanels.map(function(panel, index) {
       return (
         <>
-          <Tabs.Content value={`tab-${index}`} key={index} >
+          <Tabs.Content value={`tab-${index}`} key={index}>
             {index === 0 ? (
               <Description node={node}/>
             ) : (
-                <NavigatorPanel data={panel}
-                                time={time}
-                                index={index}
-                                updateTime={component.updateTime.bind(this)}
-                                key={index}
-                                videoHeight={component.props.videoHeight}
-                />
+              <NavigatorPanel
+                data={panel}
+                time={time}
+                index={index}
+                updateTime={component.updateTime.bind(this)}
+                key={index}
+                videoHeight={component.props.videoHeight}
+              />
             )}
           </Tabs.Content>
         </>
