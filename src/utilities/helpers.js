@@ -27,7 +27,7 @@ export const filterBy = (currentURLQuery, currentURLFilters, clickedFilter, sele
     filter = currentURLFilters ? `${currentURLFilters},${clickedFilter}` : `${clickedFilter}`
   } else {
     // normalize the filters so they match the "clickedFilter" formatting
-    const individualFilters = currentURLFilters.replace(/%20/g, ' ').split(',')
+    const individualFilters = currentURLFilters.replace(/%20/g, ' ').split(/,(?=\w)/)
 
     if (individualFilters.length > 1) {
       filter = individualFilters.filter(individualFilter => individualFilter !== clickedFilter)
