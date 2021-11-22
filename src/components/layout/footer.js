@@ -52,7 +52,15 @@ const Footer = () => (
                 className="nav-link footer-nav-link py-lg-0" 
                 href="https://www.lib.utk.edu/"
               >
-                Libraries
+                Library
+              </a>
+            </li>
+            <li className="nav-item mx-0 mx-lg-2">
+              <a 
+                className="nav-link footer-nav-link py-lg-0" 
+                href="https://digital.lib.utk.edu/"
+              >
+                Digital Collections
               </a>
             </li>
           </ul>
