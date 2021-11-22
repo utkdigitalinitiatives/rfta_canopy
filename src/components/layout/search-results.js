@@ -1,7 +1,7 @@
 import * as React from "react"
-import { Link } from "gatsby"
 import { Index } from "lunr"
 import { filterLabelsAndValues } from '../../utilities/helpers'
+import SearchResult from "../canopy/SearchResult"
 
 const SearchResults = ({ data, initialQuery = "" , filter }) => {
   const { store } = data.LunrIndex
@@ -36,23 +36,7 @@ const SearchResults = ({ data, initialQuery = "" , filter }) => {
   return (
     <div className="canopy-search-results">
       {results.length ? (
-        results.map(result => {
-          return (
-            <article key={result.slug}>
-              <Link to={result.slug}>
-                <figure className='results-thumbnails'>
-                  <img src={result.thumbnail} alt={result.label} />
-                </figure>
-              </Link>
-              <div>
-                <Link to={result.slug}>
-                  <header>{result.label || result.slug}</header>
-                </Link>
-                <p>{result.summary}</p>
-              </div>
-            </article>
-          )
-        })
+        results.map((result, index) => <SearchResult result={result} key={index} />)
       ) : (
         <div className="canopy-no-results">
           <span>No Results</span>
