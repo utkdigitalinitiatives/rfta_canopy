@@ -10,15 +10,19 @@ const SearchLimits = ({ query }) => {
 
   return (
     <div className="search-limits-section px-5">
-      <h4>
+      <h4 className= "text-center text-md-start">
         {query.length ? `Your Search Results for "${query}"` : "Explore all resources"}
       </h4>
-      {filter && (
-        <>
-          <h6>{`Filtering by:`}</h6>
-          {filters.map((filter, index) => <CurrentFilter filter={filter} key={index} />)}
-        </>
-      )}
+        <div className="d-flex flex-column flex-md-row align-items-center">
+        {filter && (
+          <>
+            <h6 className="me-2 my-4 my-md-0">{`Filtering by:`}</h6>
+            <div className="filters-wrapper d-flex flex-wrap justify-content-center justify-content-md-start">
+              {filters.map((filter, index) => <CurrentFilter filter={filter} key={index} />)}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   )
 }
