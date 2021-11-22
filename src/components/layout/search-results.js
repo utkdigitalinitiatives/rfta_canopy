@@ -1,39 +1,37 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { Index } from "lunr"
-import { Filter } from "../../utilities/iiif"
+import { filterLabelsAndValues } from '../../utilities/helpers'
 
 const SearchResults = ({ data, initialQuery = "" , filter }) => {
   const { store } = data.LunrIndex
   const index = Index.load(data.LunrIndex.index)
   const searchString = `*${initialQuery}*`
   let results = []
+
   try {
     results = index.search(`*${searchString}*`)
                    .map(({ ref }) => ({ ...store[ref] }))
   } catch (error) {
-    console.log(error)
+    console.log(`Unable to retrieve the interview data: ${error}`)
   }
 
-  if (filter !== "") {
-    let current_filter = new Filter(filter)
-    current_filter.parameters.map(function(thing){
-      return results = lookup_filter(thing)
-    })
-  }
-
-  function lookup_filter (filter) {
+  if (filter) {
+    const current_filter = filterLabelsAndValues(filter)
     let filtered_results = []
-    results.map(function(result){
-      return result.metadata.forEach(function(element) {
-        if (element.label.en[0] === filter.label && element.value.en.includes(filter.value)) {
-          return filtered_results.push(result)
-        }
+
+    current_filter.map(({ label, value }) => {
+      results.map(result => {
+        result.metadata.forEach(element => {
+          if (element.label.en[0] === label && element.value.en.includes(value)) {
+            filtered_results.push(result)
+          }
+        })
       })
     })
-    return filtered_results
-  }
 
+    results = filtered_results
+  }
 
   return (
     <div className="canopy-search-results">
