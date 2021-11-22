@@ -8,7 +8,10 @@ dl.canopy-metadata {
   dt {
     font-weight: 600;
     margin-top: 1em;
-    min-width: 50%;
+    min-width: 40%;
+    @include media-breakpoint-up(xs) {
+      min-width: 50%;
+    }
 
     &:first-child {
       margin-top: 0;

@@ -43,7 +43,10 @@
       font-weight: 700;
       margin-top: 0.25em;
       margin-left: 2em;
-      padding-right: 3em;
+      padding-right: 1em;
+      @include media-breakpoint-up(sm) {
+        padding-right: 3em;
+      }
 
       @include breakpoints(sm) {
         margin-top: 0.125em;
@@ -53,7 +56,10 @@
     em {
       font-style: normal;
       flex-grow: 1;
-      padding-left: 3em;
+      padding-left: 1em;
+      @include media-breakpoint-up(sm) {
+        padding-left: 3em;
+      }
     }
   }
 }
