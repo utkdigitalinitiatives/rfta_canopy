@@ -39,7 +39,7 @@ class Description extends Component {
   render() {
 
     return (
-      <dl className="canopy-metadata px-5 pt-3">
+      <dl className="canopy-metadata px-3 px-sm-5 pt-3">
         {this.handleMetadata()}
         {this.handleRequiredStatement()}
         {this.handleRights()}

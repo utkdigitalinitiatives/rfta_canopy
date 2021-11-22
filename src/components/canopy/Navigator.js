@@ -48,7 +48,6 @@ class Navigator extends Component {
       values.t.end = component.cleanUpTimes(data.endTime)
       return values
     })
-
     this.addSet(label, "vtt", sequence)
   }
 
@@ -118,19 +117,37 @@ class Navigator extends Component {
     )
   }
 
+  addNewPanel = (panels) => {
+      const newPanels = [{
+            label: "Details",
+            type: "",
+            sequence: [] 
+          }, ...panels]
+    return newPanels
+  }
+
   renderPanels = (panels, time) => {
     let component = this
-    return panels.map(function(panel, index) {
+    let node = this.props.node2
+    const newPanels = this.addNewPanel(panels)
+    return newPanels.map(function(panel, index) {
       return (
-        <Tabs.Content value={`tab-${index}`} key={index} >
-          <NavigatorPanel data={panel}
-                          time={time}
-                          index={index}
-                          updateTime={component.updateTime.bind(this)}
-                          key={index}
-                          videoHeight={component.props.videoHeight}
-          />
-        </Tabs.Content>
+        <>
+          <Tabs.Content value={`tab-${index}`} key={index}>
+            {index === 0 ? (
+              <Description node={node}/>
+            ) : (
+              <NavigatorPanel
+                data={panel}
+                time={time}
+                index={index}
+                updateTime={component.updateTime.bind(this)}
+                key={index}
+                videoHeight={component.props.videoHeight}
+              />
+            )}
+          </Tabs.Content>
+        </>
       )
     });
   }
@@ -141,8 +158,7 @@ class Navigator extends Component {
         <Tabs.Root className="canopy-tabs" defaultValue="tab-0">
           {this.renderTabs(tabs)}
           <div className="canopy-tabs--content">
-            <Description node={this.props.node2}/>
-            {this.renderPanels(data, t)}
+            {this.renderPanels(data, t, tabs)}
           </div>
         </Tabs.Root>
       )
@@ -164,7 +180,7 @@ class Navigator extends Component {
     const {t} = this.props
 
     return (
-      <aside className="canopy-navigator">
+      <aside className="canopy-navigator pb-5">
         {this.renderNavigator(data, tabs, t)}
       </aside>
     )

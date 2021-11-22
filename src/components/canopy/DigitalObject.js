@@ -74,7 +74,11 @@ class DigitalObject extends Component {
         </article>
       )
     } else {
-      return 'loading component'
+      return (
+        <div className="py-5 mx-auto text-center loading">
+          <h4>Loading Interview<span class="one">.</span><span class="two">.</span><span class="three">.</span></h4>
+        </div>
+      )
     }
   }
 }
