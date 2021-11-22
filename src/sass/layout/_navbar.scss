@@ -18,9 +18,41 @@
     letter-spacing: 0.05em;
     color: $primary;
     height: 100%;
-    &.active {
-      color: $primaryMuted;
-      border-bottom: 4px solid $accent;
+    @include media-breakpoint-up(lg) {
+      border-bottom: 4px solid transparent;
     }
+    &.footer-nav-link {
+      @include media-breakpoint-up(lg) {
+        border-bottom: 2px solid transparent;
+      }
+    }
+    @include media-breakpoint-down(lg) {
+      text-align: center;
+      &:hover {
+        background-color: $offwhite;
+      }
+    }
+    &.active,
+    &:hover {
+      @include media-breakpoint-up(lg) {
+        color: $primaryMuted;
+        border-bottom: 4px solid $accent;
+      }
+      &.footer-nav-link {
+        @include media-breakpoint-up(lg) {
+          border-bottom: 2px solid $accent;
+        }
+      }
+    }
+    &.libraries-nav-link {
+      @include media-breakpoint-up(lg) {
+        font-size: 22px;
+        font-weight: 700;
+        margin-left: -24px;
+      }
+    }
+  }
+  .navbar-text a {
+    color: $primary;
   }
 }
