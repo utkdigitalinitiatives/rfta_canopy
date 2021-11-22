@@ -64,7 +64,7 @@ const SearchResults = ({ data, initialQuery = "" , filter }) => {
             </p>
           ) : (
             <p>
-              we could not find results for those combined filters.
+              We could not find results for those combined filters.
             </p>
           )}
         </div>
