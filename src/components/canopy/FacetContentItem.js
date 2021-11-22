@@ -1,22 +1,20 @@
-import React, { useState } from "react"
+import React from "react"
 import { Indicator, Root } from "@radix-ui/react-checkbox"
 import { useLocation } from "@reach/router"
-import { handleFacetUpdate } from "../../utilities/helpers"
+import { handleFacetUpdate, urlParams } from "../../utilities/helpers"
 
 const FacetContentItem = ({ value, count, id, label }) => {
-  const [checked, setChecked] = useState(false)
   const location = useLocation()
+  const { filter } = urlParams(location.search)
   const clickedFilter = `${label}:${value}`
+  const checked = filter.includes(clickedFilter)
 
   return (
     <span className="canopy-form-item-checkbox">
       <label id={id}>
         <Root
           checked={checked}
-          onCheckedChange={selected => {
-            setChecked(!checked)
-            handleFacetUpdate(location, clickedFilter, selected)
-          }}
+          onCheckedChange={selected => handleFacetUpdate(location, clickedFilter, selected)}
           aria-labelledby={id}
           name={label}
           value={value}

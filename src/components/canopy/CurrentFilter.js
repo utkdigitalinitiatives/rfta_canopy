@@ -7,7 +7,7 @@ import { handleFacetUpdate } from "../../utilities/helpers"
 
 const CurrentFilter = ({ filter }) => {
   const location = useLocation()
-    const value = filter.replace(':', ': ')
+  const value = filter.replace(':', ': ')
 
   return (
     <span className="canopy-form-item-checkbox current-filter">
