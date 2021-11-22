@@ -1,12 +1,12 @@
 import React from "react"
 import { useLocation } from "@reach/router"
 import CurrentFilter from "../canopy/CurrentFilter"
-import { urlParams } from "../../utilities/helpers"
+import { listIndividualFilters, urlParams } from "../../utilities/helpers"
 
 const SearchLimits = ({ query }) => {
   const location = useLocation()
   const { filter } = urlParams(location.search)
-  const filters = filter.split(',')
+  const filters = listIndividualFilters(filter)
 
   return (
     <div className="search-limits-section px-5">

@@ -18,6 +18,9 @@ export const searchBy = (inquiry, filter) => {
   filter ? navigate(`?q=${inquiry}&filter=${filter}`) : navigate(`?q=${inquiry}`)
 }
 
+// normalize the filters so they match the metadata
+export const listIndividualFilters = currentURLFilters => currentURLFilters.replace(/%20/g, ' ').split(/,(?=\w)/)
+
 export const filterBy = (currentURLQuery, currentURLFilters, clickedFilter, selected) => {
   let url
   let filter
@@ -26,8 +29,7 @@ export const filterBy = (currentURLQuery, currentURLFilters, clickedFilter, sele
   if (selected) {
     filter = currentURLFilters ? `${currentURLFilters},${clickedFilter}` : `${clickedFilter}`
   } else {
-    // normalize the filters so they match the "clickedFilter" formatting
-    const individualFilters = currentURLFilters.replace(/%20/g, ' ').split(',')
+    const individualFilters = listIndividualFilters(currentURLFilters)
 
     if (individualFilters.length > 1) {
       filter = individualFilters.filter(individualFilter => individualFilter !== clickedFilter)
@@ -48,7 +50,19 @@ export const filterBy = (currentURLQuery, currentURLFilters, clickedFilter, sele
     url = '/search'
   }
 
-  console.log({ currentURLQuery, currentURLFilters, clickedFilter, selected, url })
-
   navigate(url)
+}
+
+export const filterLabelsAndValues = currentURLFilters => {
+  const individualFilters = listIndividualFilters(currentURLFilters)
+  const labelsAndValues = individualFilters.map(filter => {
+    const property = filter.split(':')
+
+    return {
+      label: property[0],
+      value: property[1],
+    }
+  })
+
+  return labelsAndValues
 }
