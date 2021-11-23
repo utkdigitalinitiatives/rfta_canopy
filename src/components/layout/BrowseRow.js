@@ -1,6 +1,6 @@
 import React from "react"
 import BrowseItem from './BrowseItem';
-import PlaceholderImage from "../../images/chimneytops2placeholder.png"
+import PlaceholderImage from "../../images/chimney-tops-2-placeholder.png"
 
 const BrowseRow = ({ data, backgroundClass }) => {
 
@@ -10,7 +10,7 @@ const BrowseRow = ({ data, backgroundClass }) => {
     <div className={`row py-5 px-5 justify-content-center mx-0 ${backgroundClass}`}>
       <h3 className="section-label mb-4">{title}</h3>
       { subheadings.map(subheading => (
-        <BrowseItem 
+        <BrowseItem
           altText={subheading.altText}
           image={subheading.image}
           image = {PlaceholderImage}
