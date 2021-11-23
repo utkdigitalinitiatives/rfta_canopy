@@ -10,8 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 import { IdProvider } from '@radix-ui/react-id'
 import "../../sass/canopy.scss"
-// comment out footer for now
-// import Footer from "./footer"
+import Footer from "./footer"
 import Header from "./header"
 import Navbar from "../canopy/Navbar"
 
@@ -38,7 +37,7 @@ const Layout = ({ children, location }) => {
       />
       <main>{children}</main>
       {/* Hide the footer for now, uncomment once it is styled/set up */}
-      {/* <Footer /> */}
+      <Footer />
     </IdProvider>
   )
 }
