@@ -7,12 +7,10 @@ const TeamAndFunding = () => {
 
   return (
     <div className="container-fluid px-0 my-5">
-      <div className="text-center mx-3 mx-lg-5">
-        <h3>Our Team & Funding</h3>
-        <div className="text-center mx-3 mx-lg-5 mt-5">
-          <h6>We would like to acknowledge the generosity of the donors who helped make this project happen.</h6>
-        </div>
-        <div className="row align-items-center text-center mx-3 mx-lg-5 mt-5">
+      <div className= "text-center mx-3 mx-lg-5">
+        <h3>Project Partners & Participants</h3>
+        <h6>Thanks to everyone who was involved for all of the hard work that went into bringing this project together.</h6>
+        <div className= "row align-items-center text-center mx-3 mx-lg-5 mt-5">
           <div className="col-6 col-md-4 px-0 my-1 text-center">
             <img src={APPLLogo} className="img-fluid w-75" href="https://www.annaporterpl.org/" alt="Anna Porter Public Library Logo" />
           </div>
@@ -26,37 +24,45 @@ const TeamAndFunding = () => {
       </div>
       <div className="row align-items-center text-center mx-3 mx-lg-5 mt-5">
         <div className="col-12 px-0 my-1 text-center">
-          <h6>And thanks to our team for all the hard work that went into bringing this project together</h6>
           <br/>
         </div>
         <div className="col-12 px-0 my-1 text-center">
           <p><u>Project Participants From UT Libraries:</u></p>
         </div>
-        <div className="col-6 px-0 my-1 text-center">
+        <div className="col-6 col-md-4  px-0 my-1 text-center">
           <p><i>Jennifer Benedetto Beals</i></p>
         </div>
-        <div className="col-6 px-0 my-1 text-center">
+        <div className="col-6 col-md-4  px-0 my-1 text-center">
           <p><i>Emily Gore</i></p>
         </div>
-        <div className="col-6 px-0 my-1 text-center">
+        <div className="col-6 col-md-4  px-0 my-1 text-center">
           <p><i>Casey Kaufman</i></p>
         </div>
-        <div className="col-6 px-0 my-1 text-center">
+        <div className="col-6 col-md-4  px-0 my-1 text-center">
           <p><i>Steven Escar Smith, PhD</i></p>
         </div>
-        <div className="col-6 px-0 my-1 text-center">
+        <div className="col-6 col-md-4  px-0 my-1 text-center">
           <p><i>Holly Mercer</i></p>
         </div>
-        <div className="col-6 px-0 my-1 text-center">
+        <div className="col-6 col-md-4  px-0 my-1 text-center">
           <p><i>Laura Romans</i></p>
         </div>
-        <div className="col-6 px-0 my-1 text-center">
+        <div className="col-6 col-md-4  px-0 my-1 text-center">
           <p><i>Olivia Kelley</i></p>
         </div>
-        <div className="col-6 px-0 my-1 text-center">
+        <div className="col-6 col-md-4  px-0 my-1 text-center">
           <p><i>Ken Wise</i></p>
         </div>
-      </div>
+        <div className="col-6 col-md-4  px-0 my-1 text-center">
+          <p><i>Mark Patrick Baggett</i></p>
+        </div>
+        <div className="col-6 col-md-4  px-0 my-1 mx-auto text-center">
+          <p><i>Meredith Hale</i></p>
+        </div>
+        <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
+          <p><i>Paul Cummins</i></p>
+        </div>
+      </div> 
       <div className= "row align-items-center text-center mx-3 mx-lg-5 mt-5">
         <div className="col-12 px-0 my-1 text-center">
           <p><u>Project Participants From Anna Porter Public Library:</u></p>
