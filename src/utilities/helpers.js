@@ -47,7 +47,7 @@ export const filterBy = (currentURLQuery, currentURLFilters, clickedFilter, sele
   } else if (!currentURLQuery && filter) {
     url = `?filter=${filter}`
   } else {
-    url = '/search'
+    url = '/interviews'
   }
 
   navigate(url)
