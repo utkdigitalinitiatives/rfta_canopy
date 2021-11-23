@@ -15,7 +15,7 @@ export const handleFacetUpdate = (location, clickedFilter, selected) => {
 }
 
 export const searchBy = (inquiry, filter) => {
-  filter ? navigate(`?q=${inquiry}&filter=${filter}`) : navigate(`?q=${inquiry}`)
+  filter ? navigate(`/interviews?q=${inquiry}&filter=${filter}`) : navigate(`/interviews?q=${inquiry}`)
 }
 
 // normalize the filters so they match the metadata
