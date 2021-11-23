@@ -13,8 +13,8 @@
   border: 1px solid $offwhiteDark;
   border-radius: 5px;
   .browse-image {
-    min-height: 150px;
-    background-color: grey;
+    min-height: 100%;
+    max-width: 100%;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
   }
