@@ -1,7 +1,7 @@
 import React from "react"
 import data from './data'
 import BrowseItem from '../BrowseItem'
-import placeholderImage from "../../../images/chimneytops2placeholder.png"
+import placeholderImage from "../../../images/chimney-tops-2-placeholder.png"
 
 const BrowseRow = ({ dataType, backgroundClass='' }) => {
   const results = data[dataType]
