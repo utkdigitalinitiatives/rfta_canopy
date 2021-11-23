@@ -6,7 +6,7 @@ const BrowseItem = ({ altText, image, path, subtitle }) => (
     <Link to={`/interviews?filter=${path}`}>
       <div className= "browse-item">
         <div className="mx-auto mb-4 browse-image">
-          <img src={image} class="card-img-top img-fluid" alt={altText} />
+          <img src={image} className="card-img-top img-fluid" alt={altText} />
         </div>
         <p className="text-center px-2">{subtitle}</p>
       </div>
