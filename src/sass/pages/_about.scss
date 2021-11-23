@@ -1,3 +1,13 @@
 .contact-form .form-control {
   box-sizing: border-box;
 }
+
+.about-page-video {
+  @include media-breakpoint-down(lg) {
+    width: 100% !important;
+  }
+}
+
+.about-column {
+  box-sizing: border-box;
+}
