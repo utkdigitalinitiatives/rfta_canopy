@@ -24,7 +24,6 @@ const TeamAndFunding = () => {
       </div>
       <div className= "row align-items-center text-center mx-3 mx-lg-5 mt-5">
         <div className="col-12 px-0 my-1 text-center">
-          <h6>And thanks to our team for all the hard work that went into bringing this project together.</h6>
           <br/>
         </div>
         <div className="col-12 px-0 my-1 text-center">
