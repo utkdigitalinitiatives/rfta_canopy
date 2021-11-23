@@ -1,5 +1,6 @@
 import React from "react"
 import BrowseItem from './BrowseItem';
+import PlaceholderImage from "../../images/chimneytops2placeholder.png"
 
 const BrowseRow = ({ data, backgroundClass }) => {
 
@@ -12,6 +13,7 @@ const BrowseRow = ({ data, backgroundClass }) => {
         <BrowseItem 
           altText={subheading.altText}
           image={subheading.image}
+          image = {PlaceholderImage}
           path={subheading.path}
           subtitle={subheading.subtitle}
           key={subheading.key}
