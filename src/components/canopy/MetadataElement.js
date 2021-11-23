@@ -32,7 +32,7 @@ const MetadataElement = ({ element, language }) => {
       else if (valueArray.length > 1 && value !== lastItemInArray) {
         return (
           <dd key={index}>
-            <Link to={`/search/?filter=${the_label}:${value}`}>
+            <Link to={`/interviews/?filter=${the_label}:${value}`}>
               {value},&nbsp;
             </Link>
           </dd>
@@ -41,7 +41,7 @@ const MetadataElement = ({ element, language }) => {
 
       return (
         <dd key={index}>
-          <Link to={`/search/?filter=${the_label}:${value}`}>
+          <Link to={`/interviews/?filter=${the_label}:${value}`}>
             {value}
           </Link>
         </dd>

@@ -42,9 +42,9 @@ const Footer = () => (
                 activeClassName="active"
                 aria-current="page"
                 className="nav-link footer-nav-link py-lg-0"
-                to="/search"
+                to="/interviews"
               >
-                Search
+                Interviews
               </Link>
             </li>
             <li className="nav-item mx-0 mx-lg-2">

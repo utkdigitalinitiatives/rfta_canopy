@@ -57,7 +57,7 @@ const Navbar = () => (
               activeClassName="active"
               aria-current="page"
               className="nav-link"
-              to="/search"
+              to="/interviews"
             >
               Interviews
             </Link>
