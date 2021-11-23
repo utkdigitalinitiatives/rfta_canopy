@@ -1,69 +1,74 @@
 import * as React from "react"
-import BlankPerson from "../../images/blank-person.jpeg"
+import APPLLogo from "../../images/appl-logo.png"
+import gatlinburgLogo from "../../images/gatlinburg-logo-dark.png"
+import UTKLogo from "../../images/utk-logo.png"
 
 const TeamAndFunding = () => {
 
   return (
-      <div className="container-fluid px-0 my-5">
-        <div className= "text-center mx-3 mx-lg-5">
-          <h3>Our Team & Funding</h3>
-          <p>Thanks for all the hard work that went into bringing this project together</p>
+    <div className="container-fluid px-0 my-5">
+      <div className="text-center mx-3 mx-lg-5">
+        <h3>Our Team & Funding</h3>
+        <div className="text-center mx-3 mx-lg-5 mt-5">
+          <h6>We would like to acknowledge the generosity of the donors who helped make this project happen.</h6>
         </div>
-        <div className="row align-items-start mx-3 mx-lg-5">
-          <div className="col-12 col-sm-6 col-md-3 px-0 text-center">
-            <div className="p-5">
-              <img src={BlankPerson} className="team-image img-fluid rounded-circle border" alt="img"/>
-            </div>
+        <div className="row align-items-center text-center mx-3 mx-lg-5 mt-5">
+          <div className="col-6 col-md-4 px-0 my-1 text-center">
+            <img src={APPLLogo} className="img-fluid w-75" href="https://www.annaporterpl.org/" alt="Anna Porter Public Library Logo" />
           </div>
-          <div className="col-12 col-sm-6 col-md-3 px-0 text-center">
-            <div className="p-5">
-              <img src={BlankPerson} className="team-image img-fluid rounded-circle border" alt="img"/>
-            </div>
+          <div className="col-6 col-md-4 px-0 my-1 text-center">
+            <img src={UTKLogo} className="img-fluid w-75" href="https://www.utk.edu/" alt="University of Tennessee, Knoxville Logo" />
           </div>
-          <div className="col-12 col-sm-6 col-md-3 px-0 text-center">
-            <div className="p-5">
-              <img src={BlankPerson} className="team-image img-fluid rounded-circle border" alt="img"/>
-            </div>
-          </div>
-          <div className="col-12 col-sm-6 col-md-3 px-0 text-center">
-            <div className="p-5">
-              <img src={BlankPerson} className="team-image img-fluid rounded-circle border" alt="img"/>
-            </div>
+          <div className="col-6 col-md-4 px-0 my-1 mx-auto mt-5 mt-md-0 text-center">
+            <img src={gatlinburgLogo} className="img-fluid w-75" href="https://www.gatlinburgtn.gov/" alt="Gatlinburg, Tennessee Logo" />
           </div>
         </div>
-        <div className= "text-center mx-3 mx-lg-5 mt-5">
-          <h6>Additionally, we would like to acknowledge the generosity of the donors who helped make this project happen.</h6>
-        </div>
-        <div className= "row align-items-center text-center mx-3 mx-lg-5 mt-3">
-          <div className="col-6 col-md-4 px-0 my-1 text-center">
-            <p><i>Donor or Funder Name</i></p>
-          </div>
-          <div className="col-6 col-md-4 px-0 my-1 text-center">
-            <p><i>Donor or Funder Name</i></p>
-          </div>
-          <div className="col-6 col-md-4 px-0 my-1 text-center">
-            <p><i>Donor or Funder Name</i></p>
-          </div>
-          <div className="col-6 col-md-4 px-0 my-1 text-center">
-            <p><i>Donor or Funder Name</i></p>
-          </div>
-          <div className="col-6 col-md-4 px-0 my-1 text-center">
-            <p><i>Donor or Funder Name</i></p>
-          </div>
-          <div className="col-6 col-md-4 px-0 my-1 text-center">
-            <p><i>Donor or Funder Name</i></p>
-          </div>
-          <div className="col-6 col-md-4 px-0 my-1 text-center">
-            <p><i>Donor or Funder Name</i></p>
-          </div>
-          <div className="col-6 col-md-4 px-0 my-1 text-center">
-            <p><i>Donor or Funder Name</i></p>
-          </div>
-          <div className="col-6 col-md-4 px-0 my-1 text-center">
-            <p><i>Donor or Funder Name</i></p>
-          </div>
-        </div> 
       </div>
+      <div className="row align-items-center text-center mx-3 mx-lg-5 mt-5">
+        <div className="col-12 px-0 my-1 text-center">
+          <h6>And thanks to our team for all the hard work that went into bringing this project together</h6>
+          <br/>
+        </div>
+        <div className="col-12 px-0 my-1 text-center">
+          <p><u>Project Participants From UT Libraries:</u></p>
+        </div>
+        <div className="col-6 px-0 my-1 text-center">
+          <p><i>Jennifer Benedetto Beals</i></p>
+        </div>
+        <div className="col-6 px-0 my-1 text-center">
+          <p><i>Emily Gore</i></p>
+        </div>
+        <div className="col-6 px-0 my-1 text-center">
+          <p><i>Casey Kaufman</i></p>
+        </div>
+        <div className="col-6 px-0 my-1 text-center">
+          <p><i>Steven Escar Smith, PhD</i></p>
+        </div>
+        <div className="col-6 px-0 my-1 text-center">
+          <p><i>Holly Mercer</i></p>
+        </div>
+        <div className="col-6 px-0 my-1 text-center">
+          <p><i>Laura Romans</i></p>
+        </div>
+        <div className="col-6 px-0 my-1 text-center">
+          <p><i>Olivia Kelley</i></p>
+        </div>
+        <div className="col-6 px-0 my-1 text-center">
+          <p><i>Ken Wise</i></p>
+        </div>
+      </div>
+      <div className= "row align-items-center text-center mx-3 mx-lg-5 mt-5">
+        <div className="col-12 px-0 my-1 text-center">
+          <p><u>Project Participants From Anna Porter Public Library:</u></p>
+        </div>
+        <div className="col-6 px-0 my-1 text-center">
+          <p><i>Kaila Clark</i></p>
+        </div>
+        <div className="col-6 px-0 my-1 text-center">
+          <p><i>Kelsey Jones</i></p>
+        </div>
+      </div>
+    </div>
   )
 }
 export default TeamAndFunding
