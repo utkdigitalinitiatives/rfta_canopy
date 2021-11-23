@@ -1,6 +1,6 @@
 import * as React from "react"
-import APPLlogo from "../../images/APPL_logo.png"
-import GatlinburgLogo from "../../images/gatlinburglogodark.png"
+import APPLLogo from "../../images/appl-logo.png"
+import gatlinburgLogo from "../../images/gatlinburg-logo-dark.png"
 import UTKLogo from "../../images/utk-logo.png"
 
 const TeamAndFunding = () => {
@@ -12,17 +12,17 @@ const TeamAndFunding = () => {
         <h6>Thanks to everyone who was involved for all of the hard work that went into bringing this project together.</h6>
         <div className= "row align-items-center text-center mx-3 mx-lg-5 mt-5">
           <div className="col-6 col-md-4 px-0 my-1 text-center">
-            <img src={APPLlogo} className="img-fluid w-75" href="https://www.annaporterpl.org/" alt="Anna Porter Public Library Logo"/>
+            <img src={APPLLogo} className="img-fluid w-75" href="https://www.annaporterpl.org/" alt="Anna Porter Public Library Logo" />
           </div>
           <div className="col-6 col-md-4 px-0 my-1 text-center">
-            <img src={UTKLogo} className="img-fluid w-75" href="https://www.utk.edu/" alt="University of Tennessee, Knoxville Logo"/>
+            <img src={UTKLogo} className="img-fluid w-75" href="https://www.utk.edu/" alt="University of Tennessee, Knoxville Logo" />
           </div>
           <div className="col-6 col-md-4 px-0 my-1 mx-auto mt-5 mt-md-0 text-center">
-            <img src={GatlinburgLogo} className="img-fluid w-75" href="https://www.gatlinburgtn.gov/" alt="Gatlinburg, Tennessee Logo"/>
+            <img src={gatlinburgLogo} className="img-fluid w-75" href="https://www.gatlinburgtn.gov/" alt="Gatlinburg, Tennessee Logo" />
           </div>
         </div>
       </div>
-      <div className= "row align-items-center text-center mx-3 mx-lg-5 mt-5">
+      <div className="row align-items-center text-center mx-3 mx-lg-5 mt-5">
         <div className="col-12 px-0 my-1 text-center">
           <br/>
         </div>
