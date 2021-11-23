@@ -8,7 +8,7 @@ const BrowseRow = ({ dataType, backgroundClass='' }) => {
   const { subheadings, title } = results
 
   return (
-    <div className={`row py-5 px-5 justify-content-center mx-0 ${backgroundClass}`}>
+    <div className={`row py-5 px-5 mx-0 ${backgroundClass}`}>
       <h3 className="section-label mb-4">{title}</h3>
       {subheadings.map(subheading => {
         const { altText, image, key, path, subtitle } = subheading
