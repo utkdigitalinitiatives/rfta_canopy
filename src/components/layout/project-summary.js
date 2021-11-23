@@ -6,7 +6,7 @@ const ProjectSummary = () => {
     <div className="container-fluid grey-background px-0 py-5">
       <div className="row mx-4 mx-lg-5">
         <div className="col-12 about-column">
-        <p>
+        <p className="lh-lg">
           <div className="about-page-video float-lg-start ratio ratio-16x9 w-50 me-lg-5 mb-5 mb-lg-4">
             <iframe loading="lazy" title="Rising From The Ashes (Trailer)" src="https://www.youtube.com/embed/cF1cIqwWFRA?feature=oembed" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="">
             </iframe>
