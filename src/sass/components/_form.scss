@@ -1,7 +1,9 @@
 .canopy-form {
   margin: 30px 0;
-  width: calc(100% - 2rem);
   transition: background-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
+  @include media-breakpoint-up(md) {
+    width: calc(100% - 2rem);
+  }
 
   form {
     display: flex;
@@ -44,7 +46,9 @@
       &-search {
         flex-grow: 1;
         flex-shrink: 0;
-        max-width: 61.8%;
+        @include media-breakpoint-up(md) {
+          max-width: 61.8%;
+        }
 
         label {
           display: none;
@@ -157,23 +161,37 @@
 }
 
 .canopy-form-item-content {
-  padding: 1rem;
   font-size: 0.8333em;
-
-  &.canopy-float {
-    background-color: white;
-    box-shadow: $box-shadow;
-    border-radius: 3px;
-    margin-top: 2px;
-    max-height: 200px;
-    overflow: scroll;
-  }
+  margin-top: 2px;
+  max-height: 275px;
+  max-width: 30vw;
+  overflow: scroll;
 }
 
 .canopy-form-item-checkbox {
   display: flex;
   cursor: pointer;
   margin-bottom: 0.5em;
+
+  &.current-filter {
+    border: 1px solid $offwhiteDark;
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 300;
+    margin-bottom: auto;
+
+    label button.current-filter-box {
+      background-color: transparent;
+      border: 0;
+      margin-left: 10px;
+      margin-top: 2px;
+      color: rgb(204, 204, 204);
+
+      span {
+        justify-content: center;
+      }
+    }
+  }
 
   &:hover {
     color: $secondary;

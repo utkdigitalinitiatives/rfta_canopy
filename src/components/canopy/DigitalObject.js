@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import Viewer from "./Viewer"
 import { fromVtt } from "subtitles-parser-vtt"
-import Details from "../layout/details"
 import DigitalObjectHeader from "./DigitalObjectHeader"
-import Layout from "../layout/layout"
 
 class DigitalObject extends Component {
   constructor(props) {
@@ -18,7 +16,7 @@ class DigitalObject extends Component {
   getTranscripts = (transcripts) => {
     let component = this
     transcripts.map(function(transcript) {
-      component.fetchVTT(transcript)
+      return component.fetchVTT(transcript)
     });
   }
 
@@ -47,11 +45,11 @@ class DigitalObject extends Component {
     return null
   }
 
-  mobileNavigatorStatus(value) {{
+  mobileNavigatorStatus(value) {
     this.setState({
       mobileNavigatorStatus: value
     })
-  }}
+  }
 
   componentDidMount() {
     this.getTranscripts(this.props.node.transcripts)
@@ -60,7 +58,7 @@ class DigitalObject extends Component {
   render() {
 
     const {node} = this.props
-    const {id, manifestId, label, summary} = node;
+    const {id, manifestId, label} = node;
 
     if (this.state.transcripts.length === this.props.node.transcripts.length) {
       return (
@@ -76,7 +74,11 @@ class DigitalObject extends Component {
         </article>
       )
     } else {
-      return 'loading component'
+      return (
+        <div className="py-5 mx-auto text-center loading">
+          <h4>Loading Interview<span class="one">.</span><span class="two">.</span><span class="three">.</span></h4>
+        </div>
+      )
     }
   }
 }

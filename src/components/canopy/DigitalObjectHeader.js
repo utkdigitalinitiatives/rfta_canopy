@@ -3,9 +3,6 @@ import { Link } from "gatsby"
 import IIIFBadge from "./IIIFBadge"
 
 class DigitalObjectHeader extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
 
@@ -16,7 +13,7 @@ class DigitalObjectHeader extends Component {
         <h1>{title}</h1>
         <div>
           <IIIFBadge url={manifest} />
-          <Link to={'/'} className="canopy-button canopy-button-svg">
+          <Link to={'/interviews'} className="canopy-button canopy-button-svg">
             Back to Search
             <svg version="1.1"
                  viewBox="0 0 92 92"

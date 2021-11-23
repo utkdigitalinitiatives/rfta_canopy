@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
-import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
-import { BiChevronDown } from "react-icons/bi"
+import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
 import FacetContent from "./FacetContent"
 import FacetCollapse from "./FacetCollapse"
 
-class Facet extends Component {
-
-  renderContent(label, float) {
+const Facet = ({ label }) => {
+  const renderContent = (label) => {
     return (
       <StaticQuery
         query={graphql`
@@ -30,43 +27,24 @@ class Facet extends Component {
               `}
         render = {
           data => (
-            <FacetContent data={data}
-                          float={float}
-                          label={label} />
+            <FacetContent
+              data={data}
+              label={label}
+            />
           )
         }
       />
-    )
+      )
   }
 
-  render() {
-
-    const {label, dropdown} = this.props
-    // this displays the facets in a dropdown list. pass the prop dropdown=true to the Facet component
-    if (dropdown) {
-      return (
-        <div className="canopy-form-item canopy-form-item-dropdown">
-          <DropdownMenu.Root>
-            <DropdownMenu.Trigger>
-              <span>{label}</span>
-              <BiChevronDown />
-            </DropdownMenu.Trigger>
-            <DropdownMenu.Content avoidCollisions={false}>
-              {this.renderContent(label, true)}
-            </DropdownMenu.Content>
-          </DropdownMenu.Root>
-        </div>
-      )
-    } else {
-      // this displays the facets as a collapsed list.
-      return (
-        <div className="canopy-control-item">
-          <FacetCollapse  label={ label } 
-                          renderContentForLabel={this.renderContent(label, true)}/>
-        </div>
-      )
-    }
-  }
+  return (
+    <div className="canopy-control-item">
+      <FacetCollapse
+        label={label}
+        renderContentForLabel={renderContent(label)}
+      />
+    </div>
+  )
 }
 
-export default Facet;
+export default Facet
