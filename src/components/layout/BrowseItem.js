@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 const BrowseItem = ({ altText, image, path, subtitle }) => (
   <div className="col-11 col-sm-6 col-md-3 px-0">
-    <Link to={`/interviews?filter=${path}`}>
+    <Link to={`/interviews?filter=Browse:${subtitle}`}>
       <div className= "browse-item">
         <div className="mx-auto mb-4 browse-image">
           <img src={image} className="card-img-top img-fluid" alt={altText} />
