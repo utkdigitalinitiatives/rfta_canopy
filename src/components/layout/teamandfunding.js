@@ -79,10 +79,10 @@ const TeamAndFunding = () => {
         <div className="col-12 px-0 my-1 text-center">
           <p><u>Project Participants From Anna Porter Public Library:</u></p>
         </div>
-        <div className="col-6 px-0 my-1 text-center">
+        <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
           <p><i>Kaila Clark</i></p>
         </div>
-        <div className="col-6 px-0 my-1 text-center">
+        <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
           <p><i>Kelsey Jones</i></p>
         </div>
         <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
