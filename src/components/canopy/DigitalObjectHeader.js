@@ -7,7 +7,7 @@ const DigitalObjectHeader = ({ title, manifest }) => (
     <h1>{title}</h1>
     <div>
       <IIIFBadge url={manifest} />
-      <a onClick={() => navigate(-1)} className="canopy-button canopy-button-svg">
+      <a onClick={() => navigate(-1)} className="btn btn-secondary canopy-button canopy-button-svg">
         Back to Search
         <svg
           version="1.1"
