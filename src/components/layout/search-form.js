@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faSearch } from "@fortawesome/free-solid-svg-icons"
 import { searchBy, urlParams } from "../../utilities/helpers"
 
-const SearchResults = ({ initialQuery = "" }) => {
-  const [inquiry, setInquiry] = useState(initialQuery)
+const SearchForm = () => {
+  const [inquiry, setInquiry] = useState('')
   const location = useLocation()
   const inputEl = useRef(null)
 
@@ -40,4 +40,4 @@ const SearchResults = ({ initialQuery = "" }) => {
   )
 }
 
-export default SearchResults
+export default SearchForm

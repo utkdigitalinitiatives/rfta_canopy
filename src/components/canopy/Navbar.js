@@ -1,12 +1,12 @@
 import React from "react"
 import { Link } from "gatsby"
-import Logo from "../../images/utk-logo.png"
+import logo from "../../images/utk-logo.png"
 
 const Navbar = () => (
   <nav className="navbar navbar-expand-lg navbar-light py-0 py-lg-2">
     <div className="container-fluid px-0 px-lg-4">
       <Link className="navbar-brand" to="/">
-        <img className= "logo-image" src={ Logo } alt="University of Tennessee, Knoxville Logo"/>
+        <img className= "logo-image" src={ logo } alt="University of Tennessee, Knoxville Logo"/>
       </Link>
       {/* this button is to render the hamburger menu on mobile devices */}
       <button

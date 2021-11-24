@@ -16,9 +16,13 @@ const Search = ({ data, location }) => {
     <Layout location={location}>
       <Seo title="Search results" />
       <SearchLimits query={query}/>
-      <div className="canopy-main canopy-main-inner">
-        <Facets />
-        <SearchResults data={data} initialQuery={query} filter={filter} />
+      <div className="canopy-main canopy-main-inner row px-0 mx-0">
+        <div className="col-sm-4 px-0 mx-0 grey-background">
+          <Facets />
+        </div>
+        <div className="col-sm-8 px-0 mx-0">
+          <SearchResults data={data} initialQuery={query} filter={filter} />
+        </div>
       </div>
     </Layout>
   )
