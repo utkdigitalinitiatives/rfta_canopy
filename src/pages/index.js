@@ -3,7 +3,6 @@ import React from "react"
 import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
 import BrowseRow from "../components/layout/BrowseRow"
-import Footer from "../components/layout/footer"
 
 const Browse = ({ location }) => (
   <Layout location={location}>
