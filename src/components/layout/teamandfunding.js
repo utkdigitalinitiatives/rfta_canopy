@@ -60,7 +60,19 @@ const TeamAndFunding = () => {
           <p><i>Meredith Hale</i></p>
         </div>
         <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
-          <p><i>Paul Cummins</i></p>
+          <p><i>Drew Edwards</i></p>
+        </div>
+        <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
+          <p><i>Christian David Rivera</i></p>
+        </div>
+        <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
+          <p><i>Chelsea Jacobs</i></p>
+        </div>
+        <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
+          <p></p>
+        </div>
+        <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
+          <p></p>
         </div>
       </div> 
       <div className= "row align-items-center text-center mx-3 mx-lg-5 mt-5">
@@ -72,6 +84,9 @@ const TeamAndFunding = () => {
         </div>
         <div className="col-6 px-0 my-1 text-center">
           <p><i>Kelsey Jones</i></p>
+        </div>
+        <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
+          <p></p>
         </div>
       </div>
     </div>
