@@ -1,49 +1,54 @@
-import React from 'react';
-import { Accordion , Card, useAccordionButton } from 'react-bootstrap';
+import React, { useContext } from 'react'
+import {
+  Accordion,
+  AccordionContext,
+  Card,
+  useAccordionButton,
+} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-function CustomToggle({ children, eventKey }) {
-  const decoratedOnClick = useAccordionButton(eventKey);
+const FacetCollapse = ({ label, renderContentForLabel }) => (
+  <Accordion>
+    <Card>
+      <Card.Header className="d-flex justify-content-between">
+        <div>{label}</div>
+        <ContextAwareToggle eventKey="0">
+          <FontAwesomeIcon icon={faPlus} />
+        </ContextAwareToggle>
+      </Card.Header>
+      <Accordion.Collapse eventKey="0">
+        <Card.Body>
+          {renderContentForLabel}
+        </Card.Body>
+      </Accordion.Collapse>
+    </Card>
+  </Accordion>
+)
+
+const ContextAwareToggle = ({ eventKey, callback }) => {
+  const { activeEventKey } = useContext(AccordionContext);
+
+  const decoratedOnClick = useAccordionButton(
+    eventKey,
+    () => callback && callback(eventKey),
+  );
+
+  const isCurrentEventKey = activeEventKey === eventKey;
 
   return (
     <button
       type="button"
       onClick={decoratedOnClick}
-      className="plus-button">
-      {children}
+      className="plus-button"
+    >
+      {isCurrentEventKey ? (
+        <FontAwesomeIcon icon={faMinus} />
+      ) : (
+        <FontAwesomeIcon icon={faPlus} />
+      )}
     </button>
   );
 }
-
-function Collapse(props) {
-  return (
-    <Accordion>
-      <Card>
-        <Card.Header className="d-flex justify-content-between">
-          <div>[Label]</div>
-          <CustomToggle eventKey="0">
-            <FontAwesomeIcon icon={faPlus} className="plus-icon"/>
-          </CustomToggle>
-        </Card.Header>
-        <Accordion.Collapse eventKey="0">
-          <Card.Body>
-          [content]<br/>
-          [content]<br/>
-          [content]<br/>
-          [content]<br/>
-          [content]<br/>
-          [content]<br/>
-          [content]<br/>
-          </Card.Body>
-        </Accordion.Collapse>
-      </Card>
-    </Accordion>
-  );
-}
-
-function FacetCollapse(props) {
-  return(<Collapse props={props}/>)
-};
 
 export default FacetCollapse;

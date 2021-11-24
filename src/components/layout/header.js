@@ -8,7 +8,7 @@ const Header = ({ location, siteDescription, siteTitle }) => {
   const homepage = location?.pathname?.length === 1
 
   return (
-    <header className={`canopy-header ${homepage ? 'tall': 'short'} d-flex flex-column p-5`}>
+    <header className={`canopy-header ${homepage ? 'tall': 'short'} d-flex flex-column py-5 px-3 px-sm-5`}>
       <Link to={'/'}>
         <h1 className="canopy-title text-center text-md-start">{siteTitle}</h1>
       </Link>

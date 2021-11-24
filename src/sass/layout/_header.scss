@@ -9,11 +9,17 @@ header.canopy-header {
   background-size: cover;
 
   &.tall {
-    height: 415px;
+    height: 475px;
+    @include media-breakpoint-up(sm) {
+      height: 415px;
+    }
   }
 
   &.short {
-    height: 250px;
+    height: 340px;
+    @include media-breakpoint-up(sm) {
+      height: 250px;
+    }
   }
 
   @include breakpoints(xs) {

@@ -3,12 +3,18 @@ dl.canopy-metadata {
 
   .metadata-group {
     border-bottom: 1px solid $offwhite;
+    @include breakpoints(sm) {
+      font-size: 0.9em;
+    }
   }
 
   dt {
     font-weight: 600;
     margin-top: 1em;
-    width: 50%;
+    min-width: 35%;
+    @include media-breakpoint-up(sm) {
+      min-width: 50%;
+    }
 
     &:first-child {
       margin-top: 0;

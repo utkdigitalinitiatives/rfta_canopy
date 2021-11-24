@@ -11,7 +11,7 @@ const About = ({ location }) => (
   <Layout location={location}>
     <Seo title="About Rising from the Ashes" />
     <div className="text-center text-lg-start mx-3 mx-md-5 my-4">
-      <h2>About the Project: Hero text/heading here</h2>
+      <h2>About the Project</h2>
     </div>
     <ProjectSummary />
     <TeamAndFunding />

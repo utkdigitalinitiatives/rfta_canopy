@@ -3,16 +3,12 @@ import MetadataElement from "./MetadataElement"
 import Rights from "./Rights"
 
 class Description extends Component {
-  constructor(props) {
-    super(props);
-  }
-
 
   handleMetadata () {
     const metadata = this.props.node.metadata
-    return (metadata.map(function(element){
+    return (metadata.map(function(element, index){
       return (
-        <div className="metadata-group d-flex py-2">
+        <div className="metadata-group d-flex py-2" key={index}>
           <MetadataElement  element={element}
                             language='en'
           />
@@ -43,7 +39,7 @@ class Description extends Component {
   render() {
 
     return (
-      <dl className="canopy-metadata px-5 pt-3">
+      <dl className="canopy-metadata px-3 px-sm-5 pt-3">
         {this.handleMetadata()}
         {this.handleRequiredStatement()}
         {this.handleRights()}
