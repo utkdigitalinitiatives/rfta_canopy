@@ -59,6 +59,9 @@ const TeamAndFunding = () => {
         <div className="col-6 col-md-4  px-0 my-1 mx-auto text-center">
           <p><i>Meredith Hale</i></p>
         </div>
+        <div className="col-6 col-md-4  px-0 my-1 mx-auto text-center">
+          <p><i>Paul Cummins</i></p>
+        </div>
         <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
           <p><i>Drew Edwards</i></p>
         </div>
@@ -67,9 +70,6 @@ const TeamAndFunding = () => {
         </div>
         <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
           <p><i>Chelsea Jacobs</i></p>
-        </div>
-        <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
-          <p></p>
         </div>
         <div className="col-6 col-md-4 px-0 my-1 mx-auto text-center">
           <p></p>
