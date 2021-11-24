@@ -10,15 +10,16 @@ const BrowseRow = ({ dataType, backgroundClass='' }) => {
     <div className={`row py-5 px-5 mx-0 ${backgroundClass}`}>
       <h3 className="section-label mb-4">{title}</h3>
       {subheadings.map(subheading => {
-        const { altText, image, key, path, subtitle } = subheading
+        const { altText, image, key, label, subtitle, value } = subheading
 
         return (
           <BrowseItem
+            key={key}
             altText={altText}
             image={image}
-            path={path}
+            label={label}
             subtitle={subtitle}
-            key={key}
+            value={value}
           />
         )
       })}
