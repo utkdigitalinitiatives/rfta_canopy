@@ -1,51 +1,43 @@
-import React, { Component } from 'react';
+import React from 'react'
 import MetadataElement from "./MetadataElement"
 import Rights from "./Rights"
 
-class Description extends Component {
+const Description = ({ node }) => {
+  const { metadata, requiredStatement, rights } = node
 
-  handleMetadata () {
-    const metadata = this.props.node.metadata
-    return (metadata.map(function(element, index){
-      return (
-        <div className="metadata-group d-flex py-2" key={index}>
-          <MetadataElement  element={element}
-                            language='en'
-          />
-        </div>
-      )
-    }
-    ));
-  }
-
-  handleRequiredStatement () {
-    return (
-      <div className="metadata-group d-flex py-2">
-        <MetadataElement  element={this.props.node.requiredStatement}
-                          language='en'
+  const handleMetadata = () => (
+    metadata.map((element, index) => (
+      <div className="metadata-group d-flex py-2" key={index}>
+        <MetadataElement
+          element={element}
+          language='en'
         />
       </div>
     )
-  }
+  ))
 
-  handleRights () {
-    return (
-      <div className="metadata-group d-flex pt-2">
-        <Rights rights={this.props.node.rights}/>
-      </div>
-    )
-  }
+  const handleRequiredStatement = () => (
+    <div className="metadata-group d-flex py-2">
+      <MetadataElement
+        element={requiredStatement}
+        language='en'
+      />
+    </div>
+  )
 
-  render() {
+  const handleRights = () => (
+    <div className="metadata-group d-flex pt-2">
+      <Rights rights={rights} />
+    </div>
+  )
 
-    return (
-      <dl className="canopy-metadata px-3 px-sm-5 pt-3">
-        {this.handleMetadata()}
-        {this.handleRequiredStatement()}
-        {this.handleRights()}
-      </dl>
-    )
-  }
+  return (
+    <dl className="canopy-metadata px-3 px-sm-5 pt-3">
+      {handleMetadata()}
+      {handleRequiredStatement()}
+      {handleRights()}
+    </dl>
+  )
 }
 
-export default Description;
+export default Description
