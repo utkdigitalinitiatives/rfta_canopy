@@ -20,7 +20,6 @@ const Browse = ({ location }) => (
       dataType='locations'
       backgroundClass="grey-background"
     />
-    <Footer />
   </Layout>
 )
 
