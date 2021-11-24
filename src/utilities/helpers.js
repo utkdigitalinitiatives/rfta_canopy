@@ -3,7 +3,7 @@ import { navigate } from "@reach/router"
 export const urlParams = (search) => {
   const params = new URLSearchParams(search.slice(1))
   const query = params.get("q") || ""
-  let filter = params.get("filter") || ""
+  const filter = params.get("filter") || ""
 
   return { query, filter }
 }
