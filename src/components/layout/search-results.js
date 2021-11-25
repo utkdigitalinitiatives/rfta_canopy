@@ -12,6 +12,11 @@ const SearchResults = ({ data, initialQuery = "" , filter }) => {
   try {
     results = index.search(`*${searchString}*`)
                    .map(({ ref }) => ({ ...store[ref] }))
+                   .sort((a, b) => {
+                    if (a.label === b.label) return 0
+
+                    return (a.label < b.label) ? -1 : 1
+                  })
   } catch (error) {
     console.log(`Unable to retrieve the interview data: ${error}`)
   }
