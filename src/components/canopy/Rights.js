@@ -26,6 +26,10 @@ class Rights extends Component {
     }
   }
 
+  convertCreativeCommonsURLforUsers (uri) {
+    return uri.replace('rdf', '')
+  }
+
   getIconUri () {
     let rights_identifier = this.rights.split('/')[4]
     if (this.rights.includes('creativecommons')) {
@@ -38,7 +42,7 @@ class Rights extends Component {
             </a>
           </figure>
           <p>
-            <a href={this.rights}>{object_rights["title"]}</a>
+            <a href={this.convertCreativeCommonsURLforUsers(this.rights)}>{object_rights["title"]}</a>
           </p>
         </>
       )
