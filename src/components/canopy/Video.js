@@ -211,11 +211,9 @@ class Video extends Component {
     if (image) {
       return (
         <div className="canopy-accompanying-canvas">
-          <AspectRatio.Root ratio={1}>
             <figure>
               <img src={image.src} alt={image.alt} />
             </figure>
-          </AspectRatio.Root>
         </div>
       )
     }
