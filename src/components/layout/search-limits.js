@@ -12,6 +12,14 @@ const SearchLimits = ({ query }) => {
     <div className="search-limits-section px-5">
       <h4 className= "text-center text-md-start">
         {query.length ? `Your Search Results for "${query}"` : "Explore all resources"}
+        {query.length ?
+          <div className="clear-results">
+            <a href="/interviews">
+              <button type="button" className="btn btn-success">Clear Search Results</button>
+            </a>
+          </div>
+          : ''
+        }
       </h4>
         <div className="d-flex flex-column flex-md-row align-items-center">
         {filter && (
