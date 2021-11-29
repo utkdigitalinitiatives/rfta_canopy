@@ -21,10 +21,11 @@ const DigitalObject = ({ node, url }) => {
     })
       .then(response => response.text())
       .then(data => {
-        let transcript = {}
+        const transcript = {
+          iiif: body,
+          text: fromVtt(data),
+        }
 
-        transcript.iiif = body
-        transcript.text = fromVtt(data)
         setResults([transcript])
       })
       .catch(err => console.error(url, err.toString()))

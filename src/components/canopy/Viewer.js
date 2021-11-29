@@ -21,7 +21,7 @@ const Viewer = ({ node, transcripts }) => {
       />
       <Navigator
         id={id}
-        t={time}
+        time={time}
         transcripts={transcripts}
         updateTime={e => setUpdateTime(e)}
         structures={structures}
