@@ -7,9 +7,6 @@ const Facets = () => (
       <Facet label="Subject" />
       <Facet label="Narrator Role" />
       <Facet label="Place" />
-      <Facet label="Interviewer" />
-      <Facet label="Interviewee" />
-      <Facet label="Format" />
       <Facet label="Language" />
     </div>
   </div>
