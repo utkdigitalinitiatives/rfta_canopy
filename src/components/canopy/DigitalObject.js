@@ -25,14 +25,14 @@ const DigitalObject = ({ node, url }) => {
 
         transcript.iiif = body
         transcript.text = fromVtt(data)
-        setResults([...results, transcript])
+        setResults([transcript])
       })
       .catch(err => console.error(url, err.toString()))
 
     return null
   }
 
-  if (transcripts.length === results.length) {
+  if (results.length) {
     return (
       <article className="canopy-manifest" data-mobile-navigator={mobileNavigatorStatus}>
         <DigitalObjectHeader
@@ -43,7 +43,6 @@ const DigitalObject = ({ node, url }) => {
           id={id}
           mobileNavigatorStatus={value => setMobileNavigatorStatus(value)}
           node={node}
-          node2={node}
           transcripts={results}
         />
       </article>

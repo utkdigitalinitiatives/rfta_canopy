@@ -121,14 +121,14 @@ class Navigator extends Component {
       const newPanels = [{
             label: "Details",
             type: "",
-            sequence: [] 
+            sequence: []
           }, ...panels]
     return newPanels
   }
 
   renderPanels = (panels, time) => {
     let component = this
-    let node = this.props.node2
+    let { node } = this.props
     const newPanels = this.addNewPanel(panels)
     return newPanels.map(function(panel, index) {
       return (
