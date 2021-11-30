@@ -3,29 +3,29 @@ import PropTypes from "prop-types"
 import Navigator from "./Navigator"
 import Video from "./Video"
 
-const Viewer = ({ node, transcripts, node2 }) => {
+const Viewer = ({ node, transcripts }) => {
   const { id, items, structures } = node
+  const viewer = useRef()
   const [time, setTime] = useState(0)
   const [updateTime, setUpdateTime] = useState(null)
-  const viewer = useRef()
 
   return (
-    <div 
+    <div
       ref={viewer}
       className="canopy-viewer d-flex align-items-center"
     >
-      <Video 
+      <Video
         items={items}
         time={e => setTime(e)}
         updateTime={updateTime}
       />
       <Navigator
-        t={time}
+        id={id}
+        time={time}
         transcripts={transcripts}
         updateTime={e => setUpdateTime(e)}
         structures={structures}
-        id={id}
-        node2={node2} 
+        node={node}
       />
     </div>
   )
@@ -39,4 +39,4 @@ Viewer.defaultProps = {
   manifestId: ``,
 }
 
-export default Viewer;
+export default Viewer

@@ -1,72 +1,63 @@
-import React, { Component } from 'react';
-import { getRights } from "../../utilities/rightslookup"
+import React from 'react'
+import getRights from "../../utilities/rightslookup"
 
-class Rights extends Component {
-  constructor(props) {
-    super(props);
+const Rights = ({ rightsURI }) => {
+  const checkRightsSet = uri => {
+    if (uri) return uri
 
-    this.rights = this.checkRightsSet(this.props.rights)
+    return "http://rightsstatements.org/vocab/CNE/1.0/"
   }
 
-  getRights () {
-    return (
-      <>
-        <dt>Rights:</dt>
-        <dd>{this.getIconUri()}</dd>
-      </>
-    )
-  }
+  const rights = checkRightsSet(rightsURI)
 
-  checkRightsSet (uri) {
-    if (uri === null || typeof uri === 'undefined') {
-      return "http://rightsstatements.org/vocab/CNE/1.0/"
-    }
-    else {
-      return uri
-    }
-  }
+  const convertCreativeCommonsURLforUsers = uri => uri.replace('rdf', '')
 
-  convertCreativeCommonsURLforUsers (uri) {
-    return uri.replace('rdf', '')
-  }
+  const getIconUri = () => {
+    const rights_identifier = rights.split('/')[4]
 
-  getIconUri () {
-    let rights_identifier = this.rights.split('/')[4]
-    if (this.rights.includes('creativecommons')) {
+    if (rights.includes('creativecommons')) {
       const object_rights = getRights(rights_identifier, 'creative_commons')
+
       return (
         <>
           <figure className="rights-statement">
-            <a href={this.rights}>
-              <img src={`https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/${rights_identifier}.svg`} alt={rights_identifier}/>
+            <a href={rights}>
+              <img
+                src={`https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/${rights_identifier}.svg`}
+                alt={rights_identifier}
+              />
             </a>
           </figure>
           <p>
-            <a href={this.convertCreativeCommonsURLforUsers(this.rights)}>{object_rights["title"]}</a>
+            <a href={convertCreativeCommonsURLforUsers(rights)}>{object_rights["title"]}</a>
           </p>
         </>
       )
     }
     else {
       const object_rights = getRights(rights_identifier, 'rights_statements')
+
       return (
         <>
           <figure className="rights-statement">
-            <a href={this.rights}>
-              <img src={`https://rightsstatements.org/files/buttons/${rights_identifier}.dark-white-interior-blue-type.svg`} alt={object_rights["skos:prefLabel"]}/>
+            <a href={rights}>
+              <img src={`https://rightsstatements.org/files/buttons/${rights_identifier}.dark-white-interior-blue-type.svg`} alt={object_rights["skos:prefLabel"]} />
             </a>
           </figure>
           <p>
-            <a href={this.rights}>{object_rights["skos:prefLabel"]}</a>: {object_rights["definition"]}
+            <a href={rights}>{object_rights["skos:prefLabel"]}</a>: {object_rights["definition"]}
           </p>
         </>
       )
     }
   }
 
-  render() {
-    return this.getRights(this.rights)
-  }
+  return (
+    <>
+      <dt>Rights:</dt>
+      <dd>{getIconUri()}</dd>
+    </>
+  )
 }
 
-export default Rights;
+export default Rights

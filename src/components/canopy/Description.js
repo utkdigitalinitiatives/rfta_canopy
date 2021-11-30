@@ -27,7 +27,7 @@ const Description = ({ node }) => {
 
   const handleRights = () => (
     <div className="metadata-group d-flex pt-2">
-      <Rights rights={rights} />
+      <Rights rightsURI={rights} />
     </div>
   )
 
