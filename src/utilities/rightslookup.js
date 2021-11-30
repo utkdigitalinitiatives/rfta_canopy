@@ -1,4 +1,4 @@
-function getRights(identifier, vocab) {
+const getRights = (identifier, vocab) => {
   const defined_rights = {
     "rights_statements": [
       {
@@ -131,12 +131,10 @@ function getRights(identifier, vocab) {
       }
     ]
   }
-  const rights_statements = defined_rights[vocab].filter(function(statement) {
-    return statement.identifier === identifier
-  })
+
+  const rights_statements = defined_rights[vocab].filter(statement => statement.identifier === identifier)
+
   return rights_statements[0]
 }
 
-module.exports = {
-  getRights
-}
+export default getRights

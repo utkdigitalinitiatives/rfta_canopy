@@ -21,6 +21,11 @@ const Contact = () => (
         </form>
       </div>
     </div>
+    <div className="align-items-start pt-5 mx-3 mx-md-5 text-center">
+      <small>
+        <i>Images used on the site are either in the Public Domain or are used by permission from Knoxville-area photographer Bruce McCamish.</i>
+      </small>
+    </div>
     <div className="align-items-start py-5 mx-3 mx-md-5 text-center">
       <small>
         <b>Disclaimer / Rights Statement</b><br />

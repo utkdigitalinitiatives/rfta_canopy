@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react'
 
-class Track extends Component {
+const Track = ({ data }) => {
+  const { label, src, srclang } = data
 
-  render() {
-
-    const {label, src, srclang} = this.props.data
-
-    return (
-      <track src={src}
-             label={label}
-             srcLang={srclang}
-      />
-    )
-  }
+  return (
+    <track
+      src={src}
+      label={label}
+      srcLang={srclang}
+    />
+  )
 }
 
-export default Track;
+export default Track

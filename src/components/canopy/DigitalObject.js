@@ -1,26 +1,18 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react'
 import Viewer from "./Viewer"
 import { fromVtt } from "subtitles-parser-vtt"
 import DigitalObjectHeader from "./DigitalObjectHeader"
 
-class DigitalObject extends Component {
-  constructor(props) {
-    super(props);
+const DigitalObject = ({ node, url }) => {
+  const { id, label, manifestId, transcripts } = node
+  const [results, setResults] = useState([])
+  const [mobileNavigatorStatus, setMobileNavigatorStatus] = useState(false)
 
-    this.state = {
-      transcripts: [],
-      mobileNavigatorStatus: false
-    }
-  }
+  useEffect(() => {
+    transcripts.map(transcript => fetchVTT(transcript))
+  }, [])
 
-  getTranscripts = (transcripts) => {
-    let component = this
-    transcripts.map(function(transcript) {
-      return component.fetchVTT(transcript)
-    });
-  }
-
-  fetchVTT = (body) => {
+  const fetchVTT = body => {
     fetch(body.id, {
       headers : {
         'Content-Type': 'text/plain',
@@ -29,57 +21,39 @@ class DigitalObject extends Component {
     })
       .then(response => response.text())
       .then(data => {
-        let transcripts = this.state.transcripts
-        if (transcripts) {
-          let transcript = {}
-          transcript.iiif = body
-          transcript.text = fromVtt(data)
-          transcripts.push(transcript)
+        const transcript = {
+          iiif: body,
+          text: fromVtt(data),
         }
-        this.setState({
-          transcripts
-        });
+
+        setResults([transcript])
       })
-      .catch(err => console.error(this.props.url, err.toString()));
+      .catch(err => console.error(url, err.toString()))
 
     return null
   }
 
-  mobileNavigatorStatus(value) {
-    this.setState({
-      mobileNavigatorStatus: value
-    })
-  }
-
-  componentDidMount() {
-    this.getTranscripts(this.props.node.transcripts)
-  }
-
-  render() {
-
-    const {node} = this.props
-    const {id, manifestId, label} = node;
-
-    if (this.state.transcripts.length === this.props.node.transcripts.length) {
-      return (
-        <article className="canopy-manifest" data-mobile-navigator={this.state.mobileNavigatorStatus}>
-            <DigitalObjectHeader title={label.en[0]}
-                                 manifest={manifestId} />
-            <Viewer node={this.props.node}
-                    transcripts={this.state.transcripts}
-                    mobileNavigatorStatus={this.mobileNavigatorStatus.bind(this)}
-                    id={id}
-                    node2={node}
-            />
-        </article>
-      )
-    } else {
-      return (
-        <div className="py-5 mx-auto text-center loading">
-          <h4>Loading Interview<span className="one">.</span><span className="two">.</span><span className="three">.</span></h4>
-        </div>
-      )
-    }
+  if (results.length) {
+    return (
+      <article className="canopy-manifest" data-mobile-navigator={mobileNavigatorStatus}>
+        <DigitalObjectHeader
+          title={label.en[0]}
+          manifest={manifestId}
+        />
+        <Viewer
+          id={id}
+          mobileNavigatorStatus={value => setMobileNavigatorStatus(value)}
+          node={node}
+          transcripts={results}
+        />
+      </article>
+    )
+  } else {
+    return (
+      <div className="py-5 mx-auto text-center loading">
+        <h4>Loading Interview<span className="one">.</span><span className="two">.</span><span className="three">.</span></h4>
+      </div>
+    )
   }
 }
 
