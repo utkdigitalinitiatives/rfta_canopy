@@ -7,7 +7,7 @@ const Viewer = ({ node, transcripts }) => {
   const { id, items, structures } = node
   const viewer = useRef()
   const [time, setTime] = useState(0)
-  const [updatedTime, setUpdatedTime] = useState(null)
+  const [updateTime, setUpdateTime] = useState(null)
 
   return (
     <div
@@ -17,13 +17,13 @@ const Viewer = ({ node, transcripts }) => {
       <Video
         items={items}
         time={e => setTime(e)}
-        updatedTime={updatedTime}
+        updateTime={updateTime}
       />
       <Navigator
         id={id}
         time={time}
         transcripts={transcripts}
-        updateTime={e => setUpdatedTime(e)}
+        updateTime={e => setUpdateTime(e)}
         structures={structures}
         node={node}
       />

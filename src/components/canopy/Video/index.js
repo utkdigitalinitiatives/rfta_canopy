@@ -1,211 +1,250 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { Component, createRef } from "react"
 import { isSafari } from "react-device-detect"
-import { Root } from '@radix-ui/react-aspect-ratio'
+import * as AspectRatio from '@radix-ui/react-aspect-ratio'
 import Track from "../Track"
 import accompanyingCanvas from './accompanyingCanvas'
+class Video extends Component {
+  constructor(props) {
+    super(props)
 
-const Video = ({ items, time, updatedTime }) => {
-  const [source, setSource] = useState(null)
-  const [format, setFormat] = useState(null)
-  const [tracks, setTracks] = useState([])
-  const [currentTime, setCurrentTime] = useState(0)
-  const [updateTime, setUpdateTime] = useState(null)
-  const [playing, setPlaying] = useState(false)
-  const [image, setImage] = useState(null)
-  const videoRef = useRef()
-  const visualizerRef = useRef()
-  const didMount = useRef(false)
-  const className = `canopy-video ${playing ? `canopy-video-active` : ''}`
-
-  useEffect(() => {
-    if (didMount.current) {
-      handleUpdate(updatedTime)
+    this.state = {
+      source: null,
+      format: null,
+      tracks: [],
+      currentTime: 0,
+      updateTime: null,
+      updated: true,
+      playing: false,
+      image: null
     }
 
-    parseItems()
-  }, [])
+    this.video = createRef()
+    this.visualizer = createRef()
+  }
 
-  const renderSource = (src, type) => (
-    <source
-      src={src}
-      type={type}
-    />
-  )
+  componentDidMount () {
+    this.parseItems()
+  }
 
-  const renderTracks = tracks => (
-    tracks.map((data, index) => (
-      <Track
-        data={data}
-        key={index}
+  componentDidUpdate () {
+    this.handleUpdate(this.props.updateTime)
+  }
+
+  renderSource = (src, type) => {
+    return (
+      <source
+        src={src}
+        type={type}
       />
-    ))
-  )
+    )
+  }
 
-  const parseItems = () => {
-    if (Array.isArray(items)) {
-      const tempItems = items[0].items[0].items
+  renderTracks = (tracks) => {
+    return tracks.map(function(data, index) {
+      return (
+        <Track
+          data={data}
+          key={index}
+        />
+      )
+    });
+  }
 
-      tempItems.forEach(element => {
+  parseItems = () => {
+    let component = this;
+
+    if (Array.isArray(this.props.items)) {
+
+      const items = this.props.items[0].items[0].items;
+
+      items.forEach(function(element) {
         if (element.motivation === 'painting') {
-          setSource(element.body[0].id)
-          setFormat(element.body[0].format)
+          component.setState({
+            source: element.body[0].id,
+            format: element.body[0].format
+          });
         } else if (element.motivation === 'supplementing') {
-          element.body.map(item => {
-            const track = {
-              src: item.id,
-              label: item.label[item.language][0],
-              srclang: item.language,
-            }
-
-            setTracks(tracks => [...tracks, track])
-          })
+          let tracks = component.state.tracks
+          element.body.map(function(item) {
+            let track = {}
+            track.src = item.id
+            track.label = item.label[item.language][0]
+            track.srclang = item.language
+            return tracks.push(track)
+          });
+          component.setState({
+            tracks: tracks
+          });
         }
-      })
+      });
 
       if (accompanyingCanvas) {
         const src = accompanyingCanvas.items[0].items[0].body.id
         const alt = accompanyingCanvas.label.en[0]
-        const image = { src, alt }
-
-        setImage(image)
+        component.setState({
+          image: {
+            src,
+            alt,
+          }
+        });
       }
     }
   }
 
-  const handlePlay = () => {
-    const video = videoRef.current
-
-    video.ontimeupdate = event => {
-      const tempCurrentTime = event.target.currentTime
-      time(tempCurrentTime)
-
-      setCurrentTime(tempCurrentTime)
-      setPlaying(true)
-    }
-
-    if (!isSafari && format === 'audio/mpeg') {
-      audioVisualizer(videoRef.current)
+  handlePlay = () => {
+    let video = this.video.current
+    video.ontimeupdate = (event) => {
+      this.props.time(event.target.currentTime)
+      this.setState({
+        currentTime: event.target.currentTime,
+        playing: true
+      })
+    };
+    if (!isSafari && this.state.format === 'audio/mpeg') {
+      this.audioVisualizer(this.video.current);
     }
   }
 
-  const handlePause = () => {
-    setTimeout(() => {
-      if (videoRef.current.paused) {
-        setPlaying(false)
+  handlePause = () => {
+    let component = this
+    setTimeout(function() {
+      if (component.video.current.paused) {
+        component.setState({
+          playing: false
+        })
       }
-    }, 200)
+    }, 200);
   }
 
-  const handleUpdate = time => {
-    if (!time) return
-
-    if (updateTime !== time) {
-      videoRef.current.currentTime = time
-      setUpdateTime(time)
+  handleUpdate = (t) => {
+    if (t) {
+      if (this.state.updateTime !== t) {
+        this.video.current.currentTime = t
+        this.setState({
+          updateTime: t
+        })
+      }
     }
   }
 
-  const audioVisualizer = (video) => {
-    const context = new AudioContext()
-    const src = context.createMediaElementSource(video)
-    const canvas = visualizerRef.current
-    const ctx = canvas.getContext("2d")
-    let analyser = context.createAnalyser()
-    const bufferLength = analyser.frequencyBinCount
-    const dataArray = new Uint8Array(bufferLength)
+  audioVisualizer = (video) => {
+    const context = new AudioContext();
+    const src = context.createMediaElementSource(video);
+    let analyser = context.createAnalyser();
 
-    canvas.width = window.innerWidth
-    canvas.height = window.innerHeight
+    const canvas = this.visualizer.current;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext("2d");
 
-    src.connect(analyser)
-    analyser.connect(context.destination)
-    analyser.fftSize = 256
+    src.connect(analyser);
+    analyser.connect(context.destination);
 
-    setInterval(() => {
-      renderFrame(analyser, ctx, bufferLength, dataArray, canvas.width, canvas.height)
-    }, 20)
-  }
+    analyser.fftSize = 256;
 
-  const renderFrame = (analyser, ctx, bufferLength, dataArray, width, height) => {
-    const barWidth = (width / bufferLength) * 2.6
-    const x = 0
-    let barHeight
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
 
-    analyser.getByteFrequencyData(dataArray)
+    let component = this;
+    setInterval(function(){
+      component.renderFrame(analyser, ctx, bufferLength, dataArray, canvas.width, canvas.height);
+    }, 20);
+  };
 
-    ctx.fillStyle = "#000000"
-    ctx.fillRect(0, 0, width, height)
+  renderFrame(analyser, ctx, bufferLength, dataArray, width, height) {
+
+    let barWidth = (width / bufferLength) * 2.6;
+    let barHeight;
+    let x = 0;
+
+    analyser.getByteFrequencyData(dataArray);
+
+    ctx.fillStyle = "#000000";
+    ctx.fillRect(0, 0, width, height);
 
     for (let i = 0; i < bufferLength; i++) {
-      barHeight = dataArray[i] * 4
+      barHeight = dataArray[i] * 4;
 
-      const r = 26 + (i * 4)
-      const g = 114
-      const b = 197
+      const r = 26 + (i * 4);
+      const g = 114;
+      const b = 197;
       const alpha = 1
 
-      ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + alpha + ")"
-      ctx.fillRect(x, height - barHeight, barWidth, barHeight)
+      ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
+      ctx.fillRect(x, height - barHeight, barWidth, barHeight);
 
-      x += barWidth + 6
+      x += barWidth + 6;
     }
   }
 
-  const renderFigure = image => {
-    if (!image) return
+  renderFigure = (image) => {
+    if (image) {
+      return (
+        <div className="canopy-accompanying-canvas">
+          <AspectRatio.Root ratio={1}>
+            <figure>
+              <img src={image.src} alt={image.alt} />
+            </figure>
+          </AspectRatio.Root>
+        </div>
+      )
+    }
+  }
 
+  renderAudioVisualizer = () => {
     return (
-      <div className="canopy-accompanying-canvas">
-        <Root ratio={1}>
-          <figure>
-            <img src={image.src} alt={image.alt} />
-          </figure>
-        </Root>
-      </div>
+      <canvas
+        id="canopy-audio-visualizer"
+        ref={this.visualizer}>
+      </canvas>
     )
   }
 
-  const renderAudioVisualizer = () => (
-    <canvas
-      id="canopy-audio-visualizer"
-      ref={visualizerRef}
-    >
-    </canvas>
-  )
-
-
-  const renderBackground = (format, image) => {
-    if (format !== 'audio/mpeg') return
-
-    return (
-      <div className="canopy-video-background">
-        {renderFigure(image)}
-        {renderAudioVisualizer()}
-      </div>
-    )
+  renderBackground = (format, image) => {
+    if (format === 'audio/mpeg') {
+      return (
+        <div className="canopy-video-background">
+          {this.renderFigure(image)}
+          {this.renderAudioVisualizer()}
+        </div>
+      )
+    }
   }
 
-  if (!source) return null
+  render() {
 
-  return (
-      <div className={className}>
-        <Root ratio={16/9}>
-          <video
-            controls
-            ref={videoRef}
-            onPlay={handlePlay}
-            onPause={handlePause}
-            crossOrigin="anonymous"
-            controlsList="nodownload"
-          >
-            <track kind="captions" />
-            {renderSource(source, format)}
-            {renderTracks(tracks)}
-          </video>
-          {renderBackground(format, image)}
-        </Root>
-      </div>
-  )
+    let {source, format, tracks, playing, image} = this.state
+
+    let className = `canopy-video`
+    if (playing) {
+      className = `canopy-video canopy-video-active`
+    }
+
+    if (source) {
+      return (
+          <div className={className}>
+            <AspectRatio.Root ratio={16/9}>
+              <video
+                controls
+                ref={this.video}
+                onPlay={this.handlePlay}
+                onPause={this.handlePause}
+                crossOrigin="anonymous"
+                controlsList="nodownload"
+              >
+                <track kind="captions" />
+                {this.renderSource(source, format)}
+                {this.renderTracks(tracks)}
+              </video>
+              {this.renderBackground(format, image)}
+            </AspectRatio.Root>
+          </div>
+      )
+
+    } else {
+      return null
+    }
+  }
 }
 
 export default Video
