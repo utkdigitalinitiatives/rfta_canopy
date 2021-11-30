@@ -6,26 +6,26 @@ import Video from "./Video"
 const Viewer = ({ node, transcripts, node2 }) => {
   const { id, items, structures } = node
   const [time, setTime] = useState(0)
-  const [updateTime, setUpdateTime] = useState(null)
+  const [updatedTime, setUpdatedTime] = useState(null)
   const viewer = useRef()
 
   return (
-    <div 
+    <div
       ref={viewer}
       className="canopy-viewer d-flex align-items-center"
     >
-      <Video 
+      <Video
         items={items}
         time={e => setTime(e)}
-        updateTime={updateTime}
+        updatedTime={updatedTime}
       />
       <Navigator
         t={time}
         transcripts={transcripts}
-        updateTime={e => setUpdateTime(e)}
+        updateTime={e => setUpdatedTime(e)}
         structures={structures}
         id={id}
-        node2={node2} 
+        node2={node2}
       />
     </div>
   )
