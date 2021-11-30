@@ -10,6 +10,8 @@ const Rights = ({ rightsURI }) => {
 
   const rights = checkRightsSet(rightsURI)
 
+  const convertCreativeCommonsURLforUsers = uri => uri.replace('rdf', '')
+
   const getIconUri = () => {
     const rights_identifier = rights.split('/')[4]
 
@@ -27,7 +29,7 @@ const Rights = ({ rightsURI }) => {
             </a>
           </figure>
           <p>
-            <a href={rights}>{object_rights["title"]}</a>
+            <a href={convertCreativeCommonsURLforUsers(rights)}>{object_rights["title"]}</a>
           </p>
         </>
       )
