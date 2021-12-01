@@ -35,6 +35,19 @@ function Seo({ description, lang, meta, title }) {
       }}
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
+      link={
+        [
+          {
+            'rel': 'icon',
+            "type": "image/png",
+            "href": '../../images/favicon.png'
+          },
+          {
+            'rel': 'canonical',
+            'href': 'https://rfta.lib.utk.edu'
+          }
+        ]
+      }
       meta={[
         {
           name: `description`,
