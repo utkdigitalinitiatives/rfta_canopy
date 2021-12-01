@@ -40,7 +40,8 @@ function Seo({ description, lang, meta, title }) {
           {
             'rel': 'icon',
             "type": "image/png",
-            "href": '../../images/favicon.png'
+            'sizes': '114x114',
+            'href': 'https://brand.utk.edu/wp-content/themes/ut-thehill/images/interface/icon-114x114.png'
           },
           {
             'rel': 'canonical',
