@@ -42,10 +42,6 @@ function Seo({ description, lang, meta, title }) {
             "type": "image/png",
             'sizes': '114x114',
             'href': 'https://brand.utk.edu/wp-content/themes/ut-thehill/images/interface/icon-114x114.png'
-          },
-          {
-            'rel': 'canonical',
-            'href': 'https://rfta.lib.utk.edu'
           }
         ]
       }
