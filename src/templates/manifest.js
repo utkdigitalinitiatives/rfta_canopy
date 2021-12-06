@@ -10,10 +10,8 @@ const Manifest = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <Seo title="Home" />
+      <Seo title={node.label.en[0]} />
       <DigitalObject node={node} />
-      {/* commenting this out for now in case we decide to bring back the related section later */}
-      {/* <Related metadata={node.metadata} /> */}
     </Layout>
   )
 }
