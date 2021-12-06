@@ -41,6 +41,7 @@ const ContextAwareToggle = ({ eventKey, callback }) => {
       type="button"
       onClick={decoratedOnClick}
       className="plus-button"
+      aria-label="Toggle facet group"
     >
       {isCurrentEventKey ? (
         <FontAwesomeIcon icon={faMinus} />
