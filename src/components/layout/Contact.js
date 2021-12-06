@@ -14,7 +14,7 @@ const Contact = () => (
           <input className="form-control form-control my-1" type="text" placeholder="Name" aria-label="Name" name="name" />
           <input className="form-control form-control my-1" type="text" placeholder="Email" aria-label="Email" name="email" />
           <textarea className="form-control form-control my-1" type="text" placeholder="Message" aria-label="Message" name="message" />
-          <button type="submit" className="btn btn-primary mt-1 mx-2">
+          <button type="submit" className="btn btn-primary mt-1 mx-2" aria-label="submit">
             Submit
           </button>
           <input className="btn btn-secondary mt-1 mx-2" type="reset" value="Clear" />

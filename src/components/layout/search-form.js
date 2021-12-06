@@ -32,7 +32,7 @@ const SearchForm = () => {
           placeholder="Search All Resources"
           onChange={handleChange}
         />
-        <button type="submit">
+        <button type="submit" aria-label="submit">
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>

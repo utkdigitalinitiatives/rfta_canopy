@@ -15,7 +15,7 @@ const SearchLimits = ({ query }) => {
         {query.length ?
           <div className="clear-results">
             <a href="/interviews">
-              <button type="button" className="btn btn-success">Clear Search Results</button>
+              <button type="button" className="btn btn-success" aria-label="clear results">Clear Search Results</button>
             </a>
           </div>
           : ''
