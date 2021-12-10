@@ -133,7 +133,7 @@ const data = {
         image: `${greatSmokyMountains}`,
         label: "Place",
         subtitle: "Great Smoky Mountains National Park",
-        value: "Great Smoky Mountains National Park (N.C. and Tenn.)",
+        value: "Great Smoky Mountains National Park",
       },
       {
         key: "2",
@@ -145,11 +145,11 @@ const data = {
       },
       {
         key: "3",
-        altText: "Image of Dollywood, Pigeon Forge, TN",
+        altText: "Dollywood and Pigeon Forge",
         image: `${dollywood}`,
         label: "Browse",
-        subtitle: "Dollywood, Pigeon Forge, TN",
-        value: "Dollywood, Pigeon Forge, TN",
+        subtitle: "Dollywood and Pigeon Forge",
+        value: "Dollywood and Pigeon Forge",
       },
       {
         key: "4",
