@@ -230,7 +230,6 @@ class Video extends Component {
                 crossOrigin="anonymous"
                 controlsList="nodownload"
               >
-                <track kind="captions" />
                 {this.renderSource(source, format)}
                 {this.renderTracks(tracks)}
               </video>
