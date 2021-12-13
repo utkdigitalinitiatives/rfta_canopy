@@ -40,7 +40,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
       lower: true,
       strict: true,
       trim: true
-    })}`
+    })}/`
 
     node.transcripts = ((items, transcripts = []) =>{
       if (Array.isArray(items)) {
@@ -76,7 +76,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
         lower: true,
         strict: true,
         trim: true
-      })}`
+      })}/`
 
       metadata[slug] = {}
       metadata[slug].slug = slug;
