@@ -1,23 +1,23 @@
 import React from 'react'
-import { Link } from "gatsby"
+import { Link as GatsbyLink } from "gatsby"
 
 const SearchResult = ({ result }) => {
   const { label, slug, summary, thumbnail } = result
   const slugWithSlash = slug.endsWith('/') ? slug : `${slug}/`;
-
   return (
     <article key={slug}>
-      <Link
-        to={slugWithSlash}>
+      <GatsbyLink
+        to={slugWithSlash}
+      >
         <figure className='results-thumbnails'>
           <img src={thumbnail} alt={label} />
         </figure>
-      </Link>
+      </GatsbyLink>
       <div>
-        <Link
+        <GatsbyLink
           to={slugWithSlash}>
           <header>{label || slug}</header>
-        </Link>
+        </GatsbyLink>
         <p>{summary}</p>
       </div>
     </article>
