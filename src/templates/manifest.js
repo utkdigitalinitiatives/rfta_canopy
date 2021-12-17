@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { findKeywords } from "../utilities/helpers"
+import { findKeywords, findPeople } from "../utilities/helpers"
 
 import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
@@ -15,7 +15,8 @@ const Manifest = ({ data, location }) => {
     "license": node.rights,
     "abstract": node.summary.en[0],
     "keywords": findKeywords(node.metadata, "Subject"),
-    "name": node.label.en[0]
+    "name": node.label.en[0],
+    "creator": findPeople(node.metadata, "Interviewee")
   }
 
 

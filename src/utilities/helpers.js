@@ -70,9 +70,24 @@ export const filterLabelsAndValues = currentURLFilters => {
 export const findKeywords = (metadata, element) => {
   let keywords = [];
   metadata.forEach(function(a) {
-    if (a.label.en[0] == element) {
+    if (a.label.en[0] === element) {
       keywords = a.value.en
     }
   })
   return keywords
+}
+
+export const findPeople = (metadata, element) => {
+  var people = []
+  metadata.forEach(function(a) {
+    if (a.label.en[0] === element) {
+      people = a.value.en.map(person => {
+        return {
+          "@type": "Person",
+          "name": person
+        }
+      })
+    }
+  })
+  return people
 }
