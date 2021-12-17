@@ -14,7 +14,7 @@ const Manifest = ({ data, location }) => {
     "@type": "CreativeWork",
     "license": node.rights,
     "abstract": node.summary.en[0],
-    "keywords": findKeywords(node.metadata),
+    "keywords": findKeywords(node.metadata, "Subject"),
     "name": node.label.en[0]
   }
 
