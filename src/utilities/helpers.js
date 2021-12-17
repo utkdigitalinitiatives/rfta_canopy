@@ -66,3 +66,16 @@ export const filterLabelsAndValues = currentURLFilters => {
 
   return labelsAndValues
 }
+
+export const findKeywords = metadata => {
+  // var keywords = metadata.filter(function(){
+  //   return
+  // })
+  let keywords = [];
+  metadata.forEach(function(a) {
+    if (a.label.en[0] == "Subject") {
+      keywords = a.value.en
+    }
+  })
+  return keywords
+}
