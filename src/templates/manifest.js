@@ -8,6 +8,7 @@ import DigitalObject from "../components/canopy/DigitalObject"
 
 const Manifest = ({ data, location }) => {
   const { node } = data.allManifests.edges[0]
+  console.log(node)
 
   const schema = {
     "@context": "http://schema.org",
@@ -16,7 +17,8 @@ const Manifest = ({ data, location }) => {
     "abstract": node.summary.en[0],
     "keywords": findKeywords(node.metadata, "Subject"),
     "name": node.label.en[0],
-    "creator": findPeople(node.metadata, "Interviewee")
+    "creator": findPeople(node.metadata, "Interviewee"),
+    "thumbnail": node.thumbnail[0].id
   }
 
 
@@ -94,6 +96,9 @@ export const manifestQuery = graphql`
             value {
               en
             }
+          }
+          thumbnail {
+            id
           }
           transcripts {
             id
