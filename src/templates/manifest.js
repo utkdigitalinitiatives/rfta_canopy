@@ -17,7 +17,7 @@ const Manifest = ({ data, location }) => {
     "keywords": findKeywords(node.metadata, "Subject"),
     "name": node.label.en[0],
     "creator": findPeople(node.metadata, "Interviewee"),
-    "thumbnail": node.thumbnail[0].id,
+    "thumbnailUrl": node.thumbnail[0].id,
     "dateCreated": findKeywords(node.metadata, "Date")[0],
     "inLanguage": findLanguage(node.metadata)
   }
