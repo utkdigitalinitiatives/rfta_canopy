@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { findKeywords, findPeople } from "../utilities/helpers"
+import { findKeywords, findPeople, findLanguage } from "../utilities/helpers"
 
 import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
@@ -8,7 +8,6 @@ import DigitalObject from "../components/canopy/DigitalObject"
 
 const Manifest = ({ data, location }) => {
   const { node } = data.allManifests.edges[0]
-  console.log(node)
 
   const schema = {
     "@context": "http://schema.org",
@@ -18,9 +17,10 @@ const Manifest = ({ data, location }) => {
     "keywords": findKeywords(node.metadata, "Subject"),
     "name": node.label.en[0],
     "creator": findPeople(node.metadata, "Interviewee"),
-    "thumbnail": node.thumbnail[0].id
+    "thumbnail": node.thumbnail[0].id,
+    "dateCreated": findKeywords(node.metadata, "Date")[0],
+    "inLanguage": findLanguage(node.metadata)
   }
-
 
   return (
     <Layout location={location}>

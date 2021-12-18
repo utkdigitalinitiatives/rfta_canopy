@@ -91,3 +91,18 @@ export const findPeople = (metadata, element) => {
   })
   return people
 }
+
+export const findLanguage = (metadata) => {
+  let language = "";
+  metadata.forEach(function(a) {
+    if (a.label.en[0] === "Language") {
+      if (a.value.en[0] === "English") {
+        language = "en"
+      }
+      else {
+        language = "es"
+      }
+    }
+  })
+  return language
+}
