@@ -23,7 +23,11 @@ const Browse = ({ location }) => {
     "@context": "https://schema.org",
     "@type": "CollegeOrUniversity",
     "name": "University of Tennessee, Knoxville. Libraries",
-    "url": "http://id.loc.gov/authorities/names/n87808088",
+    "url": "https://www.lib.utk.edu/",
+    "sameAs": [
+      "https://twitter.com/utklibraries",
+      "http://id.loc.gov/authorities/names/n87808088",
+    ],
     "description": site.siteMetadata.description
   }
   return (
