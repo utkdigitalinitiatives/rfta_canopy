@@ -106,3 +106,18 @@ export const findLanguage = (metadata) => {
   })
   return language
 }
+
+export const determineType = (metadata) => {
+  let objectType = "";
+  metadata.forEach(function(element) {
+    if (element.label.en[0] === "Format") {
+      if (element.value.en[0] === "motion pictures (visual works)") {
+        objectType = "VideoObject"
+      }
+      else {
+        objectType = "AudioObject"
+      }
+    }
+  })
+  return objectType
+}

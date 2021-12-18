@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { findKeywords, findPeople, findLanguage } from "../utilities/helpers"
+import { findKeywords, findPeople, findLanguage, determineType } from "../utilities/helpers"
 
 import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
@@ -11,15 +11,19 @@ const Manifest = ({ data, location }) => {
 
   const schema = {
     "@context": "http://schema.org",
-    "@type": "CreativeWork",
+    "@type": determineType(node.metadata),
     "license": node.rights,
     "abstract": node.summary.en[0],
+    "description": node.summary.en[0],
     "keywords": findKeywords(node.metadata, "Subject"),
     "name": node.label.en[0],
     "creator": findPeople(node.metadata, "Interviewee"),
     "thumbnailUrl": node.thumbnail[0].id,
     "dateCreated": findKeywords(node.metadata, "Date")[0],
-    "inLanguage": findLanguage(node.metadata)
+    "uploadDate": findKeywords(node.metadata, "Date")[0],
+    "inLanguage": findLanguage(node.metadata),
+    "duration": findKeywords(node.metadata, "Extent")[0],
+    "contentUrl": node.items[0].items[0].items[0].body[0].id
   }
 
   return (
@@ -98,7 +102,7 @@ export const manifestQuery = graphql`
             }
           }
           thumbnail {
-            id
+            id        
           }
           transcripts {
             id
