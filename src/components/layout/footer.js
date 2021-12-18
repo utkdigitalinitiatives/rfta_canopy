@@ -32,7 +32,7 @@ const Footer = () => (
                 activeClassName="active"
                 aria-current="page"
                 className="nav-link footer-nav-link py-lg-0"
-                to="/about"
+                to="/about/"
               >
                 About
               </Link>
@@ -42,7 +42,7 @@ const Footer = () => (
                 activeClassName="active"
                 aria-current="page"
                 className="nav-link footer-nav-link py-lg-0"
-                to="/interviews"
+                to="/interviews/"
               >
                 Interviews
               </Link>

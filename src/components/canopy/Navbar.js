@@ -47,7 +47,7 @@ const Navbar = () => (
               activeClassName="active"
               aria-current="page"
               className="nav-link"
-              to="/about"
+              to="/about/"
             >
               About
             </Link>
@@ -57,7 +57,7 @@ const Navbar = () => (
               activeClassName="active"
               aria-current="page"
               className="nav-link"
-              to="/interviews"
+              to="/interviews/"
             >
               Interviews
             </Link>

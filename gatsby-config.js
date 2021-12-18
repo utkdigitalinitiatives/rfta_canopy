@@ -3,7 +3,7 @@ module.exports = {
     title: `Rising from the Ashes`,
     description: `The Chimney Tops 2 Wildfires Oral History Project`,
     author: `University of Tennessee Libraries`,
-    siteUrl: `https://rfta.lib.utk.edu`
+    siteUrl: `https://rfta.lib.utk.edu/`
   },
   plugins: [
     {

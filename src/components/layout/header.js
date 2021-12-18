@@ -19,7 +19,7 @@ const Header = ({ location, siteDescription, siteTitle }) => {
       {homepage && (
         <div className="canopy-caption ms-auto mt-auto text-end text-white text-center text-md-start">
           Rising from the Ashes documents the immediate and ongoing impacts of the 2016 Chimney Tops 2 wildfires, one of the largest natural disasters in Tennessee history.
-          <Link to={"/about"} className="text-warning"> Learn More.</Link>
+          <Link to={"/about/"} className="text-warning"> Learn More.</Link>
         </div>
       )}
     </header>
