@@ -1,11 +1,12 @@
 import * as React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Contact from "../components/layout/Contact"
 import Layout from "../components/layout/layout"
 import ProjectSummary from "../components/layout/project-summary"
 import Seo from "../components/layout/seo"
 import TeamAndFunding from "../components/layout/teamandfunding"
-import { graphql, useStaticQuery } from "gatsby"
+import UTKLogo from "../images/utk-logo.png"
 
 
 const About = ({ location }) => {
@@ -31,7 +32,8 @@ const About = ({ location }) => {
       "https://twitter.com/utklibraries",
       "http://id.loc.gov/authorities/names/n87808088",
     ],
-    "description": site.siteMetadata.description
+    "description": site.siteMetadata.description,
+    "logo": UTKLogo
   }
   return (
     <Layout location={location}>

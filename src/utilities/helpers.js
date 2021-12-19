@@ -106,3 +106,29 @@ export const findLanguage = (metadata) => {
   })
   return language
 }
+
+export const determineType = (metadata) => {
+  let objectType = "";
+  metadata.forEach(function(element) {
+    if (element.label.en[0] === "Format") {
+      if (element.value.en[0] === "motion pictures (visual works)") {
+        objectType = "VideoObject"
+      }
+      else {
+        objectType = "AudioObject"
+      }
+    }
+  })
+  return objectType
+}
+
+export const convertDuration = (metadata) => {
+  let duration = "";
+  metadata.forEach(function(element) {
+    if (element.label.en[0] === "Extent") {
+      duration = element.value.en[0]
+    }
+  })
+  const duration_split = duration.split(':')
+  return "PT" + parseInt(duration_split[0]) + "H" + parseInt(duration_split[1]) + "M" + parseInt(duration_split[2]) + "S"
+}

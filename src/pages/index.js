@@ -1,9 +1,10 @@
 import React from "react"
-import {Link, useStaticQuery, graphql} from  "gatsby"
+import {useStaticQuery, graphql} from  "gatsby"
 
 import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
 import BrowseRow from "../components/layout/BrowseRow"
+import UTKLogo from "../images/utk-logo.png"
 
 const Browse = ({ location }) => {
   const { site } = useStaticQuery(
@@ -28,7 +29,8 @@ const Browse = ({ location }) => {
       "https://twitter.com/utklibraries",
       "http://id.loc.gov/authorities/names/n87808088",
     ],
-    "description": site.siteMetadata.description
+    "description": site.siteMetadata.description,
+    "logo": UTKLogo
   }
   return (
     <Layout location={location}>
