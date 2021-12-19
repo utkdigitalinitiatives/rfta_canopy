@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { findKeywords, findPeople, findLanguage, determineType } from "../utilities/helpers"
+import { findKeywords, findPeople, findLanguage, determineType, convertDuration } from "../utilities/helpers"
 
 import Layout from "../components/layout/layout"
 import Seo from "../components/layout/seo"
@@ -22,7 +22,7 @@ const Manifest = ({ data, location }) => {
     "dateCreated": findKeywords(node.metadata, "Date")[0],
     "uploadDate": findKeywords(node.metadata, "Date")[0],
     "inLanguage": findLanguage(node.metadata),
-    "duration": findKeywords(node.metadata, "Extent")[0],
+    "duration": convertDuration(node.metadata),
     "contentUrl": node.items[0].items[0].items[0].body[0].id
   }
 
