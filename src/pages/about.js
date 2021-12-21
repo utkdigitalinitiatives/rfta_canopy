@@ -37,7 +37,7 @@ const About = ({ location }) => {
   }
   return (
     <Layout location={location}>
-      <Seo title="About Rising from the Ashes" schemaMarkup={schema} canonical="https://rftal.lib.utk.edu/about/"/>
+      <Seo title="About Rising from the Ashes" schemaMarkup={schema} canonical="https://rfta.lib.utk.edu/about/"/>
       <div className="text-center text-lg-start mx-3 mx-md-5 my-4">
         <h2>About the Project</h2>
       </div>
