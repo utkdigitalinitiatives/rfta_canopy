@@ -28,7 +28,7 @@ const Manifest = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <Seo title={node.label.en[0]} schemaMarkup={schema} description={node.summary.en[0]}/>
+      <Seo title={node.label.en[0]} schemaMarkup={schema} description={node.summary.en[0]} canonical={location.pathname}/>
       <DigitalObject node={node} />
     </Layout>
   )
