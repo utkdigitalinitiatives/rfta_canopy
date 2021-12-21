@@ -8,6 +8,7 @@ import DigitalObject from "../components/canopy/DigitalObject"
 
 const Manifest = ({ data, location }) => {
   const { node } = data.allManifests.edges[0]
+  const nodeCanonical = `https://rfta.lib.utk.edu${location.pathname}`
 
   const schema = {
     "@context": "http://schema.org",
@@ -28,7 +29,7 @@ const Manifest = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <Seo title={node.label.en[0]} schemaMarkup={schema} description={node.summary.en[0]}/>
+      <Seo title={node.label.en[0]} schemaMarkup={schema} description={node.summary.en[0]} canonical={nodeCanonical}/>
       <DigitalObject node={node} />
     </Layout>
   )
