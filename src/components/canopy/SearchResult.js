@@ -1,7 +1,6 @@
 import React from 'react'
 
 const SearchResult = ({ result }) => {
-  console.log(result)
   const { label, slug, summary, thumbnail } = result
   const slugWithSlash = slug.endsWith('/') ? slug : `${slug}/`;
   return (
