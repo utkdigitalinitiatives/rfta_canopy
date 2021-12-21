@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function Seo({ description, lang, meta, title, schemaMarkup }) {
+function Seo({ description, lang, meta, title, schemaMarkup, canonical }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -27,6 +27,7 @@ function Seo({ description, lang, meta, title, schemaMarkup }) {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  const metaCanonical = canonical || 'https://rfta.lib.utk.edu/'
 
   return (
     <Helmet
@@ -42,6 +43,10 @@ function Seo({ description, lang, meta, title, schemaMarkup }) {
             "type": "image/png",
             'sizes': '114x114',
             'href': 'https://brand.utk.edu/wp-content/themes/ut-thehill/images/interface/icon-114x114.png'
+          },
+          {
+            'rel': 'canonical',
+            'href': metaCanonical
           }
         ]
       }
@@ -97,6 +102,7 @@ Seo.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
+  canonical: 'https://rfta.lib.utk.edu/'
 }
 
 Seo.propTypes = {
