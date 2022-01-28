@@ -89,7 +89,7 @@ const Manifest = ({ data, location }) => {
       content: `text/html`
     },
     {
-      property: `twitter:player:height`
+      property: `twitter:player:height`,
       content: `360`
     }
   ]
