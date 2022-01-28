@@ -88,6 +88,10 @@ const Manifest = ({ data, location }) => {
       property: `og:video:type`,
       content: `text/html`
     },
+    {
+      property: `twitter:player:height`
+      content: `360`
+    }
   ]
 
   return (
