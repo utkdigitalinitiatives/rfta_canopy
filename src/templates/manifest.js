@@ -57,13 +57,37 @@ const Manifest = ({ data, location }) => {
       content: convertDuration(node.metadata)
     },
     {
+      property: `twitter:card`,
+      content: `player`
+    },
+    {
       property: `twitter:player`,
       content: `https://rfta.lib.utk.edu${location.pathname}`
     },
     {
+      property: `twitter:player:width`,
+      content: `640`
+    },
+    {
+      property: `twitter:image`,
+      content: node.thumbnail[0].id
+    },
+    {
+      property: `og:image`,
+      content: node.thumbnail[0].id
+    },
+    {
       property: `og:video:secure_url`,
       content: `https://rfta.lib.utk.edu${location.pathname}`
-    }
+    },
+    {
+      property: `og:video`,
+      content: `https://rfta.lib.utk.edu${location.pathname}`
+    },
+    {
+      property: `og:video:type`,
+      content: `text/html`
+    },
   ]
 
   return (
