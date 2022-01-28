@@ -66,7 +66,7 @@ const Manifest = ({ data, location }) => {
     },
     {
       property: `twitter:player:width`,
-      content: `640`
+      content: `720`
     },
     {
       property: `twitter:image`,
@@ -90,7 +90,15 @@ const Manifest = ({ data, location }) => {
     },
     {
       property: `twitter:player:height`,
-      content: `360`
+      content: `720`
+    },
+    {
+      property: `twitter:site`,
+      content: `@utklibraries`
+    },
+    {
+      property: `twitter:image:alt`,
+      content: `Thumbnail image of video representing ${node.label.en[0]}`
     }
   ]
 
