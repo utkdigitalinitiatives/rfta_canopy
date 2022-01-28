@@ -68,6 +68,10 @@ function Seo({ description, lang, meta, title, schemaMarkup, canonical }) {
           content: `website`,
         },
         {
+          property: `og:site_name`,
+          content: `Rising from the Ashes: The Chimney Tops 2 Wildfires Oral History Project`
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },

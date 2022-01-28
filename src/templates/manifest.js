@@ -27,9 +27,48 @@ const Manifest = ({ data, location }) => {
     "contentUrl": node.items[0].items[0].items[0].body[0].id
   }
 
+  const meta = [
+    {
+      name: `title`,
+      content: node.label.en[0]
+    },
+    {
+      property: `og:type`,
+      content: `video.other`
+    },
+    {
+      property: `og:video:height`,
+      content: `378`
+    },
+    {
+      property: `og:video:release_date`,
+      content: findKeywords(node.metadata, "Date")[0]
+    },
+    {
+      property: `og:url`,
+      content: node.items[0].items[0].items[0].body[0].id
+    },
+    {
+      name: `robots`,
+      content: `index`
+    },
+    {
+      property: `og:video:duration`,
+      content: convertDuration(node.metadata)
+    },
+    {
+      property: `twitter:player`,
+      content: `https://rfta.lib.utk.edu${location.pathname}`
+    },
+    {
+      property: `og:video:secure_url`,
+      content: `https://rfta.lib.utk.edu${location.pathname}`
+    }
+  ]
+
   return (
     <Layout location={location}>
-      <Seo title={node.label.en[0]} schemaMarkup={schema} description={node.summary.en[0]} canonical={nodeCanonical}/>
+      <Seo title={node.label.en[0]} schemaMarkup={schema} description={node.summary.en[0]} canonical={nodeCanonical} />
       <DigitalObject node={node} />
     </Layout>
   )
