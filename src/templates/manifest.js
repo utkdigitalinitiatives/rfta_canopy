@@ -62,7 +62,7 @@ const Manifest = ({ data, location }) => {
     },
     {
       property: `twitter:player`,
-      content: `https://rfta.lib.utk.edu${location.pathname}`
+      content: node.items[0].items[0].items[0].body[0].id
     },
     {
       property: `twitter:player:width`,
