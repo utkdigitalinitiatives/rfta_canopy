@@ -13,10 +13,9 @@ const SearchResult = ({ result }) => {
         </figure>
       </GatsbyLink>
       <div>
-        <a
-          href={slugWithSlash}>
+        <GatsbyLink to={slugWithSlash}>
           <header>{label || slug}</header>
-        </a>
+        </GatsbyLink>
         <p>{summary}</p>
       </div>
     </article>
