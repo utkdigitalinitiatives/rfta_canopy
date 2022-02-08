@@ -16,7 +16,7 @@ const Search = ({ data, location }) => {
 
   return (
     <Layout location={location}>
-      <Seo title={title} canonical={nodeCanonical} />
+      <Seo title={title} canonical={`${nodeCanonical}/`} />
       <SearchLimits query={query} />
       <div className="canopy-main canopy-main-inner row px-0 mx-0">
         <div className="col-sm-4 px-0 mx-0 grey-background">
