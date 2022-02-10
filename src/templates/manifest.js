@@ -8,7 +8,8 @@ import DigitalObject from "../components/canopy/DigitalObject"
 
 const Manifest = ({ data, location }) => {
   const { node } = data.allManifests.edges[0]
-  const nodeCanonical = `https://rfta.lib.utk.edu${location.pathname}`
+  let nodeCanonical = `https://rfta.lib.utk.edu${location.pathname}`
+  nodeCanonical += nodeCanonical.endsWith("/") ? "" : "/"
 
   const schema = {
     "@context": "http://schema.org",
