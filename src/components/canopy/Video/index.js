@@ -41,6 +41,7 @@ class Video extends Component {
 
   renderTracks = (tracks) => {
     return tracks.map(function(data, index) {
+      console.log(index);
       return (
         <Track
           data={data}
@@ -60,18 +61,19 @@ class Video extends Component {
       items.forEach(function(element) {
         if (element.motivation === 'painting') {
           component.setState({
-            source: element.body[0].id,
-            format: element.body[0].format
+            source: element.body.id,
+            format: element.body.format
           });
         } else if (element.motivation === 'supplementing') {
           let tracks = component.state.tracks
-          element.body.map(function(item) {
-            let track = {}
-            track.src = item.id
-            track.label = item.label[item.language][0]
-            track.srclang = item.language
-            return tracks.push(track)
-          });
+          let track = {}
+          track.src = element.body.id
+          track.label = ''
+          for (const [key, value] of Object.entries(element.body.label)) {
+            track.label = value[0];
+          }
+          track.srclang = element.body.language
+          tracks.push(track)
           component.setState({
             tracks: tracks
           });
