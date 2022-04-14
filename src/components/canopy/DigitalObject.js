@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Viewer from "./Viewer"
+import Clover from "./Clover"
 import { fromVtt } from "subtitles-parser-vtt"
 import DigitalObjectHeader from "./DigitalObjectHeader"
 
@@ -63,14 +64,14 @@ class DigitalObject extends Component {
     if (this.state.transcripts.length === this.props.node.transcripts.length) {
       return (
         <article className="canopy-manifest" data-mobile-navigator={this.state.mobileNavigatorStatus}>
-          <DigitalObjectHeader title={label.en[0]}
-                               manifest={manifestId} />
+          <Clover manifestId={manifestId} />
           <Viewer node={this.props.node}
                   transcripts={this.state.transcripts}
                   mobileNavigatorStatus={this.mobileNavigatorStatus.bind(this)}
                   id={id}
                   node2={node}
           />
+
         </article>
       )
     } else {

@@ -14,11 +14,6 @@ const Viewer = ({ node, transcripts }) => {
       ref={viewer}
       className="canopy-viewer d-flex align-items-center"
     >
-      <Video
-        items={items}
-        time={e => setTime(e)}
-        updateTime={updateTime}
-      />
       <Navigator
         id={id}
         time={time}
