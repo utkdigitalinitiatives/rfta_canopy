@@ -10,7 +10,7 @@ const merge = require('lodash/merge');
 * Set root IIIF Collection conforming to specification
 * at https://iiif.io/api/presentation/3.0/#51-collection
 */
-const rootCollection = 'https://digital.lib.utk.edu/static/iiif/collections/rfta_compliance.json';
+const rootCollection = 'https://digital.lib.utk.edu/static/iiif/collections/rfta_completed.json';
 
 /*
 * Map nodes from IIIF Collection and Manifests
