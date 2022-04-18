@@ -68,10 +68,14 @@ class Video extends Component {
           let tracks = component.state.tracks
           let track = {}
           track.src = element.body.id
-          track.label = ''
-          for (const [key, value] of Object.entries(element.body.label)) {
-            track.label = value[0];
+          var label_for_dom = ''
+          if (element.body.label.en !== null) {
+            label_for_dom = element.body.label.en[0]
           }
+          else if (element.body.label.es !== null) {
+            label_for_dom = element.body.label.es[0]
+          }
+          track.label = label_for_dom
           track.srclang = element.body.language
           tracks.push(track)
           component.setState({
