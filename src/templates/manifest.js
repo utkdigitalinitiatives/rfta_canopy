@@ -137,9 +137,17 @@ export const manifestQuery = graphql`
               items {
                 motivation
                 body {
+                  id
+                  format
+                }
+              }
+            }
+            annotations {
+              items {
+                motivation
+                body {
                   label {
                     en
-                    es
                   }
                   language
                   id
@@ -188,7 +196,6 @@ export const manifestQuery = graphql`
             type
             label {
               en
-              es
             }
           }
         }
