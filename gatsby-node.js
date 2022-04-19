@@ -10,7 +10,7 @@ const merge = require('lodash/merge');
 * Set root IIIF Collection conforming to specification
 * at https://iiif.io/api/presentation/3.0/#51-collection
 */
-const rootCollection = 'https://digital.lib.utk.edu/static/iiif/collections/rfta_completed.json';
+const rootCollection = 'https://digital.lib.utk.edu/static/iiif/collections/cdf_compliance.json';
 
 /*
 * Map nodes from IIIF Collection and Manifests
@@ -43,7 +43,7 @@ exports.sourceNodes = async ({actions, createNodeId, createContentDigest, graphq
 
     node.transcripts = ((items, transcripts = []) =>{
       if (Array.isArray(items)) {
-        items[0].items[0].items.map(function(element) {
+        items[0].annotations[0].items.map(function(element) {
           if (element.motivation === 'supplementing' && element.body.format === 'text/vtt') {
             transcripts.push(element.body)
           }
