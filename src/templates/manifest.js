@@ -137,6 +137,15 @@ export const manifestQuery = graphql`
               items {
                 motivation
                 body {
+                  id
+                  format
+                }
+              }
+            }
+            annotations {
+              items {
+                motivation
+                body {
                   label {
                     en
                     es
