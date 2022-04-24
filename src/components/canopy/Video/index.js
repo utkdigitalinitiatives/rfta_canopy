@@ -41,6 +41,7 @@ class Video extends Component {
 
   renderTracks = (tracks) => {
     return tracks.map(function(data, index) {
+      console.log(index);
       return (
         <Track
           data={data}
@@ -56,26 +57,35 @@ class Video extends Component {
     if (Array.isArray(this.props.items)) {
 
       const items = this.props.items[0].items[0].items;
+      const annotations = this.props.items[0].annotations[0].items;
 
       items.forEach(function(element) {
         if (element.motivation === 'painting') {
           component.setState({
-            source: element.body[0].id,
-            format: element.body[0].format
-          });
-        } else if (element.motivation === 'supplementing') {
-          let tracks = component.state.tracks
-          element.body.map(function(item) {
-            let track = {}
-            track.src = item.id
-            track.label = item.label[item.language][0]
-            track.srclang = item.language
-            return tracks.push(track)
-          });
-          component.setState({
-            tracks: tracks
+            source: element.body.id,
+            format: element.body.format
           });
         }
+      });
+
+      annotations.forEach(function(element) {
+        let tracks = component.state.tracks
+        let track = {}
+        track.src = element.body.id
+        console.log(element.body.id);
+        var label_for_dom = ''
+        if (element.body.label.en !== null) {
+          label_for_dom = element.body.label.en[0]
+        }
+        else if (element.body.label.es !== null) {
+          label_for_dom = element.body.label.es[0]
+        }
+        track.label = label_for_dom
+        track.srclang = element.body.language
+        tracks.push(track)
+        component.setState({
+          tracks: tracks
+        });
       });
 
       if (accompanyingCanvas) {

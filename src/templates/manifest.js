@@ -25,7 +25,7 @@ const Manifest = ({ data, location }) => {
     "uploadDate": findKeywords(node.metadata, "Date")[0],
     "inLanguage": findLanguage(node.metadata),
     "duration": convertDuration(node.metadata),
-    "contentUrl": node.items[0].items[0].items[0].body[0].id
+    "contentUrl": node.items[0].items[0].items[0].body.id
   }
 
   const meta = [
@@ -47,7 +47,7 @@ const Manifest = ({ data, location }) => {
     },
     {
       property: `og:url`,
-      content: node.items[0].items[0].items[0].body[0].id
+      content: node.items[0].items[0].items[0].body.id
     },
     {
       name: `robots`,
@@ -63,7 +63,7 @@ const Manifest = ({ data, location }) => {
     },
     {
       property: `twitter:player`,
-      content: node.items[0].items[0].items[0].body[0].id
+      content: node.items[0].items[0].items[0].body.id
     },
     {
       property: `twitter:player:width`,
@@ -134,6 +134,15 @@ export const manifestQuery = graphql`
           }
           items {
             items {
+              items {
+                motivation
+                body {
+                  id
+                  format
+                }
+              }
+            }
+            annotations {
               items {
                 motivation
                 body {
