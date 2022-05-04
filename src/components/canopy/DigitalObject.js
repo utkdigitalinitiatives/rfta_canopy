@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Viewer from "./Viewer"
 import { fromVtt } from "subtitles-parser-vtt"
 import DigitalObjectHeader from "./DigitalObjectHeader"
+import BloomIIIF from "@samvera/bloom-iiif";
 
 class DigitalObject extends Component {
   constructor(props) {
@@ -59,6 +60,7 @@ class DigitalObject extends Component {
 
     const {node} = this.props
     const {id, manifestId, label} = node;
+    const collectionId = `https://digital.lib.utk.edu/assemble/collection/collections/rfta`;
 
     if (this.state.transcripts.length === this.props.node.transcripts.length) {
       return (
@@ -71,6 +73,7 @@ class DigitalObject extends Component {
                   id={id}
                   node2={node}
           />
+          <BloomIIIF collectionId={collectionId} />
         </article>
       )
     } else {
