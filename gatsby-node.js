@@ -4,6 +4,8 @@ const axios = require('axios');
 const slugify = require('slugify')
 const { GraphQLJSONObject } = require('graphql-type-json');
 const merge = require('lodash/merge');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
+const webpack = require("webpack")
 
 
 /*
@@ -325,4 +327,26 @@ function chunks(items, fn, chunkSize = 50) {
       .then(res => result = result.concat(res))
   })
     .then(() => result);
+}
+
+exports.onCreateWebpackConfig = ({
+                                   actions,
+                                 }) => {
+  actions.setWebpackConfig({
+    module: {},
+    plugins: [
+      // new NodePolyfillPlugin(),
+      new webpack.NormalModuleReplacementPlugin(/node:/, (resource) => {
+        const mod = resource.request.replace(/^node:/, "");
+
+        switch (mod) {
+          case "path":
+            resource.request = "path-browserify";
+            break;
+          default:
+            throw new Error(`Not found ${mod}`);
+        }
+      }),
+    ],
+  })
 }
