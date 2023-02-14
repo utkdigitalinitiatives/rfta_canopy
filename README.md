@@ -26,3 +26,7 @@ yarn start
 Canopy will be available at [localhost:8000](http://localhost:8000/) unless port `8000` is currently in use. 
 If it is in use, the Gatsby startup process will ask you to use an alternative port, ex: `8001`.
 
+## Pointing at a Collection
+
+Update `const rootCollection = 'https://digital.lib.utk.edu/static/iiif/collections/rfta_completed.json';` in `gatsby-config.js`
+to build a new collection.
