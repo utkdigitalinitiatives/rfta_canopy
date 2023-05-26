@@ -98,6 +98,20 @@ function Seo({ description, lang, meta, title, schemaMarkup, canonical }) {
           {JSON.stringify(schemaMarkup)}
         </script>
       }
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-DN6TP2L65T"
+      ></script>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-DN6TP2L65T');
+              `,
+        }}
+      ></script>
     </Helmet>
   )
 }
