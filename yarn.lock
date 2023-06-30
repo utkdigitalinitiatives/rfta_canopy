@@ -6583,14 +6583,13 @@ gatsby-plugin-gatsby-cloud@^2.6.1:
     lodash "^4.17.21"
     webpack-assets-manifest "^5.0.6"
 
-gatsby-plugin-google-analytics@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-4.2.0.tgz#e028032f6db5fa32a43c82c32bc3d98455f5dc2b"
-  integrity sha512-Rp3yy633Z4l9yK2BEw8nady1wL8rNiluN5Clh9qgZZ+RdwfJZ/zQVntpUNkoCv8LDECJL/tgMhMdpb4eVIrsfg==
+gatsby-plugin-google-gtag@4.13.0:
+  version "4.13.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-gtag/-/gatsby-plugin-google-gtag-4.13.0.tgz#bb459ad9df96470e5d5d03e8fa35e47492746615"
+  integrity sha512-a3mshbLLunFSbginyvtJmzQemjGcwQbghkUaW5scT1+RUojKP2sjPF4F2tZQs6wYXM5wzcTJdeEHUvv15Mcxqg==
   dependencies:
     "@babel/runtime" "^7.15.4"
-    minimatch "3.0.4"
-    web-vitals "^1.1.2"
+    minimatch "^3.1.2"
 
 gatsby-plugin-image@^1.6.0:
   version "1.12.0"
@@ -9601,6 +9600,13 @@ minimatch@3.0.4, minimatch@^3.0.3, minimatch@^3.0.4, minimatch@~3.0.2:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
   integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
+  dependencies:
+    brace-expansion "^1.1.7"
+
+minimatch@^3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.1.2.tgz#19cd194bfd3e428f049a70817c038d89ab4be35b"
+  integrity sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==
   dependencies:
     brace-expansion "^1.1.7"
 
@@ -14041,11 +14047,6 @@ wbuf@^1.1.0, wbuf@^1.7.3:
   integrity sha512-O84QOnr0icsbFGLS0O3bI5FswxzRr8/gHwWkDlQFskhSPryQXvrTMxjxGP4+iWYoauLoBvfDpkrOauZ+0iZpDA==
   dependencies:
     minimalistic-assert "^1.0.0"
-
-web-vitals@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/web-vitals/-/web-vitals-1.1.2.tgz#06535308168986096239aa84716e68b4c6ae6d1c"
-  integrity sha512-PFMKIY+bRSXlMxVAQ+m2aw9c/ioUYfDgrYot0YUa+/xa0sakubWhSDyxAKwzymvXVdF4CZI71g06W+mqhzu6ig==
 
 webpack-assets-manifest@^5.0.6:
   version "5.0.6"
